@@ -8,7 +8,7 @@ import Container from "./layout/Container";
 
 const Example = () => {
     const [isLoading, setIsLoading] = useState(false);
-    
+
     const {
         register,
         handleSubmit,
@@ -21,6 +21,7 @@ const Example = () => {
             password: '',
         }
     });
+
     return (
         <Container>
             <div className="h-screen flex flex-col items-center justify-center gap-4">
