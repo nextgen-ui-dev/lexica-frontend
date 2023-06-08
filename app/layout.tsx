@@ -1,4 +1,4 @@
-import HydrationHandler from './components/layout/HydrationHandler'
+import HydrationHandler from './components/core/layout/HydrationHandler'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ToastProvider from './providers/ToastProvider'

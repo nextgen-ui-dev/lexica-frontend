@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
-import Input from "./molecules/Input";
-import Button from "./molecules/Button";
-import Container from "./layout/Container";
+import { FieldValues, RegisterOptions, UseFormRegisterReturn, useForm } from "react-hook-form";
+import Container from "./core/layout/Container";
 import { toast } from "react-hot-toast";
+import Button from "./core/molecules/Button";
+import Input from "./core/molecules/Input";
+import TextArea from "./core/molecules/TextArea";
 
 const Example = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +21,7 @@ const Example = () => {
         defaultValues: {
             email: '',
             password: '',
+            desc: '',
         }
     });
 
@@ -42,6 +44,14 @@ const Example = () => {
                     errors={errors}
                     required
                     type="password"
+                />
+                <TextArea
+                    id="desc"
+                    label="description"
+                    register={register}
+                    errors={errors}
+                    placehoder="Hello world"
+                    required
                 />
                 <Button
                     label="Normal"
