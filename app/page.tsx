@@ -4,10 +4,8 @@ import HydrationHandler from "./components/layout/HydrationHandler";
 export default function Home() {
 
   return (
-    <main>
-      <HydrationHandler>
-        <Example />
-      </HydrationHandler>
-    </main>
+    <HydrationHandler>
+      <Example />
+    </HydrationHandler>
   )
 }

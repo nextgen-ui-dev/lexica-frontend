@@ -5,6 +5,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import Input from "./molecules/Input";
 import Button from "./molecules/Button";
 import Container from "./layout/Container";
+import { toast } from "react-hot-toast";
 
 const Example = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -55,6 +56,10 @@ const Example = () => {
                     label="Dissabled"
                     onClick={() => { }}
                     disabled
+                />
+                <Button
+                    label="Click for Toast"
+                    onClick={() => { toast.success('Hello World') }}
                 />
             </div>
         </Container>
