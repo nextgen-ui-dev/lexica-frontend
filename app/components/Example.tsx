@@ -43,8 +43,18 @@ const Example = () => {
                     type="password"
                 />
                 <Button
-                    label="Hello"
+                    label="Normal"
                     onClick={() => { }}
+                />
+                <Button
+                    label="Danger"
+                    onClick={() => { }}
+                    danger
+                />
+                <Button
+                    label="Dissabled"
+                    onClick={() => { }}
+                    disabled
                 />
             </div>
         </Container>
