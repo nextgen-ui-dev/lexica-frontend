@@ -1,6 +1,5 @@
 'use client';
 
-import { useCallback, useState } from "react";
 import { FieldValues, FieldErrors, UseFormRegister } from "react-hook-form";
 
 interface TextAreaProps {

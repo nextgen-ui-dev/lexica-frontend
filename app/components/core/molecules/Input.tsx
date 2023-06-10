@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { FieldValues, FieldErrors, UseFormRegister } from "react-hook-form";
-import { IconType, icons } from "react-icons";
+import { IconType } from "react-icons";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
 interface InputProps {
