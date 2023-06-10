@@ -6,6 +6,7 @@ interface ButtonProps {
     label: string;
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     disabled?: boolean;
+    accent?: boolean;
     danger?: boolean;
     outline?: boolean;
     small?: boolean;
@@ -16,6 +17,7 @@ const Button = ({
     label,
     onClick,
     disabled,
+    accent,
     danger,
     outline,
     small,
@@ -26,7 +28,9 @@ const Button = ({
             onClick={onClick}
             disabled={disabled}
             className={`relative text-white rounded-lg hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
-        ${danger ? 'bg-red-500' : 'bg-primary-500'}
+        ${accent ? 'bg-primary-300' : 'bg-primary-600'}
+        ${accent ? 'text-primary-600' : 'text-white'}
+        ${danger ? 'bg-red-500' : 'bg-primary-600'}
         ${small ? 'py-1' : 'py-2'}
         ${small ? 'text-sm' : 'text-md'}
         ${small ? 'font-light' : 'font-semibold'}

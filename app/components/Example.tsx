@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { FieldValues, RegisterOptions, UseFormRegisterReturn, useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import Container from "./core/layout/Container";
 import { toast } from "react-hot-toast";
 import Button from "./core/molecules/Button";
@@ -27,7 +27,11 @@ const Example = () => {
 
     return (
         <Container>
-            <div className="h-screen flex flex-col items-center justify-center gap-4">
+            <div className="h-full flex flex-col items-center justify-center gap-4 py-8">
+                <div className="flex flex-row gap-4 w-full">
+                    <div className="h-[40vh] w-full bg-primary-700 rounded-lg"/>
+                    <div className="h-[40vh] w-full bg-primary-400 rounded-lg"/>
+                </div>
                 <Input
                     id='email'
                     label='Email'
@@ -56,6 +60,11 @@ const Example = () => {
                 <Button
                     label="Normal"
                     onClick={() => { }}
+                />
+                <Button
+                    label="Accent"
+                    onClick={() => { }}
+                    accent
                 />
                 <Button
                     label="Danger"
