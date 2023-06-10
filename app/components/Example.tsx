@@ -7,9 +7,12 @@ import { toast } from "react-hot-toast";
 import Button from "./core/molecules/Button";
 import Input from "./core/molecules/Input";
 import TextArea from "./core/molecules/TextArea";
+import useLoginModal from "../hooks/useLoginModal";
 
 const Example = () => {
     const [isLoading, setIsLoading] = useState(false);
+
+    const loginModal = useLoginModal();
 
     const {
         register,
@@ -29,8 +32,8 @@ const Example = () => {
         <Container>
             <div className="h-full flex flex-col items-center justify-center gap-4 py-8">
                 <div className="flex flex-row gap-4 w-full">
-                    <div className="h-[40vh] w-full bg-primary-700 rounded-lg"/>
-                    <div className="h-[40vh] w-full bg-primary-400 rounded-lg"/>
+                    <div className="h-[40vh] w-full bg-primary-600 rounded-lg"/>
+                    <div className="h-[40vh] w-full bg-primary-300 rounded-lg"/>
                 </div>
                 <Input
                     id='email'
@@ -51,7 +54,7 @@ const Example = () => {
                 />
                 <TextArea
                     id="desc"
-                    label="description"
+                    label="Textarea example"
                     register={register}
                     errors={errors}
                     placehoder="Hello world"
@@ -77,8 +80,16 @@ const Example = () => {
                     disabled
                 />
                 <Button
-                    label="Click for Toast"
+                    label="Success Toast"
                     onClick={() => { toast.success('Hello World') }}
+                />
+                <Button
+                    label="Failure Toast"
+                    onClick={() => { toast.error('Hello World') }}
+                />
+                <Button
+                    label="Modal Example"
+                    onClick={() => loginModal.onOpen()}
                 />
             </div>
         </Container>

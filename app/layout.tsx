@@ -2,6 +2,7 @@ import HydrationHandler from './components/core/layout/HydrationHandler'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import ToastProvider from './providers/ToastProvider'
+import LoginModal from './components/core/organism/modals/LoginModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <HydrationHandler>
         <ToastProvider />
+        <LoginModal />
       </HydrationHandler>
       <body className={inter.className}>{children}</body>
     </html>
