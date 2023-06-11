@@ -27,10 +27,10 @@ const Button = ({
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative text-white rounded-lg hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
+            className={`relative rounded-lg hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
         ${accent ? 'bg-primary-300' : 'bg-primary-600'}
         ${accent ? 'text-primary-600' : 'text-white'}
-        ${danger ? 'bg-red-500' : 'bg-primary-600'}
+        ${danger && 'bg-red-500'}
         ${small ? 'py-1' : 'py-2'}
         ${small ? 'text-sm' : 'text-md'}
         ${small ? 'font-light' : 'font-semibold'}

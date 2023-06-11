@@ -1,10 +1,21 @@
 import HydrationHandler from './components/core/layout/HydrationHandler'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Montserrat, Hind } from 'next/font/google'
 import ToastProvider from './providers/ToastProvider'
 import LoginModal from './components/core/organism/modals/LoginModal'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: ['300', '400', '500', '600', '700']
+});
+
+const hind = Hind({
+  subsets: ['latin'],
+  variable: '--font-hind',
+  weight: ['300', '400', '500', '600', '700']
+});
+
 
 export const metadata = {
   title: 'Lexica',
@@ -22,7 +33,9 @@ export default function RootLayout({
         <ToastProvider />
         <LoginModal />
       </HydrationHandler>
-      <body className={inter.className}>{children}</body>
+      <body className={`${montserrat.className} ${hind.className}`}>
+        {children}
+      </body>
     </html>
   )
 }
