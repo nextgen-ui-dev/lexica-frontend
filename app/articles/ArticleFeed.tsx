@@ -22,21 +22,23 @@ type Props = {};
 
 const ArticleFeed = (props: Props) => {
   return (
-    <div className='w-full flex flex-col my-12 mx-auto'>
-      <div className='divide-y'>
-        { Articles.map(article => {
-          return <ArticleCard 
-                    id={article.id} 
-                    title={article.title} 
-                    author={article.author} 
-                    content={article.content} 
-                    difficulty={article.difficulty} 
-                    source={article.source} 
-                    onClick={() => console.log("To be updated!")}
-                  />
-            })}
+    <Container expanded>
+      <div className='w-full flex flex-col my-12 mx-auto'>
+        <div className='divide-y'>
+          {Articles.map(article => {
+            return <ArticleCard
+              id={article.id}
+              title={article.title}
+              author={article.author}
+              content={article.content}
+              difficulty={article.difficulty}
+              source={article.source}
+              onClick={() => console.log("To be updated!")}
+            />
+          })}
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

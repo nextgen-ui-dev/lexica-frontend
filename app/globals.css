@@ -10,27 +10,27 @@
 
 @layer components {
   h1 {
-    @apply selection:text-white selection:bg-primary-500 font-montserrat font-bold text-2xl md:text-4xl;
+    @apply font-montserrat font-bold text-2xl md:text-4xl;
   }
   h2 {
-    @apply selection:text-white selection:bg-primary-500 font-montserrat font-semibold text-xl md:text-2xl;
+    @apply font-montserrat font-semibold text-xl md:text-2xl;
   }
   h3 {
-    @apply selection:text-white selection:bg-primary-500 font-montserrat font-semibold text-base md:text-xl;
+    @apply font-montserrat font-semibold text-base md:text-xl;
   }
   h4 {
-    @apply selection:text-white selection:bg-primary-500 font-montserrat font-semibold text-base md:text-lg;
+    @apply font-montserrat font-semibold text-base md:text-lg;
   }
   h5 {
-    @apply selection:text-white selection:bg-primary-500 font-montserrat font-semibold text-sm md:text-base;
+    @apply font-montserrat font-semibold text-sm md:text-base;
   }
   h6 {
-    @apply selection:text-white selection:bg-primary-500 font-montserrat font-semibold text-xs md:text-sm;
+    @apply font-montserrat font-semibold text-xs md:text-sm;
   }
   p {
-    @apply selection:text-white selection:bg-primary-500 font-hind font-normal text-slate-600;
+    @apply font-hind font-normal text-slate-600;
   }
   pre {
-    @apply selection:text-white selection:bg-primary-500 font-hind font-normal text-slate-600;
+    @apply font-hind font-normal text-slate-600;
   }
 }
