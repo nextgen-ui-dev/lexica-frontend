@@ -1,10 +1,14 @@
 interface ContainerProps {
+    expanded?: boolean
     children: React.ReactNode;
 }
 
-const Container = ({ children }: ContainerProps) => {
+const Container = ({
+    expanded,
+    children,
+}: ContainerProps) => {
     return (
-        <div className="max-w-4xl mx-auto px-4">
+        <div className={`relative ${expanded? 'max-w-5xl' : 'max-w-4xl'} mx-auto px-4`}>
             {children}
         </div>
     );

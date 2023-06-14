@@ -1,8 +1,10 @@
-import HydrationHandler from './components/core/layout/HydrationHandler'
 import './globals.css'
+import HydrationHandler from './components/core/layout/HydrationHandler'
 import { Montserrat, Hind } from 'next/font/google'
 import ToastProvider from './providers/ToastProvider'
 import LoginModal from './components/core/organism/modals/LoginModal'
+import Footer from './components/core/organism/footer/Footer'
+import Navbar from './components/core/organism/navbar/Navbar'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -29,12 +31,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <HydrationHandler>
+      <body className={`relative ${montserrat.className} ${hind.className}`}>
         <ToastProvider />
         <LoginModal />
-      </HydrationHandler>
-      <body className={`${montserrat.className} ${hind.className}`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-white;
+    @apply bg-[#FDFEFF];
   }
 }
 
@@ -13,19 +13,19 @@
     @apply font-montserrat font-bold text-4xl;
   }
   h2 {
-    @apply font-montserrat font-bold text-3xl;
+    @apply font-montserrat font-semibold text-2xl;
   }
   h3 {
-    @apply font-montserrat font-bold text-2xl;
-  }
-  h4 {
     @apply font-montserrat font-semibold text-xl;
   }
-  h5 {
+  h4 {
     @apply font-montserrat font-semibold text-lg;
   }
-  h6 {
+  h5 {
     @apply font-montserrat font-semibold text-base;
+  }
+  h6 {
+    @apply font-montserrat font-semibold text-sm;
   }
   p {
     @apply font-hind font-normal text-slate-600;
