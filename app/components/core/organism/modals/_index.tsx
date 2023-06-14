@@ -107,7 +107,6 @@ const Modal = ({
                                             disabled={disabled}
                                             label={secondaryActionLabel}
                                             onClick={handleSecondaryAction}
-                                            outline
                                         />
                                     )}
                                     <Button

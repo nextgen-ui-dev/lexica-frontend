@@ -8,7 +8,7 @@ interface ButtonProps {
     disabled?: boolean;
     accent?: boolean;
     danger?: boolean;
-    outline?: boolean;
+    fullRounded?: boolean;
     small?: boolean;
     icon?: IconType;
 }
@@ -19,7 +19,7 @@ const Button = ({
     disabled,
     accent,
     danger,
-    outline,
+    fullRounded,
     small,
     icon: Icon
 }: ButtonProps) => {
@@ -27,13 +27,14 @@ const Button = ({
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`relative rounded-lg hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
-        ${accent ? 'bg-primary-300' : 'bg-primary-600'}
-        ${accent ? 'text-primary-600' : 'text-white'}
-        ${danger && 'bg-red-500'}
-        ${small ? 'py-1' : 'py-2'}
-        ${small ? 'text-sm' : 'text-md'}
-        ${small ? 'font-light' : 'font-semibold'}
+            className={`relative hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
+            ${fullRounded ? 'rounded-full' : 'rounded-lg'}
+            ${accent ? 'bg-primary-300' : 'bg-primary-600'}
+            ${accent ? 'text-primary-600' : 'text-white'}
+            ${danger && 'bg-red-500'}
+            ${small ? 'py-1' : 'py-2'}
+            ${small ? 'text-sm' : 'text-md'}
+            ${small ? 'font-light' : 'font-semibold'}
         `}>
             {Icon && (
                 <Icon
