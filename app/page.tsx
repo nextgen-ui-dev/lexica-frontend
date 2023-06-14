@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <HydrationHandler>
-      <section id="header" className="relative h-fit">
+      <section id="landing-page" className="relative">
         <div className="relative w-full h-[55vh] bg-primary-600">
           <div className="absolute top-24 left-0 right-0 grid place-items-center">
             <h1 className="text-white text-8xl">Lexica</h1>
@@ -82,7 +82,7 @@ export default function Home() {
         </div>
         <div className="w-full h-[20vh]"/>
         <div className="relative w-full h-[40vh]">
-          <h2>hello</h2>
+          
         </div>
       </section>
     </HydrationHandler>
