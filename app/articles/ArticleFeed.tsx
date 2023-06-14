@@ -3,8 +3,10 @@
 import React from 'react';
 
 import { Articles } from '../constants/article.constant';
+import Container from '../components/core/layout/Container';
 
 import ArticleCard from "../components/core/molecules/ArticleCard";
+import ArticleHero from './ArticleHero';
 
 
 interface ArticleType {
@@ -18,25 +20,22 @@ interface ArticleType {
 
 type Props = {};
 
-
-// const fetcher: (url: string) => Promise<Array<ArticleType>> = async (url: string) => {
-//   return fetch(url).then((res) => res.json())
-// };
-
 const ArticleFeed = (props: Props) => {
   return (
-    <div>
-      { Articles.map(article => {
-        return <ArticleCard 
-                  id={article.id} 
-                  title={article.title} 
-                  author={article.author} 
-                  content={article.content} 
-                  difficulty={article.difficulty} 
-                  source={article.source} 
-                  onClick={() => console.log("To be updated!")}
-                />
-          })}
+    <div className='w-full flex flex-col my-12 mx-auto'>
+      <div className='divide-y'>
+        { Articles.map(article => {
+          return <ArticleCard 
+                    id={article.id} 
+                    title={article.title} 
+                    author={article.author} 
+                    content={article.content} 
+                    difficulty={article.difficulty} 
+                    source={article.source} 
+                    onClick={() => console.log("To be updated!")}
+                  />
+            })}
+      </div>
     </div>
   );
 };
