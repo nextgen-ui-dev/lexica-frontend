@@ -28,11 +28,10 @@ const Navbar = () => {
 
     const toggleItemMenus = useCallback(() => {
         setIsOpen(!isOpen);
-        console.log(isOpen);
     }, [setIsOpen, isOpen]);
 
     return (
-        <nav className="fixed w-full z-10">
+        <nav className="md:fixed w-full z-10">
             <HeadRoom>
                 <div className={`fixed md:relative w-full py-4 ${isScorll && 'bg-primary-600 md:backdrop-filter md:backdrop-blur-lg md:bg-opacity-80 border-b border-primary-500'}`}>
                     <Container expanded>
