@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Container from "../../layout/Container";
 import HeadRoom from 'react-headroom';
 import NavbarLogo from './NavbarLogo';
@@ -10,6 +10,7 @@ import NavbarUserMenu from './NavbarUserMenu';
 const Navbar = () => {
 
     const [isScorll, setIsScroll] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,15 +26,25 @@ const Navbar = () => {
         }
     }, []);
 
+    const toggleItemMenus = useCallback(() => {
+        setIsOpen(!isOpen);
+        console.log(isOpen);
+    }, [setIsOpen, isOpen]);
+
     return (
         <nav className="fixed w-full z-10">
             <HeadRoom>
-                <div className={`w-full py-4 ${isScorll && 'bg-primary-600 backdrop-filter backdrop-blur-lg bg-opacity-80 border-b border-primary-500'}`}>
+                <div className={`fixed md:relative w-full py-4 ${isScorll && 'bg-primary-600 md:backdrop-filter md:backdrop-blur-lg md:bg-opacity-80 border-b border-primary-500'}`}>
                     <Container expanded>
                         <div className='flex flex-row justify-between items-center'>
                             <NavbarLogo />
-                            <NavbarMenuItems />
-                            <NavbarUserMenu />
+                            <NavbarMenuItems
+                                isOpen={isOpen}
+                            />
+                            <NavbarUserMenu
+                                isOpen={isOpen}
+                                onClick={toggleItemMenus}
+                            />
                         </div>
                     </Container>
                 </div>
