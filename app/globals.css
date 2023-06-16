@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#FDFEFF];
+    @apply bg-[#F8FAFC];
   }
 }
 
@@ -22,15 +22,15 @@
     @apply font-montserrat font-semibold text-base md:text-lg;
   }
   h5 {
-    @apply font-montserrat font-semibold text-sm md:text-base;
+    @apply font-hind font-semibold text-sm text-slate-600;
   }
   h6 {
-    @apply font-montserrat font-semibold text-xs md:text-sm;
+    @apply font-hind font-semibold text-xs text-slate-600;
   }
   p {
-    @apply font-hind font-normal text-slate-600;
+    @apply font-hind font-normal text-sm text-slate-600;
   }
   pre {
-    @apply font-hind font-normal text-slate-600;
+    @apply font-hind font-normal text-sm text-slate-600;
   }
 }

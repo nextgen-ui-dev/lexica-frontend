@@ -1,20 +1,15 @@
 import React from "react";
 
-import ArticleFeed from "./ArticleFeed";
-import ArticleHero from "./ArticleHero";
-import Container from "../components/core/layout/Container";
+import ArticlesHero from "../components/articles/ArticlesHero";
+import ArticlesFeed from "../components/articles/ArticlesFeed";
 
-interface Props {
-
-}
-
-const ArticlePage = ({ }: Props) => {
+const ArticlesPage = () => {
   return (
     <div className="relative w-full">
-      <ArticleHero />
-      <ArticleFeed />
+      <ArticlesHero />
+      <ArticlesFeed />
     </div>
   );
 };
 
-export default ArticlePage;
+export default ArticlesPage;
