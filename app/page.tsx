@@ -6,6 +6,7 @@ import { FaCrown } from 'react-icons/fa';
 import HomeHero from "./components/home/HomeHero";
 import HomeLexicaInfo from "./components/home/HomeLexicaInfo";
 import LexicaCoreValues from "./components/home/LexicaCoreValues";
+import ArticleHomePreviews from "./components/home/ArticlesHomePreview";
 
 export default function Home() {
 
@@ -15,8 +16,7 @@ export default function Home() {
         <HomeHero />
         <HomeLexicaInfo />
         <LexicaCoreValues />
-        <div className="relative w-full h-[40vh]">
-        </div>
+        <ArticleHomePreviews />
       </section>
     </HydrationHandler>
   )

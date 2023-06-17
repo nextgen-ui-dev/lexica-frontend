@@ -4,13 +4,13 @@ import { SiNestjs } from "react-icons/si";
 
 const LexicaCoreValues = () => {
     return (
-        <>
+        <div className="relative w-full h-[100vh] md:h-full">
             <div className="relative w-full h-[40vh] flex flex-col gap-y-40 bg-primary-600">
                 <div className="absolute w-full top-[10%] left-1/2 -translate-x-1/2">
                     <div className="w-full flex flex-col items-center justify-center gap-2">
                         <FaCrown size={24} className="text-primary-300 animate-bounce" />
                         <h2 className="text-white">Nilai utama kami</h2>
-                        <p className="text-white">Kami hadir untuk menyebarkan</p>
+                        <p className="text-white">Kami hadir untuk memberikan anda</p>
                     </div>
                 </div>
                 <div className="absolute w-full h-full md:h-[40vh] -bottom-[50%]">
@@ -86,8 +86,8 @@ const LexicaCoreValues = () => {
                     </Container>
                 </div>
             </div>
-            <div className="w-full h-[32vh] md:h-[20vh]" />
-        </>
+            <div className="w-full h-[60vh] md:h-[20vh]" />
+        </div>
     );
 }
 
