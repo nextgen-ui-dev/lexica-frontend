@@ -9,7 +9,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
+    extend: {      
       fontFamily: {
         montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
         hind:  ['var(--font-hind)', ...fontFamily.sans],
@@ -29,7 +29,24 @@ module.exports = {
           950: "#1b1650",
         },
       },
+      'animation': {
+        'text':'text 5s ease infinite',
+      },
+      'keyframes': {
+          'text': {
+              '0%, 100%': {
+                'background-size':'200% 200%',
+                  'background-position': 'left center'
+              },
+              '50%': {
+                'background-size':'200% 200%',
+                  'background-position': 'right center'
+              }
+          },
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };

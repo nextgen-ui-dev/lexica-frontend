@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`relative ${montserrat.className} ${hind.className}`}>
+      <body className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}>
         <ToastProvider />
         <LoginModal />
         <Navbar />
