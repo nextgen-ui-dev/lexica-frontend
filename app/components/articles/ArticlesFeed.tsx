@@ -9,8 +9,8 @@ const ArticlesFeed = () => {
     return (
         <Container expanded>
             <div className="w-full grid grid-cols-2 gap-4 my-12">
-                {Articles.map(article => (
-                    <ArticlePreviewCard />
+                {Articles.map((article, id) => (
+                    <ArticlePreviewCard key={id} article={article} />
                 ))}
             </div>
         </Container>

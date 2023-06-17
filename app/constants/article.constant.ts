@@ -1,6 +1,6 @@
-import { Article } from "../types/article.type";
+import { ArticleType } from "../types/article.type";
 
-export const Articles: Article[] = [
+export const Articles: ArticleType[] = [
   {
     "id": 1,
     "title": "Ekonomi RI, Pancasila dan Melebarnya Ketimpangan Si Kaya dan Miskin",
@@ -32,7 +32,7 @@ export const Articles: Article[] = [
   },
   {
     "id": 2,
-    "title": "Lorem ipsum in depth",
+    "title": "The second article Lorem ipsum",
     "author": "UserName",
     "source": "The Washington Post",
     "difficulty": "Intermediate",
@@ -40,7 +40,7 @@ export const Articles: Article[] = [
   },
   {
     "id": 3,
-    "title": "Lorem ipsum in depth",
+    "title": "The third article Lorem ipsum",
     "author": "UserName",
     "source": "The Washington Post",
     "difficulty": "Intermediate",
@@ -48,7 +48,7 @@ export const Articles: Article[] = [
   },
   {
     "id": 4,
-    "title": "Lorem ipsum in depth",
+    "title": "The fourth article Lorem ipsum",
     "author": "UserName",
     "source": "The Washington Post",
     "difficulty": "Intermediate",
@@ -56,7 +56,7 @@ export const Articles: Article[] = [
   },
   {
     "id": 5,
-    "title": "Lorem ipsum in depth",
+    "title": "The fifth article Lorem ipsum",
     "author": "UserName",
     "source": "The Washington Post",
     "difficulty": "Intermediate",
@@ -64,7 +64,7 @@ export const Articles: Article[] = [
   },
   {
     "id": 6,
-    "title": "Lorem ipsum in depth",
+    "title": "The sixth article Lorem ipsum",
     "author": "UserName",
     "source": "The Washington Post",
     "difficulty": "Intermediate",
