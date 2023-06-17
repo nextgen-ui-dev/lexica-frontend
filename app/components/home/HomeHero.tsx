@@ -19,7 +19,7 @@ const HomeHero = () => {
         </div>
         <div className="w-full absolute -bottom-8">
             <Container>
-                <div className="w-full p-4 flex flex-col bg-white rounded-md shadow-sm">
+                <div className="w-full p-4 flex flex-col bg-white rounded-full shadow-sm">
                     <h5>Hello</h5>
                 </div>
             </Container>
