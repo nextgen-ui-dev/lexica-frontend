@@ -1,4 +1,6 @@
+'use client';
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Articles } from "@/app/constants/article.constant";
 import { ArticleType } from "@/app/types/article.type";
 
@@ -9,9 +11,17 @@ interface ArticlePreviewCardProps {
 const ArticlePreviewCard = ({
     article
 }: ArticlePreviewCardProps) => {
+    const router = useRouter();
+
     const id = article.id;
     return (
-        <div className="col-span-2 md:col-span-1 w-full h-full flex flex-row gap-4 p-4 bg-white group hover:bg-primary-600 transition duration-300 ease-out shadow-sm rounded-lg">
+        <div
+            onClick={() => router.push(`/articles/${id}`)} 
+            className="col-span-2 md:col-span-1 w-full h-full flex flex-row gap-4 p-4 
+            bg-white group hover:bg-primary-600 
+            hover:cursor-pointer
+            transition duration-300 ease-out shadow-sm rounded-lg
+        ">
             <div className="w-full h-full flex flex-col md:flex-row gap-4">
                 <div className="w-full h-full flex flex-row gap-4">
                     <div className="w-1/2 h-full flex flex-col items-start justify-evenly gap-4">
