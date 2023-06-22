@@ -5,5 +5,6 @@ export type ArticleType = {
   author: string,
   source: string,
   difficulty: string,
+  year: string,
   content: string
 }
