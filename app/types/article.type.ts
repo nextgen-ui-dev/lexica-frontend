@@ -6,5 +6,6 @@ export type ArticleType = {
   source: string,
   difficulty: string,
   year: string,
+  adapted: boolean,
   content: string
 }
