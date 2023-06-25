@@ -1,5 +1,4 @@
 import { SiNestjs } from "react-icons/si";
-import { ImQuotesLeft } from "react-icons/im";
 import Container from "../core/layout/Container";
 
 const HomeLexicaInfo = () => {

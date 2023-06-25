@@ -36,7 +36,7 @@ export default function RootLayout({
         <LoginModal />
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )
