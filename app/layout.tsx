@@ -34,9 +34,11 @@ export default function RootLayout({
       <body className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}>
         <ToastProvider />
         <LoginModal />
-        <Navbar />
-        {children}
-        {/* <Footer /> */}
+        <HydrationHandler>
+          <Navbar />
+          {children}
+          <Footer />
+        </HydrationHandler>
       </body>
     </html>
   )

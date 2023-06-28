@@ -2,7 +2,6 @@
 
 import { Articles } from "@/app/constants/article.constant";
 import Container from "../core/layout/Container";
-import ArticleCard from "../core/molecules/ArticleCard";
 import ArticlePreviewCard from "./ArticlePreviewCard";
 
 const ArticlesFeed = () => {
