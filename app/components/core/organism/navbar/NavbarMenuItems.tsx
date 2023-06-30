@@ -25,11 +25,11 @@ const NavbarMenuItems = ({
                 <h5
                     data-path="/"
                     onClick={handleRoute}
-                    className={`${pathName === '/' ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer`}>Home</h5>
+                    className={`${pathName === '/' ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer hover:text-white`}>Home</h5>
                 <h5
                     data-path="/articles"
                     onClick={handleRoute}
-                    className={`${pathName === '/articles' ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer`}>Artikel</h5>
+                    className={`${pathName.includes('/articles') ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer hover:text-white`}>Artikel</h5>
                 <h5
                     data-path="/about"
                     onClick={handleRoute}
