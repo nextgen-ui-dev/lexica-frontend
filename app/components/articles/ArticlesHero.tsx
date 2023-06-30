@@ -6,18 +6,24 @@ const ArticlesHero = () => {
     return (
         <div className="w-full">
             <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">
-                <div className="absolute w-full top-[20%] left-1/2 -translate-x-1/2">
+                <div className=" w-full pt-20 md:pt-28">
                     <Container>
                         <div className="w-full flex flex-col items-center justify-center gap-4">
-                            <h2 className="text-white">Lorem Ipsum</h2>
-                            <p className="text-white">Lorem Ipsum Dor Si Tu Amet</p>
+                            <h2 className="text-white">Cari bacaan favoritmu gratis!</h2>
                             <div className="max-w-2xl w-full p-4 bg-white rounded-full" />
+                            <div className="w-full flex flex-row justify-center items-center gap-4 overflow-x-auto no-scrollbar">
+                                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Berita</h5>
+                                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Olahraga</h5>
+                                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Pendidikan</h5>
+                                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Finansial</h5>
+                                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Teknologi</h5>
+                            </div>
                         </div>
                     </Container>
                 </div>
                 <div className="absolute w-full h-[50vh] md:h-[38vh] -bottom-[70%] md:-bottom-[45%]">
                     <Container>
-                        <div className="w-full h-[34vh] md:h-[32vh] bg-white rounded-lg shadow-sm px-4 p-4 group">
+                        <div className="w-full h-[34vh] md:h-[32vh] bg-white rounded-3xl shadow-sm px-4 p-4 group">
                             <div className="w-full h-full flex flex-col items-center justify-evenly md:flex-row">
                                 <div className="w-full h-full max-h-32 md:max-h-min flex flex-row gap-4">
                                     <div className='relative w-1/2 md:w-1/3 h-full rounded-2xl overflow-hidden'>

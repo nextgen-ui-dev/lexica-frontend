@@ -34,3 +34,16 @@
     @apply font-hind font-normal text-sm text-slate-500;
   }
 }
+
+@layer utilities {
+    @variants responsive {
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    }
+  }
