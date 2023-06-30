@@ -5,8 +5,8 @@ import { Articles } from "@/app/constants/article.constant";
 const ArticlesHero = () => {
     return (
         <div className="w-full">
-            <div className="relative w-full h-[50vh] flex flex-col gap-y-40 bg-primary-600">
-                <div className="absolute w-full top-[28%] left-1/2 -translate-x-1/2">
+            <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">
+                <div className="absolute w-full top-[20%] left-1/2 -translate-x-1/2">
                     <Container>
                         <div className="w-full flex flex-col items-center justify-center gap-4">
                             <h2 className="text-white">Lorem Ipsum</h2>
@@ -15,7 +15,7 @@ const ArticlesHero = () => {
                         </div>
                     </Container>
                 </div>
-                <div className="absolute w-full h-[50vh] md:h-[38vh] -bottom-[70%] md:-bottom-[50%]">
+                <div className="absolute w-full h-[50vh] md:h-[38vh] -bottom-[70%] md:-bottom-[45%]">
                     <Container>
                         <div className="w-full h-[34vh] md:h-[32vh] bg-white rounded-lg shadow-sm px-4 p-4 group">
                             <div className="w-full h-full flex flex-col items-center justify-evenly md:flex-row">
@@ -29,15 +29,18 @@ const ArticlesHero = () => {
                                                 objectFit: 'cover',
                                                 objectPosition: 'center bottom'
                                             }}
-                                            className="group-hover:scale-105 transition bg-primary-600"
+                                            className="group-hover:scale-105 transition bg-primary-500"
                                         />
                                     </div>
                                     <div className="w-2/3 h-full flex flex-col items-start justify-evenly md:justify-around">
-                                        <div className="flex flex-col justify-evenly">
-                                            <h4 className="text-primary-500 bg-gradient-to-r bg-clip-text text-transparent from-primary-500 via-primary-300 to-primary-500 animate-text duration-200 font-semibold">Terbaru</h4>
+                                        <div className="flex flex-col justify-evenly gap-2">
+                                            <div className="flex flex-row items-center gap-x-4">
+                                                <h4 className="text-primary-500 bg-gradient-to-r bg-clip-text text-transparent from-primary-500 via-primary-300 to-primary-500 animate-text duration-200 font-semibold">Terbaru</h4>
+                                                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 cursor-pointer">Berita</h5>
+                                            </div>
                                             <div className="w-full flex flex-col">
                                                 <h6 className="line-clamp-1">12 Juni 2023, CNN</h6>
-                                                <h3 className="line-clamp-3">{Articles[0].title}</h3>
+                                                <h3 className="line-clamp-2 max-w-xs">{Articles[0].title}</h3>
                                             </div>
                                             <div className="w-full hidden md:flex flex-col items-center justify-center">
                                                 <p className="line-clamp-6 md:line-clamp-4">{Articles[0].content}</p>
