@@ -36,9 +36,9 @@ const ArticlesHero = () => {
                 </div>
                 <div
                     onClick={() => router.push(`/articles/${article.id}`)}
-                    className="absolute w-full h-[50dvh] md:h-[38dvh] -bottom-[70%] md:-bottom-[45%]">
+                    className="absolute w-full h-[50dvh] md:h-[40dvh] -bottom-[70%] md:-bottom-[55%]">
                     <Container>
-                        <div className="w-full h-[34dvh] md:h-[32dvh] bg-white rounded-3xl shadow-sm px-4 p-4 group hover:cursor-pointer hover:border hover:border-primary-500 duration-300">
+                        <div className="w-full h-[34dvh] md:h-[35dvh] bg-white rounded-3xl shadow-sm px-4 p-4 group hover:cursor-pointer hover:border hover:border-primary-500 duration-300">
                             <div className="w-full h-full flex flex-col items-center justify-evenly md:flex-row">
                                 <div className="w-full h-full max-h-32 md:max-h-min flex flex-row gap-4">
                                     <div className='relative w-1/2 md:w-1/3 h-full rounded-2xl overflow-hidden'>
@@ -77,7 +77,7 @@ const ArticlesHero = () => {
                     </Container>
                 </div>
             </div>
-            <div className="w-full h-[16dvh] md:h-[20dvh]" />
+            <div className="w-full h-[16dvh] md:h-[28dvh]" />
         </div>
     );
 }

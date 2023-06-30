@@ -36,12 +36,12 @@ const ArticleDetails = ({
       <ScrollToTop 
         smooth 
         color={`#5152ff`}
-        className={`flex justify-center items-center p-2 stroke-2`}
+        className={`flex justify-center items-center p-2 stroke-[6px]`}
       />
-      <section className='w-full h-[25dvh] md:h-[38dvh] bg-primary-600 flex flex-row items-center justify-center'>
+      <section className='w-full h-[32dvh] md:h-[40dvh] bg-primary-600 flex flex-row items-center justify-center md:pt-4'>
         <div className='w-full max-w-md'>
-          <h2 className='mt-6 md:mt-12 text-center text-white'>{article.title}</h2>
-          <div className='mt-6 md:mt-8 mb-2'>
+          <h2 className='px-2 pt-6 md:mt-8 text-md md:text-xl text-center text-white'>{article.title}</h2>
+          <div className='mt-4 md:mt-6 md:mb-4'>
             <ArticleDetailMenu />
           </div>
         </div>
@@ -50,7 +50,7 @@ const ArticleDetails = ({
         <div className='w-full min-h-[70dvh] bg-white p-4 md:p-8 rounded-t-[6dvh] md:rounded-t-[8dvh]'>
           <Container>
             <div className='w-full'>
-              <div className='relative h-full max-h-16 md:max-h-18 flex flex-row items-center justify-between'>
+              <div className='relative w-full h-full max-h-16 md:max-h-18 flex flex-row items-center justify-between'>
                 <div className='w-full md:w-2/3 flex flex-row items-center pt-4 md:pt-6'>
                   <div className='relative h-12 w-12 md:h-14 md:w-14 rounded-full bg-primary-500 overflow-hidden flex flex-col justify-center'>
                     <Image
