@@ -30,8 +30,8 @@ const ArticleDetails = ({
           <h2 className='text-center text-white'>{article.title}</h2>
         </div>
       </section>
-      <section className='w-full h-full bg-primary-600'>
-        <div className='w-full bg-white p-4 md:p-8 rounded-t-[6dvh]'>
+      <section className='w-full min-h-[70dvh] bg-primary-600'>
+        <div className='w-full min-h-[70dvh] bg-white p-4 md:p-8 rounded-t-[6dvh]'>
           <Container>
             <div className='w-full'>
               <div className='relative h-full max-h-16 md:max-h-18 flex items-center pt-4 md:pt-6'>
