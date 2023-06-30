@@ -1,16 +1,23 @@
 import Image from "next/image";
 import Container from "../core/layout/Container";
 import { Articles } from "@/app/constants/article.constant";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const ArticlesHero = () => {
     return (
         <div className="w-full">
             <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">
-                <div className=" w-full pt-20 md:pt-28">
+                <div className=" w-full pt-20 md:pt-24">
                     <Container>
                         <div className="w-full flex flex-col items-center justify-center gap-4">
                             <h2 className="text-white">Cari bacaan favoritmu gratis!</h2>
-                            <div className="max-w-2xl w-full p-4 bg-white rounded-full" />
+                            <div className="w-full max-w-xl bg-white flex justify-center items-center rounded-full pl-6 pr-2 py-2">
+                                <input className="w-full border-none !outline-none" />
+                                <AiOutlineSearch 
+                                size={32}
+                                className="p-2 bg-primary-600 text-white rounded-full"
+                                />
+                            </div>
                             <div className="w-full flex flex-row justify-center items-center gap-4 overflow-x-auto no-scrollbar">
                                 <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Berita</h5>
                                 <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Olahraga</h5>
