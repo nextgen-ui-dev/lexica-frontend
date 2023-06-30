@@ -20,21 +20,21 @@ const ArticlesHero = () => {
                         <div className="w-full h-[34vh] md:h-[32vh] bg-white rounded-lg shadow-sm px-4 p-4 group">
                             <div className="w-full h-full flex flex-col items-center justify-evenly md:flex-row">
                                 <div className="w-full h-full max-h-32 md:max-h-min flex flex-row gap-4">
-                                    <div className='relative w-1/2 md:w-1/3 h-full rounded-md overflow-hidden'>
+                                    <div className='relative w-1/2 md:w-1/3 h-full rounded-2xl overflow-hidden'>
                                         <Image
-                                            src='/images/test.jpg'
+                                            src='/images/no_image.png'
                                             alt=""
                                             fill
                                             style={{
                                                 objectFit: 'cover',
                                                 objectPosition: 'center bottom'
                                             }}
-                                            className="group-hover:scale-105 transition"
+                                            className="group-hover:scale-105 transition bg-primary-600"
                                         />
                                     </div>
-                                    <div className="w-2/3 h-full flex flex-col items-start justify-center md:justify-around">
-                                        <h4 className="text-primary-500 bg-gradient-to-r bg-clip-text text-transparent from-primary-500 via-primary-300 to-primary-500 animate-text duration-200 font-semibold">Terbaru</h4>
-                                        <div className="pt-2 md:py-0">
+                                    <div className="w-2/3 h-full flex flex-col items-start justify-evenly md:justify-around">
+                                        <div className="flex flex-col justify-evenly">
+                                            <h4 className="text-primary-500 bg-gradient-to-r bg-clip-text text-transparent from-primary-500 via-primary-300 to-primary-500 animate-text duration-200 font-semibold">Terbaru</h4>
                                             <div className="w-full flex flex-col">
                                                 <h6 className="line-clamp-1">12 Juni 2023, CNN</h6>
                                                 <h3 className="line-clamp-3">{Articles[0].title}</h3>

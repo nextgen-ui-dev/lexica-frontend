@@ -2,14 +2,14 @@
 
 import { Articles } from "@/app/constants/article.constant";
 import Container from "../core/layout/Container";
-import ArticlePreviewCard from "./ArticlePreviewCard";
+import ArticleCard from "./ArticleCard";
 
 const ArticlesFeed = () => {
     return (
         <Container expanded>
-            <div className="w-full grid grid-cols-2 gap-4 my-12">
+            <div className="w-full flex flex-col gap-8 mt-8 mb-12">
                 {Articles.map((article, id) => (
-                    <ArticlePreviewCard key={id} article={article} />
+                    <ArticleCard key={id} article={article} />
                 ))}
             </div>
         </Container>
