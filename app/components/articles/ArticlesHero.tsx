@@ -17,7 +17,7 @@ const ArticlesHero = () => {
                         <div className="w-full flex flex-col items-center justify-center gap-4">
                             <h2 className="text-white">Cari bacaan favoritmu gratis!</h2>
                             <div className="w-full max-w-xl bg-white flex justify-center items-center rounded-full pl-6 pr-2 py-2">
-                                <input className="w-full border-none !outline-none" />
+                                <input className="w-full border-none !outline-none" placeholder="Temukan artikel apapun" />
                                 <AiOutlineSearch
                                     size={32}
                                     className="p-2 bg-primary-600 text-white rounded-full"
@@ -37,7 +37,7 @@ const ArticlesHero = () => {
                     onClick={() => router.push(`/articles/${article.id}`)}
                     className="absolute w-full h-[50dvh] md:h-[38dvh] -bottom-[70%] md:-bottom-[45%]">
                     <Container>
-                        <div className="w-full h-[34dvh] md:h-[32dvh] bg-white rounded-3xl shadow-sm px-4 p-4 group">
+                        <div className="w-full h-[34dvh] md:h-[32dvh] bg-white rounded-3xl shadow-sm px-4 p-4 group hover:cursor-pointer hover:border hover:border-primary-500 duration-300">
                             <div className="w-full h-full flex flex-col items-center justify-evenly md:flex-row">
                                 <div className="w-full h-full max-h-32 md:max-h-min flex flex-row gap-4">
                                     <div className='relative w-1/2 md:w-1/3 h-full rounded-2xl overflow-hidden'>
