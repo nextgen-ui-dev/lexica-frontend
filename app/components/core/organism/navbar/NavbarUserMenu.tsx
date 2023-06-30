@@ -12,7 +12,7 @@ const NavbarUserMenu = ({
     onClick
 }: NavbarUserMenuProps) => {
     return (
-        <div className='flex flex-row items-center justify-center gap-x-4'>
+        <div className='flex flex-row items-center justify-center gap-x-4 duration-200'>
             <h4 className="font-base text-white font-normal text-base">User</h4>
             <div className='md:hidden' onClick={onClick}>
                 {isOpen

@@ -3,12 +3,20 @@
 import React from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import ScrollToTop from "react-scroll-to-top";
+
 
 import Container from '@/app/components/core/layout/Container';
+import DifficultyDropdown from '@/app/components/articles/DifficultyDropdown';
+import ArticleDetailMenu from '@/app/components/articles/ArticleDetailMenu';
 
 import { Articles } from '@/app/constants/article.constant';
 
-
+const difficulty = [
+  "Lanjutan",
+  "Menengah",
+  "Pemula"
+];
 
 interface ArticleDetailsProps {
 
@@ -20,22 +28,30 @@ const ArticleDetails = ({
   const params = useParams();
   const id = parseInt(params.id);
 
+  // @Jere todo get data from API
   const article = Articles.filter(art => art.id === id)[0];
 
   return (
     <>
-      <section className='w-full h-[30dvh] bg-primary-600 flex flex-row items-center justify-center'>
+      <ScrollToTop 
+        smooth 
+        color={`#5152ff`}
+        className={`flex justify-center items-center p-2 stroke-[6px]`}
+      />
+      <section className='w-full h-[32dvh] md:h-[40dvh] bg-primary-600 flex flex-row items-center justify-center md:pt-4'>
         <div className='w-full max-w-md'>
-          <div className='h-2' />
-          <h2 className='text-center text-white'>{article.title}</h2>
+          <h2 className='px-2 pt-6 md:mt-8 text-md md:text-xl text-center text-white'>{article.title}</h2>
+          <div className='mt-4 md:mt-6 md:mb-4'>
+            <ArticleDetailMenu />
+          </div>
         </div>
       </section>
       <section className='w-full min-h-[70dvh] bg-primary-600'>
-        <div className='w-full min-h-[70dvh] bg-white p-4 md:p-8 rounded-t-[6dvh]'>
+        <div className='w-full min-h-[70dvh] bg-white p-4 md:p-8 rounded-t-[6dvh] md:rounded-t-[8dvh]'>
           <Container>
             <div className='w-full'>
-              <div className='relative h-full max-h-16 md:max-h-18 flex items-center pt-4 md:pt-6'>
-                <div className='w-full md:w-2/3 flex flex-row items-center'>
+              <div className='relative w-full h-full max-h-16 md:max-h-18 flex flex-row items-center justify-between'>
+                <div className='w-full md:w-2/3 flex flex-row items-center pt-4 md:pt-6'>
                   <div className='relative h-12 w-12 md:h-14 md:w-14 rounded-full bg-primary-500 overflow-hidden flex flex-col justify-center'>
                     <Image
                       src='/images/author.jpg'
@@ -52,7 +68,7 @@ const ArticleDetails = ({
                       {article.source}
                       {article.adapted && (
                         <span className='pl-1 md:pl-1.5'>
-                          (Adapted by Lexica)
+                          (Adapted)
                         </span>
                       )}
                     </div>
@@ -64,15 +80,35 @@ const ArticleDetails = ({
                     </div>
                   </div>
                 </div>
+              {/* Desktop dropdown */}
+              <div className='hidden relative md:flex flex-col text-slate-600 font-semibold z-10'>
+                <div className='text-gray-500 text-right text-xs'>Kesulitan artikel</div>
+                <div className=''>
+                  <DifficultyDropdown options={difficulty} description='' expanded />
+                </div>
               </div>
-              <div className='pt-4 md:pt-6'>
-                <div className='text-slate-600 font-semibold'>
-                  DROPDOWN
+              </div>
+
+              {/* Mobile dropdown */}
+              <div className='md:hidden relative flex flex-col text-slate-600 font-semibold pt-6 z-10'>
+                <div className='text-gray-500 text-left text-xs'>Kesulitan artikel</div>
+                <div className=''>
+                  <DifficultyDropdown options={difficulty} description='' expanded leftAlign />
                 </div>
               </div>
             </div>
-            <div className='w-full pt-6 md:pt-8'>
-              <pre className='whitespace-pre-line text-justify'>
+            <div className='flex flex-col items-center w-full h-full pt-8 md:pt-12'>
+              <div className='relative rounded-xl overflow-hidden w-[300px] md:w-[600px] h-[200px] md:h-[400px] mt-2 md:mt-4 mb-10 md:mb-12'>
+                <Image 
+                  src='/images/test.jpg' 
+                  alt='Article image' 
+                  fill
+                  style={{
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+              <pre className='whitespace-pre-line text-justify text-md md:text-lg text-gray-600 font-normal'>
                 {article.content}
               </pre>
             </div>

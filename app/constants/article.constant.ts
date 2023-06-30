@@ -3,7 +3,7 @@ import { ArticleType } from "../types/article.type";
 export const Articles: ArticleType[] = [
   {
     "id": 1,
-    "title": "Ekonomi RI, Pancasila dan Melebarnya Ketimpangan Si Kaya dan Miskin",
+    "title": "Tampilan Ekonomi RI, Tentang Pancasila dan Melebarnya Ketimpangan Si Kaya dan Miskin di Tanah Air Tercinta Kita Ini",
     "author": "Fikri Noviansyah",
     "source": "CNN Indonesia",
     "difficulty": "Advanced",
