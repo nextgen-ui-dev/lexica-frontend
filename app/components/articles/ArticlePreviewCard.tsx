@@ -1,7 +1,6 @@
 'use client';
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Articles } from "@/app/constants/article.constant";
 import { ArticleType } from "@/app/types/article.type";
 
 interface ArticlePreviewCardProps {
@@ -24,16 +23,16 @@ const ArticlePreviewCard = ({
         ">
             <div className="w-full h-full flex flex-col md:flex-row gap-4">
                 <div className="w-full h-full flex flex-row gap-4">
-                    <div className="w-1/2 h-full flex flex-col items-start justify-evenly gap-4">
+                    <div className="w-2/3 h-full flex flex-col items-start justify-evenly gap-4">
                         <div className="w-full flex flex-col gap-2">
                             <h6 className="line-clamp-1 group-hover:text-primary-300">12 Juni 2023, CNN</h6>
-                            <h3 className="line-clamp-3 group-hover:text-white">{article.title}</h3>
+                            <h3 className="line-clamp-3 md:line-clamp-2 group-hover:text-white">{article.title}</h3>
                         </div>
                         <div className="w-full hidden md:flex flex-col items-center justify-center">
-                            <p className="line-clamp-4 group-hover:text-slate-200">{article.content}</p>
+                            <p className="line-clamp-3 group-hover:text-slate-200">{article.content}</p>
                         </div>
                     </div>
-                    <div className='relative w-1/2 h-[20vh] md:h-full rounded-md overflow-hidden'>
+                    <div className='relative w-1/3 h-[10vh] md:h-full rounded-md overflow-hidden'>
                         <Image
                             src='/images/test.jpg'
                             alt=""

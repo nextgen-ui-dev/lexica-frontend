@@ -11,12 +11,15 @@ const ArticlesHero = () => {
 
     return (
         <div className="w-full">
-            <div className="relative w-full h-[40vh] md:h-[45vh] flex flex-col gap-y-40 bg-primary-600">
-                <div className="absolute w-full top-[24%] left-1/2 -translate-x-1/2">
-                    <div className="w-full flex flex-col items-center justify-center gap-2">
-                        <h2 className="text-white">Lorem Ipsum</h2>
-                        <p className="text-white">Lorem Ipsum Dor Si Tu Amet</p>
-                    </div>
+            <div className="relative w-full h-[50vh] flex flex-col gap-y-40 bg-primary-600">
+                <div className="absolute w-full top-[28%] left-1/2 -translate-x-1/2">
+                    <Container>
+                        <div className="w-full flex flex-col items-center justify-center gap-4">
+                            <h2 className="text-white">Lorem Ipsum</h2>
+                            <p className="text-white">Lorem Ipsum Dor Si Tu Amet</p>
+                            <div className="max-w-2xl w-full p-4 bg-white rounded-full" />
+                        </div>
+                    </Container>
                 </div>
                 <div 
                     onClick={() => router.push(`/articles/${article.id}`)} 
@@ -60,7 +63,7 @@ const ArticlesHero = () => {
                     </Container>
                 </div>
             </div>
-            <div className="w-full h-[25vh] md:h-[20vh]" />
+            <div className="w-full h-[16vh] md:h-[20vh]" />
         </div>
     );
 }

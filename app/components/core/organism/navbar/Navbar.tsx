@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
         <nav className="md:fixed w-full z-10">
             <HeadRoom>
-                <div className={`fixed md:relative w-full py-4 bg-primary-600 ${isScroll && 'md:backdrop-filter md:backdrop-blur-lg md:bg-opacity-80 border-b border-primary-500'}`}>
+                <div className={`fixed md:relative w-full py-4 ${isScorll && 'bg-primary-600 border-b border-primary-500'}`}>
                     <Container expanded>
                         <div className='flex flex-row justify-between items-center'>
                             <NavbarLogo />

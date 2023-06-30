@@ -31,9 +31,9 @@ const NavbarMenuItems = ({
                     onClick={handleRoute}
                     className={`${pathName.includes('/articles') ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer hover:text-white`}>Artikel</h5>
                 <h5
-                    data-path="/tentang-kami"
+                    data-path="/about"
                     onClick={handleRoute}
-                    className={`${pathName === '/tentang-kami' ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer hover:text-white`}>Tentang Kami</h5>
+                    className={`${pathName === '/about' ? 'text-white' : 'text-primary-300'} text-base font-normal cursor-pointer`}>Tentang Kami</h5>
             </div>
         </div>
     );
