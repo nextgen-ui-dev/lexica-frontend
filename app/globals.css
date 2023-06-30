@@ -19,7 +19,7 @@
     @apply font-montserrat font-semibold text-base md:text-xl;
   }
   h4 {
-    @apply font-montserrat font-semibold text-base md:text-lg;
+    @apply font-montserrat font-semibold text-lg;
   }
   h5 {
     @apply font-hind font-semibold text-sm text-slate-600;
@@ -28,9 +28,9 @@
     @apply font-hind font-semibold text-xs text-slate-600;
   }
   p {
-    @apply font-hind font-normal text-sm text-slate-600;
+    @apply font-hind font-normal text-sm text-slate-500;
   }
   pre {
-    @apply font-hind font-normal text-sm text-slate-600;
+    @apply font-hind font-normal text-sm text-slate-500;
   }
 }
