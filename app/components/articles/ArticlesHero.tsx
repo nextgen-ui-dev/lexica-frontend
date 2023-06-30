@@ -12,7 +12,7 @@ const ArticlesHero = () => {
     return (
         <div className="w-full">
             <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">
-                <div className=" w-full pt-20 md:pt-24">
+                <div className="absolute w-full top-1/2 -translate-y-1/2">
                     <Container>
                         <div className="w-full flex flex-col items-center justify-center gap-4">
                             <h2 className="text-white">Cari bacaan favoritmu gratis!</h2>
@@ -23,7 +23,7 @@ const ArticlesHero = () => {
                                     className="p-2 bg-primary-600 text-white rounded-full"
                                 />
                             </div>
-                            <div className="w-full flex flex-row justify-center items-center gap-4 overflow-x-auto no-scrollbar">
+                            <div className="w-full flex flex-row items-center justify-start md:justify-center gap-4 overflow-x-auto no-scrollbar">
                                 <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Hiburan</h5>
                                 <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Olahraga</h5>
                                 <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">Pendidikan</h5>
