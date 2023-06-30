@@ -3,6 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import ScrollToTop from "react-scroll-to-top";
+
 
 import Container from '@/app/components/core/layout/Container';
 import DifficultyDropdown from '@/app/components/articles/DifficultyDropdown';
@@ -31,7 +33,12 @@ const ArticleDetails = ({
 
   return (
     <>
-      <section className='w-full h-[25dvh] md:h-[37dvh] bg-primary-600 flex flex-row items-center justify-center'>
+      <ScrollToTop 
+        smooth 
+        color={`#5152ff`}
+        className={`flex justify-center items-center p-2 stroke-2`}
+      />
+      <section className='w-full h-[25dvh] md:h-[38dvh] bg-primary-600 flex flex-row items-center justify-center'>
         <div className='w-full max-w-md'>
           <h2 className='mt-6 md:mt-12 text-center text-white'>{article.title}</h2>
           <div className='mt-6 md:mt-8 mb-2'>
