@@ -14,11 +14,11 @@ export const authOption: NextAuthOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        async jwt({ token, account }) {
+        async jwt({ token, account, session }) {
             if (account) {
                 token = Object.assign({}, token, { access_token: account.access_token });
             }
-            // console.debug(token)
+            console.debug(token)
             return token
         },
         async session({ session, token }) {

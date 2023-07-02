@@ -1,9 +1,10 @@
 'use client';
 import { FiMenu } from 'react-icons/fi';
 import { IoMdClose } from "react-icons/io";
-import { signIn } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import Avatar from '../../molecules/Avatar';
 import { User } from '@/app/types/session.type';
+import useLoginModal from '@/app/hooks/useLoginModal';
 
 interface NavbarUserMenuProps {
     user?: User
@@ -16,18 +17,22 @@ const NavbarUserMenu = ({
     isOpen,
     onClick
 }: NavbarUserMenuProps) => {
+    const loginModal = useLoginModal();
+    
     return (
         <div className='flex flex-row items-center justify-center gap-x-4 duration-200'>
             {user?.email ? (
-                <div className='border-2 border-primary-400 rounded-full'>
+                <div 
+                onClick={() => signOut()}
+                className='border-2 border-primary-400 rounded-full'>
                 <Avatar
                     src={user?.image}
                 />
                 </div>
             ) : (
                 <h5 
-                onClick={() => signIn('google')}
-                className='text-white bg-primary-400 py-1 px-4 rounded-full cursor-pointer'>Login</h5>
+                onClick={() => loginModal.onOpen()}
+                className='w-20 text-white px-4 py-1.5 text-center bg-primary-400 rounded-full cursor-pointer'>Sign In</h5>
             )}
             <div className='md:hidden' onClick={onClick}>
                 {isOpen
