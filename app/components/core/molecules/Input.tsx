@@ -33,7 +33,6 @@ const Input = ({
         if (inputType === 'password') {
             setInputType('text');
         } else {
-            console.log('object');
             setInputType('password');
         }
         setPasswordVisibility(!passwordVisibility);

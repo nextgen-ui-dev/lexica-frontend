@@ -18,13 +18,13 @@ export const authOption: NextAuthOptions = {
             if (account) {
                 token = Object.assign({}, token, { access_token: account.access_token });
             }
-            console.debug(token)
+            // console.debug(token)
             return token
         },
         async session({ session, token }) {
             if (session) {
                 session = Object.assign({}, session, { access_token: token.access_token })
-                console.log(session);
+                // console.log(session);
             }
             return session
         }

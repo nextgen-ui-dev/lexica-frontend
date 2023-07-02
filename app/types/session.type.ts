@@ -1,12 +1,12 @@
 export type Session = {
-    user: User;
-    expires: string;
-    access_token: string;
+    user?: User;
+    expires?: string;
+    access_token?: string;
   }
   
   export type User = {
-    name: string;
-    email: string;
-    image: string;
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
   }
   

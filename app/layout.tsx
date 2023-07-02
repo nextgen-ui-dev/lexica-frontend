@@ -31,6 +31,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const session = await getCurrentUser();
   return (
     <html lang="en">
       <body className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}>
@@ -38,7 +39,7 @@ export default async function RootLayout({
           <ToastProvider />
           <LoginModal />
           <HydrationHandler>
-            <Navbar />
+            <Navbar session={session} />
             {children}
             <Footer />
           </HydrationHandler>
