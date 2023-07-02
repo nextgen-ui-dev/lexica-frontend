@@ -5,6 +5,8 @@ import ToastProvider from './providers/ToastProvider'
 import LoginModal from './components/core/organism/modals/LoginModal'
 import Footer from './components/core/organism/footer/Footer'
 import Navbar from './components/core/organism/navbar/Navbar'
+import NextAuthSessionProvider from './providers/SessionProvider'
+import getCurrentUser from './actions/getCurrentUser'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -24,7 +26,7 @@ export const metadata = {
   description: '',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -32,13 +34,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}>
-        <ToastProvider />
-        <LoginModal />
-        <HydrationHandler>
-          <Navbar />
-          {children}
-          <Footer />
-        </HydrationHandler>
+        <NextAuthSessionProvider>
+          <ToastProvider />
+          <LoginModal />
+          <HydrationHandler>
+            <Navbar />
+            {children}
+            <Footer />
+          </HydrationHandler>
+        </NextAuthSessionProvider>
       </body>
     </html>
   )

@@ -6,9 +6,10 @@ import HeadRoom from 'react-headroom';
 import NavbarLogo from './NavbarLogo';
 import NavbarMenuItems from './NavbarMenuItems';
 import NavbarUserMenu from './NavbarUserMenu';
+import getCurrentUser from '@/app/actions/getCurrentUser';
 
 const Navbar = () => {
-
+    
     const [isScroll, setIsScroll] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
