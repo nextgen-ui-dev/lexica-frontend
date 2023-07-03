@@ -1,17 +1,43 @@
 'use client';
-
+import { BsGoogle } from 'react-icons/bs'
 import useLoginModal from "@/app/hooks/useLoginModal";
-import Modal from "./_index";
+import Modal from "./Modal";
+import Button from "../../molecules/Button";
+import { signIn } from 'next-auth/react';
+import Image from 'next/image';
 
 const LoginModal = () => {
     const loginModal = useLoginModal();
 
+    const body = (
+        <div className='flex flex-col gap-4'>
+            <div className='relative w-full h-[30dvh] bg-primary-500 rounded-xl overflow-hidden'>
+                <Image
+                    src='/images/hero.png'
+                    alt=""
+                    fill
+                    style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center'
+                    }}
+                    className="group-hover:scale-110 transition"
+                />
+            </div>
+            <Button
+                label="Masuk"
+                onClick={() => signIn('google')}
+                icon={BsGoogle}
+            />
+        </div>
+    )
+
     return (
         <Modal
             isOpen={loginModal.isOpen}
-            title='Login'
+            title='Masuk menggunakan Google'
             actionLabel='Hello World'
             onClose={loginModal.onClose}
+            body={body}
             onSubmit={() => { }}
         />
     );

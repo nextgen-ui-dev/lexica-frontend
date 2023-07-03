@@ -6,8 +6,13 @@ import HeadRoom from 'react-headroom';
 import NavbarLogo from './NavbarLogo';
 import NavbarMenuItems from './NavbarMenuItems';
 import NavbarUserMenu from './NavbarUserMenu';
+import { Session } from '@/app/types/session.type';
 
-const Navbar = () => {
+interface NavbarProps {
+    session: Session
+}
+
+const Navbar = ({ session }: NavbarProps) => {
 
     const [isScroll, setIsScroll] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +46,7 @@ const Navbar = () => {
                                 isOpen={isOpen}
                             />
                             <NavbarUserMenu
+                                user={session.user}
                                 isOpen={isOpen}
                                 onClick={toggleItemMenus}
                             />
