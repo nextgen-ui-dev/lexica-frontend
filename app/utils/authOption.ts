@@ -16,19 +16,17 @@ export const authOption: NextAuthOptions = {
     callbacks: {
         async jwt({ token, account, session, user }) {
             console.debug(token)
-            if (account) {
-                token = Object.assign({}, token, { access_token: account.access_token });
-            }
             return {
                 ...token,
                 ...user,
             }
         },
         async session({ session, token }) {
-            console.debug('this id: ', token)
+            // console.debug('this id: ', token.id)
             if (session) {
-                session = Object.assign({}, session, { access_token: token.access_token })
+                session = Object.assign({}, session, { access_token: token.access_token, id: token.id })
             }
+            console.debug(session)
             // console.debug(session)
             return session
         }
