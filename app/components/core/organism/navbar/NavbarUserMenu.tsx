@@ -1,38 +1,71 @@
 'use client';
+
+import React from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { IoMdClose } from "react-icons/io";
-import { signOut } from 'next-auth/react';
+import { AiOutlineGoogle } from 'react-icons/ai';
 import Avatar from '../../molecules/Avatar';
 import { User } from '@/app/types/session.type';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import ProfileDropdown from './ProfileDropdown';
+import { set } from 'react-hook-form';
 
 interface NavbarUserMenuProps {
     user?: User
     isOpen: boolean;
+    isScroll?: boolean;
     onClick: () => void;
 }
 
 const NavbarUserMenu = ({
     user,
     isOpen,
+    isScroll,
     onClick
 }: NavbarUserMenuProps) => {
     const loginModal = useLoginModal();
+    const [expandProfile, setExpandProfile] = React.useState(false);
+
+    const toggleExpand = () => {
+        setExpandProfile(!expandProfile);
+    };
+
+    React.useEffect(() => {
+        expandProfile && setExpandProfile(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isScroll]);
     
     return (
-        <div className='flex flex-row items-center justify-center gap-x-4 duration-200'>
+        <div className='flex flex-row items-center justify-center gap-x-4 duration-200 hover:cursor-default'>
             {user?.email ? (
+                // When user is logged in
                 <div 
-                onClick={() => signOut()}
-                className='border-2 border-primary-400 rounded-full'>
-                <Avatar
-                    src={user?.image}
-                />
+                    className={`relative border-2 border-primary-400 rounded-full`}
+                >
+                    <div
+                        className='hover:cursor-pointer'
+                        onClick={() => setExpandProfile(!expandProfile)}
+                    >
+                        <Avatar
+                            src={user?.image}
+                            large={window.innerWidth > 768 ? true : false}
+                        />
+                    </div>
+
+                    {expandProfile && 
+                        <ProfileDropdown 
+                            user={user} 
+                            toggleExpand={toggleExpand}
+                        />
+                    }
                 </div>
             ) : (
                 <h5 
                 onClick={() => loginModal.onOpen()}
-                className='w-20 text-white px-4 py-1.5 text-center bg-primary-400 rounded-full cursor-pointer'>Sign In</h5>
+                className='flex flex-row w-22 text-white px-4 py-1.5 text-center bg-primary-400 rounded-full cursor-pointer'>
+                    <AiOutlineGoogle className='w-4 h-4 mr-[3px] mt-[1px]' /> 
+                    Masuk
+                </h5>
             )}
             <div className='md:hidden' onClick={onClick}>
                 {isOpen
