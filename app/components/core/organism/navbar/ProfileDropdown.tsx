@@ -32,9 +32,11 @@ const ProfileDropdown = ({
   return (
     <>
       <div className={`
-          absolute ${window.innerWidth > 768 ? 'top-[40px]' : 'top-[35px]'}
-          right-0 flex flex-col 
-          bg-gray-100 rounded border border-gray-500
+          flex flex-col 
+          absolute 
+          ${window.innerWidth > 768 ? 'top-[43px]' : 'top-[38px]'}
+          right-[4px] md:right-[8px] 
+          bg-gray-100 rounded-xl border border-gray-500
           duration-300 transition ease-in-out
         `}
       >
@@ -52,7 +54,7 @@ const ProfileDropdown = ({
             data-path='/friends'
             onClick={handleRoute}
             className={`flex flex-row 
-            px-2 md:px-3 py-[3px] 
+            px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-gray-300 
             hover:cursor-pointer
             text-slate-700
@@ -65,7 +67,7 @@ const ProfileDropdown = ({
             data-path='/collections'
             onClick={handleRoute}
             className={`flex flex-row 
-            px-2 md:px-3 py-[3px] 
+            px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-gray-300 
             hover:cursor-pointer
             text-slate-700
@@ -78,7 +80,7 @@ const ProfileDropdown = ({
             data-path='/analytics'
             onClick={handleRoute}
             className={`flex flex-row 
-            px-2 md:px-3 py-[3px] 
+            px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-gray-300 
             hover:cursor-pointer
             text-slate-700
