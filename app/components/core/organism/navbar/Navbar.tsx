@@ -48,6 +48,7 @@ const Navbar = ({ session }: NavbarProps) => {
                             <NavbarUserMenu
                                 user={session.user}
                                 isOpen={isOpen}
+                                isScroll={isScroll}
                                 onClick={toggleItemMenus}
                             />
                         </div>

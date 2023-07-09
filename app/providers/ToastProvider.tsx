@@ -1,9 +1,12 @@
 'use client'
-import { Toaster } from 'react-hot-toast'
+import { ToastContainer } from 'react-toastify';
 
 const ToastProvider = () => {
     return (
-        <Toaster />
+        <ToastContainer 
+            position='top-right' 
+            autoClose={4000} 
+        />
     );
 }
 
