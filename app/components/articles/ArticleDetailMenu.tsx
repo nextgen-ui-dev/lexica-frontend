@@ -6,29 +6,39 @@ import {
 } from 'react-icons/bs';
 
 import {
-  MdContentCopy
-} from 'react-icons/md';
-
-import {
   BiShareAlt
 } from 'react-icons/bi';
 
 import { toast } from 'react-toastify';
 
+// import getCurrentUser from '@/app/actions/getCurrentUser';
 import useBookmarkArticles from '@/app/hooks/useBookmarkArticles';
 
 interface ArticleDetailMenuProps {
-  expanded?: boolean,
-  bookmarked?: boolean,
-  onBookmark: () => void
+  id: number,
 }
 
 const ArticleDetailMenu = ({
-  expanded,
-  bookmarked,
-  onBookmark
+  id,
 }: ArticleDetailMenuProps) => {
+  // const session = await getCurrentUser();
   const bookmarks = useBookmarkArticles();
+
+  const handleBookmark = () => {
+    // Guard clause for non-logged in user
+    // if (!session.user) {
+    //   return toast.error('Kamu harus login terlebih dahulu');
+    // }
+
+    if (bookmarks.isBookmarked(id)) {
+      bookmarks.removeBookmark(id);
+      toast.success('Artikel berhasil dihapus');
+    }
+    else {
+      bookmarks.addBookmark(id);
+      toast.success('Artikel berhasil disimpan');
+    }
+  }
 
   return (
     <div className='relative w-full h-full'>
@@ -36,11 +46,9 @@ const ArticleDetailMenu = ({
         <li className={`flex flex-col items-center hover:cursor-pointer group 
         pr-4 md:pr-8
         `}>
-          <div onClick={() => {
-            onBookmark();
-          }}>
+          <div onClick={() => handleBookmark()}>
             {
-              bookmarked ? 
+              bookmarks.isBookmarked(id) ? 
               <BsBookmarkFill className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
               :
               <BsBookmark className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
@@ -48,7 +56,10 @@ const ArticleDetailMenu = ({
           </div>
           <div className={`text-white py-1.5 md:py-3`}>
             {
-              bookmarked ? 'Hapus' : 'Simpan'
+              bookmarks.isBookmarked(id) ? 
+                'Hapus' 
+                : 
+                'Simpan'
             }
           </div>
         </li>
