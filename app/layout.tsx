@@ -1,7 +1,6 @@
 import './globals.css'
 import HydrationHandler from './components/core/layout/HydrationHandler'
 import { Montserrat, Hind } from 'next/font/google'
-import ToastProvider from './providers/ToastProvider'
 import LoginModal from './components/core/organism/modals/LoginModal'
 import Footer from './components/core/organism/footer/Footer'
 import Navbar from './components/core/organism/navbar/Navbar'
@@ -36,7 +35,6 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}>
         <NextAuthSessionProvider>
-          <ToastProvider />
           <LoginModal />
           <HydrationHandler>
             <Navbar session={session} />

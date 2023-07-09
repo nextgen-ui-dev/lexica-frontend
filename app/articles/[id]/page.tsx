@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import ScrollToTop from "react-scroll-to-top";
-
+import ToastProvider from '@/app/providers/ToastProvider';
 
 import Container from '@/app/components/core/layout/Container';
 import DifficultyDropdown from '@/app/components/articles/DifficultyDropdown';
@@ -38,6 +38,7 @@ const ArticleDetails = ({
         color={`#5152ff`}
         className={`flex justify-center items-center p-2 stroke-[6px]`}
       />
+      <ToastProvider />
       <section className='w-full h-[32dvh] md:h-[40dvh] bg-primary-600 flex flex-row items-center justify-center md:pt-4'>
         <div className='w-full max-w-md'>
           <h2 className='px-2 pt-6 md:mt-8 text-md md:text-xl text-center text-white'>{article.title}</h2>
