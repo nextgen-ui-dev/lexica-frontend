@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   BsBookmark,
+  BsBookmarkFill,
   BsCollection
 } from 'react-icons/bs';
 
@@ -13,18 +14,21 @@ import {
 } from 'react-icons/bi';
 
 import { toast } from 'react-toastify';
-import ToastProvider from '@/app/providers/ToastProvider';
+
+import useBookmarkArticles from '@/app/hooks/useBookmarkArticles';
 
 interface ArticleDetailMenuProps {
-  expanded?: boolean
+  expanded?: boolean,
+  bookmarked?: boolean,
+  onBookmark: () => void
 }
 
 const ArticleDetailMenu = ({
-  expanded
+  expanded,
+  bookmarked,
+  onBookmark
 }: ArticleDetailMenuProps) => {
-  const copyLink = () => {
-    
-  };
+  const bookmarks = useBookmarkArticles();
 
   return (
     <div className='relative w-full h-full'>
@@ -32,11 +36,20 @@ const ArticleDetailMenu = ({
         <li className={`flex flex-col items-center hover:cursor-pointer group 
         pr-4 md:pr-8
         `}>
-          <div>
-            <BsBookmark className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
+          <div onClick={() => {
+            onBookmark();
+          }}>
+            {
+              bookmarked ? 
+              <BsBookmarkFill className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
+              :
+              <BsBookmark className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
+            }
           </div>
           <div className={`text-white py-1.5 md:py-3`}>
-            Bookmark
+            {
+              bookmarked ? 'Hapus' : 'Simpan'
+            }
           </div>
         </li>
         <li className={`flex flex-col items-center hover:cursor-pointer group 

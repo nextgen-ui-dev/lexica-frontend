@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import ScrollToTop from "react-scroll-to-top";
 import ToastProvider from '@/app/providers/ToastProvider';
+import useBookmarkArticles from '@/app/hooks/useBookmarkArticles';
 
 import Container from '@/app/components/core/layout/Container';
 import DifficultyDropdown from '@/app/components/articles/DifficultyDropdown';
@@ -27,6 +28,16 @@ const ArticleDetails = ({
 }: ArticleDetailsProps) => {
   const params = useParams();
   const id = parseInt(params.id);
+  const bookmarks = useBookmarkArticles();
+
+  const handleBookmark = () => {
+    if (bookmarks.isBookmarked(id)) {
+      bookmarks.removeBookmark(id);
+    }
+    else {
+      bookmarks.addBookmark(id);
+    }
+  }
 
   // @Jere todo get data from API
   const article = Articles.filter(art => art.id === id)[0];
@@ -43,7 +54,10 @@ const ArticleDetails = ({
         <div className='w-full max-w-md'>
           <h2 className='px-2 pt-6 md:mt-8 text-md md:text-xl text-center text-white'>{article.title}</h2>
           <div className='mt-4 md:mt-6 md:mb-4'>
-            <ArticleDetailMenu />
+            <ArticleDetailMenu
+              bookmarked={bookmarks.isBookmarked(id)}
+              onBookmark={handleBookmark}
+            />
           </div>
         </div>
       </section>
@@ -104,6 +118,7 @@ const ArticleDetails = ({
                   src='/images/test.jpg' 
                   alt='Article image' 
                   fill
+                  priority
                   style={{
                     objectFit: 'cover',
                   }}
