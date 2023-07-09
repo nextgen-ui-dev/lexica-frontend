@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { FaUserFriends } from 'react-icons/fa';
 import Searchbar from '../core/molecules/Searchbar';
 
 type Props = {}
@@ -9,8 +10,11 @@ type Props = {}
 const FriendsHeader = (props: Props) => {
   return (
     <div className={`flex flex-row justify-between items-center py-8 px-3 md:px-6`}>
-      <div className={`text-lg text-slate-700`}>
-        {23} Teman
+      <div className={`flex flex-col items-center md:flex-row text-lg text-slate-700 group`}>
+        <div className='group-hover:text-primary-500'>
+          {423}
+        </div> 
+        <FaUserFriends className='md:ml-2  group-hover:text-primary-500 duration-300' />
       </div>
 
       <div className={`flex flex-row`}>
@@ -24,7 +28,7 @@ const FriendsHeader = (props: Props) => {
           )}
         </div>
 
-        <div className='px-1.5 md:px-4'></div>
+        <div className='px-1.5 md:px-3'></div>
 
         <div>
           {window.innerWidth > 768 ? (

@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '../components/core/layout/Container';
 import FriendsHeader from '../components/friends/FriendsHeader';
 import FriendRowItem from '../components/friends/FriendRowItem';
+import { FriendsConstants } from '../constants/friends.constants';
 
 type Props = {}
 
@@ -13,16 +14,20 @@ const FriendsPage = (props: Props) => {
       </div>
 
       <Container>
-        <div className=''>
+        <div className='w-full'>
           <FriendsHeader />
           
-            {Array.from(Array(20)).map((i, k) => {
+          <div className='flex flex-col divide-y-2'>
+            {FriendsConstants.map((friend, id) => {
               return (
-                <FriendRowItem key={k} />
+                <FriendRowItem key={id} friend={friend} />
               )
             })}
+          </div>
         </div>
       </Container>
+
+      <div className='mb-[24px] md:mb-[36px]'></div>
     </div>
   );
 };
