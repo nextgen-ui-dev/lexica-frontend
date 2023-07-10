@@ -6,7 +6,7 @@ import Footer from './components/core/organism/footer/Footer'
 import Navbar from './components/core/organism/navbar/Navbar'
 import NextAuthSessionProvider from './providers/SessionProvider'
 import getCurrentUser from './actions/getCurrentUser'
-import OnboardingModal from './components/core/organism/modals/OnboardingModal'
+import TanstackQueryProvider from './providers/TanstackQueryProvider'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -19,7 +19,6 @@ const hind = Hind({
   variable: '--font-hind',
   weight: ['300', '400', '500', '600', '700']
 });
-
 
 export const metadata = {
   title: 'Lexica',
@@ -35,14 +34,16 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}>
-        <NextAuthSessionProvider>
-          <LoginModal />
-          <HydrationHandler>
-            <Navbar session={session} />
-            {children}
-            <Footer />
-          </HydrationHandler>
-        </NextAuthSessionProvider>
+        <TanstackQueryProvider>
+          <NextAuthSessionProvider>
+            <LoginModal />
+            <HydrationHandler>
+              <Navbar session={session} />
+              {children}
+              <Footer />
+            </HydrationHandler>
+          </NextAuthSessionProvider>
+        </TanstackQueryProvider>
       </body>
     </html>
   )
