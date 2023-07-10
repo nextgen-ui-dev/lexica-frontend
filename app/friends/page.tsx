@@ -1,34 +1,56 @@
-import React from 'react'
+'use client';
+
+import React, { useCallback } from 'react';
 import Container from '../components/core/layout/Container';
-import FriendsHeader from '../components/friends/FriendsHeader';
+
+import FriendsFeedHeader from '../components/friends/FriendsFeedHeader';
 import FriendRowItem from '../components/friends/FriendRowItem';
 import { FriendsConstants } from '../constants/friends.constants';
 
-type Props = {}
+const FriendsPage = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchResults, setSearchResults] = React.useState(FriendsConstants);
 
-const FriendsPage = (props: Props) => {
+  const handleQuery = (newQuery: string) => {
+    setSearchQuery(newQuery);
+  };
+
+  const handleSearch = useCallback(() => {
+    setSearchResults(FriendsConstants.filter((friend) => {
+      return friend.name!.toLowerCase().includes(searchQuery.toLowerCase());
+    }));
+
+  }, [searchQuery]);
+
+  React.useEffect(() => {
+    handleSearch();
+  }, [searchQuery]);
+
   return (
-    <div className={`relative w-full`}>
-      <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
-        {/* Hero */}
-      </div>
-
-      <Container>
-        <div className='w-full'>
-          <FriendsHeader />
-          
-          <div className='flex flex-col divide-y-2'>
-            {FriendsConstants.map((friend, id) => {
-              return (
-                <FriendRowItem key={id} friend={friend} />
-              )
-            })}
-          </div>
+    <>
+      <div className={`relative w-full h-screen`}> {/* parent */}
+        <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
         </div>
-      </Container>
 
-      <div className='mb-[24px] md:mb-[36px]'></div>
-    </div>
+        <Container>
+          <div className='w-full'>
+            <FriendsFeedHeader
+              searchQuery={searchQuery}
+              handleQuery={handleQuery}
+            />
+            <div className='flex flex-col divide-y-2'> {/* scrollable feed */}
+              {searchResults.map((friend, id) => {
+                return (
+                  <FriendRowItem key={id} friend={friend} />
+                )
+              })}
+            </div>
+          </div>
+        </Container>
+
+        <div className='mb-[24px] md:mb-[36px]'></div>
+      </div>
+    </>
   );
 };
 

@@ -17,17 +17,17 @@ export const FriendsConstants: User[] = [
     image: 'https://lh3.googleusercontent.com/a/AAcHTtdYhRpn-sa_OAUSRoyJDSTpGqBq6EErBeg5H8T7LyM9asw=s96-c'
   },
   {
-    name: 'Lexica User',
+    name: 'Jeremy A. Prathama',
     email: 'user@email.com',
     image: 'https://lh3.googleusercontent.com/a/AAcHTtdYhRpn-sa_OAUSRoyJDSTpGqBq6EErBeg5H8T7LyM9asw=s96-c'
   },
   {
-    name: 'Lexica User',
+    name: 'Jeremy Gerald Situmorang',
     email: 'user@email.com',
     image: 'https://lh3.googleusercontent.com/a/AAcHTtdYhRpn-sa_OAUSRoyJDSTpGqBq6EErBeg5H8T7LyM9asw=s96-c'
   },
   {
-    name: 'Lexica User',
+    name: 'Jeremy Polin',
     email: 'user@email.com',
     image: 'https://lh3.googleusercontent.com/a/AAcHTtdYhRpn-sa_OAUSRoyJDSTpGqBq6EErBeg5H8T7LyM9asw=s96-c'
   },

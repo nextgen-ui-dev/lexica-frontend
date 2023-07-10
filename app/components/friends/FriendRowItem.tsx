@@ -14,7 +14,7 @@ const FriendRowItem = ({
   friend
 }: FriendRowItemProps) => {
   return (
-    <div className={`w-full flex flex-row justify-between`}>
+    <div className={`w-full flex flex-row justify-between py-1 md:py-2 hover:bg-gray-100 duration-300`}>
       <div className='flex flex-row'>
         <div className='relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]'>
           {window.innerWidth > 768 ? (
