@@ -3,62 +3,71 @@
 import React from 'react'
 import Image from 'next/image'
 
-import useFindFriends from '@/app/hooks/useFindFriends';
 import FriendRowItem from '@/app/components/friends/FriendRowItem';
+import Container from '@/app/components/core/layout/Container';
+import AddFriendsHeader from '@/app/components/friends/AddFriendsHeader';
 
 import { User } from '@/app/types/session.type';
-import { FriendsConstants } from '@/app/constants/friends.constants';
+import { FriendsConstants as DummyUsers } from '@/app/constants/friends.constants';
 
 type Props = {}
 
 const AddFriend = (props: Props) => {
-  const friends = useFindFriends();
-  const [searchResults, setSearchResults] = React.useState<User[]>([]);
+  const [searchQuery, setSearchQuery] = React.useState<string>('');
+  const [searchResults, setSearchResults] = React.useState<User[]>(DummyUsers);
+
+  const handleQuery = (newQuery: string) => {
+    setSearchQuery(newQuery);
+  };
+
+  const handleSearch = React.useCallback(() => {
+    setSearchResults(DummyUsers.filter((user) => {
+      return user.name!.toLowerCase().includes(searchQuery.toLowerCase());
+    }));
+  }, [searchQuery]);
 
   React.useEffect(() => {
-    setSearchResults(FriendsConstants.filter((user) => {
-      return user.name!.toLowerCase().includes(friends.searchQuery.toLowerCase());
-    }));
-  }, [friends.searchQuery]);
-
-  if (searchResults.length === 0) {
-    return (
-      <div className={`relative w-full`}>
-        <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
-        </div>
-        <div className='relative w-full h-[60dvh] md:h-[75dvh]'>
-          <div className={`
-            absolute top-1/3 left-1/2  -translate-y-1/2 -translate-x-1/2
-            w-[240px] h-[240px] md:w-[400px] md:h-[400px]
-          `}>
-            <Image
-              src='/images/friends_no_results.svg'
-              alt='Empty'
-              fill
-            />
-            <div className='w-[300px] md:w-[800px] text-center absolute top-[100%] left-1/2 -translate-y-1/2 -translate-x-1/2 text-slate-600 text-md md:text-lg'>
-              Coba cari temanmu dengan email atau nama mereka!
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+    handleSearch();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
 
   return (
-    <>
-      <div className='flex flex-col divide-y-2'>
-        {/* {FriendsConstants.filter((friend) => {
-          // return 
-        })} */}
-        {FriendsConstants.map((friend, id) => {
-          return (
-            <FriendRowItem key={id} friend={friend} />
-          )
-        })}
+    <div className={`relative w-full min-h-[100dvh] md:min-h-[75dvh]`}>
+      <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
       </div>
-    </>
+
+      <Container>
+        <div className='w-full'>
+          <AddFriendsHeader
+            searchQuery={searchQuery}
+            handleQuery={handleQuery}
+          />
+          <div className='relative flex flex-col divide-y-2'> {/* scrollable feed */}
+            {searchResults.length == 0 && (
+              <div className={`relative mx-auto w-[200px] h-[200px] md:h-[400px] md:w-[400px]`}>
+                <Image
+                  src='/images/friends_no_results.svg'
+                  alt='Empty'
+                  fill
+                />
+                <div className='w-[300px] md:w-[800px] text-center absolute top-[100%] left-1/2 -translate-y-1/2 -translate-x-1/2 text-slate-600 text-md md:text-lg'>
+                  Cari temanmu lewat email atau nama mereka!
+                </div>
+              </div>
+            )}
+
+            {searchResults.length > 0 && searchResults.map((friend, id) => {
+              return (
+                // @Jere Todo Change to add friend row item
+                <FriendRowItem key={id} friend={friend} />
+              )
+            })}
+          </div>
+        </div>
+      </Container>
+      <div className='mb-[24px] md:mb-[36px]'></div>
+    </div>
   );
-}
+};
 
 export default AddFriend;

@@ -11,7 +11,7 @@ import { User } from '../types/session.type';
 import { FriendsConstants } from '../constants/friends.constants';
 
 const FriendsPage = () => {
-  const [searchQuery, setSearchQuery] = React.useState<string>('sadfsdf');
+  const [searchQuery, setSearchQuery] = React.useState<string>('');
   const [searchResults, setSearchResults] = React.useState<User[]>(FriendsConstants);
 
   const handleQuery = (newQuery: string) => {
