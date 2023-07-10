@@ -3,12 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 
-import FriendRowItem from '@/app/components/friends/FriendRowItem';
+import AddFriendRowItem from '@/app/components/friends/AddFriendRowItem';
 import Container from '@/app/components/core/layout/Container';
 import AddFriendsHeader from '@/app/components/friends/AddFriendsHeader';
 
 import { User } from '@/app/types/session.type';
-import { FriendsConstants as DummyUsers } from '@/app/constants/friends.constants';
+import { UsersConstants as DummyUsers } from '@/app/constants/users.constants';
 
 type Props = {}
 
@@ -32,9 +32,8 @@ const AddFriend = (props: Props) => {
   }, [searchQuery]);
 
   return (
-    <div className={`relative w-full min-h-[100dvh] md:min-h-[75dvh]`}>
-      <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
-      </div>
+    <div className={`relative w-full min-h-[100dvh]`}>
+      <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}></div>
 
       <Container>
         <div className='w-full'>
@@ -56,10 +55,10 @@ const AddFriend = (props: Props) => {
               </div>
             )}
 
-            {searchResults.length > 0 && searchResults.map((friend, id) => {
+            {/* TODO add pagination */}
+            {searchResults.length > 0 && searchResults.filter((friend, idx) => idx < 100).map((friend, id) => {
               return (
-                // @Jere Todo Change to add friend row item
-                <FriendRowItem key={id} friend={friend} />
+                <AddFriendRowItem key={id} friend={friend} />
               )
             })}
           </div>
