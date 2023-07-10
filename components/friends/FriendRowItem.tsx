@@ -5,12 +5,15 @@ import React from "react";
 import Avatar from "../core/molecules/Avatar";
 import { User } from "@/types/session.type";
 import { FaTrash } from "react-icons/fa";
+import useFriends from "@/hooks/useFriends";
 
 interface FriendRowItemProps {
   friend: User;
 }
 
 const FriendRowItem = ({ friend }: FriendRowItemProps) => {
+  const friends = useFriends();
+
   return (
     <div
       className={`w-full flex flex-row items-center justify-between py-1 border-b md:py-2 hover:bg-primary-100 transition ease-out duration-200`}
@@ -35,6 +38,7 @@ const FriendRowItem = ({ friend }: FriendRowItemProps) => {
       <div
         className={`flex flex-row items-center mr-2 md:mr-4 
       text-slate-600 hover:text-red-500 hover:cursor-pointer duration-300`}
+        onClick={() => friends.removeFriends(friend.email!)}
       >
         <FaTrash />
         {window.innerWidth > 768 ? (
