@@ -3,12 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 
-import FriendRowItem from '@/app/components/friends/FriendRowItem';
+import AddFriendRowItem from '@/app/components/friends/AddFriendRowItem';
 import Container from '@/app/components/core/layout/Container';
 import AddFriendsHeader from '@/app/components/friends/AddFriendsHeader';
 
 import { User } from '@/app/types/session.type';
-import { FriendsConstants as DummyUsers } from '@/app/constants/friends.constants';
+import { UsersConstants as DummyUsers } from '@/app/constants/users.constants';
 
 type Props = {}
 
@@ -56,10 +56,10 @@ const AddFriend = (props: Props) => {
               </div>
             )}
 
-            {searchResults.length > 0 && searchResults.map((friend, id) => {
+            {/* TODO add pagination */}
+            {searchResults.length > 0 && searchResults.filter((friend, idx) => idx < 100).map((friend, id) => {
               return (
-                // @Jere Todo Change to add friend row item
-                <FriendRowItem key={id} friend={friend} />
+                <AddFriendRowItem key={id} friend={friend} />
               )
             })}
           </div>
