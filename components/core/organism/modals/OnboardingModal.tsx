@@ -29,24 +29,34 @@ const OnboardingModal = () => {
   const educations = [
     { value: 'smp', label: 'Sekolah Menengah Pertama (SMP)' },
     { value: 'sma', label: 'Sekolah Menengah Atas (SMA)' },
-    { value: 'sarjana', label: 'Sarjana' },
-    { value: 'lainnya', label: 'Lainnya' },
-  ];
-
-  const locations = [
-    { value: 'jakarta', label: 'Jakarta' },
-    { value: 'bogor', label: 'Bogor' },
-    { value: 'depok', label: 'Depok' },
-    { value: 'tanggerang', label: 'Tanggerang' },
-    { value: 'Bekasi', label: 'Bekasi' },
+    { value: 'sarjana', label: 'Sarjana (S1)' },
     { value: 'lainnya', label: 'Lainnya' },
   ];
 
   const topics = [
-    { value: 'general', label: 'General' },
-    { value: 'teknologi', label: 'Teknologi' },
-    { value: 'politik', label: 'Politik' },
-    { value: 'pendidikan', label: 'Pendidikan' },
+    { value: 'umum', label: '🌏 Umum' },
+    { value: 'olahraga', label: '🎾 Olahraga'},
+    { value: 'senimusik', label: '🎵 Seni & Musik' },
+    { value: 'kesehatan', label: '🏥 Kesehatan'},
+    { value: 'teknologi', label: '💻 Teknologi' },
+    { value: 'keuangan', label: '💹 Keuangan' },
+    { value: 'politik', label: '🏛️ Politik' },
+    { value: 'lainnya', label: '📰 Lainnya' },
+  ];
+
+  const locations = [
+    { value: 'jabodetabek', label: 'Jabodetabek' },
+    { value: 'jawabarat', label: 'Jawa Barat' },
+    { value: 'jawatengah', label: 'Jawa Tengah' },
+    { value: 'jawatimur', label: 'Jawa Timur' },
+    { value: 'sumatera', label: 'Sumatera' },
+    { value: 'kalimantan', label: 'Kalimantan' },
+    { value: 'sulawesi', label: 'Sulawesi' },
+    { value: 'bali', label: 'Bali' },
+    { value: 'nusatenggara', label: 'Nusa Tenggara Timur / Barat (NTT/B)' },
+    { value: 'maluku', label: 'Maluku' },
+    { value: 'papua', label: 'Papua' },
+    { value: 'luarnegeri', label: 'Luar Negeri'},
     { value: 'lainnya', label: 'Lainnya' },
   ];
 
@@ -78,38 +88,40 @@ const OnboardingModal = () => {
   let body = [
     <div className="flex flex-col gap-4">
       <div>
-        <h4>Kami merupakan teman Anda</h4>
-        <p>
-          Kami hadir sebagai solusi digital untuk membantu pelajar Indonesia
-          untuk mendapatkan akses terhadap bahan bacaan yang berkualitas serta
-          melatih kemampuan literasi lewat tingkat kesulitan artikel yang dapat
-          disesuaikan
-        </p>
+        <h4 className='mb-2 md:mb-3'>Kami akan membawamu ke petualangan membaca 📖✈️</h4>
+
+        <p>Manfaat-manfaat ini menunggumu...</p>
+        <li className='font-hind font-normal text-sm text-slate-500'>
+          Cari artikel berkualitas
+        </li>
+        <li className='font-hind font-normal text-sm text-slate-500'>
+          Atur kesulitan bacaan sesuai kemampuan
+        </li>
+        <li className='font-hind font-normal text-sm text-slate-500'>
+          Berpetualang membaca dengan teman-teman
+        </li>
+        <li className='font-hind font-normal text-sm text-slate-500'>
+          Susun artikel sesuai topik lewat fitur Koleksi
+        </li>
+        <li className='font-hind font-normal text-sm text-slate-500'>
+          Pantau perkembangan membaca di fitur Statistik
+        </li>
       </div>
-      <Button label="Selanjutnya" onClick={handleNext} />
+      <Button label="Mulai Petualangan ✈️" onClick={handleNext} />
     </div>,
     <div className="w-full flex flex-col gap-4">
       <div className="w-full px-1 space-y-4">
         <div className="space-y-2">
-          <h6>Kedudukan Anda saat ini</h6>
+          <h6>Aku merupakan seorang...</h6>
           <DropdownSelect
             placholder="Pelajar/Pengajar"
             onChange={value => setCustomValue('role', value)}
             options={roles}
           />
         </div>
+        
         <div className="space-y-2">
-          <h6>Berikan kami sedikit informasi tentang motivasi Anda</h6>
-          <Input
-            id="motivation"
-            label="Ceritakan sedikit motivasi Anda"
-            register={register}
-            errors={errors}
-            required
-          />
-        </div>
-        <div className="space-y-2">
-          <h6>Pendidikan Terakhir Anda</h6>
+          <h6>Aku sedang/telah menempuh pendidikan...</h6>
           <DropdownSelect
             placholder="Riwayat Pendidikan"
             onChange={value => setCustomValue('education', value)}
@@ -117,9 +129,9 @@ const OnboardingModal = () => {
           />
         </div>
         <div className="space-y-2">
-          <h6>Topik yang anda sukai</h6>
+          <h6>Topik favoritku adalah...</h6>
           <MultipleDropdownSelect
-            placholder="Beritahu kami topik-topik yang Anda sukai"
+            placholder="Silahkan pilih sebanyaknya"
             onChange={value => {
               setCustomValue('topic', value);
             }}
@@ -127,16 +139,26 @@ const OnboardingModal = () => {
           />
         </div>
         <div className="space-y-2">
-          <h6>Lokasi Tempat Tinggal Anda Saat Ini</h6>
+          <h6>Aku saat ini tinggal di daerah...</h6>
           <DropdownSelect
-            placholder="Lokasi"
+            placholder="Pilih lokasi"
             onChange={value => setCustomValue('location', value)}
             options={locations}
             maxHeight={100}
           />
         </div>
+        <div className="space-y-2">
+          <h6>Aku tertarik menggunakan Lexica karena...</h6>
+          <Input
+            id="motivation"
+            label="Silahkan cerita sebebasnya 😃"
+            register={register}
+            errors={errors}
+            required
+          />
+        </div>
       </div>
-      <Button label="Telusuri Lexica" onClick={handleSubmit(onSubmit)} />
+      <Button label="Simpan dan Lanjut" onClick={handleSubmit(onSubmit)} />
     </div>,
   ];
 
