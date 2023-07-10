@@ -25,7 +25,7 @@ const NavbarMenuItems = ({
                 <h5
                     data-path="/"
                     onClick={handleRoute}
-                    className={`${pathName === '/' ? 'text-white' : 'text-primary-300'} px-2 py-1 text-base font-normal cursor-pointer hover:text-white`}>Home</h5>
+                    className={`${pathName === '/' ? 'text-white' : 'text-primary-300'} px-2 py-1 text-base font-normal cursor-pointer hover:text-white`}>Beranda</h5>
                 <h5
                     data-path="/articles"
                     onClick={handleRoute}

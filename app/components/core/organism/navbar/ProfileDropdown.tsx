@@ -19,7 +19,6 @@ const ProfileDropdown = ({
   toggleExpand
 }: ProfileDropdownProps) => {
   const router = useRouter();
-  const pathName = usePathname();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute('data-path');

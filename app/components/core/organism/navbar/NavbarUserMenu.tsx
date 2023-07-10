@@ -8,7 +8,6 @@ import Avatar from '../../molecules/Avatar';
 import { User } from '@/app/types/session.type';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import ProfileDropdown from './ProfileDropdown';
-import { set } from 'react-hook-form';
 
 interface NavbarUserMenuProps {
     user?: User

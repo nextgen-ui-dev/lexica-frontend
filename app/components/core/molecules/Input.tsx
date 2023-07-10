@@ -58,7 +58,7 @@ const Input = ({
                 ${errors[id] ? 'focus:border-rose-500' : 'focus:border-primary-500'}
                 `}
             />
-            <label className={`absolute text-md duration-150 transform -translate-y-3 top-6 z-10 origin-[0] 
+            <label className={`absolute text-md duration-150 transform -translate-y-3 top-6 origin-[0] 
             ${Icon ? 'left-14' : 'left-4'}
             peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
             peer-focus:scale-75
