@@ -35,9 +35,9 @@ const OnboardingModal = () => {
 
   const topics = [
     { value: 'umum', label: '🌏 Umum' },
-    { value: 'olahraga', label: '🎾 Olahraga'},
+    { value: 'olahraga', label: '🎾 Olahraga' },
     { value: 'senimusik', label: '🎵 Seni & Musik' },
-    { value: 'kesehatan', label: '🏥 Kesehatan'},
+    { value: 'kesehatan', label: '🏥 Kesehatan' },
     { value: 'teknologi', label: '💻 Teknologi' },
     { value: 'keuangan', label: '💹 Keuangan' },
     { value: 'politik', label: '🏛️ Politik' },
@@ -56,7 +56,7 @@ const OnboardingModal = () => {
     { value: 'nusatenggara', label: 'Nusa Tenggara Timur / Barat (NTT/B)' },
     { value: 'maluku', label: 'Maluku' },
     { value: 'papua', label: 'Papua' },
-    { value: 'luarnegeri', label: 'Luar Negeri'},
+    { value: 'luarnegeri', label: 'Luar Negeri' },
     { value: 'lainnya', label: 'Lainnya' },
   ];
 
@@ -88,22 +88,24 @@ const OnboardingModal = () => {
   let body = [
     <div className="flex flex-col gap-4">
       <div>
-        <h4 className='mb-2 md:mb-3'>Kami akan membawamu ke petualangan membaca 📖✈️</h4>
+        <h4 className="mb-2 md:mb-3">
+          Kami akan membawamu ke petualangan membaca 📖✈️
+        </h4>
 
         <p>Manfaat-manfaat ini menunggumu...</p>
-        <li className='font-hind font-normal text-sm text-slate-500'>
+        <li className="font-hind font-normal text-sm text-slate-500">
           Cari artikel berkualitas
         </li>
-        <li className='font-hind font-normal text-sm text-slate-500'>
+        <li className="font-hind font-normal text-sm text-slate-500">
           Atur kesulitan bacaan sesuai kemampuan
         </li>
-        <li className='font-hind font-normal text-sm text-slate-500'>
+        <li className="font-hind font-normal text-sm text-slate-500">
           Berpetualang membaca dengan teman-teman
         </li>
-        <li className='font-hind font-normal text-sm text-slate-500'>
+        <li className="font-hind font-normal text-sm text-slate-500">
           Susun artikel sesuai topik lewat fitur Koleksi
         </li>
-        <li className='font-hind font-normal text-sm text-slate-500'>
+        <li className="font-hind font-normal text-sm text-slate-500">
           Pantau perkembangan membaca di fitur Statistik
         </li>
       </div>
@@ -119,7 +121,7 @@ const OnboardingModal = () => {
             options={roles}
           />
         </div>
-        
+
         <div className="space-y-2">
           <h6>Aku sedang/telah menempuh pendidikan...</h6>
           <DropdownSelect
