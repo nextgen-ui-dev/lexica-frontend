@@ -5,6 +5,7 @@ const imageUrl =
 
 export const Collections: Collection[] = [
   {
+    id: 1,
     name: "Teknologi Terkini",
     creator: {
       name: "James Riady Susilo Wardhono",
@@ -15,13 +16,58 @@ export const Collections: Collection[] = [
     thumbnailUrl: "/images/no_image.png",
   },
   {
+    id: 2,
     name: "Random",
     creator: {
       name: "Jason Edbert",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [6, 8],
+    articles: [5, 6],
+    thumbnailUrl: "/images/no_image.png",
+  },
+  {
+    id: 3,
+    name: "Teknologi Terkini",
+    creator: {
+      name: "James Riady Susilo Wardhono",
+      email: "user@email.com",
+      image: imageUrl,
+    },
+    articles: [1, 2, 3, 4],
+    thumbnailUrl: "/images/no_image.png",
+  },
+  {
+    id: 4,
+    name: "Random",
+    creator: {
+      name: "Jason Edbert",
+      email: "user@email.com",
+      image: imageUrl,
+    },
+    articles: [5, 6],
+    thumbnailUrl: "/images/no_image.png",
+  },
+  {
+    id: 5,
+    name: "Teknologi Terkini",
+    creator: {
+      name: "James Riady Susilo Wardhono",
+      email: "user@email.com",
+      image: imageUrl,
+    },
+    articles: [1, 2, 3, 4],
+    thumbnailUrl: "/images/no_image.png",
+  },
+  {
+    id: 6,
+    name: "Random",
+    creator: {
+      name: "Jason Edbert",
+      email: "user@email.com",
+      image: imageUrl,
+    },
+    articles: [5, 6],
     thumbnailUrl: "/images/no_image.png",
   },
 ];

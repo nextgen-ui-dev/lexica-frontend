@@ -6,9 +6,10 @@ import { BiBookBookmark } from "react-icons/bi";
 
 interface CollectionCardProps {
   collection: Collection;
+  onClick?: () => void;
 }
 
-const CollectionCard = ({ collection }: CollectionCardProps) => {
+const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
   return (
     <div
       className={`
@@ -18,9 +19,11 @@ const CollectionCard = ({ collection }: CollectionCardProps) => {
         min-h-[160px] md:min-h-[240px] 
         h-[160px] md:h-[280px] 
         bg-transparent
+        hover:cursor-pointer
         overflow-hidden
         hover:scale-105 transition duration-300
         `}
+      onClick={onClick}
     >
       <div
         className={`relative w-1/2 md:w-full min-h-full md:min-h-[160px] overflow-hidden group`}
@@ -36,16 +39,16 @@ const CollectionCard = ({ collection }: CollectionCardProps) => {
         />
       </div>
 
-      <div className={`flex flex-col h-full w-full justify-start top-0 px-3 py-4`}>
+      <div
+        className={`flex flex-col h-full w-full justify-start top-0 px-3 py-4`}
+      >
         <div
           className={`text-md md:text-lg text-slate-700 font-semibold cursor-default`}
         >
           {collection.name}
         </div>
-        
-        <div
-          className={`flex flex-row justify-start cursor-default py-1`}
-        >
+
+        <div className={`flex flex-row justify-start cursor-default py-1`}>
           <div className="w-[20px] h-[20px]">
             <Avatar small src={collection.creator.image} />
           </div>

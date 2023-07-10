@@ -1,32 +1,17 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import CollectionCard from "./CollectionCard";
 import { Collection } from "@/types/collection.type";
-import { Collections as CollectionsConstant } from "@/constants/collections.constant";
+import { Collections as DummyCollections } from "@/constants/collections.constant";
 
-const CollectionsFeed = () => {
-  const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [searchResults, setSearchResults] = React.useState<Collection[]>([]);
+interface CollectionProps {
+  collections: Collection[];
+}
 
-  const handleQuery = (newQuery: string) => {
-    setSearchQuery(newQuery);
-  };
-
-  const handleSearch = React.useCallback(() => {
-    setSearchResults(
-      CollectionsConstant.filter((collection) => {
-        return collection.name
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
-      }),
-    );
-  }, [searchQuery]);
-
-  React.useEffect(() => {
-    handleSearch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]);
+const CollectionsFeed = ({ collections }: CollectionProps) => {
+  const router = useRouter();
 
   return (
     <div
@@ -34,25 +19,19 @@ const CollectionsFeed = () => {
           flex flex-col py-[20px] 
           md:grid md:grid-cols-3 md:gap-8 md:py-[32px]`}
     >
-      <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={CollectionsConstant[0]} />
-      </div>
-
-      <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={CollectionsConstant[0]} />
-      </div>
-
-      <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={CollectionsConstant[0]} />
-      </div>
-
-      <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={CollectionsConstant[1]} />
-      </div>
-
-      <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={CollectionsConstant[1]} />
-      </div>
+      {collections.length > 0 &&
+        collections
+          .filter((item, idx) => idx < 100)
+          .map((item, id) => {
+            return (
+              <div key={id} className="pt-[10px] md:pt-[0px]">
+                <CollectionCard
+                  collection={item}
+                  onClick={() => router.push(`/collections/${item.id}`)}
+                />
+              </div>
+            );
+          })}
     </div>
   );
 };

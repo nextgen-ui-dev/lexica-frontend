@@ -16,9 +16,7 @@ import { Articles } from "@/constants/article.constant";
 
 const difficulty = ["Lanjutan", "Menengah", "Pemula"];
 
-interface ArticleDetailsProps {}
-
-const ArticleDetails = ({}: ArticleDetailsProps) => {
+const ArticleDetails = () => {
   const params = useParams();
   const id = parseInt(params.id);
 

@@ -27,37 +27,37 @@ const OnboardingModal = () => {
   ];
 
   const educations = [
-    { value: 'smp', label: 'Sekolah Menengah Pertama (SMP)' },
-    { value: 'sma', label: 'Sekolah Menengah Atas (SMA)' },
-    { value: 'sarjana', label: 'Sarjana (S1)' },
-    { value: 'lainnya', label: 'Lainnya' },
+    { value: "smp", label: "Sekolah Menengah Pertama (SMP)" },
+    { value: "sma", label: "Sekolah Menengah Atas (SMA)" },
+    { value: "sarjana", label: "Sarjana (S1)" },
+    { value: "lainnya", label: "Lainnya" },
   ];
 
   const topics = [
-    { value: 'umum', label: '🌏 Umum' },
-    { value: 'olahraga', label: '🎾 Olahraga' },
-    { value: 'senimusik', label: '🎵 Seni & Musik' },
-    { value: 'kesehatan', label: '🏥 Kesehatan' },
-    { value: 'teknologi', label: '💻 Teknologi' },
-    { value: 'keuangan', label: '💹 Keuangan' },
-    { value: 'politik', label: '🏛️ Politik' },
-    { value: 'lainnya', label: '📰 Lainnya' },
+    { value: "umum", label: "🌏 Umum" },
+    { value: "olahraga", label: "🎾 Olahraga" },
+    { value: "senimusik", label: "🎵 Seni & Musik" },
+    { value: "kesehatan", label: "🏥 Kesehatan" },
+    { value: "teknologi", label: "💻 Teknologi" },
+    { value: "keuangan", label: "💹 Keuangan" },
+    { value: "politik", label: "🏛️ Politik" },
+    { value: "lainnya", label: "📰 Lainnya" },
   ];
 
   const locations = [
-    { value: 'jabodetabek', label: 'Jabodetabek' },
-    { value: 'jawabarat', label: 'Jawa Barat' },
-    { value: 'jawatengah', label: 'Jawa Tengah' },
-    { value: 'jawatimur', label: 'Jawa Timur' },
-    { value: 'sumatera', label: 'Sumatera' },
-    { value: 'kalimantan', label: 'Kalimantan' },
-    { value: 'sulawesi', label: 'Sulawesi' },
-    { value: 'bali', label: 'Bali' },
-    { value: 'nusatenggara', label: 'Nusa Tenggara Timur / Barat (NTT/B)' },
-    { value: 'maluku', label: 'Maluku' },
-    { value: 'papua', label: 'Papua' },
-    { value: 'luarnegeri', label: 'Luar Negeri' },
-    { value: 'lainnya', label: 'Lainnya' },
+    { value: "jabodetabek", label: "Jabodetabek" },
+    { value: "jawabarat", label: "Jawa Barat" },
+    { value: "jawatengah", label: "Jawa Tengah" },
+    { value: "jawatimur", label: "Jawa Timur" },
+    { value: "sumatera", label: "Sumatera" },
+    { value: "kalimantan", label: "Kalimantan" },
+    { value: "sulawesi", label: "Sulawesi" },
+    { value: "bali", label: "Bali" },
+    { value: "nusatenggara", label: "Nusa Tenggara Timur / Barat (NTT/B)" },
+    { value: "maluku", label: "Maluku" },
+    { value: "papua", label: "Papua" },
+    { value: "luarnegeri", label: "Luar Negeri" },
+    { value: "lainnya", label: "Lainnya" },
   ];
 
   const handleNext = useCallback(() => {
@@ -134,8 +134,8 @@ const OnboardingModal = () => {
           <h6>Topik favoritku adalah...</h6>
           <MultipleDropdownSelect
             placholder="Silahkan pilih sebanyaknya"
-            onChange={value => {
-              setCustomValue('topic', value);
+            onChange={(value) => {
+              setCustomValue("topic", value);
             }}
             options={topics}
           />
@@ -144,7 +144,7 @@ const OnboardingModal = () => {
           <h6>Aku saat ini tinggal di daerah...</h6>
           <DropdownSelect
             placholder="Pilih lokasi"
-            onChange={value => setCustomValue('location', value)}
+            onChange={(value) => setCustomValue("location", value)}
             options={locations}
             maxHeight={100}
           />

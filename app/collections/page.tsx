@@ -5,12 +5,10 @@ import Container from "../../components/core/layout/Container";
 import Searchbar from "../../components/core/molecules/Searchbar";
 import CollectionsFeed from "../../components/collections/CollectionsFeed";
 
-import { Collections as DummyCollections } from "../../constants/collections.constant";
-import { Collection } from "../../types/collection.type";
+import { Collection } from "@/types/collection.type";
+import { Collections as DummyCollections } from "@/constants/collections.constant";
 
-interface CollectionProps {}
-
-const Collections = ({}: CollectionProps) => {
+const CollectionsPage = () => {
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] =
     React.useState<Collection[]>(DummyCollections);
@@ -22,8 +20,8 @@ const Collections = ({}: CollectionProps) => {
   const handleSearch = React.useCallback(() => {
     setSearchResults(
       DummyCollections.filter((collection) => {
-        return collection
-          .name!.toLowerCase()
+        return collection.name
+          .toLowerCase()
           .includes(searchQuery.toLowerCase());
       }),
     );
@@ -36,14 +34,15 @@ const Collections = ({}: CollectionProps) => {
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
-      <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
+      <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}>
+      </div>
 
       <div className="w-full bg-primary-600">
         <div className="w-full bg-backdrop rounded-t-[6dvh]">
           <Container expanded>
             <div className="flex flex-row justify-between pt-[24px] md:pt-[40px]">
               <div className="text-xl md:text-3xl text-slate-800 font-semibold">
-                Koleksi
+                Koleksi Saya
               </div>
 
               {window.innerWidth > 768 ? (
@@ -67,7 +66,7 @@ const Collections = ({}: CollectionProps) => {
                 />
               )}
             </div>
-            <CollectionsFeed />
+            <CollectionsFeed collections={searchResults} />
           </Container>
         </div>
       </div>
@@ -75,4 +74,4 @@ const Collections = ({}: CollectionProps) => {
   );
 };
 
-export default Collections;
+export default CollectionsPage;
