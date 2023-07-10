@@ -14,15 +14,11 @@ interface FriendsHeaderProps {
   handleQuery: (newQuery: string) => void;
 }
 
-const AddFriendsHeader = ({
-  searchQuery,
-  handleQuery
-}: FriendsHeaderProps) => {
+const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
   const router = useRouter();
   const pathName = usePathname();
   const friends = useFindFriends();
 
-  
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute('data-path');
     if (targetPath) {
@@ -31,39 +27,42 @@ const AddFriendsHeader = ({
   };
 
   return (
-    <div className={`flex flex-row justify-between items-center py-8 px-1.5 md:px-2`}>
-      <div className='text-xl md:text-3xl text-slate-800 font-semibold'>
+    <div
+      className={`flex flex-row justify-between items-center py-8 px-1.5 md:px-2`}
+    >
+      <div className="text-xl md:text-3xl text-slate-800 font-semibold">
         Cari Teman
       </div>
 
       {/* Add Friend */}
-      <div 
+      <div
         className={`flex flex-row`}
         data-path={`/friends/add`}
         onClick={handleRoute}
       >
-          {window.innerWidth > 768 ? (
-            <Searchbar 
-              large 
-              placeholder='Cari lewat email' 
-              controlValue={searchQuery}
-              controlCallback={(e) => {
-                handleQuery(e.target.value);
-              }}
-            />
-          ) : (
-            <Searchbar 
-              mobile large 
-              placeholder='Cari lewat email' 
-              controlValue={searchQuery}
-              controlCallback={(e) => {
-                  handleQuery(e.target.value);
-                }}
-            />
-          )}
+        {window.innerWidth > 768 ? (
+          <Searchbar
+            large
+            placeholder="Cari lewat email"
+            controlValue={searchQuery}
+            controlCallback={e => {
+              handleQuery(e.target.value);
+            }}
+          />
+        ) : (
+          <Searchbar
+            mobile
+            large
+            placeholder="Cari lewat email"
+            controlValue={searchQuery}
+            controlCallback={e => {
+              handleQuery(e.target.value);
+            }}
+          />
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AddFriendsHeader;

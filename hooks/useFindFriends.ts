@@ -1,15 +1,15 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-import { User } from "../types/session.type";
+import { User } from '../types/session.type';
 
 interface FindFriendsStore {
-  searchQuery: string,
-  setSearchQuery: (query: string) => void,
-  returnedUsers: User[],
-  setReturnedUsers: (users: User[]) => void,
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
+  returnedUsers: User[];
+  setReturnedUsers: (users: User[]) => void;
 }
 
-const useFindFriends = create<FindFriendsStore>((set) => ({
+const useFindFriends = create<FindFriendsStore>(set => ({
   searchQuery: '',
   setSearchQuery: (query: string) => {
     set({ searchQuery: query });
@@ -17,7 +17,7 @@ const useFindFriends = create<FindFriendsStore>((set) => ({
   returnedUsers: [],
   setReturnedUsers: (users: User[]) => {
     set({ returnedUsers: users });
-  }
+  },
 }));
 
 export default useFindFriends;

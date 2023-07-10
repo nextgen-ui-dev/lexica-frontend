@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "~react-toastify/dist/ReactToastify.min.css";
+@import '~react-toastify/dist/ReactToastify.min.css';
 
 @layer base {
   body {
@@ -38,14 +38,14 @@
 }
 
 @layer utilities {
-    @variants responsive {
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
+  @variants responsive {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-      .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-      }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
   }
+}

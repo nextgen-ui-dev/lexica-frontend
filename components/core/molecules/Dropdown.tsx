@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
 const Dropdown = (props: Props) => {
-  return (
-    <div>Dropdown</div>
-  )
-}
+  return <div>Dropdown</div>;
+};
 
-export default Dropdown
+export default Dropdown;

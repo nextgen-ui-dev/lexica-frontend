@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  BsBookmark,
-  BsBookmarkFill,
-  BsCollection
-} from 'react-icons/bs';
+import { BsBookmark, BsBookmarkFill, BsCollection } from 'react-icons/bs';
 
-import {
-  BiShareAlt
-} from 'react-icons/bi';
+import { BiShareAlt } from 'react-icons/bi';
 
 import { toast } from 'react-toastify';
 
@@ -15,12 +9,10 @@ import { toast } from 'react-toastify';
 import useBookmarkArticles from '@/hooks/useBookmarkArticles';
 
 interface ArticleDetailMenuProps {
-  id: number,
+  id: number;
 }
 
-const ArticleDetailMenu = ({
-  id,
-}: ArticleDetailMenuProps) => {
+const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
   // const session = await getCurrentUser();
   const bookmarks = useBookmarkArticles();
 
@@ -33,57 +25,58 @@ const ArticleDetailMenu = ({
     if (bookmarks.isBookmarked(id)) {
       bookmarks.removeBookmark(id);
       toast.success('Artikel berhasil dihapus');
-    }
-    else {
+    } else {
       bookmarks.addBookmark(id);
       toast.success('Artikel berhasil disimpan');
     }
-  }
+  };
 
   return (
-    <div className='relative w-full h-full'>
+    <div className="relative w-full h-full">
       <ul className={`flex flex-row justify-center items-center`}>
-        <li className={`flex flex-col items-center hover:cursor-pointer group 
+        <li
+          className={`flex flex-col items-center hover:cursor-pointer group 
         pr-4 md:pr-8
-        `}>
+        `}
+        >
           <div onClick={() => handleBookmark()}>
-            {
-              bookmarks.isBookmarked(id) ? 
-              <BsBookmarkFill className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
-              :
-              <BsBookmark className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
-            }
+            {bookmarks.isBookmarked(id) ? (
+              <BsBookmarkFill
+                className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`}
+              />
+            ) : (
+              <BsBookmark
+                className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`}
+              />
+            )}
           </div>
           <div className={`text-white py-1.5 md:py-3`}>
-            {
-              bookmarks.isBookmarked(id) ? 
-                'Hapus' 
-                : 
-                'Simpan'
-            }
+            {bookmarks.isBookmarked(id) ? 'Hapus' : 'Simpan'}
           </div>
         </li>
-        <li className={`flex flex-col items-center hover:cursor-pointer group 
+        <li
+          className={`flex flex-col items-center hover:cursor-pointer group 
         pr-4 md:pr-8
-        `}>
+        `}
+        >
           <div>
-            <BsCollection className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
+            <BsCollection
+              className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`}
+            />
           </div>
-          <div className={`text-white py-1.5 md:py-3`}>
-            Tambah Koleksi
-          </div>
+          <div className={`text-white py-1.5 md:py-3`}>Tambah Koleksi</div>
         </li>
-        <li 
+        <li
           className={`flex flex-col items-center hover:cursor-pointer group`}
           onClick={() => {
             navigator.clipboard.writeText(window.location.href);
             toast.success('Link disalin! Bagikan ke temanmu 😎');
           }}
         >
-          <BiShareAlt className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`} />
-          <div className={`text-white py-1.5 md:py-3`}>
-            Bagikan
-          </div>
+          <BiShareAlt
+            className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`}
+          />
+          <div className={`text-white py-1.5 md:py-3`}>Bagikan</div>
         </li>
       </ul>
     </div>

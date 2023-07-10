@@ -1,33 +1,33 @@
 'use client';
-import React from "react";
-import { IconType } from "react-icons";
+import React from 'react';
+import { IconType } from 'react-icons';
 
 interface ButtonProps {
-    label: string;
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    disabled?: boolean;
-    accent?: boolean;
-    danger?: boolean;
-    fullRounded?: boolean;
-    small?: boolean;
-    icon?: IconType;
+  label: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
+  accent?: boolean;
+  danger?: boolean;
+  fullRounded?: boolean;
+  small?: boolean;
+  icon?: IconType;
 }
 
 const Button = ({
-    label,
-    onClick,
-    disabled,
-    accent,
-    danger,
-    fullRounded,
-    small,
-    icon: Icon
+  label,
+  onClick,
+  disabled,
+  accent,
+  danger,
+  fullRounded,
+  small,
+  icon: Icon,
 }: ButtonProps) => {
-    return (
-        <button
-            onClick={onClick}
-            disabled={disabled}
-            className={`relative hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`relative hover:opacity-80 disabled:bg-gray-400 disabled:hover:opacity-100 disabled:cursor-not-allowed transition w-full 
             ${fullRounded ? 'rounded-full' : 'rounded-lg'}
             ${accent ? 'bg-primary-300' : 'bg-primary-600'}
             ${accent ? 'text-primary-600' : 'text-white'}
@@ -35,16 +35,12 @@ const Button = ({
             ${small ? 'py-1' : 'py-2'}
             ${small ? 'text-sm' : 'text-md'}
             ${small ? 'font-light' : 'font-semibold'}
-        `}>
-            {Icon && (
-                <Icon
-                    size={24}
-                    className="absolute left-4 top-2"
-                />
-            )}
-            {label}
-        </button>
-    );
-}
+        `}
+    >
+      {Icon && <Icon size={24} className="absolute left-4 top-2" />}
+      {label}
+    </button>
+  );
+};
 
 export default Button;

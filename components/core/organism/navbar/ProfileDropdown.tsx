@@ -10,14 +10,11 @@ import { signOut } from 'next-auth/react';
 import { User } from '@/types/session.type';
 
 interface ProfileDropdownProps {
-  user?: User,
-  toggleExpand: () => void
+  user?: User;
+  toggleExpand: () => void;
 }
 
-const ProfileDropdown = ({
-  user,
-  toggleExpand
-}: ProfileDropdownProps) => {
+const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
   const router = useRouter();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
@@ -30,7 +27,8 @@ const ProfileDropdown = ({
 
   return (
     <>
-      <div className={`
+      <div
+        className={`
           flex flex-col 
           absolute 
           ${window.innerWidth > 768 ? 'top-[43px]' : 'top-[38px]'}
@@ -40,17 +38,13 @@ const ProfileDropdown = ({
         `}
       >
         <div className={`px-2 md:px-3 pt-2`}>
-          <div className='text-slate-800 font-semibold'>
-            {user?.name}
-          </div>
-          <div className='text-slate-600'>
-            {user?.email}
-          </div>
+          <div className="text-slate-800 font-semibold">{user?.name}</div>
+          <div className="text-slate-600">{user?.email}</div>
         </div>
 
         <div className={`bg-gray-200 my-[6px]`}>
-          <div 
-            data-path='/friends'
+          <div
+            data-path="/friends"
             onClick={handleRoute}
             className={`flex flex-row 
             px-2 md:px-3 py-[3px] md:py-[4px] 
@@ -59,11 +53,11 @@ const ProfileDropdown = ({
             text-slate-700
             `}
           >
-            <FaUserFriends className='mr-2' />
+            <FaUserFriends className="mr-2" />
             Teman
           </div>
-          <div 
-            data-path='/collections'
+          <div
+            data-path="/collections"
             onClick={handleRoute}
             className={`flex flex-row 
             px-2 md:px-3 py-[3px] md:py-[4px] 
@@ -72,11 +66,11 @@ const ProfileDropdown = ({
             text-slate-700
             `}
           >
-            <BsCollection className='mr-2' />
+            <BsCollection className="mr-2" />
             Koleksi
           </div>
-          <div 
-            data-path='/analytics'
+          <div
+            data-path="/analytics"
             onClick={handleRoute}
             className={`flex flex-row 
             px-2 md:px-3 py-[3px] md:py-[4px] 
@@ -85,12 +79,12 @@ const ProfileDropdown = ({
             text-slate-700
             `}
           >
-            <BsBarChart className='mr-2' />
+            <BsBarChart className="mr-2" />
             Performaku
           </div>
         </div>
 
-        <div 
+        <div
           className={`flex flex-row 
             px-2 pb-2
             hover:cursor-pointer
@@ -98,11 +92,9 @@ const ProfileDropdown = ({
             group
             `}
           onClick={() => signOut()}
-          >
-          <BiLogOut className='mr-2 mt-[2px] group-hover:text-red-500 duration-300' />
-          <div className='group-hover:text-red-500 duration-300'>
-            Keluar
-          </div>
+        >
+          <BiLogOut className="mr-2 mt-[2px] group-hover:text-red-500 duration-300" />
+          <div className="group-hover:text-red-500 duration-300">Keluar</div>
         </div>
       </div>
     </>
