@@ -19,7 +19,7 @@ const FriendsPage = () => {
     setSearchQuery(newQuery);
   };
 
-  const handleSearch = useCallback(() => {
+  const handleSearch = React.useCallback(() => {
     setSearchResults(
       FriendsConstants.filter((friend) => {
         return friend.name!.toLowerCase().includes(searchQuery.toLowerCase());

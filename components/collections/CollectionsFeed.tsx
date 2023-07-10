@@ -1,10 +1,33 @@
+"use client";
+
 import React from "react";
 import CollectionCard from "./CollectionCard";
-import { Collections } from "@/constants/collections.constant";
+import { Collection } from "@/types/collection.type";
+import { Collections as CollectionsConstant } from "@/constants/collections.constant";
 
-type Props = {};
+const CollectionsFeed = () => {
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
+  const [searchResults, setSearchResults] = React.useState<Collection[]>([]);
 
-const CollectionsFeed = (props: Props) => {
+  const handleQuery = (newQuery: string) => {
+    setSearchQuery(newQuery);
+  };
+
+  const handleSearch = React.useCallback(() => {
+    setSearchResults(
+      CollectionsConstant.filter((collection) => {
+        return collection.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+      }),
+    );
+  }, [searchQuery]);
+
+  React.useEffect(() => {
+    handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
+
   return (
     <div
       className={`
@@ -12,23 +35,23 @@ const CollectionsFeed = (props: Props) => {
           md:grid md:grid-cols-3 md:gap-8 md:py-[32px]`}
     >
       <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={Collections[0]} />
+        <CollectionCard collection={CollectionsConstant[0]} />
       </div>
 
       <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={Collections[0]} />
+        <CollectionCard collection={CollectionsConstant[0]} />
       </div>
 
       <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={Collections[0]} />
+        <CollectionCard collection={CollectionsConstant[0]} />
       </div>
 
       <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={Collections[1]} />
+        <CollectionCard collection={CollectionsConstant[1]} />
       </div>
 
       <div className="pt-[10px] md:pt-[0px]">
-        <CollectionCard collection={Collections[1]} />
+        <CollectionCard collection={CollectionsConstant[1]} />
       </div>
     </div>
   );

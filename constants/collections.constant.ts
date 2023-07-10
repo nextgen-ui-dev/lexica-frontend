@@ -17,7 +17,7 @@ export const Collections: Collection[] = [
   {
     name: "Random",
     creator: {
-      name: "James Riady Susilo Wardhono",
+      name: "Jason Edbert",
       email: "user@email.com",
       image: imageUrl,
     },
