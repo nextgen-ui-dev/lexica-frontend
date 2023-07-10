@@ -81,7 +81,9 @@ const Modal = ({
                 )}
                 <div className="text-lg font-semibold">{title}</div>
               </div>
-              <div className="relative p-6 flex-auto">{body}</div>
+              <div className="relative p-6 flex-auto min-h-[20dvh] max-h-[80dvh] overflow-y-scroll">
+                {body}
+              </div>
             </div>
           </div>
         </div>
