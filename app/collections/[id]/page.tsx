@@ -18,15 +18,22 @@ const CollectionDetails = ({ collection }: CollectionDetailsProps) => {
   const collectionDummy = Collections.filter((col) => col.id === id)[0];
 
   return (
-    <div className={`relative w-full min-h-[100dvh] bg-backdrop px-2 md:px-0`}>
+    <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
       <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
 
       <Container maximum>
-        <div>
-          {collectionDummy.name} by {collectionDummy.creator.name}
+        <div 
+          className={`flex flex-col items-center text-slate-800  pt-[36px] md:pt-[48px] pb-[36px] md:pb-[48px] font-normal`}
+        >
+          <div className="font-semibold text-2xl md:text-3xl">
+            {collectionDummy.name}
+          </div>
+          <div className="text-md md:text-xl">
+            {collectionDummy.creator.name}
+          </div>
         </div>
 
-        <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4">
+        <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 px-2 md:px-0">
           {Articles.filter((article) => {
             return collectionDummy.articles.includes(article.id);
           }).map((article, id) => {
