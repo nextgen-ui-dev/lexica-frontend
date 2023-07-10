@@ -34,32 +34,32 @@ export const FriendsConstants: User[] = [
     image: imageUrl
   },
   {
-    name: 'Lexica User',
+    name: 'Andreas Budi',
     email: 'user@email.com',
     image: imageUrl
   },
   {
-    name: 'Lexica User',
+    name: 'Jasmine Ayu',
     email: 'user@email.com',
     image: imageUrl
   },
   {
-    name: 'Lexica User',
+    name: 'Anindya Putri',
     email: 'user@email.com',
     image: imageUrl
   },
   {
-    name: 'Lexica User',
+    name: 'Azzam Ramadhan',
     email: 'user@email.com',
     image: imageUrl
   },
   {
-    name: 'Lexica User',
+    name: 'Andrianto Sudharna',
     email: 'user@email.com',
     image: imageUrl
   },
   {
-    name: 'Lexica User',
+    name: 'James Riady',
     email: 'user@email.com',
     image: imageUrl
   },

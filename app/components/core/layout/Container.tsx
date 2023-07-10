@@ -8,7 +8,7 @@ const Container = ({
     children,
 }: ContainerProps) => {
     return (
-        <div className={`relative ${expanded? 'max-w-5xl' : 'max-w-4xl'} mx-auto px-4`}>
+        <div className={`relative ${expanded? 'max-w-6xl' : 'max-w-4xl'} mx-auto px-4`}>
             {children}
         </div>
     );

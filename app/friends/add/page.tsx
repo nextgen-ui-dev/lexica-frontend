@@ -32,9 +32,8 @@ const AddFriend = (props: Props) => {
   }, [searchQuery]);
 
   return (
-    <div className={`relative w-full min-h-[100dvh] md:min-h-[75dvh]`}>
-      <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
-      </div>
+    <div className={`relative w-full min-h-[100dvh]`}>
+      <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}></div>
 
       <Container>
         <div className='w-full'>

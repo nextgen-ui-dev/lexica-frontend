@@ -31,11 +31,9 @@ const AddFriendsHeader = ({
   };
 
   return (
-    <div className={`flex flex-row justify-between items-center py-8 px-3 md:px-6`}>
-      <div className={`flex flex-row items-center md:flex-row text-lg text-slate-700 group`}>
-        <div>
-          Cari Teman!
-        </div>
+    <div className={`flex flex-row justify-between items-center py-8 px-1.5 md:px-2`}>
+      <div className='text-xl md:text-3xl text-slate-800 font-semibold'>
+        Cari Teman
       </div>
 
       {/* Add Friend */}
@@ -44,23 +42,22 @@ const AddFriendsHeader = ({
         data-path={`/friends/add`}
         onClick={handleRoute}
       >
-        <div className='px-1.5 md:px-3'></div>
           {window.innerWidth > 768 ? (
             <Searchbar 
-              large placeholder='Cari lewat email' 
+              large 
+              placeholder='Cari lewat email' 
               controlValue={searchQuery}
               controlCallback={(e) => {
-                  handleQuery(e.target.value);
-                  console.log(searchQuery); // TODO delete this
-                }}
+                handleQuery(e.target.value);
+              }}
             />
           ) : (
             <Searchbar 
               mobile large 
+              placeholder='Cari lewat email' 
               controlValue={searchQuery}
               controlCallback={(e) => {
                   handleQuery(e.target.value);
-                  console.log(searchQuery); // TODO delete this
                 }}
             />
           )}

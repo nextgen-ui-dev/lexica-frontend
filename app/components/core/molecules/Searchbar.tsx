@@ -14,7 +14,7 @@ const Searchbar = ({
   controlCallback,
   large,
   mobile,
-  placeholder = 'Search keywords here'
+  placeholder = 'Cari kata kunci'
 }: SearchbarProps) => {
   return (
     <div className={`relative`}>
