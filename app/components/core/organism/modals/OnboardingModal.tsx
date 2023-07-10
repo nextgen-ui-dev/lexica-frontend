@@ -21,14 +21,16 @@ const OnboardingModal = () => {
     const onboardingModal = useOnboardingModal();
 
     const roles = [
-        { value: 'murid', label: 'Murid' },
-        { value: 'guru', label: 'Guru' },
+        { value: 'pelajar', label: 'Guru/Dosen' },
+        { value: 'pengajar', label: 'Siswa/Mahasiswa' },
+        { value: 'umum', label: 'Umum' },
     ]
 
     const educations = [
         { value: 'smp', label: 'Sekolah Menengah Pertama (SMP)' },
         { value: 'sma', label: 'Sekolah Menengah Atas (SMA)' },
-        { value: 'sarjana', label: 'Sarjana' }
+        { value: 'sarjana', label: 'Sarjana' },
+        { value: 'lainnya', label: 'Lainnya' },
     ]
 
     const locations = [
@@ -37,13 +39,15 @@ const OnboardingModal = () => {
         { value: 'depok', label: 'Depok' },
         { value: 'tanggerang', label: 'Tanggerang' },
         { value: 'Bekasi', label: 'Bekasi' },
+        { value: 'lainnya', label: 'Lainnya' },
     ]
 
     const topics = [
         { value: 'general', label: 'General' },
         { value: 'teknologi', label: 'Teknologi' },
         { value: 'politik', label: 'Politik' },
-        { value: 'pendidikan', label: 'Pendidikan' }
+        { value: 'pendidikan', label: 'Pendidikan' },
+        { value: 'lainnya', label: 'Lainnya' },
     ]
 
     const handleNext = useCallback(() => {
@@ -99,7 +103,7 @@ const OnboardingModal = () => {
                         <h6>Berikan kami sedikit informasi tentang motivasi Anda</h6>
                         <Input
                             id="motivation"
-                            label="Meningkatkan literasi"
+                            label="Ceritakan sedikit motivasi Anda"
                             register={register}
                             errors={errors}
                             required
