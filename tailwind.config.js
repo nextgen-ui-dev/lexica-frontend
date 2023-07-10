@@ -28,7 +28,7 @@ module.exports = {
           900: "#2b2689",
           950: "#1b1650",
         },
-        backdrop: "#f8f8f8"
+        backdrop: "#f8f8f8",
       },
       animation: {
         text: "text 5s ease infinite",
