@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Container from '../core/layout/Container';
-import { AiOutlineSearch } from 'react-icons/ai';
+import Image from "next/image";
+import Container from "../core/layout/Container";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const HomeHero = () => {
   return (
@@ -14,8 +14,8 @@ const HomeHero = () => {
           alt=""
           fill
           style={{
-            objectFit: 'contain',
-            objectPosition: 'center bottom',
+            objectFit: "contain",
+            objectPosition: "center bottom",
           }}
         />
       </div>

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Container from '../core/layout/Container';
-import { Articles } from '@/constants/article.constant';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { useRouter } from 'next/navigation';
+import Image from "next/image";
+import Container from "../core/layout/Container";
+import { Articles } from "@/constants/article.constant";
+import { AiOutlineSearch } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 const ArticlesHero = () => {
   const router = useRouter();
@@ -63,8 +63,8 @@ const ArticlesHero = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center bottom',
+                        objectFit: "cover",
+                        objectPosition: "center bottom",
                       }}
                       className="group-hover:scale-105 transition bg-primary-500"
                     />

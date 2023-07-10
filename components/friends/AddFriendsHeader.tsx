@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React, { MouseEvent } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import React, { MouseEvent } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-import { AiOutlinePlus } from 'react-icons/ai';
-import { FaUserFriends } from 'react-icons/fa';
-import Searchbar from '../core/molecules/Searchbar';
+import { AiOutlinePlus } from "react-icons/ai";
+import { FaUserFriends } from "react-icons/fa";
+import Searchbar from "../core/molecules/Searchbar";
 
-import useFindFriends from '@/hooks/useFindFriends';
+import useFindFriends from "@/hooks/useFindFriends";
 
 interface FriendsHeaderProps {
   searchQuery: string;
@@ -20,7 +20,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
   const friends = useFindFriends();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
-    const targetPath = e.currentTarget.getAttribute('data-path');
+    const targetPath = e.currentTarget.getAttribute("data-path");
     if (targetPath) {
       router.push(targetPath);
     }
@@ -45,7 +45,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
             large
             placeholder="Cari lewat email"
             controlValue={searchQuery}
-            controlCallback={e => {
+            controlCallback={(e) => {
               handleQuery(e.target.value);
             }}
           />
@@ -55,7 +55,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
             large
             placeholder="Cari lewat email"
             controlValue={searchQuery}
-            controlCallback={e => {
+            controlCallback={(e) => {
               handleQuery(e.target.value);
             }}
           />

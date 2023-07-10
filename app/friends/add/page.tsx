@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
-import AddFriendRowItem from '@/components/friends/AddFriendRowItem';
-import Container from '@/components/core/layout/Container';
-import AddFriendsHeader from '@/components/friends/AddFriendsHeader';
+import AddFriendRowItem from "@/components/friends/AddFriendRowItem";
+import Container from "@/components/core/layout/Container";
+import AddFriendsHeader from "@/components/friends/AddFriendsHeader";
 
-import { User } from '@/types/session.type';
-import { UsersConstants as DummyUsers } from '@/constants/users.constants';
+import { User } from "@/types/session.type";
+import { UsersConstants as DummyUsers } from "@/constants/users.constants";
 
 type Props = {};
 
 const AddFriend = (props: Props) => {
-  const [searchQuery, setSearchQuery] = React.useState<string>('');
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] = React.useState<User[]>(DummyUsers);
 
   const handleQuery = (newQuery: string) => {
@@ -22,7 +22,7 @@ const AddFriend = (props: Props) => {
 
   const handleSearch = React.useCallback(() => {
     setSearchResults(
-      DummyUsers.filter(user => {
+      DummyUsers.filter((user) => {
         return user.name!.toLowerCase().includes(searchQuery.toLowerCase());
       }),
     );
@@ -46,7 +46,7 @@ const AddFriend = (props: Props) => {
             handleQuery={handleQuery}
           />
           <div className="relative flex flex-col divide-y-2">
-            {' '}
+            {" "}
             {/* scrollable feed */}
             {searchResults.length == 0 && (
               <div

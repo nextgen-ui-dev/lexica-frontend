@@ -1,5 +1,5 @@
-'use client';
-import Select from 'react-select';
+"use client";
+import Select from "react-select";
 
 interface MultipleDropdownSelectProps {
   placholder: string;
@@ -26,8 +26,8 @@ const MultipleDropdownSelect = ({
       isClearable
       options={options}
       value={value}
-      onChange={values => {
-        onChange(values && values.map(v => v.value));
+      onChange={(values) => {
+        onChange(values && values.map((v) => v.value));
       }}
       formatOptionLabel={(option: any) => (
         <div className="flex flex-row items-center gap-3">
@@ -35,17 +35,17 @@ const MultipleDropdownSelect = ({
         </div>
       )}
       classNames={{
-        control: () => 'p-3 border-2',
-        input: () => 'text-lg',
-        option: () => 'text-lg',
+        control: () => "p-3 border-2",
+        input: () => "text-lg",
+        option: () => "text-lg",
       }}
-      theme={theme => ({
+      theme={(theme) => ({
         ...theme,
         borderRadius: 6,
         colors: {
           ...theme.colors,
-          primary: '#4436f5',
-          primary25: '#ffffff',
+          primary: "#4436f5",
+          primary25: "#ffffff",
         },
       })}
     />

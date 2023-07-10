@@ -1,5 +1,5 @@
-'use client';
-import Select from 'react-select';
+"use client";
+import Select from "react-select";
 
 interface DropdownSelectProps {
   placholder: string;
@@ -28,7 +28,7 @@ const DropdownSelect = ({
       isClearable
       options={options}
       value={value}
-      onChange={value => {
+      onChange={(value) => {
         onChange(value && value.value);
       }}
       formatOptionLabel={(option: any) => (
@@ -37,17 +37,17 @@ const DropdownSelect = ({
         </div>
       )}
       classNames={{
-        control: () => 'p-3 border-2',
-        input: () => 'text-lg',
-        option: () => 'text-lg',
+        control: () => "p-3 border-2",
+        input: () => "text-lg",
+        option: () => "text-lg",
       }}
-      theme={theme => ({
+      theme={(theme) => ({
         ...theme,
         borderRadius: 6,
         colors: {
           ...theme.colors,
-          primary: '#4436f5',
-          primary25: '#ffffff',
+          primary: "#4436f5",
+          primary25: "#ffffff",
         },
       })}
     />

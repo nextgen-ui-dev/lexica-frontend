@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import Test from '@/public/images/test.jpg';
+import React from "react";
+import Image from "next/image";
+import Test from "@/public/images/test.jpg";
 
 interface ArticleCardProps {
   id: number;
@@ -54,7 +54,7 @@ const ArticleCard = ({
           alt=""
           fill
           style={{
-            objectFit: 'cover',
+            objectFit: "cover",
           }}
         />
       </div>

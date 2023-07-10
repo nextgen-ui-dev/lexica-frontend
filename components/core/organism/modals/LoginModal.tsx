@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { BsGoogle } from 'react-icons/bs';
-import useLoginModal from '@/hooks/useLoginModal';
-import Modal from './Modal';
-import Button from '../../molecules/Button';
-import { signIn } from 'next-auth/react';
-import Image from 'next/image';
-import useOnboardingModal from '@/hooks/useOnboardingModal';
+import { BsGoogle } from "react-icons/bs";
+import useLoginModal from "@/hooks/useLoginModal";
+import Modal from "./Modal";
+import Button from "../../molecules/Button";
+import { signIn } from "next-auth/react";
+import Image from "next/image";
+import useOnboardingModal from "@/hooks/useOnboardingModal";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
@@ -20,8 +20,8 @@ const LoginModal = () => {
           alt=""
           fill
           style={{
-            objectFit: 'contain',
-            objectPosition: 'center',
+            objectFit: "contain",
+            objectPosition: "center",
           }}
           className="group-hover:scale-110 transition"
         />
@@ -29,7 +29,7 @@ const LoginModal = () => {
       <Button
         label="Masuk"
         onClick={() => {
-          signIn('google', { redirect: true, callbackUrl: '/onboarding' });
+          signIn("google", { redirect: true, callbackUrl: "/onboarding" });
         }}
         icon={BsGoogle}
       />

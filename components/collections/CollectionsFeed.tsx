@@ -1,6 +1,6 @@
-import React from 'react';
-import CollectionCard from './CollectionCard';
-import { Collections } from '@/constants/collections.constant';
+import React from "react";
+import CollectionCard from "./CollectionCard";
+import { Collections } from "@/constants/collections.constant";
 
 type Props = {};
 

@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useState } from 'react';
-import Container from '../../layout/Container';
-import HeadRoom from 'react-headroom';
-import NavbarLogo from './NavbarLogo';
-import NavbarMenuItems from './NavbarMenuItems';
-import NavbarUserMenu from './NavbarUserMenu';
-import { Session } from '@/types/session.type';
+import { useCallback, useEffect, useState } from "react";
+import Container from "../../layout/Container";
+import HeadRoom from "react-headroom";
+import NavbarLogo from "./NavbarLogo";
+import NavbarMenuItems from "./NavbarMenuItems";
+import NavbarUserMenu from "./NavbarUserMenu";
+import { Session } from "@/types/session.type";
 
 interface NavbarProps {
   session: Session;
@@ -24,9 +24,9 @@ const Navbar = ({ session }: NavbarProps) => {
         setIsScroll(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -39,7 +39,7 @@ const Navbar = ({ session }: NavbarProps) => {
       <HeadRoom>
         <div
           className={`fixed md:relative w-full py-4 ${
-            isScroll && 'bg-primary-600 border-b border-primary-500'
+            isScroll && "bg-primary-600 border-b border-primary-500"
           }`}
         >
           <Container expanded>

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Container from '../../components/core/layout/Container';
-import Searchbar from '../../components/core/molecules/Searchbar';
-import CollectionsFeed from '../../components/collections/CollectionsFeed';
+import React from "react";
+import Container from "../../components/core/layout/Container";
+import Searchbar from "../../components/core/molecules/Searchbar";
+import CollectionsFeed from "../../components/collections/CollectionsFeed";
 
-import { Collections as DummyCollections } from '../../constants/collections.constant';
-import { Collection } from '../../types/collection.type';
+import { Collections as DummyCollections } from "../../constants/collections.constant";
+import { Collection } from "../../types/collection.type";
 
 interface CollectionProps {}
 
 const Collections = ({}: CollectionProps) => {
-  const [searchQuery, setSearchQuery] = React.useState<string>('');
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] =
     React.useState<Collection[]>(DummyCollections);
 
@@ -21,7 +21,7 @@ const Collections = ({}: CollectionProps) => {
 
   const handleSearch = React.useCallback(() => {
     setSearchResults(
-      DummyCollections.filter(collection => {
+      DummyCollections.filter((collection) => {
         return collection
           .name!.toLowerCase()
           .includes(searchQuery.toLowerCase());
@@ -35,12 +35,14 @@ const Collections = ({}: CollectionProps) => {
   }, [searchQuery]);
 
   return (
-    <div className={`relative w-full min-h-[100dvh]`}>
+    <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
       <div
-        className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}
+        className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}
       ></div>
 
-      <Container expanded>
+     <div className="w-full bg-primary-600">
+        <div className="w-full bg-backdrop rounded-t-[6dvh]">
+     <Container expanded>
         <div className="flex flex-row justify-between pt-[24px] md:pt-[40px]">
           <div className="text-xl md:text-3xl text-slate-800 font-semibold">
             Koleksi
@@ -51,7 +53,7 @@ const Collections = ({}: CollectionProps) => {
               large
               placeholder="Cari nama koleksi"
               controlValue={searchQuery}
-              controlCallback={e => {
+              controlCallback={(e) => {
                 handleQuery(e.target.value);
               }}
             />
@@ -61,15 +63,16 @@ const Collections = ({}: CollectionProps) => {
               large
               placeholder="Cari nama koleksi"
               controlValue={searchQuery}
-              controlCallback={e => {
+              controlCallback={(e) => {
                 handleQuery(e.target.value);
               }}
             />
           )}
         </div>
-
         <CollectionsFeed />
       </Container>
+        </div>
+     </div>
     </div>
   );
 };

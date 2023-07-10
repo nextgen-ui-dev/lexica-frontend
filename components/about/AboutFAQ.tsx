@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Accordion,
@@ -6,8 +6,8 @@ import {
   AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
-} from 'react-accessible-accordion';
-import Container from '../core/layout/Container';
+} from "react-accessible-accordion";
+import Container from "../core/layout/Container";
 
 const AboutFAQ = () => {
   return (

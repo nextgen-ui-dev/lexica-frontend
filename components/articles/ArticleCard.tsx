@@ -1,7 +1,7 @@
-'use client';
-import Image from 'next/image';
-import { ArticleType } from '@/types/article.type';
-import { useRouter } from 'next/navigation';
+"use client";
+import Image from "next/image";
+import { ArticleType } from "@/types/article.type";
+import { useRouter } from "next/navigation";
 
 interface ArticleCardProps {
   article: ArticleType;
@@ -35,8 +35,8 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
               alt=""
               fill
               style={{
-                objectFit: 'contain',
-                objectPosition: 'center',
+                objectFit: "contain",
+                objectPosition: "center",
               }}
             />
           </div>

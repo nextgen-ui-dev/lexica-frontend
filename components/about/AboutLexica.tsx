@@ -1,4 +1,4 @@
-import Container from '../core/layout/Container';
+import Container from "../core/layout/Container";
 
 const AboutLexica = () => {
   return (
