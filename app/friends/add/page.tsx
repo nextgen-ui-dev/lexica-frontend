@@ -6,21 +6,24 @@ import Image from 'next/image'
 import useFindFriends from '@/app/hooks/useFindFriends';
 import FriendRowItem from '@/app/components/friends/FriendRowItem';
 
+import { User } from '@/app/types/session.type';
 import { FriendsConstants } from '@/app/constants/friends.constants';
 
 type Props = {}
 
 const AddFriend = (props: Props) => {
   const friends = useFindFriends();
-  const [searchResults, setSearchResults] = React.useState([]);
-searchResults
+  const [searchResults, setSearchResults] = React.useState<User[]>([]);
 
   React.useEffect(() => {
-    
+    setSearchResults(FriendsConstants.filter((user) => {
+      return user.name!.toLowerCase().includes(friends.searchQuery.toLowerCase());
+    }));
   }, [friends.searchQuery]);
+
   if (searchResults.length === 0) {
     return (
-      <div className={`w-full`}>
+      <div className={`relative w-full`}>
         <div className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}>
         </div>
         <div className='relative w-full h-[60dvh] md:h-[75dvh]'>
