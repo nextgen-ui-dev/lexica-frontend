@@ -72,6 +72,7 @@ const FriendsPage = () => {
             </Container>
           </div>
         </div>
+        <div className="mb-[24px] md:mb-[36px]"></div>
       </div>
     </>
   );

@@ -34,8 +34,7 @@ const CollectionsPage = () => {
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
-      <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}>
-      </div>
+      <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
 
       <div className="w-full bg-primary-600">
         <div className="w-full bg-backdrop rounded-t-[6dvh]">
@@ -70,6 +69,7 @@ const CollectionsPage = () => {
           </Container>
         </div>
       </div>
+      <div className="pb-[24px] md:pb-[36px]"></div>
     </div>
   );
 };

@@ -24,10 +24,10 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
 
     if (bookmarks.isBookmarked(id)) {
       bookmarks.removeBookmark(id);
-      toast.success("Artikel berhasil dihapus");
+      toast.success("Artikel dihapus dari Bookmark");
     } else {
       bookmarks.addBookmark(id);
-      toast.success("Artikel berhasil disimpan");
+      toast.success("Artikel tersimpan di Bookmark");
     }
   };
 

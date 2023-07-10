@@ -1,13 +1,14 @@
 interface ContainerProps {
+  maximum?: boolean;
   expanded?: boolean;
   children: React.ReactNode;
 }
 
-const Container = ({ expanded, children }: ContainerProps) => {
+const Container = ({ maximum, expanded, children }: ContainerProps) => {
   return (
     <div
       className={`relative ${
-        expanded ? "max-w-6xl" : "max-w-4xl"
+        maximum ? "max-w-7xl" : expanded ? "max-w-6xl" : "max-w-4xl"
       } mx-auto px-4`}
     >
       {children}
