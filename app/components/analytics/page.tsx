@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const AnalyticsPage = (props: Props) => {
-  return (
-    <div>AnalyticsPage</div>
-  )
-}
+  return <div>AnalyticsPage</div>;
+};
 
-export default AnalyticsPage
+export default AnalyticsPage;

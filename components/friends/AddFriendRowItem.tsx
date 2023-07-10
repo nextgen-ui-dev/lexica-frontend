@@ -49,27 +49,23 @@ const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
           } else {
             friends.removeFriends(friend.email!);
           }
-          
+
           setIsFriend(!isFriend);
         }}
       >
         <div className="w-[20px]">
-          {!friends.isFriend(friend.email!)  ? <BsPersonPlus /> : <BsPersonDashFill />}
+          {!friends.isFriend(friend.email!) ? (
+            <BsPersonPlus />
+          ) : (
+            <BsPersonDashFill />
+          )}
         </div>
 
         <div className="px-1"></div>
 
         {window.innerWidth > 768 ? (
           <div className="w-[50px]">
-            {
-              !friends.isFriend(friend.email!) 
-              ? <>
-                  Tambah
-                </> 
-              : <> 
-                  Hapus
-                </>
-            }
+            {!friends.isFriend(friend.email!) ? <>Tambah</> : <>Hapus</>}
           </div>
         ) : null}
       </div>

@@ -10,9 +10,12 @@ import AddFriendsHeader from "@/components/friends/AddFriendsHeader";
 import { User } from "@/types/session.type";
 import { UsersConstants as DummyUsers } from "@/constants/users.constants";
 
+import useFriends from "@/hooks/useFriends";
+
 const AddFriend = () => {
+  const friends = useFriends();
   const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [searchResults, setSearchResults] = React.useState<User[]>(DummyUsers);
+  const [searchResults, setSearchResults] = React.useState<User[]>([]);
 
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
@@ -23,8 +26,13 @@ const AddFriend = () => {
       DummyUsers.filter((user) => {
         if (user === null || user === undefined) {
           return false;
+        } else if (searchQuery === "") {
+          return false;
         } else {
-          return user.name!.toLowerCase().includes(searchQuery.toLowerCase());
+          return (
+            user.name!.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            user.email!.toLowerCase().includes(searchQuery.toLowerCase())
+          );
         }
       }),
     );
@@ -36,7 +44,7 @@ const AddFriend = () => {
   }, [searchQuery]);
 
   return (
-    <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
+    <div className={`relative w-full min-h-[100dvh] bg-white`}>
       <div
         className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}
       ></div>
