@@ -15,7 +15,7 @@ export const authOption: NextAuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async jwt({ token, account, session, user }) {
-            console.debug(token)
+            // console.debug(token)
             return {
                 ...token,
                 ...user,
@@ -26,7 +26,6 @@ export const authOption: NextAuthOptions = {
             if (session) {
                 session = Object.assign({}, session, { access_token: token.access_token, id: token.id })
             }
-            console.debug(session)
             // console.debug(session)
             return session
         }
