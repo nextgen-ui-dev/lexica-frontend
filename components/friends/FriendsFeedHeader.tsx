@@ -30,7 +30,9 @@ const FriendsFeedHeader = ({
   };
 
   return (
-    <div className={`flex flex-row justify-between items-center pt-12 pb-8 md:pt-8`}>
+    <div
+      className={`flex flex-row justify-between items-center pt-12 pb-8 md:pt-8`}
+    >
       {/* Add Friend */}
       <div className={`flex flex-row gap-x-4`}>
         <div>
@@ -71,7 +73,9 @@ const FriendsFeedHeader = ({
           )}
         </div>
       </div>
-      <div className={`flex flex-row items-center justify-center md:flex-row text-lg text-slate-700 group py-1 bg-primary-200 px-4 rounded-full`}>
+      <div
+        className={`flex flex-row items-center justify-center md:flex-row text-lg text-slate-700 group py-1 bg-primary-200 px-4 rounded-full`}
+      >
         <div className="group-hover:text-primary-500">{423}</div>
         <FaUserFriends className="ml-2 group-hover:text-primary-500 duration-300" />
       </div>

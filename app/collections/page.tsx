@@ -36,43 +36,41 @@ const Collections = ({}: CollectionProps) => {
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
-      <div
-        className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}
-      ></div>
+      <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
 
-     <div className="w-full bg-primary-600">
+      <div className="w-full bg-primary-600">
         <div className="w-full bg-backdrop rounded-t-[6dvh]">
-     <Container expanded>
-        <div className="flex flex-row justify-between pt-[24px] md:pt-[40px]">
-          <div className="text-xl md:text-3xl text-slate-800 font-semibold">
-            Koleksi
-          </div>
+          <Container expanded>
+            <div className="flex flex-row justify-between pt-[24px] md:pt-[40px]">
+              <div className="text-xl md:text-3xl text-slate-800 font-semibold">
+                Koleksi
+              </div>
 
-          {window.innerWidth > 768 ? (
-            <Searchbar
-              large
-              placeholder="Cari nama koleksi"
-              controlValue={searchQuery}
-              controlCallback={(e) => {
-                handleQuery(e.target.value);
-              }}
-            />
-          ) : (
-            <Searchbar
-              mobile
-              large
-              placeholder="Cari nama koleksi"
-              controlValue={searchQuery}
-              controlCallback={(e) => {
-                handleQuery(e.target.value);
-              }}
-            />
-          )}
+              {window.innerWidth > 768 ? (
+                <Searchbar
+                  large
+                  placeholder="Cari nama koleksi"
+                  controlValue={searchQuery}
+                  controlCallback={(e) => {
+                    handleQuery(e.target.value);
+                  }}
+                />
+              ) : (
+                <Searchbar
+                  mobile
+                  large
+                  placeholder="Cari nama koleksi"
+                  controlValue={searchQuery}
+                  controlCallback={(e) => {
+                    handleQuery(e.target.value);
+                  }}
+                />
+              )}
+            </div>
+            <CollectionsFeed />
+          </Container>
         </div>
-        <CollectionsFeed />
-      </Container>
-        </div>
-     </div>
+      </div>
     </div>
   );
 };
