@@ -7,7 +7,7 @@ import { FaUserFriends } from 'react-icons/fa';
 import { BsCollection, BsBarChart } from 'react-icons/bs';
 import { BiLogOut } from 'react-icons/bi';
 import { signOut } from 'next-auth/react';
-import { User } from '@/app/types/session.type';
+import { User } from '@/types/session.type';
 
 interface ProfileDropdownProps {
   user?: User,

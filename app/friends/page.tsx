@@ -2,13 +2,13 @@
 
 import React, { useCallback } from 'react';
 import Image from 'next/image';
-import Container from '../components/core/layout/Container';
+import Container from '../../components/core/layout/Container';
 
-import FriendsFeedHeader from '../components/friends/FriendsFeedHeader';
-import FriendRowItem from '../components/friends/FriendRowItem';
+import FriendsFeedHeader from '../../components/friends/FriendsFeedHeader';
+import FriendRowItem from '../../components/friends/FriendRowItem';
 
-import { User } from '../types/session.type';
-import { FriendsConstants } from '../constants/friends.constants';
+import { User } from '../../types/session.type';
+import { FriendsConstants } from '../../constants/friends.constants';
 
 const FriendsPage = () => {
   const [searchQuery, setSearchQuery] = React.useState<string>('');

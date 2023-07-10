@@ -1,12 +1,12 @@
 'use client';
 
 import { BsGoogle } from 'react-icons/bs'
-import useLoginModal from "@/app/hooks/useLoginModal";
+import useLoginModal from "@/hooks/useLoginModal";
 import Modal from "./Modal";
 import Button from "../../molecules/Button";
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
-import useOnboardingModal from '@/app/hooks/useOnboardingModal';
+import useOnboardingModal from '@/hooks/useOnboardingModal';
 
 const LoginModal = () => {
     const loginModal = useLoginModal();

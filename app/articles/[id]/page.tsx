@@ -5,14 +5,14 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 import ScrollToTop from "react-scroll-to-top";
-import ToastProvider from '@/app/providers/ToastProvider';
-import useBookmarkArticles from '@/app/hooks/useBookmarkArticles';
+import ToastProvider from '@/providers/ToastProvider';
+import useBookmarkArticles from '@/hooks/useBookmarkArticles';
 
-import Container from '@/app/components/core/layout/Container';
-import DifficultyDropdown from '@/app/components/articles/DifficultyDropdown';
-import ArticleDetailMenu from '@/app/components/articles/ArticleDetailMenu';
+import Container from '@/components/core/layout/Container';
+import DifficultyDropdown from '@/components/articles/DifficultyDropdown';
+import ArticleDetailMenu from '@/components/articles/ArticleDetailMenu';
 
-import { Articles } from '@/app/constants/article.constant';
+import { Articles } from '@/constants/article.constant';
 
 const difficulty = [
   "Lanjutan",

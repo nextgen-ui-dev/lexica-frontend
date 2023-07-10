@@ -7,7 +7,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { FaUserFriends } from 'react-icons/fa';
 import Searchbar from '../core/molecules/Searchbar';
 
-import useFindFriends from '@/app/hooks/useFindFriends';
+import useFindFriends from '@/hooks/useFindFriends';
 
 interface FriendsHeaderProps {
   searchQuery: string;

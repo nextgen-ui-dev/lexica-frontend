@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Container from "../core/layout/Container";
-import { Articles } from "@/app/constants/article.constant";
+import { Articles } from "@/constants/article.constant";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useRouter } from 'next/navigation';
 

@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import ArticleHomePreviews from "../components/home/ArticlesHomePreview";
-import HomeHero from "../components/home/HomeHero";
-import HomeLexicaInfo from "../components/home/HomeLexicaInfo";
-import OnboardingModal from "../components/core/organism/modals/OnboardingModal";
+import ArticleHomePreviews from "../../components/home/ArticlesHomePreview";
+import HomeHero from "../../components/home/HomeHero";
+import HomeLexicaInfo from "../../components/home/HomeLexicaInfo";
+import OnboardingModal from "../../components/core/organism/modals/OnboardingModal";
 
 const OnboardingPage = () => {
     const router = useRouter();

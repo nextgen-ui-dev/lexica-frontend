@@ -1,12 +1,12 @@
 import './globals.css'
-import HydrationHandler from './components/core/layout/HydrationHandler'
+import HydrationHandler from '../components/core/layout/HydrationHandler'
 import { Montserrat, Hind } from 'next/font/google'
-import LoginModal from './components/core/organism/modals/LoginModal'
-import Footer from './components/core/organism/footer/Footer'
-import Navbar from './components/core/organism/navbar/Navbar'
-import NextAuthSessionProvider from './providers/SessionProvider'
+import LoginModal from '../components/core/organism/modals/LoginModal'
+import Footer from '../components/core/organism/footer/Footer'
+import Navbar from '../components/core/organism/navbar/Navbar'
+import NextAuthSessionProvider from '../providers/SessionProvider'
 import getCurrentUser from './actions/getCurrentUser'
-import TanstackQueryProvider from './providers/TanstackQueryProvider'
+import TanstackQueryProvider from '../providers/TanstackQueryProvider'
 
 const montserrat = Montserrat({
   subsets: ['latin'],

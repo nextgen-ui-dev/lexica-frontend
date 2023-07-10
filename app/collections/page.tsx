@@ -1,12 +1,12 @@
 'use client'
 
 import React from 'react'
-import Container from '../components/core/layout/Container';
-import Searchbar from '../components/core/molecules/Searchbar';
-import CollectionsFeed from '../components/collections/CollectionsFeed';
+import Container from '../../components/core/layout/Container';
+import Searchbar from '../../components/core/molecules/Searchbar';
+import CollectionsFeed from '../../components/collections/CollectionsFeed';
 
-import { Collections as DummyCollections } from '../constants/collections.constant';
-import { Collection } from '../types/collection.type';
+import { Collections as DummyCollections } from '../../constants/collections.constant';
+import { Collection } from '../../types/collection.type';
 
 interface CollectionProps {
   

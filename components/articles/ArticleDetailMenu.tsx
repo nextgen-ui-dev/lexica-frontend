@@ -12,7 +12,7 @@ import {
 import { toast } from 'react-toastify';
 
 // import getCurrentUser from '@/app/actions/getCurrentUser';
-import useBookmarkArticles from '@/app/hooks/useBookmarkArticles';
+import useBookmarkArticles from '@/hooks/useBookmarkArticles';
 
 interface ArticleDetailMenuProps {
   id: number,

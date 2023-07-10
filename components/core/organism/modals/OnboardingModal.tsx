@@ -1,6 +1,6 @@
 "use client";
 
-import useOnboardingModal from "@/app/hooks/useOnboardingModal";
+import useOnboardingModal from "@/hooks/useOnboardingModal";
 import Modal from "./Modal";
 import { useCallback, useState } from "react";
 import Button from "../../molecules/Button";

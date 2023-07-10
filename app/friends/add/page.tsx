@@ -3,12 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 
-import AddFriendRowItem from '@/app/components/friends/AddFriendRowItem';
-import Container from '@/app/components/core/layout/Container';
-import AddFriendsHeader from '@/app/components/friends/AddFriendsHeader';
+import AddFriendRowItem from '@/components/friends/AddFriendRowItem';
+import Container from '@/components/core/layout/Container';
+import AddFriendsHeader from '@/components/friends/AddFriendsHeader';
 
-import { User } from '@/app/types/session.type';
-import { UsersConstants as DummyUsers } from '@/app/constants/users.constants';
+import { User } from '@/types/session.type';
+import { UsersConstants as DummyUsers } from '@/constants/users.constants';
 
 type Props = {}
 

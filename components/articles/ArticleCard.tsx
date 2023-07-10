@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import { ArticleType } from "@/app/types/article.type";
+import { ArticleType } from "@/types/article.type";
 import { useRouter } from "next/navigation";
 
 interface ArticleCardProps {
