@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { User } from '@/types/session.type';
-import Avatar from '../core/molecules/Avatar';
-import { FaTrash } from 'react-icons/fa';
-import { BsPersonPlus, BsPersonDashFill } from 'react-icons/bs';
+import React from "react";
+import { User } from "@/types/session.type";
+import Avatar from "../core/molecules/Avatar";
+import { FaTrash } from "react-icons/fa";
+import { BsPersonPlus, BsPersonDashFill } from "react-icons/bs";
 
 interface FriendRowItemProps {
   friend: User;
@@ -38,7 +38,7 @@ const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
         className={`
         flex flex-row items-center mr-2 md:mr-4 
         text-slate-600 
-        ${!isFriend ? 'hover:text-primary-500' : 'hover:text-red-500'}
+        ${!isFriend ? "hover:text-primary-500" : "hover:text-red-500"}
         hover:cursor-pointer duration-300`}
         onClick={() => setIsFriend(!isFriend)}
       >

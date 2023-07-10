@@ -1,4 +1,4 @@
-import { User } from './session.type';
+import { User } from "./session.type";
 
 export type Collection = {
   name: string;

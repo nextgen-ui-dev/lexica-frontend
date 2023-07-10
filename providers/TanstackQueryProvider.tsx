@@ -1,5 +1,5 @@
-'use client';
-import { QueryClient, QueryClientProvider } from 'react-query';
+"use client";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const client = new QueryClient();
 

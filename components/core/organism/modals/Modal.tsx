@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { MouseEventHandler, useCallback, useEffect, useState } from 'react';
-import { IoMdClose } from 'react-icons/io';
+import { MouseEventHandler, useCallback, useEffect, useState } from "react";
+import { IoMdClose } from "react-icons/io";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -38,8 +38,8 @@ const Modal = ({
   }, [onClose, disabled]);
 
   const handleCloseOnOutside: MouseEventHandler<HTMLDivElement> = useCallback(
-    e => {
-      if ((e.target as HTMLElement)?.id === 'base-modal') {
+    (e) => {
+      if ((e.target as HTMLElement)?.id === "base-modal") {
         if (disabled) {
           return;
         }
@@ -66,8 +66,8 @@ const Modal = ({
         <div className="relative w-5/6 md:w-4/6 lg:w-3/6 xl:w-2/5 my-6 mx-auto lg:h-auto md:h-auto">
           <div
             className={`translate duration-300 h-full ${
-              showModal ? 'translate-y-0' : 'translate-y-full'
-            } ${showModal ? 'opacity-100' : 'opacity-0'}`}
+              showModal ? "translate-y-0" : "translate-y-full"
+            } ${showModal ? "opacity-100" : "opacity-0"}`}
           >
             <div className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
               <div className="flex items-center justify-center p-4 rounded-t relative border-b-[1px]">

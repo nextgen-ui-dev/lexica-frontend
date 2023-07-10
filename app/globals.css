@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~react-toastify/dist/ReactToastify.min.css';
+@import "~react-toastify/dist/ReactToastify.min.css";
 
 @layer base {
   body {
-    @apply bg-[#F8FAFC];
+    @apply bg-primary-600;
   }
 }
 

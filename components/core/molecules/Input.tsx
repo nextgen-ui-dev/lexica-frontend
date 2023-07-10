@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useCallback, useState } from 'react';
-import { FieldValues, FieldErrors, UseFormRegister } from 'react-hook-form';
-import { IconType } from 'react-icons';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { useCallback, useState } from "react";
+import { FieldValues, FieldErrors, UseFormRegister } from "react-hook-form";
+import { IconType } from "react-icons";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 interface InputProps {
   id: string;
@@ -19,7 +19,7 @@ interface InputProps {
 const Input = ({
   id,
   label,
-  type = 'text',
+  type = "text",
   disabled,
   required,
   register,
@@ -30,10 +30,10 @@ const Input = ({
   const [inputType, setInputType] = useState(type);
 
   const handleToggleVisibility = useCallback(() => {
-    if (inputType === 'password') {
-      setInputType('text');
+    if (inputType === "password") {
+      setInputType("text");
     } else {
-      setInputType('password');
+      setInputType("password");
     }
     setPasswordVisibility(!passwordVisibility);
   }, [inputType, setInputType, passwordVisibility, setPasswordVisibility]);
@@ -48,27 +48,27 @@ const Input = ({
         placeholder=" "
         type={inputType}
         className={`peer w-full p-4 pt-8 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed
-                ${Icon ? 'pl-14' : 'pl-4'}
-                ${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
+                ${Icon ? "pl-14" : "pl-4"}
+                ${errors[id] ? "border-rose-500" : "border-neutral-300"}
                 ${
                   errors[id]
-                    ? 'focus:border-rose-500'
-                    : 'focus:border-primary-500'
+                    ? "focus:border-rose-500"
+                    : "focus:border-primary-500"
                 }
                 `}
       />
       <label
         className={`absolute text-md duration-150 transform -translate-y-3 top-6 origin-[0] 
-            ${Icon ? 'left-14' : 'left-4'}
+            ${Icon ? "left-14" : "left-4"}
             peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
             peer-focus:scale-75
             peer-focus:-translate-y-4
-            ${errors[id] ? 'text-rose-500' : 'text-zinc-400'}
+            ${errors[id] ? "text-rose-500" : "text-zinc-400"}
             `}
       >
         {label}
       </label>
-      {type === 'password' &&
+      {type === "password" &&
         (passwordVisibility ? (
           <AiFillEyeInvisible
             size={24}

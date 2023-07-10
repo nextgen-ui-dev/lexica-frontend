@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Container from '../core/layout/Container';
+import Image from "next/image";
+import Container from "../core/layout/Container";
 
 const ArticleHomePreviews = () => {
   return (
-    <section className="w-full h-full bg-white mt-12">
+    <section className="w-full h-full bg-backdrop mt-12">
       <section className="w-full h-full bg-primary-600 rounded-t-[6dvh] py-12">
         <Container expanded>
           <div className="relative w-full h-full">
@@ -17,8 +17,8 @@ const ArticleHomePreviews = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center',
+                        objectFit: "cover",
+                        objectPosition: "center",
                       }}
                       className="group-hover:scale-110 transition bg-primary-500"
                     />
@@ -39,8 +39,8 @@ const ArticleHomePreviews = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center',
+                        objectFit: "cover",
+                        objectPosition: "center",
                       }}
                       className="group-hover:scale-110 transition bg-primary-500"
                     />
@@ -61,8 +61,8 @@ const ArticleHomePreviews = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center',
+                        objectFit: "cover",
+                        objectPosition: "center",
                       }}
                       className="group-hover:scale-110 transition bg-primary-500"
                     />

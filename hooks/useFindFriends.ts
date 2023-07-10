@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-import { User } from '../types/session.type';
+import { User } from "../types/session.type";
 
 interface FindFriendsStore {
   searchQuery: string;
@@ -9,8 +9,8 @@ interface FindFriendsStore {
   setReturnedUsers: (users: User[]) => void;
 }
 
-const useFindFriends = create<FindFriendsStore>(set => ({
-  searchQuery: '',
+const useFindFriends = create<FindFriendsStore>((set) => ({
+  searchQuery: "",
   setSearchQuery: (query: string) => {
     set({ searchQuery: query });
   },

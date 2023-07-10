@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import useOnboardingModal from '@/hooks/useOnboardingModal';
-import Modal from './Modal';
-import { useCallback, useState } from 'react';
-import Button from '../../molecules/Button';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import Input from '../../molecules/Input';
-import DropdownSelect from '../../molecules/DropdownSelect';
-import MultipleDropdownSelect from '../../molecules/MultipleDropdownSelect';
-import { useRouter } from 'next/navigation';
+import useOnboardingModal from "@/hooks/useOnboardingModal";
+import Modal from "./Modal";
+import { useCallback, useState } from "react";
+import Button from "../../molecules/Button";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import Input from "../../molecules/Input";
+import DropdownSelect from "../../molecules/DropdownSelect";
+import MultipleDropdownSelect from "../../molecules/MultipleDropdownSelect";
+import { useRouter } from "next/navigation";
 
 enum STEPS {
   INTRODUCTION = 0,
@@ -21,33 +21,33 @@ const OnboardingModal = () => {
   const onboardingModal = useOnboardingModal();
 
   const roles = [
-    { value: 'pelajar', label: 'Guru/Dosen' },
-    { value: 'pengajar', label: 'Siswa/Mahasiswa' },
-    { value: 'umum', label: 'Umum' },
+    { value: "pelajar", label: "Guru/Dosen" },
+    { value: "pengajar", label: "Siswa/Mahasiswa" },
+    { value: "umum", label: "Umum" },
   ];
 
   const educations = [
-    { value: 'smp', label: 'Sekolah Menengah Pertama (SMP)' },
-    { value: 'sma', label: 'Sekolah Menengah Atas (SMA)' },
-    { value: 'sarjana', label: 'Sarjana' },
-    { value: 'lainnya', label: 'Lainnya' },
+    { value: "smp", label: "Sekolah Menengah Pertama (SMP)" },
+    { value: "sma", label: "Sekolah Menengah Atas (SMA)" },
+    { value: "sarjana", label: "Sarjana" },
+    { value: "lainnya", label: "Lainnya" },
   ];
 
   const locations = [
-    { value: 'jakarta', label: 'Jakarta' },
-    { value: 'bogor', label: 'Bogor' },
-    { value: 'depok', label: 'Depok' },
-    { value: 'tanggerang', label: 'Tanggerang' },
-    { value: 'Bekasi', label: 'Bekasi' },
-    { value: 'lainnya', label: 'Lainnya' },
+    { value: "jakarta", label: "Jakarta" },
+    { value: "bogor", label: "Bogor" },
+    { value: "depok", label: "Depok" },
+    { value: "tanggerang", label: "Tanggerang" },
+    { value: "Bekasi", label: "Bekasi" },
+    { value: "lainnya", label: "Lainnya" },
   ];
 
   const topics = [
-    { value: 'general', label: 'General' },
-    { value: 'teknologi', label: 'Teknologi' },
-    { value: 'politik', label: 'Politik' },
-    { value: 'pendidikan', label: 'Pendidikan' },
-    { value: 'lainnya', label: 'Lainnya' },
+    { value: "general", label: "General" },
+    { value: "teknologi", label: "Teknologi" },
+    { value: "politik", label: "Politik" },
+    { value: "pendidikan", label: "Pendidikan" },
+    { value: "lainnya", label: "Lainnya" },
   ];
 
   const handleNext = useCallback(() => {
@@ -69,10 +69,10 @@ const OnboardingModal = () => {
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = data => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
     onboardingModal.onClose();
-    router.replace('/');
+    router.replace("/");
   };
 
   let body = [
@@ -94,7 +94,7 @@ const OnboardingModal = () => {
           <h6>Kedudukan Anda saat ini</h6>
           <DropdownSelect
             placholder="Pelajar/Pengajar"
-            onChange={value => setCustomValue('role', value)}
+            onChange={(value) => setCustomValue("role", value)}
             options={roles}
           />
         </div>
@@ -112,7 +112,7 @@ const OnboardingModal = () => {
           <h6>Pendidikan Terakhir Anda</h6>
           <DropdownSelect
             placholder="Riwayat Pendidikan"
-            onChange={value => setCustomValue('education', value)}
+            onChange={(value) => setCustomValue("education", value)}
             options={educations}
           />
         </div>
@@ -120,8 +120,8 @@ const OnboardingModal = () => {
           <h6>Topik yang anda sukai</h6>
           <MultipleDropdownSelect
             placholder="Beritahu kami topik-topik yang Anda sukai"
-            onChange={value => {
-              setCustomValue('topic', value);
+            onChange={(value) => {
+              setCustomValue("topic", value);
             }}
             options={topics}
           />
@@ -130,7 +130,7 @@ const OnboardingModal = () => {
           <h6>Lokasi Tempat Tinggal Anda Saat Ini</h6>
           <DropdownSelect
             placholder="Lokasi"
-            onChange={value => setCustomValue('location', value)}
+            onChange={(value) => setCustomValue("location", value)}
             options={locations}
             maxHeight={100}
           />

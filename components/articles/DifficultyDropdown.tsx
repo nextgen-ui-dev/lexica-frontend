@@ -1,6 +1,6 @@
-'use client';
-import React from 'react';
-import { BsChevronExpand } from 'react-icons/bs';
+"use client";
+import React from "react";
+import { BsChevronExpand } from "react-icons/bs";
 
 interface DifficultyDropdown {
   options: string[];
@@ -23,8 +23,8 @@ const DifficultyDropdown = ({
       onClick={() => setOpen(!open)}
       className={`
     relative inline-flex flex-row items-center 
-    ${leftAlign ? 'justify-start' : 'justify-end'}
-    ${expanded ? 'w-32' : 'w-24'}
+    ${leftAlign ? "justify-start" : "justify-end"}
+    ${expanded ? "w-32" : "w-24"}
     border border-gray-500
     px-2 py-1
     rounded
@@ -49,14 +49,14 @@ const DifficultyDropdown = ({
       <div
         className={`
           absolute top-8 
-          ${leftAlign ? 'left-0' : 'right-0'}
+          ${leftAlign ? "left-0" : "right-0"}
           box-border border border-gray-500
           rounded
-          ${leftAlign ? 'text-left' : 'text-right'}
+          ${leftAlign ? "text-left" : "text-right"}
           bg-gray-100
           duration-200
           overflow-hidden
-          ${!open && 'hidden'}
+          ${!open && "hidden"}
           `}
       >
         {options.map((value, index) => {
@@ -65,10 +65,10 @@ const DifficultyDropdown = ({
               key={index}
               onClick={() => setSelected(value)}
               className={`
-                ${leftAlign && expanded && 'pr-14'}
-                ${leftAlign && !expanded && 'pr-8'}
-                ${!leftAlign && expanded && 'pl-14'}
-                ${!leftAlign && !expanded && 'pl-8'}
+                ${leftAlign && expanded && "pr-14"}
+                ${leftAlign && !expanded && "pr-8"}
+                ${!leftAlign && expanded && "pl-14"}
+                ${!leftAlign && !expanded && "pl-8"}
                 hover:bg-primary-500
                 hover:text-white
                 hover:font-semibold
@@ -77,7 +77,7 @@ const DifficultyDropdown = ({
               <div
                 key={index}
                 className={`
-                  ${leftAlign ? 'pl-2' : 'pr-2'} 
+                  ${leftAlign ? "pl-2" : "pr-2"} 
                   py-[2.05px] text-sm
                   truncate
                   `}

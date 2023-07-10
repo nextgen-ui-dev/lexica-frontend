@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface OnboardingModalStore {
   isOpen: boolean;
@@ -6,15 +6,15 @@ interface OnboardingModalStore {
   onClose: () => void;
 }
 
-const useOnboardingModal = create<OnboardingModalStore>(set => ({
+const useOnboardingModal = create<OnboardingModalStore>((set) => ({
   isOpen: false,
   onOpen: () => {
     set({ isOpen: true });
-    document.body.classList.add('overflow-hidden');
+    document.body.classList.add("overflow-hidden");
   },
   onClose: () => {
     set({ isOpen: false });
-    document.body.classList.remove('overflow-hidden');
+    document.body.classList.remove("overflow-hidden");
   },
 }));
 

@@ -1,14 +1,14 @@
-import { GiClassicalKnowledge } from 'react-icons/gi';
-import { ImLibrary } from 'react-icons/im';
-import { AiFillTrophy } from 'react-icons/ai';
-import { HiEmojiSad } from 'react-icons/hi';
-import Container from '../core/layout/Container';
+import { GiClassicalKnowledge } from "react-icons/gi";
+import { ImLibrary } from "react-icons/im";
+import { AiFillTrophy } from "react-icons/ai";
+import { HiEmojiSad } from "react-icons/hi";
+import Container from "../core/layout/Container";
 
 const HomeLexicaInfo = () => {
   return (
-    <div className="w-full mt-16 space-y-8">
+    <div className="w-full mt-16 space-y-8 bg-backdrop">
       <Container expanded>
-        <div className="relative w-full h-[35vh] flex flex-col gap-2 justify-center items-center bg-primary-600 rounded-lg">
+        <div className="relative w-full h-[35vh] flex flex-col gap-2 justify-center items-center bg-primary-600 rounded-2xl">
           <h2 className=" font-bold text-white w-3/5 text-xl md:w-full md:text-3xl text-center">
             Literasi adalah hak semua orang
           </h2>

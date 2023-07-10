@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { useParams } from 'next/navigation';
+import React from "react";
+import Image from "next/image";
+import { useParams } from "next/navigation";
 
-import ScrollToTop from 'react-scroll-to-top';
-import ToastProvider from '@/providers/ToastProvider';
-import useBookmarkArticles from '@/hooks/useBookmarkArticles';
+import ScrollToTop from "react-scroll-to-top";
+import ToastProvider from "@/providers/ToastProvider";
+import useBookmarkArticles from "@/hooks/useBookmarkArticles";
 
-import Container from '@/components/core/layout/Container';
-import DifficultyDropdown from '@/components/articles/DifficultyDropdown';
-import ArticleDetailMenu from '@/components/articles/ArticleDetailMenu';
+import Container from "@/components/core/layout/Container";
+import DifficultyDropdown from "@/components/articles/DifficultyDropdown";
+import ArticleDetailMenu from "@/components/articles/ArticleDetailMenu";
 
-import { Articles } from '@/constants/article.constant';
+import { Articles } from "@/constants/article.constant";
 
-const difficulty = ['Lanjutan', 'Menengah', 'Pemula'];
+const difficulty = ["Lanjutan", "Menengah", "Pemula"];
 
 interface ArticleDetailsProps {}
 
@@ -23,7 +23,7 @@ const ArticleDetails = ({}: ArticleDetailsProps) => {
   const id = parseInt(params.id);
 
   // @Jere todo get data from API
-  const article = Articles.filter(art => art.id === id)[0];
+  const article = Articles.filter((art) => art.id === id)[0];
 
   return (
     <>
@@ -62,7 +62,7 @@ const ArticleDetails = ({}: ArticleDetailsProps) => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
+                        objectFit: "cover",
                       }}
                       className="h-full w-full"
                     />
@@ -120,7 +120,7 @@ const ArticleDetails = ({}: ArticleDetailsProps) => {
                   fill
                   priority
                   style={{
-                    objectFit: 'cover',
+                    objectFit: "cover",
                   }}
                 />
               </div>

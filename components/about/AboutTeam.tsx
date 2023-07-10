@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Container from '../core/layout/Container';
+import Image from "next/image";
+import Container from "../core/layout/Container";
 
 const AboutTeam = () => {
   return (
@@ -22,8 +22,8 @@ const AboutTeam = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center bottom',
+                        objectFit: "cover",
+                        objectPosition: "center bottom",
                       }}
                       className="group-hover:scale-110 transition bg-primary-300"
                     />
@@ -42,8 +42,8 @@ const AboutTeam = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center bottom',
+                        objectFit: "cover",
+                        objectPosition: "center bottom",
                       }}
                       className="group-hover:scale-110 transition bg-primary-300"
                     />
@@ -62,8 +62,8 @@ const AboutTeam = () => {
                       alt=""
                       fill
                       style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center bottom',
+                        objectFit: "cover",
+                        objectPosition: "center bottom",
                       }}
                       className="group-hover:scale-110 transition bg-primary-300"
                     />
