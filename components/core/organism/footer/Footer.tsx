@@ -1,6 +1,6 @@
-'use client';
-import Container from '../../layout/Container';
-import Button from '../../molecules/Button';
+"use client";
+import Container from "../../layout/Container";
+import Button from "../../molecules/Button";
 
 const Footer = () => {
   return (

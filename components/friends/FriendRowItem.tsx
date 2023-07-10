@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import Avatar from '../core/molecules/Avatar';
-import { User } from '@/types/session.type';
-import { FaTrash } from 'react-icons/fa';
+import Avatar from "../core/molecules/Avatar";
+import { User } from "@/types/session.type";
+import { FaTrash } from "react-icons/fa";
 
 interface FriendRowItemProps {
   friend: User;
@@ -13,9 +13,9 @@ interface FriendRowItemProps {
 const FriendRowItem = ({ friend }: FriendRowItemProps) => {
   return (
     <div
-      className={`w-full flex flex-row justify-between py-1 md:py-2 hover:bg-gray-100 duration-300`}
+      className={`w-full flex flex-row items-center justify-between py-1 border-b md:py-2 hover:bg-primary-100 transition ease-out duration-200`}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row items-center">
         <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]">
           {window.innerWidth > 768 ? (
             <Avatar large src={friend.image} />

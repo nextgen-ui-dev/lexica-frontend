@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import useOnboardingModal from '@/hooks/useOnboardingModal';
-import Modal from './Modal';
-import { useCallback, useState } from 'react';
-import Button from '../../molecules/Button';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import Input from '../../molecules/Input';
-import DropdownSelect from '../../molecules/DropdownSelect';
-import MultipleDropdownSelect from '../../molecules/MultipleDropdownSelect';
-import { useRouter } from 'next/navigation';
+import useOnboardingModal from "@/hooks/useOnboardingModal";
+import Modal from "./Modal";
+import { useCallback, useState } from "react";
+import Button from "../../molecules/Button";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import Input from "../../molecules/Input";
+import DropdownSelect from "../../molecules/DropdownSelect";
+import MultipleDropdownSelect from "../../molecules/MultipleDropdownSelect";
+import { useRouter } from "next/navigation";
 
 enum STEPS {
   INTRODUCTION = 0,
@@ -21,9 +21,9 @@ const OnboardingModal = () => {
   const onboardingModal = useOnboardingModal();
 
   const roles = [
-    { value: 'pelajar', label: 'Guru/Dosen' },
-    { value: 'pengajar', label: 'Siswa/Mahasiswa' },
-    { value: 'umum', label: 'Umum' },
+    { value: "pelajar", label: "Guru/Dosen" },
+    { value: "pengajar", label: "Siswa/Mahasiswa" },
+    { value: "umum", label: "Umum" },
   ];
 
   const educations = [
@@ -79,10 +79,10 @@ const OnboardingModal = () => {
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = data => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
     onboardingModal.onClose();
-    router.replace('/');
+    router.replace("/");
   };
 
   let body = [
@@ -117,7 +117,7 @@ const OnboardingModal = () => {
           <h6>Aku merupakan seorang...</h6>
           <DropdownSelect
             placholder="Pelajar/Pengajar"
-            onChange={value => setCustomValue('role', value)}
+            onChange={(value) => setCustomValue("role", value)}
             options={roles}
           />
         </div>
@@ -126,7 +126,7 @@ const OnboardingModal = () => {
           <h6>Aku sedang/telah menempuh pendidikan...</h6>
           <DropdownSelect
             placholder="Riwayat Pendidikan"
-            onChange={value => setCustomValue('education', value)}
+            onChange={(value) => setCustomValue("education", value)}
             options={educations}
           />
         </div>

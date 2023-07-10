@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
-import { ArticleType } from '../types/article.type';
+import { ArticleType } from "../types/article.type";
 
 interface BookmarkArticlesStore {
   articles: number[];
@@ -9,13 +9,13 @@ interface BookmarkArticlesStore {
   isBookmarked: (id: number) => boolean;
 }
 
-const useBookmarkArticles = create<BookmarkArticlesStore>(set => ({
+const useBookmarkArticles = create<BookmarkArticlesStore>((set) => ({
   articles: [],
   addBookmark: (newArticleId: number) => {
-    set(state => {
+    set((state) => {
       const newBookmarks: number[] = [...state.articles, newArticleId];
 
-      localStorage.setItem('lexicaBookmarks', JSON.stringify(newBookmarks));
+      localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
 
       return {
         articles: newBookmarks,
@@ -23,12 +23,12 @@ const useBookmarkArticles = create<BookmarkArticlesStore>(set => ({
     });
   },
   removeBookmark: (id: number) => {
-    set(state => {
+    set((state) => {
       const newBookmarks: number[] = state.articles.filter(
-        artId => artId !== id,
+        (artId) => artId !== id,
       );
 
-      localStorage.setItem('lexicaBookmarks', JSON.stringify(newBookmarks));
+      localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
 
       return {
         articles: newBookmarks,
@@ -37,7 +37,7 @@ const useBookmarkArticles = create<BookmarkArticlesStore>(set => ({
   },
   isBookmarked: (id: number) => {
     const bookmarks: number[] = JSON.parse(
-      localStorage.getItem('lexicaBookmarks') || '[]',
+      localStorage.getItem("lexicaBookmarks") || "[]",
     );
 
     return bookmarks.includes(id);

@@ -1,12 +1,12 @@
-import React from 'react';
-import { BsBookmark, BsBookmarkFill, BsCollection } from 'react-icons/bs';
+import React from "react";
+import { BsBookmark, BsBookmarkFill, BsCollection } from "react-icons/bs";
 
-import { BiShareAlt } from 'react-icons/bi';
+import { BiShareAlt } from "react-icons/bi";
 
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 // import getCurrentUser from '@/app/actions/getCurrentUser';
-import useBookmarkArticles from '@/hooks/useBookmarkArticles';
+import useBookmarkArticles from "@/hooks/useBookmarkArticles";
 
 interface ArticleDetailMenuProps {
   id: number;
@@ -24,10 +24,10 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
 
     if (bookmarks.isBookmarked(id)) {
       bookmarks.removeBookmark(id);
-      toast.success('Artikel berhasil dihapus');
+      toast.success("Artikel berhasil dihapus");
     } else {
       bookmarks.addBookmark(id);
-      toast.success('Artikel berhasil disimpan');
+      toast.success("Artikel berhasil disimpan");
     }
   };
 
@@ -51,7 +51,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
             )}
           </div>
           <div className={`text-white py-1.5 md:py-3`}>
-            {bookmarks.isBookmarked(id) ? 'Hapus' : 'Simpan'}
+            {bookmarks.isBookmarked(id) ? "Hapus" : "Simpan"}
           </div>
         </li>
         <li
@@ -70,7 +70,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
           className={`flex flex-col items-center hover:cursor-pointer group`}
           onClick={() => {
             navigator.clipboard.writeText(window.location.href);
-            toast.success('Link disalin! Bagikan ke temanmu 😎');
+            toast.success("Link disalin! Bagikan ke temanmu 😎");
           }}
         >
           <BiShareAlt

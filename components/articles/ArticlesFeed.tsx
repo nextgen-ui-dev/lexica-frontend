@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Articles } from '@/constants/article.constant';
-import Container from '../core/layout/Container';
-import ArticleCard from './ArticleCard';
-import Button from '../core/molecules/Button';
+import { Articles } from "@/constants/article.constant";
+import Container from "../core/layout/Container";
+import ArticleCard from "./ArticleCard";
+import Button from "../core/molecules/Button";
 
 const ArticlesFeed = () => {
   return (

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React, { MouseEvent } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import React, { MouseEvent } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-import { FaUserFriends } from 'react-icons/fa';
-import { BsCollection, BsBarChart } from 'react-icons/bs';
-import { BiLogOut } from 'react-icons/bi';
-import { signOut } from 'next-auth/react';
-import { User } from '@/types/session.type';
+import { FaUserFriends } from "react-icons/fa";
+import { BsCollection, BsBarChart } from "react-icons/bs";
+import { BiLogOut } from "react-icons/bi";
+import { signOut } from "next-auth/react";
+import { User } from "@/types/session.type";
 
 interface ProfileDropdownProps {
   user?: User;
@@ -18,7 +18,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
   const router = useRouter();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
-    const targetPath = e.currentTarget.getAttribute('data-path');
+    const targetPath = e.currentTarget.getAttribute("data-path");
     if (targetPath) {
       toggleExpand();
       router.push(targetPath);
@@ -31,7 +31,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
         className={`
           flex flex-col 
           absolute 
-          ${window.innerWidth > 768 ? 'top-[43px]' : 'top-[38px]'}
+          ${window.innerWidth > 768 ? "top-[43px]" : "top-[38px]"}
           right-[4px] md:right-[8px] 
           bg-gray-100 rounded-xl border border-gray-500
           duration-300 transition ease-in-out

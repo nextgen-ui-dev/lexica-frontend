@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 const AboutHero = () => {
   return (
@@ -10,8 +10,8 @@ const AboutHero = () => {
           alt=""
           fill
           style={{
-            objectFit: 'contain',
-            objectPosition: 'center bottom',
+            objectFit: "contain",
+            objectPosition: "center bottom",
           }}
         />
       </div>

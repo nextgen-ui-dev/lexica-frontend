@@ -1,6 +1,6 @@
-import { NextAuthOptions } from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-import useOnboardingModal from '../hooks/useOnboardingModal';
+import { NextAuthOptions } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import useOnboardingModal from "../hooks/useOnboardingModal";
 
 export const authOption: NextAuthOptions = {
   providers: [
@@ -9,14 +9,14 @@ export const authOption: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  debug: process.env.NODE_ENV === 'development',
+  debug: process.env.NODE_ENV === "development",
   session: {
-    strategy: 'jwt',
+    strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.debug('user: ', user);
+      console.debug("user: ", user);
       // TODO: Hit be to register user
       return true;
     },

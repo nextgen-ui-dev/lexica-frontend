@@ -1,10 +1,10 @@
-import HomeHero from '../components/home/HomeHero';
-import HomeLexicaInfo from '../components/home/HomeLexicaInfo';
-import ArticleHomePreviews from '../components/home/ArticlesHomePreview';
+import HomeHero from "../components/home/HomeHero";
+import HomeLexicaInfo from "../components/home/HomeLexicaInfo";
+import ArticleHomePreviews from "../components/home/ArticlesHomePreview";
 
 export default async function Home() {
   return (
-    <section id="landing-page" className="relative">
+    <section id="landing-page" className="relative bg-backdrop">
       <HomeHero />
       <HomeLexicaInfo />
       <ArticleHomePreviews />

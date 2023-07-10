@@ -1,8 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import Avatar from '../core/molecules/Avatar';
-import { Collection } from '@/types/collection.type';
-import { BiBookBookmark } from 'react-icons/bi';
+import React from "react";
+import Image from "next/image";
+import Avatar from "../core/molecules/Avatar";
+import { Collection } from "@/types/collection.type";
+import { BiBookBookmark } from "react-icons/bi";
 
 interface CollectionCardProps {
   collection: Collection;
@@ -12,21 +12,22 @@ const CollectionCard = ({ collection }: CollectionCardProps) => {
   return (
     <div
       className={`
-    relative flex flex-row md:flex-col justify-between items-center rounded-lg border border-gray-500 
+    relative flex flex-row md:flex-col justify-between items-center rounded-lg border
     min-w-[160px] md:min-w-[240px] 
     min-h-[160px] md:min-h-[240px] 
     h-[160px] md:h-[280px] 
-    bg-transparent`}
+    bg-transparent
+    overflow-hidden`}
     >
       <div
-        className={`relative w-1/2 md:w-full min-h-full md:min-h-[160px] rounded-lg overflow-hidden group`}
+        className={`relative w-1/2 md:w-full min-h-full md:min-h-[160px] overflow-hidden group`}
       >
         <Image
           src={collection.thumbnailUrl}
           alt={collection.name}
           fill
           style={{
-            objectFit: 'cover',
+            objectFit: "cover",
           }}
           className="group-hover:scale-110 transition bg-primary-500 duration-300"
         />

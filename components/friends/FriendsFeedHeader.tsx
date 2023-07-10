@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React, { MouseEvent } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import React, { MouseEvent } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-import { AiOutlinePlus } from 'react-icons/ai';
-import { FaUserFriends } from 'react-icons/fa';
-import Searchbar from '../core/molecules/Searchbar';
+import { AiOutlinePlus } from "react-icons/ai";
+import { FaUserFriends } from "react-icons/fa";
+import Searchbar from "../core/molecules/Searchbar";
 
-import useFindFriends from '@/hooks/useFindFriends';
+import useFindFriends from "@/hooks/useFindFriends";
 
 interface FriendsHeaderProps {
   searchQuery: string;
@@ -23,7 +23,7 @@ const FriendsFeedHeader = ({
   const friends = useFindFriends();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
-    const targetPath = e.currentTarget.getAttribute('data-path');
+    const targetPath = e.currentTarget.getAttribute("data-path");
     if (targetPath) {
       router.push(targetPath);
     }
@@ -31,17 +31,30 @@ const FriendsFeedHeader = ({
 
   return (
     <div
-      className={`flex flex-row justify-between items-center py-8 px-3 md:px-6`}
+      className={`flex flex-row justify-between items-center pt-12 pb-8 md:pt-8`}
     >
-      <div
-        className={`flex flex-row items-center md:flex-row text-lg text-slate-700 group`}
-      >
-        <div className="group-hover:text-primary-500">{423}</div>
-        <FaUserFriends className="ml-2 group-hover:text-primary-500 duration-300" />
-      </div>
-
       {/* Add Friend */}
-      <div className={`flex flex-row`}>
+      <div className={`flex flex-row gap-x-4`}>
+        <div>
+          {window.innerWidth > 768 ? (
+            <Searchbar
+              placeholder="Cari nama atau email"
+              controlValue={searchQuery}
+              controlCallback={(e) => {
+                handleQuery(e.target.value);
+              }}
+            />
+          ) : (
+            <Searchbar
+              mobile
+              large
+              controlValue={searchQuery}
+              controlCallback={(e) => {
+                handleQuery(e.target.value);
+              }}
+            />
+          )}
+        </div>
         <div
           className={`flex flex-row items-center px-2 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
           data-path={`/friends/add`}
@@ -59,29 +72,12 @@ const FriendsFeedHeader = ({
             </div>
           )}
         </div>
-
-        <div className="px-1.5 md:px-3"></div>
-
-        <div>
-          {window.innerWidth > 768 ? (
-            <Searchbar
-              placeholder="Cari nama atau email"
-              controlValue={searchQuery}
-              controlCallback={e => {
-                handleQuery(e.target.value);
-              }}
-            />
-          ) : (
-            <Searchbar
-              mobile
-              large
-              controlValue={searchQuery}
-              controlCallback={e => {
-                handleQuery(e.target.value);
-              }}
-            />
-          )}
-        </div>
+      </div>
+      <div
+        className={`flex flex-row items-center justify-center md:flex-row text-lg text-slate-700 group py-1 bg-primary-200 px-4 rounded-full`}
+      >
+        <div className="group-hover:text-primary-500">{423}</div>
+        <FaUserFriends className="ml-2 group-hover:text-primary-500 duration-300" />
       </div>
     </div>
   );

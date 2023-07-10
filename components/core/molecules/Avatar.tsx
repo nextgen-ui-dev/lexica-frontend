@@ -1,5 +1,5 @@
-'use client';
-import Image from 'next/image';
+"use client";
+import Image from "next/image";
 
 interface AvatarProps {
   src: string | null | undefined;
@@ -14,7 +14,7 @@ const Avatar = ({ src, large, small }: AvatarProps) => {
       height={large ? 40 : !small ? 30 : 20}
       width={large ? 40 : !small ? 30 : 20}
       alt="Avatar"
-      src={src || '/images/placeholder.png'}
+      src={src || "/images/placeholder.png"}
     />
   );
 };
