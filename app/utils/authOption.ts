@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
+import useOnboardingModal from "../hooks/useOnboardingModal";
 
 export const authOption: NextAuthOptions = {
     providers: [
@@ -14,19 +15,21 @@ export const authOption: NextAuthOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
+        async signIn({ user, account, profile }) {
+            console.debug('user: ', user);
+            // TODO: Hit be to register user
+            return true;
+        },
         async jwt({ token, account, session, user }) {
-            // console.debug(token)
             return {
                 ...token,
                 ...user,
             }
         },
         async session({ session, token }) {
-            // console.debug('this id: ', token.id)
             if (session) {
                 session = Object.assign({}, session, { access_token: token.access_token, id: token.id })
             }
-            // console.debug(session)
             return session
         }
     },

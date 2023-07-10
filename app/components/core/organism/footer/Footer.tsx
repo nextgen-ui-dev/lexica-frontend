@@ -1,11 +1,8 @@
-'use client';
-
-import useLoginModal from "@/app/hooks/useLoginModal";
+"use client"
 import Container from "../../layout/Container";
 import Button from "../../molecules/Button";
 
 const Footer = () => {
-    const loginModal = useLoginModal();
     return (
             <footer className="relative w-full h-full flex flex-row items-center bg-primary-600 py-8">
                 <Container>
@@ -16,7 +13,7 @@ const Footer = () => {
                             <div className="w-full max-w-xs">
                                 <Button
                                     label="Jelajahi lebih lanjut"
-                                    onClick={() => { loginModal.onOpen() }}
+                                    onClick={() => { }}
                                     accent
                                     fullRounded
                                 />
