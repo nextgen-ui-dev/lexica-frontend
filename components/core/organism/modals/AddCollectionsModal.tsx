@@ -32,7 +32,7 @@ const AddCollectionModal = () => {
       name,
       creator: creator,
       articles: [],
-      thumbnailUrl: "",
+      thumbnailUrl: "/images/no_image.png",
     };
 
     collectionsHook.addCollection(collection);

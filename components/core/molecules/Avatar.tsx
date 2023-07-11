@@ -6,7 +6,7 @@ interface AvatarProps {
   src: string | null | undefined;
   large?: boolean;
   small?: boolean;
-  profileLogo?: boolean
+  profileLogo?: boolean;
 }
 
 const Avatar = ({ src, large, small, profileLogo }: AvatarProps) => {
@@ -19,8 +19,9 @@ const Avatar = ({ src, large, small, profileLogo }: AvatarProps) => {
         alt="Avatar"
         src={src || "/images/placeholder.png"}
       />
-      {profileLogo && <FaUserCircle className="absolute -bottom-2 right-0 text-white stroke-primary-500" />
-      }
+      {profileLogo && (
+        <FaUserCircle className="absolute -bottom-2 right-0 text-white stroke-primary-500" />
+      )}
     </>
   );
 };
