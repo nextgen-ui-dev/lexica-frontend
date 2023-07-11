@@ -6,11 +6,11 @@ import { useArticles } from "@/hooks";
 
 const ArticlesPage = () => {
   const { data } = useArticles();
-  
+
   return (
     <div className="relative w-full bg-backdrop">
       <ArticlesHero recentArticle={data?.articles[0]} />
-      <ArticlesFeed articles={data?.articles.slice(1)}/>
+      <ArticlesFeed articles={data?.articles.slice(1)} />
     </div>
   );
 };

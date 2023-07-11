@@ -23,7 +23,10 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
               {article.category_name}
             </h5>
             <div className="w-full h-full flex flex-col gap-2">
-              <h6 className="line-clamp-1">{moment(article.created_at).format('DD MMM YYYY')}, {article.source}</h6>
+              <h6 className="line-clamp-1">
+                {moment(article.created_at).format("DD MMM YYYY")},{" "}
+                {article.source}
+              </h6>
               <h3 className="line-clamp-2 max-w-xs">{article.title}</h3>
             </div>
             <div className="w-full h-full hidden md:flex flex-col items-center justify-center">

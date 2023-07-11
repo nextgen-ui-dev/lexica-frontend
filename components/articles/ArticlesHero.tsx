@@ -6,18 +6,16 @@ import { Articles } from "@/constants/article.constant";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { Article } from "@/types/article";
-import moment from 'moment';
+import moment from "moment";
 import ArticleCardSkeleton from "./ArticleCardSkeleton";
 import ArticleHeroCardSkeleton from "./ArticleHeroCardSkeleton";
 import ArticleHeroCard from "./ArticleHeroCard";
 
 interface ArticlesHeroProps {
-  recentArticle?: Article
+  recentArticle?: Article;
 }
 
-const ArticlesHero = ({
-  recentArticle
-}: ArticlesHeroProps) => {
+const ArticlesHero = ({ recentArticle }: ArticlesHeroProps) => {
   const router = useRouter();
   const article = Articles[0];
   return (
@@ -62,10 +60,11 @@ const ArticlesHero = ({
         </div>
         <div className="absolute w-full h-[50dvh] md:h-[40dvh] -bottom-[70%] md:-bottom-[55%]">
           <Container>
-            {recentArticle
-              ? <ArticleHeroCard article={recentArticle} />
-              : <ArticleHeroCardSkeleton />
-            }
+            {recentArticle ? (
+              <ArticleHeroCard article={recentArticle} />
+            ) : (
+              <ArticleHeroCardSkeleton />
+            )}
           </Container>
         </div>
       </div>
