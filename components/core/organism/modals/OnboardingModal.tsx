@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 "use client";
 
 import useOnboardingModal from "@/hooks/useOnboardingModal";
@@ -80,12 +81,11 @@ const OnboardingModal = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
     onboardingModal.onClose();
     router.replace("/");
   };
 
-  let body = [
+  const body = [
     <div className="flex flex-col gap-4">
       <div>
         <h4 className="mb-2 md:mb-3">

@@ -32,6 +32,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
           src={collection.thumbnailUrl}
           alt={collection.name}
           fill
+          priority
           style={{
             objectFit: "cover",
           }}
