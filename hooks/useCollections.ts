@@ -11,7 +11,7 @@ interface CollectionsStore {
 }
 
 const useCollections = create<CollectionsStore>((set) => ({
-  collections: CollectionConstants,
+  collections: [],
   addCollection: (collection: Collection) => {
     set((state) => {
       const newCollections: Collection[] = [...state.collections, collection];

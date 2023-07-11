@@ -30,7 +30,7 @@ const CollectionsPage = () => {
           .includes(searchQuery.toLowerCase());
       }),
     );
-  }, [searchQuery]);
+  }, [searchQuery, collectionsState]);
 
   React.useEffect(() => {
     handleSearch();
@@ -51,7 +51,6 @@ const CollectionsPage = () => {
 
                 <div
                   className={`flex flex-row items-center px-2 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
-                  data-path={`/friends/add`}
                   onClick={collectionsModal.onOpen}
                 >
                   <AiOutlinePlus

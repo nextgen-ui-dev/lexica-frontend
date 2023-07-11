@@ -13,6 +13,7 @@ import { useSession } from "next-auth/react";
 
 const AddCollectionModal = () => {
   const { data: session, status } = useSession();
+  const collectionsState = useCollections((state) => state.collections);
   const collectionsHook = useCollections();
   const collectionsModal = useCollectionsModal();
   const {
@@ -35,9 +36,6 @@ const AddCollectionModal = () => {
     };
 
     collectionsHook.addCollection(collection);
-
-    console.log(collection);
-    console.log(collectionsHook.collections);
     collectionsModal.onClose();
   };
 
