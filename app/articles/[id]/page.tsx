@@ -36,7 +36,7 @@ const ArticleDetails = () => {
         onClick={() => {
           assistantModal.onOpen();
         }}
-        className="fixed bottom-[12dvh] right-10 z-10 p-3 bg-primary-400 shadow-lg rounded-full cursor-pointer"
+        className="fixed bottom-[14dvh] md:bottom-[16dvh] right-[38px] z-10 p-3 bg-primary-400 shadow-lg rounded-full cursor-pointer"
       >
         <RiCustomerServiceLine size={20} className="text-white" />
       </div>

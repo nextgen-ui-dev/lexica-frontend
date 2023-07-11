@@ -66,7 +66,7 @@ const AssistantModal = () => {
   return (
     <Modal
       isOpen={assistantModal.isOpen}
-      title="LexicaAI - Asisten Membaca"
+      title="Lexica AI: Asisten Membaca"
       onClose={assistantModal.onClose}
       body={body}
     />

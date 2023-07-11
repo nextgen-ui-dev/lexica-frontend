@@ -4,7 +4,7 @@ import React, { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 
 import {
-  BsPeople,
+  BsPeopleFill,
   BsStack,
   BsBarChartFill,
   BsBookmarkFill,
@@ -71,7 +71,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             `}
           >
-            <BsPeople className="mr-2" strokeWidth={0.5} />
+            <BsPeopleFill className="mr-2" strokeWidth={0.5} />
             <h5>Teman</h5>
           </div>
           <div
