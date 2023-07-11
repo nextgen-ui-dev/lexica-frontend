@@ -23,7 +23,7 @@ const Footer = () => {
               <Button
                 label="Jelajahi lebih lanjut"
                 onClick={() => {
-                  if (status !== "authenticated") {
+                  if (session?.user === undefined) {
                     return loginModal.onOpen();
                   }
                 }}

@@ -43,7 +43,7 @@ const ArticleDetails = () => {
       <ToastProvider />
       <section className="w-full h-[32dvh] md:h-[40dvh] bg-primary-600 flex flex-row items-center justify-center md:pt-4">
         <div className="w-full max-w-md">
-          <h2 className="px-4 pt-6 md:mt-8 text-md md:text-xl text-center text-white">
+          <h2 className="px-4 mt-8 md:mt-8 text-md md:text-xl text-center text-white">
             {data ? (
               data.title
             ) : (

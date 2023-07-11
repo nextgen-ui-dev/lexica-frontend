@@ -25,7 +25,7 @@ const AddCollectionModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const { name } = data;
-    const creator = status === "authenticated" ? session.user : {};
+    const creator = session?.user !== undefined ? session.user : {};
     const collection = {
       id: `QWERTYID${collectionsState.length + 1}`,
       name,

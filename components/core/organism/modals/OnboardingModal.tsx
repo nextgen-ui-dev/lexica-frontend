@@ -156,7 +156,6 @@ const OnboardingModal = () => {
             label="Silahkan cerita sebebasnya 😃"
             register={register}
             errors={errors}
-            required
           />
         </div>
       </div>
