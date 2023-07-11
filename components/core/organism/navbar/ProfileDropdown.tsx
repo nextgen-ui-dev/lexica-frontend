@@ -4,7 +4,7 @@ import React, { MouseEvent } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 import { FaUserFriends } from "react-icons/fa";
-import { BsCollection, BsBarChart } from "react-icons/bs";
+import { BsStack, BsBarChartFill, BsBookmarkFill } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { signOut } from "next-auth/react";
 import { User } from "@/types/session";
@@ -21,7 +21,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
     const targetPath = e.currentTarget.getAttribute("data-path");
     if (targetPath) {
       toggleExpand();
-      router.push(targetPath);
+      router.replace(targetPath);
     }
   };
 
@@ -44,9 +44,22 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
 
         <div className={`bg-gray-200 my-[6px]`}>
           <div
+            data-path="/bookmarks"
+            onClick={handleRoute}
+            className={`flex flex-row items-center
+            px-2 md:px-3 py-[3px] md:py-[4px] 
+            hover:bg-gray-300 
+            hover:cursor-pointer
+            text-slate-700
+            `}
+          >
+            <BsBookmarkFill className="mr-2" />
+            Simpanan
+          </div>
+          <div
             data-path="/friends"
             onClick={handleRoute}
-            className={`flex flex-row 
+            className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-gray-300 
             hover:cursor-pointer
@@ -59,27 +72,27 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
           <div
             data-path="/collections"
             onClick={handleRoute}
-            className={`flex flex-row 
+            className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-gray-300 
             hover:cursor-pointer
             text-slate-700
             `}
           >
-            <BsCollection className="mr-2" />
+            <BsStack className="mr-2" />
             Koleksi
           </div>
           <div
             data-path="/analytics"
             onClick={handleRoute}
-            className={`flex flex-row 
+            className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-gray-300 
             hover:cursor-pointer
             text-slate-700
             `}
           >
-            <BsBarChart className="mr-2" />
+            <BsBarChartFill className="mr-2" />
             Performaku
           </div>
         </div>

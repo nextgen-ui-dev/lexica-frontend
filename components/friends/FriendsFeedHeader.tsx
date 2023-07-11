@@ -37,7 +37,7 @@ const FriendsFeedHeader = ({
         <div>
           {window.innerWidth > 768 ? (
             <Searchbar
-              placeholder="Cari nama atau email"
+              placeholder="Cari nama/email"
               controlValue={searchQuery}
               controlCallback={(e) => {
                 handleQuery(e.target.value);
@@ -47,6 +47,7 @@ const FriendsFeedHeader = ({
             <Searchbar
               mobile
               large
+              placeholder="Cari nama/email"
               controlValue={searchQuery}
               controlCallback={(e) => {
                 handleQuery(e.target.value);

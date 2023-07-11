@@ -46,13 +46,17 @@ const AddFriend = () => {
   return (
     <div className={`relative w-full min-h-[100dvh] bg-white`}>
       <div
-        className={`h-[8dvh] md:h-[12dvh] flex flex-col gap-y-40 bg-primary-500`}
-      ></div>
+          className={`relative h-[16dvh] md:h-[28dvh] flex flex-col  gap-y-40 bg-primary-600`}
+        >
+          <h1 className={`absolute top-[60%] left-1/2 -translate-x-1/2 text-white`}>
+            Cari Teman Baru
+          </h1>
+        </div>
 
       <div className="w-full h-full bg-primary-600">
         <div className="w-full bg-white rounded-t-[2dvh] md:rounded-t-[6dvh]">
           <Container>
-            <div className="w-full">
+            <div className="w-full py-[24px] md:py-[40px]">
               <AddFriendsHeader
                 searchQuery={searchQuery}
                 handleQuery={handleQuery}
@@ -86,7 +90,6 @@ const AddFriend = () => {
           </Container>
         </div>
       </div>
-      <div className="mb-[24px] md:mb-[36px]"></div>
     </div>
   );
 };

@@ -1,35 +1,37 @@
 import { create } from "zustand";
+import { Article } from "@/types/articles";
+import { Articles as ArticlesDummy } from "@/constants/article.constant";
 
 interface BookmarkArticlesStore {
-  articles: string[];
-  addBookmark: (id: string) => void;
+  bookmarks: Article[];
+  addBookmark: (article: Article) => void;
   removeBookmark: (id: string) => void;
   isBookmarked: (id: string) => boolean;
 }
 
 const useBookmarks = create<BookmarkArticlesStore>((set) => ({
-  articles: [],
-  addBookmark: (id: string) => {
+  bookmarks: ArticlesDummy,
+  addBookmark: (article: Article) => {
     set((state) => {
-      const newBookmarks: string[] = [...state.articles, id];
+      const newBookmarks: Article[] = [...state.bookmarks, article];
 
       localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
 
       return {
-        articles: newBookmarks,
+        bookmarks: newBookmarks,
       };
     });
   },
   removeBookmark: (id: string) => {
     set((state) => {
-      const newBookmarks: string[] = state.articles.filter(
-        (artId) => artId !== id,
+      const newBookmarks: Article[] = state.bookmarks.filter(
+        (art) => art.id !== id,
       );
 
       localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
 
       return {
-        articles: newBookmarks,
+        bookmarks: newBookmarks,
       };
     });
   },
