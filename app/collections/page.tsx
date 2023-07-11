@@ -8,8 +8,7 @@ import AddCollectionModal from "@/components/core/organism/modals/AddCollections
 import useCollectionsModal from "@/hooks/useCollectionsModal";
 
 import { AiOutlinePlus } from "react-icons/ai";
-
-import { Collection } from "@/types/collection.type";
+import { Collection } from "../../types/collection";
 import { Collections as DummyCollections } from "@/constants/collections.constant";
 import useCollections from "@/hooks/useCollections";
 

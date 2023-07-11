@@ -34,9 +34,7 @@ const CollectionDetails = () => {
           <div className="font-semibold text-2xl md:text-3xl">
             {collection.name}
           </div>
-          <div className="text-md md:text-xl">
-            {collection.creator.name}
-          </div>
+          <div className="text-md md:text-xl">{collection.creator.name}</div>
         </div>
 
         {articles.length === 0 && (
@@ -49,13 +47,13 @@ const CollectionDetails = () => {
 
         <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 px-2 md:px-0">
           {articles.length > 0 &&
-              articles.map((article, id) => {
-                return (
-                  <div key={id} className={`py-2 md:py-0`}>
-                    <ArticleCard article={article} />
-                  </div>
-                );
-              })}
+            articles.map((article, id) => {
+              return (
+                <div key={id} className={`py-2 md:py-0`}>
+                  <ArticleCard article={article} />
+                </div>
+              );
+            })}
         </div>
       </Container>
       <div className="pb-[24px] md:pb-[36px]"></div>

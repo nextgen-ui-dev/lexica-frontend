@@ -1,4 +1,4 @@
-import { Collection } from "../types/collection.type";
+import { Collection } from "../types/collection";
 
 const imageUrl =
   "https://lh3.googleusercontent.com/a/AAcHTtesg_pgXYXWnBBXgkm8yefR9ib8UG8ZTJSrMwzDK4EBfQ=s346-c-no";
