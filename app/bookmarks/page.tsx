@@ -5,14 +5,13 @@ import Container from "@/components/core/layout/Container";
 import useBookmarks from "@/hooks/useBookmarks";
 import Searchbar from "@/components/core/molecules/Searchbar";
 import BookmarksFeed from "@/components/bookmarks/BookmarksFeed";
-import { Article } from "@/types/articles";
-import { Articles } from "@/constants/article.constant";
+import { ArticleDetail } from "@/types/articleDetail";
 
 const BookmarksPage = () => {
   const bookmarksState = useBookmarks((state) => state.bookmarks);
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] =
-    React.useState<Article[]>(bookmarksState);
+    React.useState<ArticleDetail[]>(bookmarksState);
 
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
@@ -22,8 +21,8 @@ const BookmarksPage = () => {
     setSearchResults(
       bookmarksState.filter((article) => {
         return (
-          article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          article.source.toLowerCase().includes(searchQuery.toLowerCase())
+          article.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          article.source?.toLowerCase().includes(searchQuery.toLowerCase())
         );
       }),
     );
