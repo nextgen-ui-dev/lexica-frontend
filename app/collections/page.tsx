@@ -10,6 +10,7 @@ import useCollectionsModal from "@/hooks/useCollectionsModal";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Collection } from "../../types/collection";
 import useCollections from "@/hooks/useCollections";
+import { Collections } from "@/constants/collections.constant";
 
 const CollectionsPage = () => {
   const collectionsState = useCollections((state) => state.collections);
@@ -41,9 +42,9 @@ const CollectionsPage = () => {
       <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
       <AddCollectionModal />
       <div className="w-full bg-primary-600">
-        <div className="w-full bg-backdrop rounded-t-[6dvh]">
+        <div className="w-full bg-backdrop rounded-t-[2dvh] md:rounded-t-[6dvh]">
           <Container expanded>
-            <div className="flex flex-row justify-between pt-[24px] md:pt-[40px]">
+            <div className="flex flex-row justify-between py-[24px] md:py-[40px]">
               <div className={`flex flex-row items-center`}>
                 <div className="text-xl md:text-3xl text-slate-800 font-semibold mr-3 md:mr-8">
                   Koleksi Saya
@@ -91,7 +92,6 @@ const CollectionsPage = () => {
           </Container>
         </div>
       </div>
-      <div className="pb-[24px] md:pb-[36px]"></div>
     </div>
   );
 };

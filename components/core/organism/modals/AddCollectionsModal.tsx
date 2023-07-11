@@ -28,7 +28,7 @@ const AddCollectionModal = () => {
     const { name } = data;
     const creator = status === "authenticated" ? session.user! : {};
     const collection = {
-      id: collectionsHook.collections.length + 1,
+      id: `QWERTYID${collectionsState.length + 1}`,
       name,
       creator: creator,
       articles: [],

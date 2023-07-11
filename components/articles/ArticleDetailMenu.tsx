@@ -6,7 +6,7 @@ import { BiShareAlt } from "react-icons/bi";
 import { toast } from "react-toastify";
 
 // import getCurrentUser from '@/app/actions/getCurrentUser';
-import useBookmarkArticles from "@/hooks/useBookmarkArticles";
+import useBookmarkArticles from "@/hooks/useBookmarks";
 
 interface ArticleDetailMenuProps {
   id: number;

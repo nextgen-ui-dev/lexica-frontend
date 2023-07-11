@@ -50,7 +50,7 @@ const AddFriend = () => {
       ></div>
 
       <div className="w-full h-full bg-primary-600">
-        <div className="w-full bg-white rounded-t-[6dvh]">
+        <div className="w-full bg-white rounded-t-[2dvh] md:rounded-t-[6dvh]">
           <Container>
             <div className="w-full">
               <AddFriendsHeader

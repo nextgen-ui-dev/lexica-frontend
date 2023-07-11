@@ -6,12 +6,12 @@ import { Collections as CollectionConstants } from "@/constants/collections.cons
 interface CollectionsStore {
   collections: Collection[];
   addCollection: (collection: Collection) => void;
-  removeCollection: (collectionId: number) => void;
-  isCollectionOwner: (collectionId: number, userEmail: string) => boolean;
+  removeCollection: (collectionId: string) => void;
+  isCollectionOwner: (collectionId: string, userEmail: string) => boolean;
 }
 
 const useCollections = create<CollectionsStore>((set) => ({
-  collections: [],
+  collections: CollectionConstants,
   addCollection: (collection: Collection) => {
     set((state) => {
       const newCollections: Collection[] = [...state.collections, collection];
@@ -22,7 +22,7 @@ const useCollections = create<CollectionsStore>((set) => ({
       };
     });
   },
-  removeCollection: (collectionId: number) => {
+  removeCollection: (collectionId: string) => {
     set((state) => {
       const newCollections: Collection[] = state.collections.filter(
         (collection) => collection.id !== collectionId,
@@ -34,10 +34,9 @@ const useCollections = create<CollectionsStore>((set) => ({
       };
     });
   },
-  isCollectionOwner: (collectionId: number, userEmail: string) => {
+  isCollectionOwner: (collectionId: string, userEmail: string) => {
     return (
-      Collections.filter((col) => col.id === collectionId)[0]?.creator.email ===
-      userEmail
+      CollectionConstants.filter((col) => col.id === collectionId)[0]?.creator.email === userEmail
     );
   },
 }));

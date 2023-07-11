@@ -15,12 +15,15 @@ interface CollectionDetailsProps {
 
 const CollectionDetails = () => {
   const params = useParams();
-  const id = parseInt(params.id);
+  const id = params.id;
   const collectionsHook = useCollections();
+  
+  console.log(collectionsHook.collections);
   const collection = collectionsHook.collections.find((col) => col.id === id)!;
   console.log(collection);
+
   const articles = Articles.filter((article) => {
-    return collection.articles.includes(article.id);
+    return collection?.articles.includes(article.id);
   });
 
   return (
