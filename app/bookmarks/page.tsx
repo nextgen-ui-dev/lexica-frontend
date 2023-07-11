@@ -9,14 +9,12 @@ const BookmarksPage = () => {
         <div className="w-full bg-backdrop rounded-t-[6dvh]">
           <Container expanded>
             <div className="flex flex-row py-[24px] md:py-[40px]">
-              <h3>
-                Bookmark Saya
-              </h3>
+              <h3>Bookmark Saya</h3>
             </div>
           </Container>
         </div>
       </div>
-  </div>
+    </div>
   );
 };
 

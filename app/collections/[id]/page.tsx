@@ -17,7 +17,7 @@ const CollectionDetails = () => {
   const params = useParams();
   const id = params.id;
   const collectionsHook = useCollections();
-  
+
   console.log(collectionsHook.collections);
   const collection = collectionsHook.collections.find((col) => col.id === id)!;
   console.log(collection);

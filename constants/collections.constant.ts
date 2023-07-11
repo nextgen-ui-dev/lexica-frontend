@@ -42,10 +42,7 @@ export const Collections: Collection[] = [
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [
-      "01H509T1EJYZ9DNZNBJ2FRSXBR",
-      "01H5092P04DJAP9WFNT5QX7T9C",
-    ],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
   {
@@ -56,10 +53,7 @@ export const Collections: Collection[] = [
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [
-      "01H509T1EJYZ9DNZNBJ2FRSXBR",
-      "01H5092P04DJAP9WFNT5QX7T9C",
-    ],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
   {
@@ -70,10 +64,7 @@ export const Collections: Collection[] = [
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [
-      "01H509T1EJYZ9DNZNBJ2FRSXBR",
-      "01H5092P04DJAP9WFNT5QX7T9C",
-    ],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
   {
@@ -84,10 +75,7 @@ export const Collections: Collection[] = [
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [
-      "01H509T1EJYZ9DNZNBJ2FRSXBR",
-      "01H5092P04DJAP9WFNT5QX7T9C",
-    ],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
 ];

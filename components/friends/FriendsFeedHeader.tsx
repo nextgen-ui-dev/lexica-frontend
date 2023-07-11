@@ -55,7 +55,7 @@ const FriendsFeedHeader = ({
           )}
         </div>
         <div
-          className={`flex flex-row items-center px-2 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+          className={`flex flex-row items-center px-2 py-0 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
           data-path={`/friends/add`}
           onClick={handleRoute}
         >

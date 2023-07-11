@@ -36,7 +36,8 @@ const useCollections = create<CollectionsStore>((set) => ({
   },
   isCollectionOwner: (collectionId: string, userEmail: string) => {
     return (
-      CollectionConstants.filter((col) => col.id === collectionId)[0]?.creator.email === userEmail
+      CollectionConstants.filter((col) => col.id === collectionId)[0]?.creator
+        .email === userEmail
     );
   },
 }));
