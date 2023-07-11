@@ -7,7 +7,7 @@ import Container from "../../components/core/layout/Container";
 import FriendsFeedHeader from "../../components/friends/FriendsFeedHeader";
 import FriendRowItem from "../../components/friends/FriendRowItem";
 
-import { User } from "../../types/session.type";
+import { User } from "../../types/session";
 import { FriendsConstants } from "../../constants/friends.constants";
 
 const FriendsPage = () => {

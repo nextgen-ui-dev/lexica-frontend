@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { User } from "../types/session.type";
+import { User } from "../types/session";
 
 interface FindFriendsStore {
   searchQuery: string;

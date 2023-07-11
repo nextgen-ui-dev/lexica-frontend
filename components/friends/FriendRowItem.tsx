@@ -3,7 +3,7 @@
 import React from "react";
 
 import Avatar from "../core/molecules/Avatar";
-import { User } from "@/types/session.type";
+import { User } from "@/types/session";
 import { FaTrash } from "react-icons/fa";
 
 interface FriendRowItemProps {

@@ -1,3 +1,4 @@
-export * from "./article.type";
-export * from "./session.type";
-export * from "./collection.type";
+export * from "./articles";
+export * from "./session";
+export * from "./collection";
+export * from "./articleDetail";

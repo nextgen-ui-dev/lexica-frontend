@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Avatar from "../core/molecules/Avatar";
-import { Collection } from "@/types/collection.type";
+import { Collection } from "@/types/collection";
 import { BiBookBookmark } from "react-icons/bi";
 
 interface CollectionCardProps {

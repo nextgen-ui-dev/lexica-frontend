@@ -1,13 +1,13 @@
 "use client";
 
-import React from 'react';
-import { FiMenu } from 'react-icons/fi';
-import { IoMdClose } from 'react-icons/io';
-import { BiLogIn } from 'react-icons/bi';
-import Avatar from '../../molecules/Avatar';
-import { User } from '@/types/session.type';
-import useLoginModal from '@/hooks/useLoginModal';
-import ProfileDropdown from './ProfileDropdown';
+import React from "react";
+import { FiMenu } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
+import { BiLogIn } from "react-icons/bi";
+import Avatar from "../../molecules/Avatar";
+import { User } from "@/types/session";
+import useLoginModal from "@/hooks/useLoginModal";
+import ProfileDropdown from "./ProfileDropdown";
 
 interface NavbarUserMenuProps {
   user?: User;

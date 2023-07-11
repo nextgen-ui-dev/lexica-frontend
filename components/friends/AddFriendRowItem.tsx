@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { User } from "@/types/session.type";
+import { User } from "@/types/session";
 import Avatar from "../core/molecules/Avatar";
 import { FaTrash } from "react-icons/fa";
 import { BsPersonPlus, BsPersonDashFill } from "react-icons/bs";
