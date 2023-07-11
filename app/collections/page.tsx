@@ -6,7 +6,7 @@ import Searchbar from "../../components/core/molecules/Searchbar";
 import CollectionsFeed from "../../components/collections/CollectionsFeed";
 
 import { Collections as DummyCollections } from "../../constants/collections.constant";
-import { Collection } from "../../types/collection.type";
+import { Collection } from "../../types/collection";
 
 interface CollectionProps {}
 

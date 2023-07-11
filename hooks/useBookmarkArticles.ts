@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { ArticleType } from "../types/article.type";
+import { ArticleType } from "../types/article";
 
 interface BookmarkArticlesStore {
   articles: number[];

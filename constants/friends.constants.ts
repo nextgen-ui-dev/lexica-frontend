@@ -1,4 +1,4 @@
-import { User } from "../types/session.type";
+import { User } from "../types/session";
 
 const imageUrl =
   "https://lh3.googleusercontent.com/a/AAcHTtesg_pgXYXWnBBXgkm8yefR9ib8UG8ZTJSrMwzDK4EBfQ=s346-c-no";

@@ -7,7 +7,7 @@ import AddFriendRowItem from "@/components/friends/AddFriendRowItem";
 import Container from "@/components/core/layout/Container";
 import AddFriendsHeader from "@/components/friends/AddFriendsHeader";
 
-import { User } from "@/types/session.type";
+import { User } from "@/types/session";
 import { UsersConstants as DummyUsers } from "@/constants/users.constants";
 
 type Props = {};
