@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 "use client";
 
 import React from "react";
@@ -5,12 +6,14 @@ import { User } from "@/types/session";
 import Avatar from "../core/molecules/Avatar";
 import { FaTrash } from "react-icons/fa";
 import { BsPersonPlus, BsPersonDashFill } from "react-icons/bs";
+import useFriends from "@/hooks/useFriends";
 
 interface FriendRowItemProps {
   friend: User;
 }
 
 const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
+  const friends = useFriends();
   const [isFriend, setIsFriend] = React.useState(false);
 
   return (
@@ -40,16 +43,30 @@ const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
         text-slate-600 
         ${!isFriend ? "hover:text-primary-500" : "hover:text-red-500"}
         hover:cursor-pointer duration-300`}
-        onClick={() => setIsFriend(!isFriend)}
+        onClick={() => {
+          if (!friends.isFriend(friend.email!)) {
+            friends.addFriends(friend);
+          } else {
+            friends.removeFriends(friend.email!);
+          }
+
+          setIsFriend(!isFriend);
+        }}
       >
         <div className="w-[20px]">
-          {!isFriend ? <BsPersonPlus /> : <BsPersonDashFill />}
+          {!friends.isFriend(friend.email!) ? (
+            <BsPersonPlus />
+          ) : (
+            <BsPersonDashFill />
+          )}
         </div>
 
         <div className="px-1"></div>
 
         {window.innerWidth > 768 ? (
-          <div className="w-[50px]">{!isFriend ? <>Tambah</> : <>Hapus</>}</div>
+          <div className="w-[50px]">
+            {!friends.isFriend(friend.email!) ? <>Tambah</> : <>Hapus</>}
+          </div>
         ) : null}
       </div>
     </div>

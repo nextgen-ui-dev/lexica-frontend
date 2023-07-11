@@ -40,12 +40,13 @@ const NavbarUserMenu = ({
         // When user is logged in
         <div className={`relative border-2 border-primary-400 rounded-full`}>
           <div
-            className="hover:cursor-pointer"
+            className="hover:cursor-pointer ring-2 ring-black rounded-full"
             onClick={() => setExpandProfile(!expandProfile)}
           >
             <Avatar
               src={user?.image}
               large={window.innerWidth > 768 ? true : false}
+              profileLogo
             />
           </div>
 

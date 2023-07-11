@@ -1,13 +1,13 @@
 "use client";
 
 import React, { MouseEvent } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
 import Searchbar from "../core/molecules/Searchbar";
 
-import useFindFriends from "@/hooks/useFindFriends";
+import useFriends from "@/hooks/useFriends";
 
 interface FriendsHeaderProps {
   searchQuery: string;
@@ -19,8 +19,7 @@ const FriendsFeedHeader = ({
   handleQuery,
 }: FriendsHeaderProps) => {
   const router = useRouter();
-  const pathName = usePathname();
-  const friends = useFindFriends();
+  const friends = useFriends();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute("data-path");
@@ -76,7 +75,9 @@ const FriendsFeedHeader = ({
       <div
         className={`flex flex-row items-center justify-center md:flex-row text-lg text-slate-700 group py-1 bg-primary-200 px-4 rounded-full`}
       >
-        <div className="group-hover:text-primary-500">{423}</div>
+        <div className="group-hover:text-primary-500">
+          {friends.friendsCount}
+        </div>
         <FaUserFriends className="ml-2 group-hover:text-primary-500 duration-300" />
       </div>
     </div>

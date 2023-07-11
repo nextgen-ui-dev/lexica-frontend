@@ -37,7 +37,7 @@ const Searchbar = ({
         focus:outline-none
         ${
           large && mobile
-            ? "w-[45dvw] h-8"
+            ? "w-[48dvw] h-8"
             : !large && mobile
             ? "w-[35dvw] h-8"
             : large && !mobile

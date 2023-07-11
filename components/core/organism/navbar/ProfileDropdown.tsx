@@ -32,7 +32,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
           flex flex-col 
           absolute 
           ${window.innerWidth > 768 ? "top-[43px]" : "top-[38px]"}
-          right-[4px] md:right-[8px] 
+          right-[4px] md:right-[10px] 
           bg-gray-100 rounded-xl border border-gray-500
           duration-300 transition ease-in-out
         `}

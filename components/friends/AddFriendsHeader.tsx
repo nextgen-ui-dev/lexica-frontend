@@ -43,7 +43,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
         {window.innerWidth > 768 ? (
           <Searchbar
             large
-            placeholder="Cari lewat email"
+            placeholder="Cari lewat nama atau email"
             controlValue={searchQuery}
             controlCallback={(e) => {
               handleQuery(e.target.value);
@@ -53,7 +53,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
           <Searchbar
             mobile
             large
-            placeholder="Cari lewat email"
+            placeholder="Cari lewat nama atau email"
             controlValue={searchQuery}
             controlCallback={(e) => {
               handleQuery(e.target.value);

@@ -21,47 +21,47 @@ export const FriendsConstants: User[] = [
   },
   {
     name: "Jeremy A. Prathama",
-    email: "user@email.com",
+    email: "user1@email.com",
     image: imageUrl,
   },
   {
     name: "Jeremy Gerald Situmorang",
-    email: "user@email.com",
+    email: "user2@email.com",
     image: imageUrl,
   },
   {
     name: "Jeremy Polin",
-    email: "user@email.com",
+    email: "user3@email.com",
     image: imageUrl,
   },
   {
     name: "Andreas Budi",
-    email: "user@email.com",
+    email: "user4@email.com",
     image: imageUrl,
   },
   {
     name: "Jasmine Ayu",
-    email: "user@email.com",
+    email: "user5@email.com",
     image: imageUrl,
   },
   {
     name: "Anindya Putri",
-    email: "user@email.com",
+    email: "user6@email.com",
     image: imageUrl,
   },
   {
     name: "Azzam Ramadhan",
-    email: "user@email.com",
+    email: "user7@email.com",
     image: imageUrl,
   },
   {
     name: "Andrianto Sudharna",
-    email: "user@email.com",
+    email: "user8@email.com",
     image: imageUrl,
   },
   {
     name: "James Riady",
-    email: "user@email.com",
+    email: "user9@email.com",
     image: imageUrl,
   },
 ];

@@ -7,30 +7,33 @@ import Container from "../../components/core/layout/Container";
 import FriendsFeedHeader from "../../components/friends/FriendsFeedHeader";
 import FriendRowItem from "../../components/friends/FriendRowItem";
 
+import useFriends from "@/hooks/useFriends";
 import { User } from "../../types/session";
 import { FriendsConstants } from "../../constants/friends.constants";
 
 const FriendsPage = () => {
+  const friends = useFriends();
+  const friendsState = useFriends((state) => state.friends);
   const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [searchResults, setSearchResults] =
-    React.useState<User[]>(FriendsConstants);
-
+  const [searchResults, setSearchResults] = React.useState<User[]>(
+    friends.friends,
+  );
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
   };
 
-  const handleSearch = useCallback(() => {
+  const handleSearch = React.useCallback(() => {
     setSearchResults(
-      FriendsConstants.filter((friend) => {
+      friends.friends.filter((friend) => {
         return friend.name!.toLowerCase().includes(searchQuery.toLowerCase());
       }),
     );
-  }, [searchQuery]);
+  }, [searchQuery, friendsState]);
 
   React.useEffect(() => {
     handleSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]);
+  }, [searchQuery, friendsState]);
 
   return (
     <>
@@ -72,6 +75,7 @@ const FriendsPage = () => {
             </Container>
           </div>
         </div>
+        <div className="bg-white pb-[24px] md:pb-[36px]"></div>
       </div>
     </>
   );
