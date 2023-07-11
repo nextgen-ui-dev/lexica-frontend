@@ -1,18 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-
+import { RiCustomerServiceLine } from "react-icons/ri";
 import ScrollToTop from "react-scroll-to-top";
-
 import Container from "@/components/core/layout/Container";
 import ArticleDetailMenu from "@/components/articles/ArticleDetailMenu";
-
 import { useArticle } from "@/hooks/useArticle";
 import ArticleContentSkeleton from "@/components/articles/ArticleContentSkeleton";
 import { Texts } from "@/types/articleDetail";
 import ToastProvider from "@/providers/ToastProvider";
+import useAsisstantModal from "@/hooks/useAssistantModal";
 
 enum DIFFICULTY {
   ADVANCE,
@@ -26,17 +25,22 @@ const ArticleDetails = () => {
   const [articleDifficulty, setArticleDifficulty] = useState(
     DIFFICULTY.ADVANCE,
   );
-
-  const strr =
-    "LAMPUNG, KOMPAS.com -\n\nSorotan Pandawara Group dalam kontennya tentang sampah yang selalu viral tidak pernah dimaksudkan untuk 'mempermalukan' pemerintah setempat. TikTokers Pandawara yang digawangi Gilang Rahma, Rafly Pasya, Agung Permana, Rifki Sa'dulah, dan Muchamad Ikhsan mengatakan, kegiatan yang mereka inisiasikan bukan untuk tujuan viral. 'Pandawara tidak pernah menyinggung siapa pun, kita selalu ekspos dan menginformasikan ke warga Indonesia apa yang kita dapatkan, dan tidak kita lebih-lebihkan,' kata Gilang di sela kegiatan bersih Pantai Sukaraja, Bandar Lampung, Senin (10/7/2023). Soal viral atau tidak viral semua tergantung dari media sosial itu sendiri. 'Kita selalu menyampaikan kabar apa adanya,' jelas Gilang. Gilang mengatakan, tujuan kegiatan kegiatan ini adalah untuk mempersatukan dan memperkuat sinergitas masyarakat serta Pemerintah. 'Kami ingin membuat masyarakat tidak saling menyalahkan lagi soal sampah ini. Karena, memang sebetulnya dalam hakikatnya soal sampah ini adalah tugas dari semua manusia di dunia ini dan yang terpenti. Disinggung, dari mana mengetahui tumpukan sampah di Pantai Sukaraja sudah hampir berpuluh tahun, Gilang menjelaskan, informasi itu didapat dari Pandawara yang ada di seluruh Indonesia. 'Jadi, sampai saat ini kita mempunyai rekan-rekan di setiap kota. Dari Aceh sampai timur, mereka selalu memonitoring di setiap tempat dan kota, di Provinsi masing-masing. Pada akhirnya selalu ada laporan ke kita setiap saat, dan akhirnya kita datangi,' tegasnya. 'Seperti yang kita sampaikan dalam video sebelumnya, kita sebelum melihat kondisi pantai ini, sudah punya informasi terkait ini,' sambung Gilang. Sementara, untuk penyebutan mengapa Pantai Sukaraja ini diklaim sebagai pantai terkotor nomor 2 di Indonesia, Gilang berkata karena pantai terkotor nomor satu ada di Pandeglang dan sebelumnya sudah mereka bersihkan bersama warga. 'Untuk itu, kita juga mempunyai alasan mengapa melakukan kegiatan di sini dan menyebutkan bahwa Pantai Sukaraja ini nomor dua terkotor se-Indonesia dan nomor satunya itu yang di Pandeglang,' ungkap Gilang. Baca juga: Menengok Pantai Terkotor di Indonesia Usai Dibersihkan Pandawara Group Dia berharap, setelah pantai Sukaraja dibersihkan, pemerintah dan masyarakat dapat berkolaborasi menjaga kebersihan pantai. 'Kami berharap, ke depannya ada pemeliharaan lebih lanjut dari masyarakat dan pemerintah. Agar bisa berkolaborasi lagi membuat program yang bisa memberikan perubahan kondisi pantai ini,' tandasnya.";
-
+  const assistantModal = useAsisstantModal();
   return (
-    <>
+    <div className="w-full h-full relative">
       <ScrollToTop
         smooth
         color={`#5152ff`}
         className={`flex justify-center items-center p-2 stroke-[6px]`}
       />
+      <div
+        onClick={() => {
+          assistantModal.onOpen();
+        }}
+        className="fixed bottom-[12dvh] right-10 z-10 p-3 bg-primary-400 shadow-lg rounded-full cursor-pointer"
+      >
+        <RiCustomerServiceLine size={20} className="text-white" />
+      </div>
       <ToastProvider />
       <section className="w-full h-[32dvh] md:h-[40dvh] bg-primary-600 flex flex-row items-center justify-center md:pt-4">
         <div className="w-full max-w-md">
@@ -156,7 +160,7 @@ const ArticleDetails = () => {
           </Container>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
