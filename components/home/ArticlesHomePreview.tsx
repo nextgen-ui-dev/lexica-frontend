@@ -15,11 +15,10 @@ const ArticleHomePreviews = () => {
             <div className="flex flex-col justify-center items-center gap-12">
               <h2 className="text-white">Artikel terbaru</h2>
               <div className="w-full grid grid-cols-3 gap-4">
-                {data
-                  && data.articles.map(
-                    (article) => <RecentArticleCard article={article} />
-                  )
-                }
+                {data &&
+                  data.articles.map((article) => (
+                    <RecentArticleCard article={article} />
+                  ))}
               </div>
             </div>
           </div>
