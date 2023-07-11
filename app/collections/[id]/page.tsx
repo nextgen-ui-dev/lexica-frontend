@@ -2,10 +2,10 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import { Articles } from "@/constants/article.constant";
 import ArticleCard from "@/components/articles/ArticleCard";
 import Container from "@/components/core/layout/Container";
 import useCollections from "@/hooks/useCollections";
+import { Articles } from "@/constants/article.constant";
 
 const CollectionDetails = () => {
   const params = useParams();
@@ -29,7 +29,7 @@ const CollectionDetails = () => {
           <div className="font-semibold text-2xl md:text-3xl">
             {collection?.name}
           </div>
-          <div className="text-md md:text-xl">{collection?.creator.name}</div>
+          <div className="text-md md:text-xl">{collection?.creator?.name}</div>
         </div>
 
         {articles.length === 0 && (

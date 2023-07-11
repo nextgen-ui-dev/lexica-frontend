@@ -3,7 +3,7 @@
 import Container from "../core/layout/Container";
 import ArticleCard from "./ArticleCard";
 import ArticleCardSkeleton from "./ArticleCardSkeleton";
-import { Article } from "@/types/articles";
+import { Article } from "@/types/article";
 
 interface ArticlesFeedProps {
   articles?: Article[];

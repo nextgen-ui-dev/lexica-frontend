@@ -1,5 +1,5 @@
 import axios from "@/libs/axios";
-import { Articles } from "@/types/articles";
+import { Articles } from "@/types/article";
 import { useQuery } from "react-query";
 
 export const useThreeRecentArticle = () => {

@@ -1,8 +1,8 @@
 "use client";
 
-import { Article } from "@/types/articles";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Article } from "@/types/article";
 
 interface RecentArticleCardProps {
   article: Article;

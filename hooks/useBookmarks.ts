@@ -1,16 +1,20 @@
 import { create } from "zustand";
+import { Article } from "@/types/article";
 import { ArticleDetail } from "@/types/articleDetail";
-import { Articles as ArticlesDummy } from "@/constants/article.constant";
+import { ArticleDetails as ArticlesDetailDummy } from "@/constants/articleDetail.constant";
+import { Articles as ArticlesConstant } from "@/constants/article.constant";
 
 interface BookmarkArticlesStore {
   bookmarks: ArticleDetail[];
+  bookmarksRegular: Article[];
   addBookmark: (article: ArticleDetail) => void;
   removeBookmark: (id: string) => void;
   isBookmarked: (id: string) => boolean;
 }
 
 const useBookmarks = create<BookmarkArticlesStore>((set) => ({
-  bookmarks: [ArticlesDummy[0]],
+  bookmarks: [ArticlesDetailDummy[0]],
+  bookmarksRegular: [ArticlesConstant[0]],
   addBookmark: (article: ArticleDetail) => {
     set((state) => {
       const newBookmarks: ArticleDetail[] = [...state.bookmarks, article];
@@ -19,6 +23,17 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
 
       return {
         bookmarks: newBookmarks,
+      };
+    });
+  },
+  addBookmarkRegular: (article: Article) => {
+    set((state) => {
+      const newBookmarks: Article[] = [...state.bookmarksRegular, article];
+
+      localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
+
+      return {
+        bookmarksRegular: newBookmarks,
       };
     });
   },
@@ -35,12 +50,29 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
       };
     });
   },
+  removeBookmarkRegular: (id: string) => {
+    set((state) => {
+      const newBookmarks: Article[] = state.bookmarksRegular.filter(
+        (art) => art.id !== id,
+      );
+
+      localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
+
+      return {
+        bookmarksRegular: newBookmarks,
+      };
+    });
+  },
   isBookmarked: (id: string) => {
     const bookmarks: string[] = JSON.parse(
       localStorage.getItem("lexicaBookmarks") || "[]",
     );
 
-    return bookmarks.includes(id);
+    const bookmarksRegular: string[] = JSON.parse(
+      localStorage.getItem("lexicaBookmarks") || "[]",
+    );
+
+    return bookmarks.includes(id) || bookmarksRegular.includes(id);
   },
 }));
 

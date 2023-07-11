@@ -1,9 +1,10 @@
 import React from "react";
 import ArticleCard from "../articles/ArticleCard";
-import { ArticleDetail } from "@/types/articleDetail";
+import { Article } from "@/types/article";
+// import { Articles } from "@/constants/article.constant";
 
 interface BookmarksFeedProps {
-  bookmarks: ArticleDetail[];
+  bookmarks: Article[];
 }
 
 const BookmarksFeed = ({ bookmarks }: BookmarksFeedProps) => {

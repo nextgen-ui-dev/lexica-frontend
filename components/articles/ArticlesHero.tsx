@@ -4,7 +4,7 @@ import Container from "../core/layout/Container";
 import { AiOutlineSearch } from "react-icons/ai";
 import ArticleHeroCardSkeleton from "./ArticleHeroCardSkeleton";
 import ArticleHeroCard from "./ArticleHeroCard";
-import { Article } from "@/types/articles";
+import { Article } from "@/types/article";
 
 interface ArticlesHeroProps {
   recentArticle?: Article;

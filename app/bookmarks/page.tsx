@@ -5,13 +5,16 @@ import Container from "@/components/core/layout/Container";
 import useBookmarks from "@/hooks/useBookmarks";
 import Searchbar from "@/components/core/molecules/Searchbar";
 import BookmarksFeed from "@/components/bookmarks/BookmarksFeed";
-import { ArticleDetail } from "@/types/articleDetail";
+import { Article } from "@/types/article";
+// import { ArticleDetail } from "@/types/articleDetail";
+// import { Articles } from "@/constants/article.constant";
 
 const BookmarksPage = () => {
-  const bookmarksState = useBookmarks((state) => state.bookmarks);
+  const bookmarksRegularState = useBookmarks((state) => state.bookmarksRegular);
   const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [searchResults, setSearchResults] =
-    React.useState<ArticleDetail[]>(bookmarksState);
+  const [searchResults, setSearchResults] = React.useState<Article[]>(
+    bookmarksRegularState,
+  );
 
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
@@ -19,18 +22,18 @@ const BookmarksPage = () => {
 
   const handleSearch = React.useCallback(() => {
     setSearchResults(
-      bookmarksState.filter((article) => {
+      bookmarksRegularState.filter((article) => {
         return (
           article.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
           article.source?.toLowerCase().includes(searchQuery.toLowerCase())
         );
       }),
     );
-  }, [searchQuery, bookmarksState]);
+  }, [searchQuery, bookmarksRegularState]);
 
   React.useEffect(() => {
     handleSearch();
-  }, [searchQuery, bookmarksState, handleSearch]);
+  }, [searchQuery, bookmarksRegularState, handleSearch]);
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
