@@ -81,7 +81,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             `}
           >
-            <BsBarChart className="mr-2" strokeWidth={0.5}/>
+            <BsBarChart className="mr-2" strokeWidth={0.5} />
             <h5>Performaku</h5>
           </div>
         </div>
@@ -95,7 +95,10 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             `}
           onClick={() => signOut()}
         >
-          <BiLogOut className="mr-2 mt-[2px] group-hover:text-red-500 duration-300" strokeWidth={0.5} />
+          <BiLogOut
+            className="mr-2 mt-[2px] group-hover:text-red-500 duration-300"
+            strokeWidth={0.5}
+          />
           <h5 className="group-hover:text-red-500 duration-300">Keluar</h5>
         </div>
       </div>

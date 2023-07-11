@@ -4,7 +4,7 @@ import Button from "../../molecules/Button";
 
 const Footer = () => {
   return (
-    <footer className="relative w-full h-full flex flex-row items-center bg-primary-600 py-8">
+    <footer className="relative w-full h-[25dvh] flex flex-row items-center bg-primary-600 py-8">
       <Container>
         <div className="w-full flex flex-col items-center justify-between gap-4">
           <div className="w-full flex flex-col items-center justify-center gap-2">
