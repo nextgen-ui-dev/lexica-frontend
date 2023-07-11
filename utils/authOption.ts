@@ -15,18 +15,25 @@ export const authOption: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async signIn({ user, account, profile }) {
-      console.debug("user: ", user);
+    async signIn({ user, account }) {
+      console.log("signIn: ", account?.id_token);
       // TODO: Hit be to register user
       return true;
     },
     async jwt({ token, account, session, user }) {
+      // check account, then set id token ke BE, dapet acc & refresh token
+      // taro id obj token payloadnya
+      console.debug("jwt: ", account);
+      // TODO: Hit be
       return {
         ...token,
         ...user,
+        ...account,
       };
     },
     async session({ session, token }) {
+      // check if token exists, then set sesion, else null
+      console.debug("ses: ", token)
       if (session) {
         session = Object.assign({}, session, {
           access_token: token.access_token,
