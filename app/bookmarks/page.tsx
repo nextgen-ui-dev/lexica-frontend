@@ -11,7 +11,8 @@ import { Articles } from "@/constants/article.constant";
 const BookmarksPage = () => {
   const bookmarksState = useBookmarks((state) => state.bookmarks);
   const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [searchResults, setSearchResults] = React.useState<Article[]>(bookmarksState);
+  const [searchResults, setSearchResults] =
+    React.useState<Article[]>(bookmarksState);
 
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
@@ -20,11 +21,10 @@ const BookmarksPage = () => {
   const handleSearch = React.useCallback(() => {
     setSearchResults(
       bookmarksState.filter((article) => {
-        return article.title
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase()) || article.source
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
+        return (
+          article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          article.source.toLowerCase().includes(searchQuery.toLowerCase())
+        );
       }),
     );
   }, [searchQuery, bookmarksState]);
@@ -37,7 +37,7 @@ const BookmarksPage = () => {
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
       <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
       <div className="w-full bg-primary-600">
-        <div className="w-full bg-backdrop rounded-t-[6dvh]">
+        <div className="w-full bg-backdrop rounded-t-[2dvh] md:rounded-t-[6dvh]">
           <Container expanded>
             <div className="flex flex-row justify-between items-center py-[24px] md:py-[40px]">
               <h3 className="text-xl md:text-2xl">Bookmark Saya</h3>

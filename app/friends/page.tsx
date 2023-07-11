@@ -43,7 +43,9 @@ const FriendsPage = () => {
         <div
           className={`relative h-[16dvh] md:h-[28dvh] flex flex-col  gap-y-40 bg-primary-600`}
         >
-          <h1 className={`absolute top-[60%] left-1/2 -translate-x-1/2 text-white`}>
+          <h1
+            className={`absolute top-[60%] left-1/2 -translate-x-1/2 text-white`}
+          >
             Daftar Teman
           </h1>
         </div>
