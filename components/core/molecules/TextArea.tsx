@@ -28,8 +28,8 @@ const TextArea = ({
         disabled={disabled}
         {...register(id, { required })}
         placeholder=" "
-        className={`peer w-full h-[20vh] p-4 pt-8 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed pl-4
-            ${errors[id] ? "border-rose-500" : "border-neutral-300"}
+        className={`peer w-full h-[20vh] p-4 pt-8 font-light bg-white border rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed pl-4
+            ${errors[id] ? "border-rose-500" : ""}
             ${errors[id] ? "focus:border-rose-500" : "focus:border-primary-500"}
             `}
       />
