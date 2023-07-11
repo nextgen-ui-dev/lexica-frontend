@@ -17,7 +17,7 @@ const OnboardingPage = () => {
   }
 
   return (
-    <section id="" className="relative">
+    <section id="" className="relative bg-backdrop">
       <OnboardingModal />
       <HomeHero />
       <HomeLexicaInfo />
