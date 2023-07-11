@@ -16,17 +16,7 @@ interface ArticleCardProps {
   imageSrc?: string;
 }
 
-const ArticleCard = ({
-  id,
-  title,
-  author,
-  content,
-  difficulty,
-  source,
-  onClick,
-  hover,
-  imageSrc,
-}: ArticleCardProps) => {
+const ArticleCard = ({ title, content, onClick }: ArticleCardProps) => {
   return (
     <div
       onClick={onClick}

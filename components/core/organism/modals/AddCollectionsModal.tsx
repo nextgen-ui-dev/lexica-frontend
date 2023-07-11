@@ -43,7 +43,7 @@ const AddCollectionModal = () => {
     if (isSubmitSuccessful) {
       reset({ name: "" });
     }
-  }, [formState, reset]);
+  }, [formState, reset, isSubmitSuccessful]);
 
   const body = (
     <>

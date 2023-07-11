@@ -10,10 +10,7 @@ import AddFriendsHeader from "@/components/friends/AddFriendsHeader";
 import { User } from "@/types/session";
 import { UsersConstants as DummyUsers } from "@/constants/users.constants";
 
-import useFriends from "@/hooks/useFriends";
-
 const AddFriend = () => {
-  const friends = useFriends();
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] = React.useState<User[]>([]);
 

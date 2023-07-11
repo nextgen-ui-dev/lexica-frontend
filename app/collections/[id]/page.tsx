@@ -2,16 +2,10 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import { Collection } from "@/types/collection";
 import { Articles } from "@/constants/article.constant";
-import { Collections } from "@/constants/collections.constant";
 import ArticleCard from "@/components/articles/ArticleCard";
 import Container from "@/components/core/layout/Container";
 import useCollections from "@/hooks/useCollections";
-
-interface CollectionDetailsProps {
-  collection?: Collection;
-}
 
 const CollectionDetails = () => {
   const params = useParams();

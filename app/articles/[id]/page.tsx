@@ -9,7 +9,6 @@ import Container from "@/components/core/layout/Container";
 import ArticleDetailMenu from "@/components/articles/ArticleDetailMenu";
 import { useArticle } from "@/hooks/useArticle";
 import ArticleContentSkeleton from "@/components/articles/ArticleContentSkeleton";
-import { Texts } from "@/types/articleDetail";
 import ToastProvider from "@/providers/ToastProvider";
 import useAsisstantModal from "@/hooks/useAssistantModal";
 
@@ -165,13 +164,3 @@ const ArticleDetails = () => {
 };
 
 export default ArticleDetails;
-
-function getArticleByDifficulty(params: Texts, difficulty?: DIFFICULTY) {
-  if (difficulty === DIFFICULTY.ADVANCE) {
-    return params.ADVANCED;
-  } else if (difficulty === DIFFICULTY.INTERMEDIATE) {
-    return params.INTERMEDIATE;
-  } else {
-    return params.BEGINNER;
-  }
-}

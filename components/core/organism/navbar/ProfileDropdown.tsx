@@ -1,7 +1,7 @@
 "use client";
 
 import React, { MouseEvent } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
   BsPeople,

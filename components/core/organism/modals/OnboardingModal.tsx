@@ -80,7 +80,7 @@ const OnboardingModal = () => {
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = () => {
     onboardingModal.onClose();
     router.replace("/");
   };

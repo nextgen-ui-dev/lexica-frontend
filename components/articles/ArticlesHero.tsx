@@ -1,23 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Container from "../core/layout/Container";
-import { Articles } from "@/constants/article.constant";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useRouter } from "next/navigation";
-import { Article } from "@/types/article";
-import moment from "moment";
-import ArticleCardSkeleton from "./ArticleCardSkeleton";
 import ArticleHeroCardSkeleton from "./ArticleHeroCardSkeleton";
 import ArticleHeroCard from "./ArticleHeroCard";
+import { Article } from "@/types/articles";
 
 interface ArticlesHeroProps {
   recentArticle?: Article;
 }
 
 const ArticlesHero = ({ recentArticle }: ArticlesHeroProps) => {
-  const router = useRouter();
-  const article = Articles[0];
   return (
     <div className="w-full">
       <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">

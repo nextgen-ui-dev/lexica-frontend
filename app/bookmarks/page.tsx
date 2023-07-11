@@ -6,7 +6,6 @@ import useBookmarks from "@/hooks/useBookmarks";
 import Searchbar from "@/components/core/molecules/Searchbar";
 import BookmarksFeed from "@/components/bookmarks/BookmarksFeed";
 import { Article } from "@/types/articles";
-import { Articles } from "@/constants/article.constant";
 
 const BookmarksPage = () => {
   const bookmarksState = useBookmarks((state) => state.bookmarks);
@@ -31,7 +30,7 @@ const BookmarksPage = () => {
 
   React.useEffect(() => {
     handleSearch();
-  }, [searchQuery, bookmarksState]);
+  }, [searchQuery, bookmarksState, handleSearch]);
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>

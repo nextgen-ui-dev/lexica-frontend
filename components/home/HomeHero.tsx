@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Container from "../core/layout/Container";
-import { AiOutlineSearch } from "react-icons/ai";
 
 const HomeHero = () => {
   return (
@@ -24,7 +23,7 @@ const HomeHero = () => {
           <div className="w-full p-2 flex flex-row gap-x-2 items-center justify-center bg-white rounded-full shadow-sm">
             <div className="w-full flex items-center justify-center p-2 cursor-pointer">
               <h5 className="text-black italic text-center">
-                "Teman membaca kamu yang ada kapan saja dan di mana saja"
+                `"Teman membaca kamu yang ada kapan saja dan di mana saja"`
               </h5>
             </div>
           </div>

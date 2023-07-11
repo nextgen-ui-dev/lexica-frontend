@@ -1,9 +1,7 @@
 "use client";
 
-import { Articles } from "@/constants/article.constant";
 import Container from "../core/layout/Container";
 import ArticleCard from "./ArticleCard";
-import Button from "../core/molecules/Button";
 import ArticleCardSkeleton from "./ArticleCardSkeleton";
 import { Article } from "@/types/articles";
 

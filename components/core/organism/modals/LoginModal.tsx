@@ -6,11 +6,9 @@ import Modal from "./Modal";
 import Button from "../../molecules/Button";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import useOnboardingModal from "@/hooks/useOnboardingModal";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
-  const onboardingModal = useOnboardingModal();
 
   const body = (
     <div className="flex flex-col gap-4">

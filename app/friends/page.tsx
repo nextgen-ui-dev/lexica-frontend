@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useCallback } from "react";
 import Image from "next/image";
 import Container from "../../components/core/layout/Container";
 
@@ -9,7 +8,7 @@ import FriendRowItem from "../../components/friends/FriendRowItem";
 
 import useFriends from "@/hooks/useFriends";
 import { User } from "../../types/session";
-import { FriendsConstants } from "../../constants/friends.constants";
+import React from "react";
 
 const FriendsPage = () => {
   const friends = useFriends();
