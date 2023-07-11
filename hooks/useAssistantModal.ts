@@ -7,7 +7,7 @@ interface AsisstantModalStore {
 }
 
 const useAsisstantModal = create<AsisstantModalStore>((set) => ({
-  isOpen: true,
+  isOpen: false,
   onOpen: () => {
     set({ isOpen: true });
     document.body.classList.add("overflow-hidden");
