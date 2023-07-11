@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Container from "@/components/core/layout/Container";
 import React from "react";
@@ -27,34 +27,46 @@ const Analytics = () => {
             <div className="w-full h-full grid grid-cols-3 gap-4">
               <div className="col-span-1 w-full h-full flex flex-col p-6 border rounded-lg">
                 <div className="flex flex-row items-center gap-4">
-                    <div className="p-2 bg-primary-300 rounded-full">
-                      <GiRank3 size={20} className="text-primary-600" strokeWidth={0.5} />
-                    </div>
-                    <div>
-                      <h4>Bacaan Lanjutan</h4>
-                      <h5>3 Artikel</h5>
+                  <div className="p-2 bg-primary-300 rounded-full">
+                    <GiRank3
+                      size={20}
+                      className="text-primary-600"
+                      strokeWidth={0.5}
+                    />
+                  </div>
+                  <div>
+                    <h4>Bacaan Lanjutan</h4>
+                    <h5>3 Artikel</h5>
                   </div>
                 </div>
               </div>
               <div className="col-span-1 w-full h-full flex flex-col p-6 border rounded-lg">
                 <div className="flex flex-row items-center gap-4">
-                    <div className="p-2 bg-primary-300 rounded-full">
-                      <GiRank2 size={20} className="text-primary-600" strokeWidth={0.5} />
-                    </div>
-                    <div>
-                      <h4>Bacaan Menengah</h4>
-                      <h5>3 Artikel</h5>
+                  <div className="p-2 bg-primary-300 rounded-full">
+                    <GiRank2
+                      size={20}
+                      className="text-primary-600"
+                      strokeWidth={0.5}
+                    />
+                  </div>
+                  <div>
+                    <h4>Bacaan Menengah</h4>
+                    <h5>3 Artikel</h5>
                   </div>
                 </div>
               </div>
               <div className="col-span-1 w-full h-full flex flex-col p-6 border rounded-lg">
                 <div className="flex flex-row items-center gap-4">
-                    <div className="p-2 bg-primary-300 rounded-full">
-                      <GiRank1 size={20} className="text-primary-600" strokeWidth={0.5} />
-                    </div>
-                    <div>
-                      <h4>Bacaan Pemula</h4>
-                      <h5>3 Artikel</h5>
+                  <div className="p-2 bg-primary-300 rounded-full">
+                    <GiRank1
+                      size={20}
+                      className="text-primary-600"
+                      strokeWidth={0.5}
+                    />
+                  </div>
+                  <div>
+                    <h4>Bacaan Pemula</h4>
+                    <h5>3 Artikel</h5>
                   </div>
                 </div>
               </div>
@@ -63,7 +75,7 @@ const Analytics = () => {
         </Container>
       </div>
     </section>
-  )
+  );
 };
 
 export default Analytics;
