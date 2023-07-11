@@ -55,7 +55,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
           </div>
           <div
             className={`text-sm md:text-md w-full pl-1 md:pl-1.5 text-slate-600 truncate`}
-            title={collection.creator.name!}
+            title={collection.creator.name?.toString()}
           >
             {collection.creator.name}
           </div>

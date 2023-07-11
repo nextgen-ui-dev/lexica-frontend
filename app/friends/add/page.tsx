@@ -10,7 +10,10 @@ import AddFriendsHeader from "@/components/friends/AddFriendsHeader";
 import { User } from "@/types/session";
 import { UsersConstants as DummyUsers } from "@/constants/users.constants";
 
+// import useFriends from "@/hooks/useFriends";
+
 const AddFriend = () => {
+  // const friends = useFriends();
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] = React.useState<User[]>([]);
 
@@ -27,8 +30,8 @@ const AddFriend = () => {
           return false;
         } else {
           return (
-            user.name!.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            user.email!.toLowerCase().includes(searchQuery.toLowerCase())
+            user.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            user.email?.toLowerCase().includes(searchQuery.toLowerCase())
           );
         }
       }),
@@ -80,7 +83,7 @@ const AddFriend = () => {
                 {/* TODO add pagination */}
                 {searchResults.length > 0 &&
                   searchResults
-                    .filter((friend, idx) => idx < 100)
+                    .filter((_, idx) => idx < 100)
                     .map((friend, id) => {
                       return <AddFriendRowItem key={id} friend={friend} />;
                     })}

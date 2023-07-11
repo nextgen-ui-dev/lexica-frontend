@@ -1,9 +1,13 @@
-import { User } from "./session";
-
 export type Collection = {
   id: string;
   name: string;
-  creator: User;
+  creator:
+    | {
+        name?: string | null | undefined;
+        email?: string | null | undefined;
+        image?: string | null | undefined;
+      }
+    | undefined;
   articles: string[];
   thumbnailUrl: string;
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import Container from "../../components/core/layout/Container";
 
@@ -8,7 +9,7 @@ import FriendRowItem from "../../components/friends/FriendRowItem";
 
 import useFriends from "@/hooks/useFriends";
 import { User } from "../../types/session";
-import React from "react";
+// import { FriendsConstants } from "../../constants/friends.constants";
 
 const FriendsPage = () => {
   const friends = useFriends();
@@ -23,16 +24,15 @@ const FriendsPage = () => {
 
   const handleSearch = React.useCallback(() => {
     setSearchResults(
-      friends.friends.filter((friend) => {
-        return friend.name!.toLowerCase().includes(searchQuery.toLowerCase());
+      friendsState.filter((friend) => {
+        return friend.name?.toLowerCase().includes(searchQuery.toLowerCase());
       }),
     );
   }, [searchQuery, friendsState]);
 
   React.useEffect(() => {
     handleSearch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, friendsState]);
+  }, [handleSearch, friendsState]);
 
   return (
     <>

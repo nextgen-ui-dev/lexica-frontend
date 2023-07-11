@@ -1,6 +1,5 @@
 "use client";
 
-/* eslint-disable prettier/prettier */
 import React from "react";
 
 import Button from "../../molecules/Button";
@@ -26,7 +25,7 @@ const AddCollectionModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const { name } = data;
-    const creator = status === "authenticated" ? session.user! : {};
+    const creator = status === "authenticated" ? session.user : {};
     const collection = {
       id: `QWERTYID${collectionsState.length + 1}`,
       name,

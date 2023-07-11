@@ -12,9 +12,7 @@ const CollectionDetails = () => {
   const id = params.id;
   const collectionsHook = useCollections();
 
-  console.log(collectionsHook.collections);
-  const collection = collectionsHook.collections.find((col) => col.id === id)!;
-  console.log(collection);
+  const collection = collectionsHook.collections.find((col) => col.id === id);
 
   const articles = Articles.filter((article) => {
     return collection?.articles.includes(article.id);
@@ -29,9 +27,9 @@ const CollectionDetails = () => {
           className={`flex flex-col items-center text-slate-800  pt-[36px] md:pt-[48px] pb-[36px] md:pb-[48px] font-normal`}
         >
           <div className="font-semibold text-2xl md:text-3xl">
-            {collection.name}
+            {collection?.name}
           </div>
-          <div className="text-md md:text-xl">{collection.creator.name}</div>
+          <div className="text-md md:text-xl">{collection?.creator.name}</div>
         </div>
 
         {articles.length === 0 && (
