@@ -33,7 +33,7 @@ export const authOption: NextAuthOptions = {
     },
     async session({ session, token }) {
       // check if token exists, then set sesion, else null
-      console.debug("ses: ", token)
+      console.debug("ses: ", token);
       if (session) {
         session = Object.assign({}, session, {
           access_token: token.access_token,
