@@ -4,10 +4,10 @@ import React, { MouseEvent } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 import {
-  BsPeople, 
-  BsStack, 
-  BsBarChartFill, 
-  BsBookmarkFill 
+  BsPeople,
+  BsStack,
+  BsBarChartFill,
+  BsBookmarkFill,
 } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { signOut } from "next-auth/react";
@@ -58,7 +58,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             `}
           >
             <BsBookmarkFill className="mr-2" strokeWidth={0.5} />
-            Simpanan
+            <h5>Simpanan</h5>
           </div>
           <div
             data-path="/friends"

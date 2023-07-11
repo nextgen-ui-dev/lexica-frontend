@@ -56,7 +56,7 @@ const ArticleDetails = () => {
             )}
           </h2>
           <div className="mt-4 md:mt-6 md:mb-4">
-            <ArticleDetailMenu id={parseInt(params.id)} />
+            <ArticleDetailMenu id={params.id} />
           </div>
         </div>
       </section>
