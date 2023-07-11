@@ -10,10 +10,9 @@ interface ArticleCardProps {
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   const router = useRouter();
-  const id = article.id;
   return (
     <div
-      onClick={() => router.push(`/articles/${id}`)}
+      onClick={() => router.push(`/articles/${article.id}`)}
       className="w-full h-full flex flex-row gap-4 p-8 bg-white hover:scale-105 transition duration-200 ease-in-out shadow-sm rounded-xl hover:cursor-pointer hover:border hover:border-primary-500"
     >
       <div className="w-full h-full flex flex-col md:flex-row gap-4">

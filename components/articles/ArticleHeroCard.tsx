@@ -13,7 +13,7 @@ const ArticleHeroCard = ({ article }: ArticleHeroCardProps) => {
   const router = useRouter();
   return (
     <div
-      onClick={() => router.push(`/articles/${id}`)}
+      onClick={() => router.push(`/articles/${article.id}`)}
       className="w-full h-[34dvh] md:h-[35dvh] bg-white rounded-3xl shadow-sm px-4 p-4 group hover:cursor-pointer hover:border hover:border-primary-500 duration-300"
     >
       <div className="w-full h-full flex flex-col items-center justify-evenly md:flex-row">
