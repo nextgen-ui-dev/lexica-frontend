@@ -32,7 +32,7 @@ const HomeLexicaInfo = () => {
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <AiFillTrophy size={28} className="text-white" />
               </div>
-              <div className="h-full grow p-4 shadow-sm rounded-md border border-gray-100">
+              <div className="h-full grow p-4 shadow-sm rounded-md border">
                 <div className="flex flex-col items-center justify-center mt-6">
                   <h3 className="text-primary-600">62</h3>
                   <p className="text-center">
@@ -45,7 +45,7 @@ const HomeLexicaInfo = () => {
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <GiClassicalKnowledge size={28} className="text-white" />
               </div>
-              <div className="h-full grow p-4 shadow-sm rounded-md border border-gray-100">
+              <div className="h-full grow p-4 shadow-sm rounded-md border">
                 <div className="flex flex-col items-center justify-center mt-6">
                   <h3 className="text-primary-600">30%</h3>
                   <p className="text-center">
@@ -58,7 +58,7 @@ const HomeLexicaInfo = () => {
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <HiEmojiSad size={28} className="text-white" />
               </div>
-              <div className="h-full grow p-4 shadow-sm rounded-md border border-gray-100">
+              <div className="h-full grow p-4 shadow-sm rounded-md border">
                 <div className="flex flex-col items-center justify-center mt-6">
                   <h3 className="text-primary-600">86%</h3>
                   <p className="text-center">
@@ -72,7 +72,7 @@ const HomeLexicaInfo = () => {
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <ImLibrary size={28} className="text-white" />
               </div>
-              <div className="h-full grow p-4 shadow-sm rounded-md border border-gray-100">
+              <div className="h-full grow p-4 shadow-sm rounded-md border">
                 <div className="flex flex-col items-center justify-center mt-6">
                   <h3 className="text-primary-600">80%</h3>
                   <p className="text-center">
