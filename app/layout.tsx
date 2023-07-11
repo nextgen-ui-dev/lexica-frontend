@@ -7,6 +7,7 @@ import Navbar from "../components/core/organism/navbar/Navbar";
 import NextAuthSessionProvider from "../providers/SessionProvider";
 import getCurrentUser from "./actions/getCurrentUser";
 import TanstackQueryProvider from "../providers/TanstackQueryProvider";
+import AssistantModal from "@/components/core/organism/modals/AsisstantModal";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default async function RootLayout({
         <TanstackQueryProvider>
           <NextAuthSessionProvider>
             <LoginModal />
+            <AssistantModal />
             <HydrationHandler>
               <Navbar session={session} />
               {children}

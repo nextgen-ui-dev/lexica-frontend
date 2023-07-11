@@ -47,9 +47,9 @@ const Input = ({
         {...register(id, { required })}
         placeholder=" "
         type={inputType}
-        className={`peer w-full p-4 pt-8 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed
+        className={`peer w-full p-4 pt-8 font-light bg-white border rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed
                 ${Icon ? "pl-14" : "pl-4"}
-                ${errors[id] ? "border-rose-500" : "border-neutral-300"}
+                ${errors[id] ? "border-rose-500" : ""}
                 ${
                   errors[id]
                     ? "focus:border-rose-500"
