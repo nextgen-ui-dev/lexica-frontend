@@ -3,7 +3,12 @@
 import React, { MouseEvent } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-import { BsCollection, BsBarChart, BsPeople } from "react-icons/bs";
+import {
+  BsPeople,
+  BsStack,
+  BsBarChartFill,
+  BsBookmarkFill,
+} from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { signOut } from "next-auth/react";
 import { User } from "@/types/session";
@@ -20,7 +25,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
     const targetPath = e.currentTarget.getAttribute("data-path");
     if (targetPath) {
       toggleExpand();
-      router.push(targetPath);
+      router.replace(targetPath);
     }
   };
 
@@ -43,9 +48,22 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
 
         <div className={`bg-primary-100 my-[6px]`}>
           <div
+            data-path="/bookmarks"
+            onClick={handleRoute}
+            className={`flex flex-row items-center
+            px-2 md:px-3 py-[3px] md:py-[4px] 
+            hover:bg-gray-300 
+            hover:cursor-pointer
+            text-slate-700
+            `}
+          >
+            <BsBookmarkFill className="mr-2" strokeWidth={0.5} />
+            <h5>Simpanan</h5>
+          </div>
+          <div
             data-path="/friends"
             onClick={handleRoute}
-            className={`flex flex-row 
+            className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-primary-400
             hover:text-white 
@@ -59,7 +77,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
           <div
             data-path="/collections"
             onClick={handleRoute}
-            className={`flex flex-row 
+            className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-primary-400
             hover:text-white 
@@ -67,13 +85,13 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             `}
           >
-            <BsCollection className="mr-2" strokeWidth={0.5} />
+            <BsStack className="mr-2" strokeWidth={0.5} />
             <h5>Koleksi</h5>
           </div>
           <div
             data-path="/analytics"
             onClick={handleRoute}
-            className={`flex flex-row 
+            className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
             hover:bg-primary-400
             hover:text-white 
@@ -81,7 +99,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             `}
           >
-            <BsBarChart className="mr-2" strokeWidth={0.5} />
+            <BsBarChartFill className="mr-2" strokeWidth={0.5} />
             <h5>Performaku</h5>
           </div>
         </div>

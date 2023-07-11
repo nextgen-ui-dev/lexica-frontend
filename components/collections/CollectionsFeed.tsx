@@ -21,7 +21,7 @@ const CollectionsFeed = ({ collections }: CollectionProps) => {
     >
       {collections.length > 0 &&
         collections
-          .filter((item, idx) => idx < 100)
+          .filter((_, idx) => idx < 100)
           .map((item, id) => {
             return (
               <div key={id} className="pt-[10px] md:pt-[0px]">

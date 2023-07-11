@@ -56,12 +56,12 @@ const ArticleDetails = () => {
             )}
           </h2>
           <div className="mt-4 md:mt-6 md:mb-4">
-            <ArticleDetailMenu id={parseInt(params.id)} />
+            <ArticleDetailMenu id={params.id} />
           </div>
         </div>
       </section>
       <section className="w-full min-h-[70dvh] bg-primary-600">
-        <div className="w-full min-h-[70dvh] bg-white p-4 md:p-8 rounded-t-[6dvh] md:rounded-t-[8dvh]">
+        <div className="w-full min-h-[70dvh] bg-white p-4 md:p-8 rounded-t-[2dvh] md:rounded-t-[6dvh]">
           <Container>
             <div className="flex flex-col items-center w-full h-full pt-8 md:pt-12">
               <div className="relative rounded-xl overflow-hidden w-[300px] md:w-[600px] h-[200px] md:h-[400px] mt-2 md:mt-4 mb-6 md:mb-8">

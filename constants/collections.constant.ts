@@ -5,69 +5,77 @@ const imageUrl =
 
 export const Collections: Collection[] = [
   {
-    id: 1,
+    id: "QWERTYID1",
     name: "Teknologi Terkini",
     creator: {
       name: "James Riady Susilo Wardhono",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [1, 2, 3, 4],
+    articles: [
+      "01H509T1EJYZ9DNZNBJ2FRSXBR",
+      "01H5092P04DJAP9WFNT5QX7T9C",
+      "01H508MTV824HC0DB3V637EERG",
+    ],
     thumbnailUrl: "/images/no_image.png",
   },
   {
-    id: 2,
+    id: "QWERTYID2",
     name: "Random",
     creator: {
       name: "Jason Edbert",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [5, 6],
+    articles: [
+      "01H509T1EJYZ9DNZNBJ2FRSXBR",
+      "01H5092P04DJAP9WFNT5QX7T9C",
+      "01H508MTV824HC0DB3V637EERG",
+    ],
     thumbnailUrl: "/images/no_image.png",
   },
   {
-    id: 3,
-    name: "Teknologi Terkini",
+    id: "QWERTYID3",
+    name: "Kesehatan",
     creator: {
       name: "James Riady Susilo Wardhono",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [1, 2, 3, 4],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
   {
-    id: 4,
-    name: "Random",
+    id: "QWERTYID4",
+    name: "Inspirasi Hidup",
     creator: {
       name: "Jason Edbert",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [5, 6],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
   {
-    id: 5,
-    name: "Teknologi Terkini",
+    id: "QWERTYID5",
+    name: "Luar Angkasa",
     creator: {
       name: "James Riady Susilo Wardhono",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [1, 2, 3, 4],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
   {
-    id: 6,
-    name: "Random",
+    id: "QWERTYID6",
+    name: "Kitab Bisnis",
     creator: {
       name: "Jason Edbert",
       email: "user@email.com",
       image: imageUrl,
     },
-    articles: [5, 6],
+    articles: ["01H509T1EJYZ9DNZNBJ2FRSXBR", "01H5092P04DJAP9WFNT5QX7T9C"],
     thumbnailUrl: "/images/no_image.png",
   },
 ];

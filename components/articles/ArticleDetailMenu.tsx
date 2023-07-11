@@ -5,16 +5,16 @@ import { BiShareAlt } from "react-icons/bi";
 
 import { toast } from "react-toastify";
 
-// import getCurrentUser from '@/app/actions/getCurrentUser';
-import useBookmarkArticles from "@/hooks/useBookmarkArticles";
+import useBookmarks from "@/hooks/useBookmarks";
+import { useArticle } from "@/hooks/useArticle";
 
 interface ArticleDetailMenuProps {
-  id: number;
+  id: string;
 }
 
 const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
-  // const session = await getCurrentUser();
-  const bookmarks = useBookmarkArticles();
+  const { data } = useArticle(id);
+  const bookmarks = useBookmarks();
 
   const handleBookmark = () => {
     // Guard clause for non-logged in user
@@ -26,8 +26,10 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
       bookmarks.removeBookmark(id);
       toast.success("Artikel dihapus dari Bookmark");
     } else {
-      bookmarks.addBookmark(id);
-      toast.success("Artikel tersimpan di Bookmark");
+      if (data) {
+        bookmarks.addBookmark(data);
+        toast.success("Artikel tersimpan di Bookmark");
+      }
     }
   };
 

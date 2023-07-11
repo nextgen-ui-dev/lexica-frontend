@@ -22,7 +22,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute("data-path");
     if (targetPath) {
-      router.push(targetPath);
+      router.replace(targetPath);
     }
   };
 
@@ -30,8 +30,28 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
     <div
       className={`flex flex-row justify-between items-center py-8 px-1.5 md:px-2`}
     >
-      <div className="text-xl md:text-3xl text-slate-800 font-semibold">
-        Cari Teman
+      <div className="flex flex-row gap-x-4">
+        {window.innerWidth > 768 && (
+          <div className="text-xl md:text-2xl text-slate-800 font-semibold">
+            Hasil Pencarian
+          </div>
+        )}
+        <div
+          className={`flex flex-row justify-center items-center min-h-[30px] min-w-[40px] px-2 py-0 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+          data-path={`/friends`}
+          onClick={handleRoute}
+        >
+          <FaUserFriends
+            className={`text-lg md:text-2xl text-primary-500 group-hover:text-white duration-300`}
+          />
+          {window.innerWidth > 768 && (
+            <div
+              className={`pl-1 text-primary-500 group-hover:text-white duration-300`}
+            >
+              Kembali
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Add Friend */}
@@ -42,8 +62,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
       >
         {window.innerWidth > 768 ? (
           <Searchbar
-            large
-            placeholder="Cari lewat nama atau email"
+            placeholder="Cari nama/email"
             controlValue={searchQuery}
             controlCallback={(e) => {
               handleQuery(e.target.value);
@@ -53,7 +72,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
           <Searchbar
             mobile
             large
-            placeholder="Cari lewat nama atau email"
+            placeholder="Cari nama/email"
             controlValue={searchQuery}
             controlCallback={(e) => {
               handleQuery(e.target.value);

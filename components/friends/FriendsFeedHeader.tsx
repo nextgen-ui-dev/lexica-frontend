@@ -37,7 +37,7 @@ const FriendsFeedHeader = ({
         <div>
           {window.innerWidth > 768 ? (
             <Searchbar
-              placeholder="Cari nama atau email"
+              placeholder="Cari nama/email"
               controlValue={searchQuery}
               controlCallback={(e) => {
                 handleQuery(e.target.value);
@@ -47,6 +47,7 @@ const FriendsFeedHeader = ({
             <Searchbar
               mobile
               large
+              placeholder="Cari nama/email"
               controlValue={searchQuery}
               controlCallback={(e) => {
                 handleQuery(e.target.value);
@@ -55,7 +56,7 @@ const FriendsFeedHeader = ({
           )}
         </div>
         <div
-          className={`flex flex-row items-center px-2 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+          className={`flex flex-row items-center px-2 py-0 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
           data-path={`/friends/add`}
           onClick={handleRoute}
         >

@@ -5,7 +5,7 @@ const imageUrl =
 
 export const FriendsConstants: User[] = [
   {
-    name: "Albertus Angga Raharja",
+    name: "Angga Raharja",
     email: "angga@email.com",
     image: imageUrl,
   },
@@ -20,7 +20,7 @@ export const FriendsConstants: User[] = [
     image: imageUrl,
   },
   {
-    name: "Jeremy A. Prathama",
+    name: "Alvez Surya",
     email: "user1@email.com",
     image: imageUrl,
   },

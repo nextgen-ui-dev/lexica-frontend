@@ -1,9 +1,9 @@
 import { User } from "./session";
 
 export type Collection = {
-  id: number;
+  id: string;
   name: string;
   creator: User;
-  articles: number[];
+  articles: string[];
   thumbnailUrl: string;
 };
