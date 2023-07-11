@@ -7,15 +7,21 @@ import { Articles } from "@/constants/article.constant";
 import { Collections } from "@/constants/collections.constant";
 import ArticleCard from "@/components/articles/ArticleCard";
 import Container from "@/components/core/layout/Container";
+import useCollections from "@/hooks/useCollections";
 
 interface CollectionDetailsProps {
   collection?: Collection;
 }
 
-const CollectionDetails = ({ collection }: CollectionDetailsProps) => {
+const CollectionDetails = () => {
   const params = useParams();
   const id = parseInt(params.id);
-  const collectionDummy = Collections.filter((col) => col.id === id)[0];
+  const collectionsHook = useCollections();
+  const collection = collectionsHook.collections.find((col) => col.id === id)!;
+  console.log(collection);
+  const articles = Articles.filter((article) => {
+    return collection.articles.includes(article.id);
+  });
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
@@ -26,23 +32,30 @@ const CollectionDetails = ({ collection }: CollectionDetailsProps) => {
           className={`flex flex-col items-center text-slate-800  pt-[36px] md:pt-[48px] pb-[36px] md:pb-[48px] font-normal`}
         >
           <div className="font-semibold text-2xl md:text-3xl">
-            {collectionDummy.name}
+            {collection.name}
           </div>
           <div className="text-md md:text-xl">
-            {collectionDummy.creator.name}
+            {collection.creator.name}
           </div>
         </div>
 
+        {articles.length === 0 && (
+          <div>
+            <div className="flex justify-center text-center text-slate-800 text-lg md:text-xl font-semibold">
+              Belum ada artikel
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 px-2 md:px-0">
-          {Articles.filter((article) => {
-            return collectionDummy.articles.includes(article.id);
-          }).map((article, id) => {
-            return (
-              <div key={id} className={`py-2 md:py-0`}>
-                <ArticleCard article={article} />
-              </div>
-            );
-          })}
+          {articles.length > 0 &&
+              articles.map((article, id) => {
+                return (
+                  <div key={id} className={`py-2 md:py-0`}>
+                    <ArticleCard article={article} />
+                  </div>
+                );
+              })}
         </div>
       </Container>
       <div className="pb-[24px] md:pb-[36px]"></div>

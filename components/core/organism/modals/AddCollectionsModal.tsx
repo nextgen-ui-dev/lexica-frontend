@@ -15,7 +15,7 @@ const AddCollectionModal = () => {
   const { data: session, status } = useSession();
   const collectionsHook = useCollections();
   const collectionsModal = useCollectionsModal();
-  const { 
+  const {
     register,
     handleSubmit,
     reset,
@@ -25,18 +25,19 @@ const AddCollectionModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const { name } = data;
-    const creator = status === "authenticated" ? session : {};
+    const creator = status === "authenticated" ? session.user! : {};
     const collection = {
       id: collectionsHook.collections.length + 1,
       name,
-      creator : creator,
+      creator: creator,
       articles: [],
       thumbnailUrl: "",
     };
 
     collectionsHook.addCollection(collection);
-    
+
     console.log(collection);
+    console.log(collectionsHook.collections);
     collectionsModal.onClose();
   };
 
@@ -49,18 +50,19 @@ const AddCollectionModal = () => {
   const body = (
     <>
       <div className={`py-4`}>
-          <Input
-            id="name"
-            label="Judul Koleksi"
-            register={register}
-            errors={errors}
-            required
-          />
-      </div>  
+        <Input
+          id="name"
+          label="Judul Koleksi"
+          register={register}
+          errors={errors}
+          required
+        />
+      </div>
       <Button label="Simpan" onClick={handleSubmit(onSubmit)} />
-    </>);
+    </>
+  );
   return (
-    <Modal 
+    <Modal
       isOpen={collectionsModal.isOpen}
       title="Buat Koleksi Baru"
       onClose={collectionsModal.onClose}

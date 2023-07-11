@@ -1,6 +1,7 @@
 import { create } from "zustand";
+
 import { Collection } from "@/types/collection.type";
-import { Collections } from "@/constants/collections.constant";
+import { Collections as CollectionConstants } from "@/constants/collections.constant";
 
 interface CollectionsStore {
   collections: Collection[];
@@ -10,7 +11,7 @@ interface CollectionsStore {
 }
 
 const useCollections = create<CollectionsStore>((set) => ({
-  collections: Collections,
+  collections: CollectionConstants,
   addCollection: (collection: Collection) => {
     set((state) => {
       const newCollections: Collection[] = [...state.collections, collection];

@@ -11,12 +11,14 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 import { Collection } from "@/types/collection.type";
 import { Collections as DummyCollections } from "@/constants/collections.constant";
+import useCollections from "@/hooks/useCollections";
 
 const CollectionsPage = () => {
+  const collectionsState = useCollections((state) => state.collections);
   const collectionsModal = useCollectionsModal();
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] =
-    React.useState<Collection[]>(DummyCollections);
+    React.useState<Collection[]>(collectionsState);
 
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
@@ -24,7 +26,7 @@ const CollectionsPage = () => {
 
   const handleSearch = React.useCallback(() => {
     setSearchResults(
-      DummyCollections.filter((collection) => {
+      collectionsState.filter((collection) => {
         return collection.name
           .toLowerCase()
           .includes(searchQuery.toLowerCase());
@@ -34,8 +36,7 @@ const CollectionsPage = () => {
 
   React.useEffect(() => {
     handleSearch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]);
+  }, [searchQuery, collectionsState]);
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
