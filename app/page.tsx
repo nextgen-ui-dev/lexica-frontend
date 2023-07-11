@@ -1,11 +1,13 @@
-import Example from "./components/home/Example";
-import HydrationHandler from "./components/core/layout/HydrationHandler";
+import HomeHero from "../components/home/HomeHero";
+import HomeLexicaInfo from "../components/home/HomeLexicaInfo";
+import ArticleHomePreviews from "../components/home/ArticlesHomePreview";
 
-export default function Home() {
-
+export default async function Home() {
   return (
-    <HydrationHandler>
-      <Example />
-    </HydrationHandler>
-  )
+    <section id="landing-page" className="relative bg-backdrop">
+      <HomeHero />
+      <HomeLexicaInfo />
+      <ArticleHomePreviews />
+    </section>
+  );
 }

@@ -1,0 +1,7 @@
+# Ignore artifacts:
+yarn.lock
+build
+coverage
+node_modules
+dist/
+.next/

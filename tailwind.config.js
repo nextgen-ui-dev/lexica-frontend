@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
-        hind:  ['var(--font-hind)', ...fontFamily.sans],
+        montserrat: ["var(--font-montserrat)", ...fontFamily.sans],
+        hind: ["var(--font-hind)", ...fontFamily.sans],
       },
       colors: {
         primary: {
@@ -28,8 +28,24 @@ module.exports = {
           900: "#2b2689",
           950: "#1b1650",
         },
+        backdrop: "#f8f8f8",
+      },
+      animation: {
+        text: "text 5s ease infinite",
+      },
+      keyframes: {
+        text: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
