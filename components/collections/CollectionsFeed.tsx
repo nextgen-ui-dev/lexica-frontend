@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import CollectionCard from "./CollectionCard";
-import { Collection } from "@/types/collection.type";
+import { Collection } from "@/types/collection";
 import { Collections as DummyCollections } from "@/constants/collections.constant";
 
 interface CollectionProps {

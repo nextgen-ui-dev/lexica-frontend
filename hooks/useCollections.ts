@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { Collection } from "@/types/collection.type";
+import { Collection } from "@/types/collection";
 import { Collections as CollectionConstants } from "@/constants/collections.constant";
 
 interface CollectionsStore {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import { Collection } from "@/types/collection.type";
+import { Collection } from "@/types/collection";
 import { Articles } from "@/constants/article.constant";
 import { Collections } from "@/constants/collections.constant";
 import ArticleCard from "@/components/articles/ArticleCard";
