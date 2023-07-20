@@ -25,7 +25,6 @@ interface DropdownSelectData {
   label: string;
 }
 
-
 const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
   const { data: session, status } = useSession();
   const { data: article } = useArticle(id);
@@ -33,7 +32,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
   const bookmarks = useBookmarks();
   const [bookmarked, setBookmarked] = React.useState(false);
   const [showDropdown, setShowDropdown] = React.useState(false);
-  
+
   const collectionsState = useCollections((state) => state.collections);
   const collections = useCollections();
   const dropdownData: DropdownSelectData[] = collectionsState.map((col) => {
@@ -113,8 +112,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
                 setShowDropdown(false);
                 // @Jere TODO for each selected dropdown, add to collection
                 // collections.addArticleToCollection(id, dropdownData);
-              }
-              else {
+              } else {
                 setShowDropdown(true);
               }
             }}
@@ -124,10 +122,14 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
                 className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`}
               />
             </div>
-            <div className={`text-white py-1.5 md:py-3`}>{showDropdown ? "Simpan Pilihan" : "Tambah Koleksi"}</div>
+            <div className={`text-white py-1.5 md:py-3`}>
+              {showDropdown ? "Simpan Pilihan" : "Tambah Koleksi"}
+            </div>
           </li>
           {showDropdown && (
-            <div className={`absolute z-10 top-14 left-1/2 -translate-x-1/2 w-[70dvw]`}>
+            <div
+              className={`absolute z-10 top-14 left-1/2 -translate-x-1/2 w-[70dvw]`}
+            >
               <MultipleDropdownSelect
                 placholder="Koleksi"
                 onChange={(value) => {

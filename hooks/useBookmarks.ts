@@ -25,7 +25,7 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
           bookmarks: state.bookmarks,
         };
       }
-      
+
       const newBookmarks: ArticleDetail[] = [...state.bookmarks, article];
 
       localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
@@ -101,8 +101,9 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
     const bookmarksRegular: Article[] = JSON.parse(
       localStorage.getItem("lexicaBookmarks") || "[]",
     );
-    
-    const result = bookmarks.find((art) => art.id === id) !== null ||
+
+    const result =
+      bookmarks.find((art) => art.id === id) !== null ||
       bookmarksRegular.find((art) => art.id === id) !== null;
 
     console.log("isbookmarked: ", result);

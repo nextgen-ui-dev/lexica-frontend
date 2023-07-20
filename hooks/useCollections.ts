@@ -9,8 +9,14 @@ interface CollectionsStore {
   addCollection: (collection: Collection) => void;
   removeCollection: (collectionId: string) => void;
   isCollectionOwner: (collectionId: string, userEmail: string) => boolean;
-  addArticleToCollection: (article: ArticleDetail, collectionName: string) => void;
-  removeArticleFromCollection: (articleId: string, collectionName: string) => void;
+  addArticleToCollection: (
+    article: ArticleDetail,
+    collectionName: string,
+  ) => void;
+  removeArticleFromCollection: (
+    articleId: string,
+    collectionName: string,
+  ) => void;
 }
 
 const useCollections = create<CollectionsStore>((set) => ({
@@ -33,10 +39,12 @@ const useCollections = create<CollectionsStore>((set) => ({
   },
   removeCollection: (collectionId: string) => {
     set((state) => {
-      if (state.collections.filter((col) => col.id === collectionId).length === 0) {
+      if (
+        state.collections.filter((col) => col.id === collectionId).length === 0
+      ) {
         return {
           collections: state.collections,
-        }
+        };
       }
 
       const newCollections: Collection[] = state.collections.filter(
@@ -58,13 +66,15 @@ const useCollections = create<CollectionsStore>((set) => ({
   },
   addArticleToCollection: (article: ArticleDetail, collectionName: string) => {
     set((state) => {
-      let collection: Collection | undefined = state.collections.find((col) => col.name === collectionName);
-      
+      let collection: Collection | undefined = state.collections.find(
+        (col) => col.name === collectionName,
+      );
+
       if (collection === undefined) {
         return {
           collections: state.collections,
-        } 
-      } 
+        };
+      }
 
       collection = {
         ...collection,
@@ -78,7 +88,9 @@ const useCollections = create<CollectionsStore>((set) => ({
   },
   removeArticleFromCollection: (articleId: string, collectionName: string) => {
     set((state) => {
-      let collection: Collection | undefined = state.collections.find((col) => col.name === collectionName);
+      let collection: Collection | undefined = state.collections.find(
+        (col) => col.name === collectionName,
+      );
 
       if (collection === undefined) {
         return {
@@ -88,7 +100,9 @@ const useCollections = create<CollectionsStore>((set) => ({
 
       collection = {
         ...collection,
-        articles: collection.articles.filter((article) => article !== articleId),
+        articles: collection.articles.filter(
+          (article) => article !== articleId,
+        ),
       };
 
       return {
