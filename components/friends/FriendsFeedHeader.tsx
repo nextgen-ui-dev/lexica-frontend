@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
 
-
 import Searchbar from "../core/molecules/Searchbar";
 
 import useFriends from "@/hooks/useFriends";
