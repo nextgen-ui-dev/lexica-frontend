@@ -16,8 +16,8 @@ interface BookmarkArticlesStore {
 }
 
 const useBookmarks = create<BookmarkArticlesStore>((set) => ({
-  bookmarks: [ArticlesDetailDummy[0]],
-  bookmarksRegular: [ArticlesConstant[0]],
+  bookmarks: [],
+  bookmarksRegular: [],
   addBookmark: (article: ArticleDetail) => {
     set((state) => {
       if (state.bookmarks.filter((art) => art.id === article.id)) {

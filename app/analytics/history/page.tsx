@@ -22,7 +22,11 @@ const AnalyticsHistory = ({
       <div className="min-h-[65dvh] w-full bg-white py-8">
         <Container>
           <div className="w-full min-h-[56dvh] flex flex-col items-center justify-center gap-4">
-            <h1>Artikel Terbaca</h1>
+            <div className="flex flex-col items-center py-2 md:py-4 h-[10dvh] md:h-[15dvh]">
+              <h1 className="font-semibold">Catatan bacaan kamu</h1>
+              <div className="py-1"></div>
+              <p className="text-lg md:text-xl">{3} articles read</p>
+            </div>
 
             {Articles.map((article, key) => {
               return <ArticleCard key={key} article={article} noScale />;

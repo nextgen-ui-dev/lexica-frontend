@@ -18,7 +18,7 @@ const FriendRowItem = ({ friend }: FriendRowItemProps) => {
 
   return (
     <div
-      className={`w-full flex flex-row items-center justify-between py-1 border-b md:py-2 hover:bg-primary-100 transition ease-out duration-200`}
+      className={`w-full flex flex-row items-center justify-between px-1 md:px-2 py-4 border-b md:py-4 hover:bg-primary-100 transition ease-out duration-200`}
     >
       <div className="flex flex-row items-center">
         <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]">

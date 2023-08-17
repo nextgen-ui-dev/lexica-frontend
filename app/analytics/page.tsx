@@ -5,6 +5,7 @@ import React from "react";
 import { LuVerified } from "react-icons/lu";
 import { GiRank3, GiRank2, GiRank1 } from "react-icons/gi";
 import { useRouter } from "next/navigation";
+import DiffSegmentation from "@/components/analytics/DiffSegmentation";
 
 const Analytics = () => {
   const router = useRouter();
@@ -19,6 +20,7 @@ const Analytics = () => {
               onClick={() => router.push(`/analytics/history`)}
               className={`w-full h-full flex flex-col p-6 border rounded-lg hover:bg-gray-300 hover:bg-opacity-[.2] hover:cursor-pointer duration-300`}
             >
+              {/* Pie Chart */}
               <div className="flex flex-row items-center justify-between gap-4">
                 <div className="flex flex-row items-center gap-4">
                   <div className="p-2 bg-primary-300 rounded-full">
@@ -29,6 +31,7 @@ const Analytics = () => {
                 <h5>3 Artikel</h5>
               </div>
             </div>
+            {/*  */}
             <div className="w-full h-full flex flex-col md:grid md:grid-cols-3 md:gap-4">
               <div className="md:col-span-1 w-full h-full flex flex-col p-6 border rounded-lg">
                 <div className="flex flex-row items-center gap-4">
@@ -76,6 +79,8 @@ const Analytics = () => {
                 </div>
               </div>
             </div>
+            {/*  */}
+            <DiffSegmentation />
           </div>
         </Container>
       </div>

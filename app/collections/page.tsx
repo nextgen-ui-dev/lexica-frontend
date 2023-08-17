@@ -43,7 +43,7 @@ const CollectionsPage = () => {
       <div className="w-full bg-primary-600">
         <div className="w-full bg-backdrop rounded-t-[2dvh] md:rounded-t-[6dvh]">
           <Container expanded>
-            <div className="flex flex-row justify-between py-[24px] md:py-[40px]">
+            <div className="flex flex-row justify-between py-[12px] md:py-[24px] h-[10dvh]">
               <div
                 className={`flex flex-row justify-start items-center w-[20dvw]`}
               >
@@ -52,9 +52,9 @@ const CollectionsPage = () => {
                 </div>
               </div>
 
-              <div className={`flex flex-row items-center`}>
+              <div className={`flex flex-row items-center min-h-max`}>
                 <div
-                  className={`flex flex-row items-center px-2 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+                  className={`h-full flex flex-row items-center md:py-4 px-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
                   onClick={collectionsModal.onOpen}
                 >
                   <AiOutlinePlus
@@ -63,9 +63,9 @@ const CollectionsPage = () => {
 
                   {window.innerWidth > 768 && (
                     <div
-                      className={`pl-1 text-primary-500 group-hover:text-white duration-300`}
+                      className={`pl-1 w-full text-primary-500 group-hover:text-white duration-300`}
                     >
-                      Tambah
+                      Buat baru
                     </div>
                   )}
                 </div>
@@ -74,6 +74,7 @@ const CollectionsPage = () => {
 
                 {window.innerWidth > 768 ? (
                   <Searchbar
+                    large
                     placeholder="Cari nama koleksi"
                     controlValue={searchQuery}
                     controlCallback={(e) => {

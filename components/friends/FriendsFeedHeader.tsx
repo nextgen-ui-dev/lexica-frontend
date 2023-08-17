@@ -37,6 +37,7 @@ const FriendsFeedHeader = ({
         {/* Add Friend */}
         <div className={`flex flex-row gap-x-4`}>
           <div>
+            {/* @Jere TODO Bikin 2 section: teman saya & add friends */}
             {window.innerWidth > 768 ? (
               <Searchbar
                 large
@@ -59,7 +60,7 @@ const FriendsFeedHeader = ({
             )}
           </div>
           <div
-            className={`flex flex-row items-center justify-center px-2 py-0 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+            className={`flex flex-row items-center justify-center px-2 md:px-4 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
             data-path={`/friends/add`}
             onClick={handleRoute}
           >
@@ -77,7 +78,7 @@ const FriendsFeedHeader = ({
           </div>
         </div>
         <div
-          className={`flex flex-row items-center justify-center md:flex-row text-lg text-slate-700 group py-1 bg-primary-200 px-4 rounded-full`}
+          className={`flex flex-row items-center justify-center md:flex-row text-lg text-slate-700 group py-2 bg-primary-200 px-4 md:px-6 rounded-full`}
         >
           <div className="group-hover:text-primary-500">
             {friends.friendsCount}
