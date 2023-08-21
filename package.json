@@ -11,8 +11,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.11.0",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "next": "13.4.4",
     "next-auth": "^4.22.1",
@@ -39,6 +42,7 @@
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
+    "@types/js-cookie": "^3.0.3",
     "@types/node": "20.2.5",
     "@types/react": "18.2.9",
     "@types/react-dom": "18.2.4",

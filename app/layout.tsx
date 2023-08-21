@@ -4,10 +4,10 @@ import { Montserrat, Hind } from "next/font/google";
 import LoginModal from "../components/core/organism/modals/LoginModal";
 import Footer from "../components/core/organism/footer/Footer";
 import Navbar from "../components/core/organism/navbar/Navbar";
-import NextAuthSessionProvider from "../providers/SessionProvider";
-import getCurrentUser from "./actions/getCurrentUser";
 import TanstackQueryProvider from "../providers/TanstackQueryProvider";
 import AssistantModal from "@/components/core/organism/modals/AsisstantModal";
+import AuthProvider from "@/providers/AuthProvider";
+import OnboardingModal from "@/components/core/organism/modals/OnboardingModal";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -31,22 +31,22 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getCurrentUser();
   return (
     <html lang="en">
       <body
         className={`relative selection:bg-primary-600 selection:text-white ${montserrat.className} ${hind.className}`}
       >
         <TanstackQueryProvider>
-          <NextAuthSessionProvider>
+          <AuthProvider>
             <LoginModal />
             <AssistantModal />
+            <OnboardingModal />
             <HydrationHandler>
-              <Navbar session={session} />
+              <Navbar />
               {children}
               <Footer />
             </HydrationHandler>
-          </NextAuthSessionProvider>
+          </AuthProvider>
         </TanstackQueryProvider>
       </body>
     </html>

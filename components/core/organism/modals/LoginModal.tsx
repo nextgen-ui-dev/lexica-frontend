@@ -4,11 +4,14 @@ import { BsGoogle } from "react-icons/bs";
 import useLoginModal from "@/hooks/useLoginModal";
 import Modal from "./Modal";
 import Button from "../../molecules/Button";
-import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "react-toastify";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
+  const { login, user } = useAuth();
 
   const body = (
     <div className="flex flex-col gap-4">
@@ -24,13 +27,26 @@ const LoginModal = () => {
           className="group-hover:scale-110 transition"
         />
       </div>
-      <Button
-        label="Masuk"
-        onClick={() => {
-          signIn("google", { redirect: true, callbackUrl: "/onboarding" });
-        }}
-        icon={BsGoogle}
-      />
+      <div className="flex justify-center">
+        <GoogleLogin
+          type="standard"
+          size="large"
+          shape="pill"
+          theme="outline"
+          width="100px"
+          locale="id"
+          useOneTap={false}
+          auto_select={false}
+          onSuccess={(response) => {
+            login({ googleToken: response.credential });
+          }}
+          text="signin_with"
+          context="signin"
+          onError={() => {
+            toast.error("Something went wrong");
+          }}
+        />
+      </div>
     </div>
   );
 
