@@ -20,7 +20,7 @@ interface ProfileDropdownProps {
 
 const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
   const router = useRouter();
-  const {logout} = useAuth()
+  const { logout } = useAuth();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute("data-path");

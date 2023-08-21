@@ -14,7 +14,7 @@ export async function POST(request: Request) {
         },
       },
     );
-    console.debug("RES", response)
+    console.debug("RES", response);
     return NextResponse.json(response.data, { status: 200 });
   } catch (err) {
     console.debug(err);

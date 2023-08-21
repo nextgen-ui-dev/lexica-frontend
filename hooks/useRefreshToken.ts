@@ -5,14 +5,17 @@ import { axiosAuth } from "@/libs/axios";
 import Cookies from "js-cookie";
 
 export const useRefreshToken = () => {
-  const { updateToken} = useAuth();
+  const { updateToken } = useAuth();
   const refreshToken = async () => {
-    const res = await axiosAuth.post("/auth/refresh-token", {
-    }, {
-      headers: {
-        Authorization: `Bearer ${Cookies.get("refresh_token")}`
-      }
-    });
+    const res = await axiosAuth.post(
+      "/auth/refresh-token",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("refresh_token")}`,
+        },
+      },
+    );
     if (res.status === 200) {
       updateToken({
         access: res.data.access_token,

@@ -36,8 +36,9 @@ const Navbar = () => {
     <nav className="md:fixed w-full z-10">
       <HeadRoom>
         <div
-          className={`fixed md:relative w-full py-4 ${isScroll && "bg-primary-600 border-b border-primary-500"
-            }`}
+          className={`fixed md:relative w-full py-4 ${
+            isScroll && "bg-primary-600 border-b border-primary-500"
+          }`}
         >
           <Container expanded>
             <div className="flex flex-row justify-between items-center">

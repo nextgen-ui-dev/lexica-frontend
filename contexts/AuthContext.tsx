@@ -52,15 +52,12 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   const getCurrentUser = async () => {
-    const response = await axiosAuth.get(
-      "/auth/userinfo",
-      {
-        headers: {
-          Authorization: `Bearer ${Cookies.get("access_token")}`,
-          "Content-Type": "application/json",
-        },
+    const response = await axiosAuth.get("/auth/userinfo", {
+      headers: {
+        Authorization: `Bearer ${Cookies.get("access_token")}`,
+        "Content-Type": "application/json",
       },
-    );
+    });
     setUser({ ...response.data });
     if (response.data.status === 1) {
       onBoaridngModal.onOpen();
@@ -75,7 +72,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     Cookies.set("access_token", token.access as string);
     Cookies.set("refresh_token", token.refresh as string);
     setToken(token);
-  }
+  };
 
   const clearSession = () => {
     setToken({ access: "", refresh: "" });
@@ -112,11 +109,15 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     const now = Date.now().valueOf() / 1000;
     if (typeof decoded.exp !== "undefined" && decoded.exp < now) {
       await axiosAuth
-        .post("/auth/refresh-token", {}, {
-          headers: {
-            Authorization: `Bearer ${Cookies.get("refresh_token")}`
-          }
-        })
+        .post(
+          "/auth/refresh-token",
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${Cookies.get("refresh_token")}`,
+            },
+          },
+        )
         .then((res) => {
           Cookies.set("access_token", res.data.access_token);
           Cookies.set("refresh_token", res.data.refresh_token);

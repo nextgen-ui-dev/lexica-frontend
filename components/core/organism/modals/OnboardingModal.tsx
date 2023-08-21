@@ -37,19 +37,18 @@ const OnboardingModal = () => {
     { value: "lainnya", label: "Lainnya" },
   ];
 
-  const topics = data ? data.map(item => ({
-    value: item.id,
-    label: item.name
-  })) : [];
+  const topics = data
+    ? data.map((item) => ({
+        value: item.id,
+        label: item.name,
+      }))
+    : [];
 
   const handleNext = useCallback(() => {
     setStep(STEPS.PROFILE);
   }, [setStep]);
 
-  const {
-    handleSubmit,
-    setValue,
-  } = useForm();
+  const { handleSubmit, setValue } = useForm();
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -60,15 +59,19 @@ const OnboardingModal = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    await axiosAuth.put(`/auth/onboarding`, {
-      role: data.role,
-      education_level: data.education,
-      interest_ids: data.topics
-    }, {
-      headers: {
-        Authorization: `Bearer ${Cookies.get("access_token")}`
-      }
-    })
+    await axiosAuth.put(
+      `/auth/onboarding`,
+      {
+        role: data.role,
+        education_level: data.education,
+        interest_ids: data.topics,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("access_token")}`,
+        },
+      },
+    );
     onboardingModal.onClose();
     router.replace("/");
   };

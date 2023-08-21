@@ -1,4 +1,4 @@
-import  { axiosAuth } from "@/libs/axios";
+import { axiosAuth } from "@/libs/axios";
 import { Articles } from "@/types/article";
 import { useQuery } from "react-query";
 
