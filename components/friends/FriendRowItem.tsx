@@ -53,18 +53,6 @@ const FriendRowItem = ({ friend }: FriendRowItemProps) => {
           ) : null}
         </div>
         <span className="w-[8px] h-[0px]"></span>
-        <div
-          className={`flex flex-row items-center mr-2 md:mr-4 
-        text-slate-600 hover:text-primary-500 hover:cursor-pointer duration-300 translate-y-[1px]`}
-        >
-          <BsChatLeftText />
-          {window.innerWidth > 768 ? (
-            <>
-              <div className="px-1"></div>
-              Chat
-            </>
-          ) : null}
-        </div>
       </div>
     </div>
   );

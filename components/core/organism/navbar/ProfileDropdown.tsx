@@ -52,7 +52,8 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             onClick={handleRoute}
             className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
-            hover:bg-gray-300 
+            hover:bg-primary-400
+            hover:text-white 
             hover:cursor-pointer
             text-slate-700
             `}
