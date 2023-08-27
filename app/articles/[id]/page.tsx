@@ -93,14 +93,16 @@ const ArticleDetails = () => {
                   <div className="w-full grid grid-cols-3 mb-6">
                     <div
                       onClick={() => setArticleDifficulty(DIFFICULTY.ADVANCE)}
-                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${articleDifficulty === DIFFICULTY.ADVANCE &&
+                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${
+                        articleDifficulty === DIFFICULTY.ADVANCE &&
                         "border-primary-600"
-                        }`}
+                      }`}
                     >
                       <h3
-                        className={`${articleDifficulty !== DIFFICULTY.ADVANCE &&
+                        className={`${
+                          articleDifficulty !== DIFFICULTY.ADVANCE &&
                           "text-slate-400"
-                          }`}
+                        }`}
                       >
                         Lanjutan
                       </h3>
@@ -109,28 +111,32 @@ const ArticleDetails = () => {
                       onClick={() =>
                         setArticleDifficulty(DIFFICULTY.INTERMEDIATE)
                       }
-                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${articleDifficulty === DIFFICULTY.INTERMEDIATE &&
+                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${
+                        articleDifficulty === DIFFICULTY.INTERMEDIATE &&
                         "border-primary-600"
-                        }`}
+                      }`}
                     >
                       <h3
-                        className={`${articleDifficulty !== DIFFICULTY.INTERMEDIATE &&
+                        className={`${
+                          articleDifficulty !== DIFFICULTY.INTERMEDIATE &&
                           "text-slate-400"
-                          }`}
+                        }`}
                       >
                         Menengah
                       </h3>
                     </div>
                     <div
                       onClick={() => setArticleDifficulty(DIFFICULTY.BEGINNER)}
-                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${articleDifficulty === DIFFICULTY.BEGINNER &&
+                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${
+                        articleDifficulty === DIFFICULTY.BEGINNER &&
                         "border-primary-600"
-                        }`}
+                      }`}
                     >
                       <h3
-                        className={`${articleDifficulty !== DIFFICULTY.BEGINNER &&
+                        className={`${
+                          articleDifficulty !== DIFFICULTY.BEGINNER &&
                           "text-slate-400"
-                          }`}
+                        }`}
                       >
                         Pemula
                       </h3>
@@ -144,8 +150,8 @@ const ArticleDetails = () => {
                     {articleDifficulty === DIFFICULTY.ADVANCE
                       ? data.texts.ADVANCED.content
                       : articleDifficulty === DIFFICULTY.INTERMEDIATE
-                        ? data.texts.INTERMEDIATE.content
-                        : data.texts.BEGINNER.content}
+                      ? data.texts.INTERMEDIATE.content
+                      : data.texts.BEGINNER.content}
                   </div>
                 ) : (
                   <ArticleContentSkeleton />
