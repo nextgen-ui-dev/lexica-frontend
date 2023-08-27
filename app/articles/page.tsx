@@ -4,15 +4,17 @@ import ArticlesHero from "../../components/articles/ArticlesHero";
 import ArticlesFeed from "../../components/articles/ArticlesFeed";
 import { useArticles } from "@/hooks";
 import { useCategories } from "@/hooks/useCategories";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 
 const ArticlesPage = () => {
-  const { data, refetch } = useArticles();
   const categories = useCategories();
 
+  const [searchQuery, setSearchQuery] = useState<string>();
+  const debouceSearchQuery = useDebounce(searchQuery, 1000);
+
   const [selectedCategoryId, setSelectedCategoryId] = useState<string>();
-  const debounce = useDebounce(selectedCategoryId, 2000);
+  const debouncedCategoryId = useDebounce(selectedCategoryId, 1000);
 
   const onChangeCategory = useCallback(
     (categoryId: string) => {
@@ -21,14 +23,33 @@ const ArticlesPage = () => {
     [setSelectedCategoryId],
   );
 
+  const onChangeSearchQuery = useCallback(
+    (searchQuery: string) => {
+      setSearchQuery(searchQuery);
+    },
+    [setSearchQuery],
+  );
+
+  const { data, isFetching, refetch } = useArticles(debouceSearchQuery, debouncedCategoryId);
+
+  useEffect(() => {
+    refetch();
+  }, [debouceSearchQuery, debouncedCategoryId, refetch]);
+
   return (
     <div className="relative w-full bg-backdrop">
       <ArticlesHero
+        selectedCategoryId={selectedCategoryId}
+        isFetching={isFetching}
         recentArticle={data?.articles[0]}
-        categories={categories.data}
+        categories={categories}
         onChangeCategory={onChangeCategory}
+        onChangeSearchQuery={onChangeSearchQuery}
       />
-      <ArticlesFeed articles={data?.articles.slice(1)} />
+      <ArticlesFeed
+        isFetching={isFetching}
+        articles={data?.articles.slice(1)}
+      />
     </div>
   );
 };

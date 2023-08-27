@@ -7,17 +7,27 @@ import ArticleHeroCard from "./ArticleHeroCard";
 import { Article } from "@/types/article";
 import { Category } from "@/types/category";
 import ArticleCategoryPill from "./ArticleCategoryPill";
+import ArticleHeroNoData from "./ArticleHeroNoData";
 
 interface ArticlesHeroProps {
+  selectedCategoryId?: string;
+  isFetching: boolean;
   recentArticle?: Article;
-  categories?: Category[];
+  categories?: {
+    data: Category[] | undefined;
+    isFetching: boolean;
+  };
   onChangeCategory: (categoryId: string) => void;
+  onChangeSearchQuery: (categoryId: string) => void;
 }
 
 const ArticlesHero = ({
+  selectedCategoryId,
+  isFetching,
   recentArticle,
   categories,
   onChangeCategory,
+  onChangeSearchQuery
 }: ArticlesHeroProps) => {
   return (
     <div className="w-full">
@@ -30,6 +40,7 @@ const ArticlesHero = ({
                 <input
                   className="w-full border-none !outline-none"
                   placeholder="Temukan artikel apapun"
+                  onChange={(e) => onChangeSearchQuery(e.target.value)}
                 />
                 <AiOutlineSearch
                   size={32}
@@ -37,9 +48,10 @@ const ArticlesHero = ({
                 />
               </div>
               <div className="max-w-2xl w-full flex flex-row overflow-scroll no-scrollbar lg:flex-wrap items-center justify-start md:justify-center gap-4">
-                {categories?.length ? (
-                  categories.map((category, index) => (
+                {!isFetching && categories?.data && categories?.data.length ? (
+                  categories.data.map((category, index) => (
                     <ArticleCategoryPill
+                      isActive={selectedCategoryId === category.id}
                       key={index}
                       categoryId={category.id}
                       categoryName={category.name}
@@ -47,7 +59,15 @@ const ArticlesHero = ({
                     />
                   ))
                 ) : (
-                  <div>Loading</div>
+                  <div className="w-full animate-pulse flex flex-row justify-center items-center gap-4">
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                  </div>
                 )}
               </div>
             </div>
@@ -55,11 +75,9 @@ const ArticlesHero = ({
         </div>
         <div className="absolute w-full h-[50dvh] md:h-[40dvh] -bottom-[70%] md:-bottom-[55%]">
           <Container>
-            {recentArticle ? (
-              <ArticleHeroCard article={recentArticle} />
-            ) : (
-              <ArticleHeroCardSkeleton />
-            )}
+            {isFetching && <ArticleHeroCardSkeleton />}
+            {recentArticle && <ArticleHeroCard article={recentArticle} />}
+            {!recentArticle && !isFetching && <ArticleHeroNoData />}
           </Container>
         </div>
       </div>

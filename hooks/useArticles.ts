@@ -6,14 +6,17 @@ export const useArticles = (
   q: string | null = null,
   categoryId: string | null = null,
 ) => {
-  const { data, refetch } = useQuery(["articles", q, categoryId], {
+  const { data, isFetching, refetch } = useQuery(["articles", q, categoryId], {
     queryFn: async () => {
       let url = "article";
       if (q !== null) {
         url += `?q=${q}`;
       }
       if (categoryId !== null) {
-        url += `&category_id=${categoryId}`;
+        url +=
+          q !== null
+            ? `&category_id=${categoryId}`
+            : `?category_id=${categoryId}`;
       }
       const { data } = await axiosAuth.get(url);
       return data as Articles;
@@ -23,6 +26,7 @@ export const useArticles = (
 
   return {
     data,
+    isFetching,
     refetch,
   };
 };

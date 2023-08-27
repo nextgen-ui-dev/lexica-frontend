@@ -12,6 +12,9 @@ const HomeHero = () => {
           src="/images/hero.png"
           alt=""
           fill
+          priority
+          quality={100}
+          sizes="(max-width: 1720px) 100vw, (max-width: 1400pxpx) 50vw, 33vw"
           style={{
             objectFit: "contain",
             objectPosition: "center bottom",
