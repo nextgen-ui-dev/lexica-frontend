@@ -20,11 +20,13 @@ enum DIFFICULTY {
 
 const ArticleDetails = () => {
   const params = useParams();
-  const { data } = useArticle(params.id);
+  const { data: articleData } = useArticle(params.id);
   const [articleDifficulty, setArticleDifficulty] = useState(
     DIFFICULTY.ADVANCE,
   );
   const assistantModal = useAsisstantModal();
+  console.log("articleDetailData: ", articleData);
+
   return (
     <div className="w-full h-full relative">
       <ScrollToTop
@@ -44,8 +46,8 @@ const ArticleDetails = () => {
       <section className="w-full h-[32dvh] md:h-[40dvh] bg-primary-600 flex flex-row items-center justify-center md:pt-4">
         <div className="w-full max-w-md">
           <h2 className="px-4 mt-8 md:mt-8 text-md md:text-xl text-center text-white">
-            {data ? (
-              data.title
+            {articleData ? (
+              articleData.title
             ) : (
               <div className="w-full h-full animate-pulse flex flex-col items-center justify-center">
                 <div className="h-2.5 bg-primary-100 rounded-full w-3/6 mb-4" />
@@ -54,9 +56,11 @@ const ArticleDetails = () => {
               </div>
             )}
           </h2>
-          <div className="mt-4 md:mt-6 md:mb-4">
-            <ArticleDetailMenu id={params.id} />
-          </div>
+          {articleData ? (
+            <div className="mt-4 md:mt-6 md:mb-4">
+              <ArticleDetailMenu id={articleData.id} />
+            </div>
+          ) : null}
         </div>
       </section>
       <section className="w-full min-h-[70dvh] bg-primary-600">
@@ -64,7 +68,7 @@ const ArticleDetails = () => {
           <Container>
             <div className="flex flex-col items-center w-full h-full pt-8 md:pt-12">
               <div className="relative rounded-xl overflow-hidden w-[300px] md:w-[600px] h-[200px] md:h-[400px] mt-2 md:mt-4 mb-6 md:mb-8">
-                {data ? (
+                {articleData ? (
                   <Image
                     src="/images/no_image.png"
                     alt="Article image"
@@ -79,11 +83,13 @@ const ArticleDetails = () => {
                   <div className="bg-primary-100 animate-pulse w-full h-full" />
                 )}
               </div>
-              {data && (
+              {articleData && (
                 <div className="w-full">
                   <h6 className="text-center mb-4">
-                    {data.source}{" "}
-                    {data.author ? `-- ${data.author}` : "-- Tidak diketahui"}
+                    {articleData.source}{" "}
+                    {articleData.author
+                      ? `-- ${articleData.author}`
+                      : "-- Tidak diketahui"}
                   </h6>
                   <h5 className="text-center mb-4">
                     Pilih tingkatan literasi yang kamu minati
@@ -143,13 +149,13 @@ const ArticleDetails = () => {
                 </div>
               )}
               <pre className="whitespace-pre-line w-full text-justify text-md md:text-lg text-gray-600 font-normal">
-                {data ? (
+                {articleData ? (
                   <div className="min-h-[80dvh]">
                     {articleDifficulty === DIFFICULTY.ADVANCE
-                      ? data.texts.ADVANCED.content
+                      ? articleData.texts.ADVANCED.content
                       : articleDifficulty === DIFFICULTY.INTERMEDIATE
-                      ? data.texts.INTERMEDIATE.content
-                      : data.texts.BEGINNER.content}
+                      ? articleData.texts.INTERMEDIATE.content
+                      : articleData.texts.BEGINNER.content}
                   </div>
                 ) : (
                   <ArticleContentSkeleton />

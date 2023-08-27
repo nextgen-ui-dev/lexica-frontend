@@ -22,35 +22,35 @@ const CategoryData = [
     id: 3,
     category: "Olahraga",
     count: 7,
-  }, 
+  },
   {
     id: 4,
     category: "Seni",
-    count: 3
+    count: 3,
   },
   {
     id: 5,
     category: "Politik",
-    count: 4
-  }
+    count: 4,
+  },
 ];
 
 const DiffData = [
   {
     id: 1,
     diff: "Hard",
-    count: 10
+    count: 10,
   },
   {
     id: 2,
     diff: "Medium",
-    count: 12
+    count: 12,
   },
   {
     id: 3,
     diff: "Easy",
-    count: 20
-  }
+    count: 20,
+  },
 ];
 
 const Data = [
@@ -109,7 +109,9 @@ const DiffSegmentation = () => {
     ],
   });
 
-  const [chartDataCategory, setChartDataCategory] = React.useState<ChartData<"pie">>({
+  const [chartDataCategory, setChartDataCategory] = React.useState<
+    ChartData<"pie">
+  >({
     labels: CategoryData.map((data) => data.category),
     datasets: [
       {
@@ -158,7 +160,9 @@ const DiffSegmentation = () => {
     maintainAspectRatio: true,
   });
 
-  const [chartOptionsCategory, setChartOptionsCategory] = React.useState<ChartOptions<"pie">>({
+  const [chartOptionsCategory, setChartOptionsCategory] = React.useState<
+    ChartOptions<"pie">
+  >({
     plugins: {
       title: {
         display: true,
@@ -169,7 +173,9 @@ const DiffSegmentation = () => {
     maintainAspectRatio: true,
   });
 
-  const [chartOptionsDiff, setChartOptionsDiff] = React.useState<ChartOptions<"pie">>({
+  const [chartOptionsDiff, setChartOptionsDiff] = React.useState<
+    ChartOptions<"pie">
+  >({
     plugins: {
       title: {
         display: true,
@@ -187,8 +193,11 @@ const DiffSegmentation = () => {
       flex flex-col justify-center
     `}
     >
-      <PieChart chartData={chartDataCategory} chartOptions={chartOptionsCategory} /> 
-      
+      <PieChart
+        chartData={chartDataCategory}
+        chartOptions={chartOptionsCategory}
+      />
+
       <div className="py-2 md:py-4"></div>
 
       <PieChart chartData={chartDataDiff} chartOptions={chartOptionsDiff} />

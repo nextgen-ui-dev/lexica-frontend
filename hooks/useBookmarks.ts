@@ -20,12 +20,15 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
   bookmarksRegular: [],
   addBookmark: (article: ArticleDetail) => {
     set((state) => {
-      if (state.bookmarks.filter((art) => art.id === article.id)) {
+      if (state.bookmarks.length > 0 && state.bookmarks.filter((art) => art.id === article.id)) {
+        console.log("state.bookmarks: ", state.bookmarks);
+        console.log("was already bookmarked, no changes adedd");
         return {
           bookmarks: state.bookmarks,
         };
       }
-
+      
+      console.log("non-bookmarked. adding new bookmark!");
       const newBookmarks: ArticleDetail[] = [...state.bookmarks, article];
 
       localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
@@ -98,13 +101,19 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
       localStorage.getItem("lexicaBookmarks") || "[]",
     );
 
+    console.log("bookmarks: ", bookmarks);
+
     const bookmarksRegular: Article[] = JSON.parse(
       localStorage.getItem("lexicaBookmarks") || "[]",
     );
 
-    const result =
-      bookmarks.find((art) => art.id === id) !== null ||
-      bookmarksRegular.find((art) => art.id === id) !== null;
+    console.log("bookmarksRegular: ", bookmarksRegular);
+
+    let result = false;
+    if (bookmarks.length > 0) {
+      result =  bookmarks.find((art) => art.id === id) !== null ||
+        bookmarksRegular.find((art) => art.id === id) !== null;
+    }
 
     console.log("isbookmarked: ", result);
 

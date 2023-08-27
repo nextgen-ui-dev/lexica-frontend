@@ -12,6 +12,7 @@ const HomeHero = () => {
           src="/images/hero.png"
           alt=""
           fill
+          priority
           style={{
             objectFit: "contain",
             objectPosition: "center bottom",

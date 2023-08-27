@@ -3,7 +3,12 @@
 import React from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
-import { BsBookmark, BsBookmarkFill, BsCollection } from "react-icons/bs";
+import {
+  BsBookmark,
+  BsBookmarkFill,
+  BsCollection,
+  BsCollectionFill,
+} from "react-icons/bs";
 
 import { BiShareAlt } from "react-icons/bi";
 
@@ -53,10 +58,10 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
 
   const handleBookmark = React.useCallback(() => {
     // Guard clause for non-logged in user
-    console.log("status", status);
+    console.log("status: ", status);
     console.log("user", session?.user);
     if (session?.user === undefined) {
-      return toast.error("Coba login terlebih dahulu");
+      return toast.error("Coba login ulang ya 🙏🏼");
     }
 
     if (bookmarks.isBookmarked(id)) {
@@ -120,17 +125,27 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
             }}
           >
             <div>
-              <BsCollection
-                className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300`}
-              />
+              {!showDropdown ? (
+                <BsCollection
+                  className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300
+                  `}
+                  onClick={() => setShowDropdown(!showDropdown)}
+                />
+              ) : (
+                <BsCollectionFill
+                  className={`text-white text-md md:text-xl group-hover:text-primary-200 duration-300
+                  `}
+                  onClick={() => setShowDropdown(!showDropdown)}
+                />
+              )}
             </div>
             <div className={`text-white py-1.5 md:py-3`}>
-              {showDropdown ? "Simpan Pilihan" : "Tambah Koleksi"}
+              {showDropdown ? "Selesai" : "Koleksi"}
             </div>
           </li>
           {showDropdown && (
             <div
-              className={`absolute z-10 top-14 left-1/2 -translate-x-1/2 w-[70dvw]`}
+              className={`absolute z-10 top-14 md:top-16 left-1/2 -translate-x-1/2 w-[70dvw] md:w-[40dvw]`}
             >
               <MultipleDropdownSelect
                 placholder="Koleksi"
