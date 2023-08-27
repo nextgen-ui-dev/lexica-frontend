@@ -4,7 +4,9 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+    console.debug(body);
     const { googleToken } = body;
+    console.debug("token: ", googleToken);
     const response = await axiosAuth.post(
       "/auth/sign-in/google",
       {},

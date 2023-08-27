@@ -5,12 +5,20 @@ import { AiOutlineSearch } from "react-icons/ai";
 import ArticleHeroCardSkeleton from "./ArticleHeroCardSkeleton";
 import ArticleHeroCard from "./ArticleHeroCard";
 import { Article } from "@/types/article";
+import { Category } from "@/types/category";
+import ArticleCategoryPill from "./ArticleCategoryPill";
 
 interface ArticlesHeroProps {
   recentArticle?: Article;
+  categories?: Category[];
+  onChangeCategory: (categoryId: string) => void;
 }
 
-const ArticlesHero = ({ recentArticle }: ArticlesHeroProps) => {
+const ArticlesHero = ({
+  recentArticle,
+  categories,
+  onChangeCategory,
+}: ArticlesHeroProps) => {
   return (
     <div className="w-full">
       <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">
@@ -28,25 +36,19 @@ const ArticlesHero = ({ recentArticle }: ArticlesHeroProps) => {
                   className="p-2 bg-primary-600 text-white rounded-full"
                 />
               </div>
-              <div className="w-full flex flex-row items-center justify-start md:justify-center gap-4 overflow-x-auto no-scrollbar">
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Hiburan
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Olahraga
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Pendidikan
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Bisnis
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Teknologi
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Politik
-                </h5>
+              <div className="max-w-2xl w-full flex flex-row overflow-scroll no-scrollbar lg:flex-wrap items-center justify-start md:justify-center gap-4">
+                {categories?.length ? (
+                  categories.map((category, index) => (
+                    <ArticleCategoryPill
+                      key={index}
+                      categoryId={category.id}
+                      categoryName={category.name}
+                      onChangeCategory={onChangeCategory}
+                    />
+                  ))
+                ) : (
+                  <div>Loading</div>
+                )}
               </div>
             </div>
           </Container>

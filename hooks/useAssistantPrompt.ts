@@ -1,13 +1,14 @@
-import { useAuth } from "@/contexts/AuthContext";
-import { axiosAuth } from "@/libs/axios";
 import { ExplanationPayload } from "@/types/explanationPayload";
 import { useMutation } from "react-query";
+import useAxiosAuth from "./useAxios";
+import { useAuth } from "@/contexts/AuthContext";
 
 export const useAssistantPrompt = () => {
   const { token } = useAuth();
+  const axios = useAxiosAuth();
   return useMutation("assistant-prompt", {
     mutationFn: async (text) => {
-      const { data } = await axiosAuth.post(
+      const { data } = await axios.post(
         `assistant/explain`,
         {
           text: text,

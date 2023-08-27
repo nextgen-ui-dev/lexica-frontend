@@ -4,16 +4,19 @@ import { useRefreshToken } from "./useRefreshToken";
 
 import { useAuth } from "@/contexts/AuthContext";
 import { axiosAuth } from "@/libs/axios";
+import Cookies from "js-cookie";
 
 const useAxiosAuth = () => {
-  const { user, token } = useAuth();
   const refreshToken = useRefreshToken();
+  const { user } = useAuth();
 
   useEffect(() => {
     const requestIntercept = axiosAuth.interceptors.request.use(
       (config) => {
         if (!config.headers["Authorization"]) {
-          config.headers["Authorization"] = `Bearer ${token.access}`;
+          config.headers["Authorization"] = `Bearer ${Cookies.get(
+            "access_token",
+          )}`;
         }
         return config;
       },
@@ -27,7 +30,9 @@ const useAxiosAuth = () => {
         if (error?.response?.status === 401 && !prevRequest?.sent) {
           prevRequest.sent = true;
           await refreshToken();
-          prevRequest.headers["Authorization"] = `Bearer ${token.access}`;
+          prevRequest.headers["Authorization"] = `Bearer ${Cookies.get(
+            "access_token",
+          )}`;
           return axiosAuth(prevRequest);
         }
         return Promise.reject(error);

@@ -15,6 +15,7 @@ import { googleLogout } from "@react-oauth/google";
 import { toast } from "react-toastify";
 import { usePathname } from "next/navigation";
 import useOnboardingModal from "@/hooks/useOnboardingModal";
+import useAxiosAuth from "@/hooks/useAxios";
 
 export interface User {
   id: string;
@@ -50,9 +51,10 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const onBoaridngModal = useOnboardingModal();
   const path = usePathname();
   const router = useRouter();
+  const axios = useAxiosAuth();
 
   const getCurrentUser = async () => {
-    const response = await axiosAuth.get("/auth/userinfo", {
+    const response = await axios.get("/auth/userinfo", {
       headers: {
         Authorization: `Bearer ${Cookies.get("access_token")}`,
         "Content-Type": "application/json",
@@ -82,9 +84,15 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const login = async (data: { googleToken?: string }) => {
-    const postLogin = axios.post("/api/auth/login/google", {
-      googleToken: data.googleToken,
-    });
+    const postLogin = axiosAuth.post(
+      "/auth/sign-in/google",
+      {},
+      {
+        headers: {
+          "X-Google-Id-Token": data.googleToken,
+        },
+      },
+    );
 
     await postLogin
       .then((res) => {
@@ -94,10 +102,9 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
           access: res.data.access_token,
           refresh: res.data.refresh_token,
         });
+        setCurrentUser();
       })
-      .catch((err) => console.error(err.response.data.detail));
-
-    setCurrentUser();
+      .catch((err) => console.error(err));
   };
   const logout = () => {
     googleLogout();
@@ -119,6 +126,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
           },
         )
         .then((res) => {
+          console.log(res);
           Cookies.set("access_token", res.data.access_token);
           Cookies.set("refresh_token", res.data.refresh_token);
           setToken({
