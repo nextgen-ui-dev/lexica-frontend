@@ -5,9 +5,9 @@ import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
 import Avatar from "../../molecules/Avatar";
-import { User } from "@/types/session";
 import useLoginModal from "@/hooks/useLoginModal";
 import ProfileDropdown from "./ProfileDropdown";
+import { User } from "@/contexts/AuthContext";
 
 interface NavbarUserMenuProps {
   user?: User;
@@ -44,7 +44,7 @@ const NavbarUserMenu = ({
             onClick={() => setExpandProfile(!expandProfile)}
           >
             <Avatar
-              src={user?.image}
+              src={user?.image_url}
               large={window.innerWidth > 768 ? true : false}
               profileLogo
             />

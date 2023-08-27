@@ -9,7 +9,6 @@ import Container from "@/components/core/layout/Container";
 import ArticleDetailMenu from "@/components/articles/ArticleDetailMenu";
 import { useArticle } from "@/hooks/useArticle";
 import ArticleContentSkeleton from "@/components/articles/ArticleContentSkeleton";
-import { Texts } from "@/types/articleDetail";
 import ToastProvider from "@/providers/ToastProvider";
 import useAsisstantModal from "@/hooks/useAssistantModal";
 
@@ -71,6 +70,8 @@ const ArticleDetails = () => {
                     alt="Article image"
                     fill
                     priority
+                    quality={100}
+                    sizes="(max-width: 1720px) 100vw, (max-width: 1400pxpx) 50vw, 33vw"
                     style={{
                       objectFit: "cover",
                     }}
@@ -92,16 +93,14 @@ const ArticleDetails = () => {
                   <div className="w-full grid grid-cols-3 mb-6">
                     <div
                       onClick={() => setArticleDifficulty(DIFFICULTY.ADVANCE)}
-                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${
-                        articleDifficulty === DIFFICULTY.ADVANCE &&
+                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${articleDifficulty === DIFFICULTY.ADVANCE &&
                         "border-primary-600"
-                      }`}
+                        }`}
                     >
                       <h3
-                        className={`${
-                          articleDifficulty !== DIFFICULTY.ADVANCE &&
+                        className={`${articleDifficulty !== DIFFICULTY.ADVANCE &&
                           "text-slate-400"
-                        }`}
+                          }`}
                       >
                         Lanjutan
                       </h3>
@@ -110,32 +109,28 @@ const ArticleDetails = () => {
                       onClick={() =>
                         setArticleDifficulty(DIFFICULTY.INTERMEDIATE)
                       }
-                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${
-                        articleDifficulty === DIFFICULTY.INTERMEDIATE &&
+                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${articleDifficulty === DIFFICULTY.INTERMEDIATE &&
                         "border-primary-600"
-                      }`}
+                        }`}
                     >
                       <h3
-                        className={`${
-                          articleDifficulty !== DIFFICULTY.INTERMEDIATE &&
+                        className={`${articleDifficulty !== DIFFICULTY.INTERMEDIATE &&
                           "text-slate-400"
-                        }`}
+                          }`}
                       >
                         Menengah
                       </h3>
                     </div>
                     <div
                       onClick={() => setArticleDifficulty(DIFFICULTY.BEGINNER)}
-                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${
-                        articleDifficulty === DIFFICULTY.BEGINNER &&
+                      className={`col-span-1 cursor-pointer flex items-center justify-center border-b-2 py-2 ${articleDifficulty === DIFFICULTY.BEGINNER &&
                         "border-primary-600"
-                      }`}
+                        }`}
                     >
                       <h3
-                        className={`${
-                          articleDifficulty !== DIFFICULTY.BEGINNER &&
+                        className={`${articleDifficulty !== DIFFICULTY.BEGINNER &&
                           "text-slate-400"
-                        }`}
+                          }`}
                       >
                         Pemula
                       </h3>
@@ -149,8 +144,8 @@ const ArticleDetails = () => {
                     {articleDifficulty === DIFFICULTY.ADVANCE
                       ? data.texts.ADVANCED.content
                       : articleDifficulty === DIFFICULTY.INTERMEDIATE
-                      ? data.texts.INTERMEDIATE.content
-                      : data.texts.BEGINNER.content}
+                        ? data.texts.INTERMEDIATE.content
+                        : data.texts.BEGINNER.content}
                   </div>
                 ) : (
                   <ArticleContentSkeleton />
@@ -165,13 +160,3 @@ const ArticleDetails = () => {
 };
 
 export default ArticleDetails;
-
-function getArticleByDifficulty(params: Texts, difficulty?: DIFFICULTY) {
-  if (difficulty === DIFFICULTY.ADVANCE) {
-    return params.ADVANCED;
-  } else if (difficulty === DIFFICULTY.INTERMEDIATE) {
-    return params.INTERMEDIATE;
-  } else {
-    return params.BEGINNER;
-  }
-}

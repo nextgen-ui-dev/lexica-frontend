@@ -51,13 +51,13 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
 
         <div className={`flex flex-row justify-start cursor-default py-1`}>
           <div className="w-[20px] h-[20px]">
-            <Avatar small src={collection.creator.image} />
+            <Avatar small src={collection.creator!.image} />
           </div>
           <div
             className={`text-sm md:text-md w-full pl-1 md:pl-1.5 text-slate-600 truncate`}
-            title={collection.creator.name!}
+            title={collection.creator!.name?.toString()}
           >
-            {collection.creator.name}
+            {collection.creator!.name}
           </div>
         </div>
 

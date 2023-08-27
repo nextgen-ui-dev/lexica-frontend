@@ -1,23 +1,34 @@
 "use client";
 
-import Image from "next/image";
 import Container from "../core/layout/Container";
-import { Articles } from "@/constants/article.constant";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useRouter } from "next/navigation";
-import { Article } from "@/types/article";
-import moment from "moment";
-import ArticleCardSkeleton from "./ArticleCardSkeleton";
 import ArticleHeroCardSkeleton from "./ArticleHeroCardSkeleton";
 import ArticleHeroCard from "./ArticleHeroCard";
+import { Article } from "@/types/article";
+import { Category } from "@/types/category";
+import ArticleCategoryPill from "./ArticleCategoryPill";
+import ArticleHeroNoData from "./ArticleHeroNoData";
 
 interface ArticlesHeroProps {
+  selectedCategoryId?: string;
+  isFetching: boolean;
   recentArticle?: Article;
+  categories?: {
+    data: Category[] | undefined;
+    isFetching: boolean;
+  };
+  onChangeCategory: (categoryId: string) => void;
+  onChangeSearchQuery: (categoryId: string) => void;
 }
 
-const ArticlesHero = ({ recentArticle }: ArticlesHeroProps) => {
-  const router = useRouter();
-  const article = Articles[0];
+const ArticlesHero = ({
+  selectedCategoryId,
+  isFetching,
+  recentArticle,
+  categories,
+  onChangeCategory,
+  onChangeSearchQuery
+}: ArticlesHeroProps) => {
   return (
     <div className="w-full">
       <div className="relative w-full h-[52dvh] flex flex-col gap-y-40 bg-primary-600">
@@ -29,42 +40,44 @@ const ArticlesHero = ({ recentArticle }: ArticlesHeroProps) => {
                 <input
                   className="w-full border-none !outline-none"
                   placeholder="Temukan artikel apapun"
+                  onChange={(e) => onChangeSearchQuery(e.target.value)}
                 />
                 <AiOutlineSearch
                   size={32}
                   className="p-2 bg-primary-600 text-white rounded-full"
                 />
               </div>
-              <div className="w-full flex flex-row items-center justify-start md:justify-center gap-4 overflow-x-auto no-scrollbar">
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Hiburan
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Olahraga
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Pendidikan
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Bisnis
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Teknologi
-                </h5>
-                <h5 className="px-4 py-1 rounded-full bg-primary-200 text-primary-600 hover:text-primary-600 hover:bg-white transition duration-200 ease-out cursor-pointer">
-                  Politik
-                </h5>
+              <div className="max-w-2xl w-full flex flex-row overflow-scroll no-scrollbar lg:flex-wrap items-center justify-start md:justify-center gap-4">
+                {!isFetching && categories?.data && categories?.data.length ? (
+                  categories.data.map((category, index) => (
+                    <ArticleCategoryPill
+                      isActive={selectedCategoryId === category.id}
+                      key={index}
+                      categoryId={category.id}
+                      categoryName={category.name}
+                      onChangeCategory={onChangeCategory}
+                    />
+                  ))
+                ) : (
+                  <div className="w-full animate-pulse flex flex-row justify-center items-center gap-4">
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                    <div className="h-8 bg-primary-100 rounded-full w-full mb-4" />
+                  </div>
+                )}
               </div>
             </div>
           </Container>
         </div>
         <div className="absolute w-full h-[50dvh] md:h-[40dvh] -bottom-[70%] md:-bottom-[55%]">
           <Container>
-            {recentArticle ? (
-              <ArticleHeroCard article={recentArticle} />
-            ) : (
-              <ArticleHeroCardSkeleton />
-            )}
+            {isFetching && <ArticleHeroCardSkeleton />}
+            {recentArticle && <ArticleHeroCard article={recentArticle} />}
+            {!recentArticle && !isFetching && <ArticleHeroNoData />}
           </Container>
         </div>
       </div>

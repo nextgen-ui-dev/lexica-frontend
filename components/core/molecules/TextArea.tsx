@@ -15,7 +15,6 @@ interface TextAreaProps {
 const TextArea = ({
   id,
   label,
-  placehoder,
   disabled,
   required,
   register,

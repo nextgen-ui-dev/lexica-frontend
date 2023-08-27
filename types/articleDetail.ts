@@ -1,13 +1,13 @@
 export type ArticleDetail = {
-  id?: string;
-  category_id?: string;
-  title?: string;
+  id: string;
+  category_id: string;
+  title: string;
   thumbnail_url?: string;
-  original_url?: string;
-  source?: string;
+  original_url: string;
+  source: string;
   author?: string;
-  is_published?: boolean;
-  created_at?: Date;
+  is_published: boolean;
+  created_at: Date;
   updated_at?: Date;
   deleted_at?: Date;
   category_name?: string;
@@ -28,7 +28,7 @@ export type DifficultyType = {
   article_id: string;
   content: string;
   difficulty: string;
-  is_adapted: boolean;
+  is_adapted?: boolean;
   created_at: Date;
   updated_at?: Date;
   deleted_at?: Date;

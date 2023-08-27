@@ -1,8 +1,8 @@
 "use client";
 
-import { Article } from "@/types/articles";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Article } from "@/types/article";
 
 interface RecentArticleCardProps {
   article: Article;
@@ -20,6 +20,9 @@ const RecentArticleCard = ({ article }: RecentArticleCardProps) => {
           src="/images/no_image.png"
           alt=""
           fill
+          priority
+          quality={100}
+          sizes="(max-width: 1720px) 100vw, (max-width: 1400pxpx) 50vw, 33vw"
           style={{
             objectFit: "cover",
             objectPosition: "center",

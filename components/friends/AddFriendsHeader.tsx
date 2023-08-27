@@ -1,13 +1,10 @@
 "use client";
 
 import React, { MouseEvent } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-import { AiOutlinePlus } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
 import Searchbar from "../core/molecules/Searchbar";
-
-import useFindFriends from "@/hooks/useFindFriends";
 
 interface FriendsHeaderProps {
   searchQuery: string;
@@ -16,8 +13,6 @@ interface FriendsHeaderProps {
 
 const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
   const router = useRouter();
-  const pathName = usePathname();
-  const friends = useFindFriends();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute("data-path");

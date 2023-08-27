@@ -1,7 +1,7 @@
 "use client";
 
 import React, { MouseEvent } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import {
   BsPeople,
@@ -10,8 +10,8 @@ import {
   BsBookmarkFill,
 } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
-import { signOut } from "next-auth/react";
 import { User } from "@/types/session";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface ProfileDropdownProps {
   user?: User;
@@ -20,6 +20,7 @@ interface ProfileDropdownProps {
 
 const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
   const router = useRouter();
+  const { logout } = useAuth();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute("data-path");
@@ -111,7 +112,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             group
             `}
-          onClick={() => signOut()}
+          onClick={() => logout()}
         >
           <BiLogOut
             className="mr-2 mt-[2px] group-hover:text-red-500 duration-300"

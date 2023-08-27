@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Container from "../core/layout/Container";
 import { useThreeRecentArticle } from "@/hooks";
 import RecentArticleCard from "./RecentArticleCard";
@@ -16,8 +15,8 @@ const ArticleHomePreviews = () => {
               <h2 className="text-white">Artikel terbaru</h2>
               <div className="w-full grid grid-cols-3 gap-4">
                 {data &&
-                  data.articles.map((article) => (
-                    <RecentArticleCard article={article} />
+                  data.articles.map((article, idx) => (
+                    <RecentArticleCard key={idx} article={article} />
                   ))}
               </div>
             </div>

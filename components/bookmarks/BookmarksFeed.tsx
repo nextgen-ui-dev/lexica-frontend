@@ -1,6 +1,7 @@
 import React from "react";
-import { Article } from "@/types/articles";
 import ArticleCard from "../articles/ArticleCard";
+import { Article } from "@/types/article";
+// import { Articles } from "@/constants/article.constant";
 
 interface BookmarksFeedProps {
   bookmarks: Article[];

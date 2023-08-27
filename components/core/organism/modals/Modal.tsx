@@ -49,7 +49,7 @@ const Modal = ({
         }, 300);
       }
     },
-    [setShowModal, onClose],
+    [setShowModal, onClose, disabled],
   );
 
   if (!isOpen) {
