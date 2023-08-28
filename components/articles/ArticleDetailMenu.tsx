@@ -18,7 +18,6 @@ import { toast } from "react-toastify";
 
 import useBookmarks from "@/hooks/useBookmarks";
 import { useArticle } from "@/hooks/useArticle";
-import { useSession } from "next-auth/react";
 
 import MultipleDropdownSelect from "../core/molecules/MultipleDropdownSelect";
 import useCollections from "@/hooks/useCollections";
@@ -33,7 +32,6 @@ interface DropdownSelectData {
 }
 
 const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
-  const { data: session, status } = useSession();
   const { data: article } = useArticle(id);
   const bookmarksState = useBookmarks((state) => state.bookmarks);
   const bookmarks = useBookmarks();
@@ -58,9 +56,6 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
 
   const handleBookmark = React.useCallback(() => {
     // Guard clause for non-logged in user
-    if (session?.user === undefined) {
-      return toast.error("Coba login ulang ya 🙏🏼");
-    }
 
     if (bookmarks.isBookmarked(id)) {
       bookmarks.removeBookmark(id);

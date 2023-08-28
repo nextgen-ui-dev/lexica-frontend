@@ -7,14 +7,12 @@ import NavbarLogo from "./NavbarLogo";
 import NavbarMenuItems from "./NavbarMenuItems";
 import NavbarUserMenu from "./NavbarUserMenu";
 import { Session } from "@/types/session";
+import { useAuth } from "@/contexts/AuthContext";
 
-interface NavbarProps {
-  session: Session;
-}
-
-const Navbar = ({ session }: NavbarProps) => {
+const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +45,7 @@ const Navbar = ({ session }: NavbarProps) => {
               <NavbarLogo />
               <NavbarMenuItems isOpen={isOpen} />
               <NavbarUserMenu
-                user={session.user}
+                user={user}
                 isOpen={isOpen}
                 isScroll={isScroll}
                 onClick={toggleItemMenus}

@@ -2,11 +2,9 @@
 import Container from "../../layout/Container";
 import Button from "../../molecules/Button";
 import useLoginModal from "@/hooks/useLoginModal";
-import { useSession } from "next-auth/react";
 
 const Footer = () => {
   const loginModal = useLoginModal();
-  const { data: session, status } = useSession();
 
   return (
     <footer className="relative w-full h-[25dvh] flex flex-row items-center bg-primary-600 py-8">
@@ -20,7 +18,7 @@ const Footer = () => {
               Rasakan sensasi membaca seperti bermain sosial media
             </p>
             <div className="w-full max-w-xs">
-              <Button
+              {/* <Button
                 label="Jelajahi lebih lanjut"
                 onClick={() => {
                   if (session?.user === undefined) {
@@ -29,7 +27,7 @@ const Footer = () => {
                 }}
                 accent
                 fullRounded
-              />
+              /> */}
             </div>
           </div>
           <h6 className="text-xs text-gray-200">
