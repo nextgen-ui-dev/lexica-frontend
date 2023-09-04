@@ -5,7 +5,6 @@ import React from "react";
 import Avatar from "../core/molecules/Avatar";
 import { User } from "@/types/session";
 import { LuTrash } from "react-icons/lu";
-import { BsChatLeftText } from "react-icons/bs";
 
 import useFriends from "@/hooks/useFriends";
 

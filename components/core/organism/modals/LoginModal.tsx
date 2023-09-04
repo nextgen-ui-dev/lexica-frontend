@@ -1,9 +1,7 @@
 "use client";
 
-import { BsGoogle } from "react-icons/bs";
 import useLoginModal from "@/hooks/useLoginModal";
 import Modal from "./Modal";
-import Button from "../../molecules/Button";
 import Image from "next/image";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "@/contexts/AuthContext";
@@ -11,7 +9,7 @@ import { toast } from "react-toastify";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
-  const { login, user } = useAuth();
+  const { login } = useAuth();
 
   const body = (
     <div className="flex flex-col gap-4">

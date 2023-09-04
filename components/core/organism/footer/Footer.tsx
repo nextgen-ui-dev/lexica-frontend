@@ -1,11 +1,7 @@
 "use client";
 import Container from "../../layout/Container";
-import Button from "../../molecules/Button";
-import useLoginModal from "@/hooks/useLoginModal";
 
 const Footer = () => {
-  const loginModal = useLoginModal();
-
   return (
     <footer className="relative w-full h-[25dvh] flex flex-row items-center bg-primary-600 py-8">
       <Container>

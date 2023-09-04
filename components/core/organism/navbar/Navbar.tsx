@@ -6,7 +6,6 @@ import HeadRoom from "react-headroom";
 import NavbarLogo from "./NavbarLogo";
 import NavbarMenuItems from "./NavbarMenuItems";
 import NavbarUserMenu from "./NavbarUserMenu";
-import { Session } from "@/types/session";
 import { useAuth } from "@/contexts/AuthContext";
 
 const Navbar = () => {

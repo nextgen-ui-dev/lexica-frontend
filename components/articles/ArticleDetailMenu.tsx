@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import {
   BsBookmark,
@@ -9,8 +9,6 @@ import {
   BsCollection,
   BsCollectionFill,
 } from "react-icons/bs";
-
-import { BiShareAlt } from "react-icons/bi";
 
 import { MdContentCopy } from "react-icons/md";
 
@@ -39,7 +37,6 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
   const [showDropdown, setShowDropdown] = React.useState(false);
 
   const collectionsState = useCollections((state) => state.collections);
-  const collections = useCollections();
   const dropdownData: DropdownSelectData[] = collectionsState.map((col) => {
     return {
       value: col.id,
@@ -47,12 +44,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
     };
   });
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm();
+  const { setValue } = useForm();
 
   const handleBookmark = React.useCallback(() => {
     // Guard clause for non-logged in user

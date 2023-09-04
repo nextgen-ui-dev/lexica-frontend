@@ -1,21 +1,11 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
-import { LuVerified } from "react-icons/lu";
 import Container from "@/components/core/layout/Container";
 import ArticleCard from "@/components/articles/ArticleCard";
-import { Article } from "@/types/article";
 import { Articles } from "@/constants/article.constant";
 
-interface AnalyticsHistoryProps {
-  articles: Article[];
-}
-
-const AnalyticsHistory = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  articles,
-}: AnalyticsHistoryProps) => {
+const AnalyticsHistory = () => {
   return (
     <section className="w-[100dvw] min-h-[75dvh]">
       <div className="w-full min-h-[10dvh] bg-primary-600" />
