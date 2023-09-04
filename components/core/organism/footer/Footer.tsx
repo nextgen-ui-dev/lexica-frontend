@@ -1,8 +1,11 @@
 "use client";
 import Container from "../../layout/Container";
 import Button from "../../molecules/Button";
+import useLoginModal from "@/hooks/useLoginModal";
 
 const Footer = () => {
+  const loginModal = useLoginModal();
+
   return (
     <footer className="relative w-full h-[25dvh] flex flex-row items-center bg-primary-600 py-8">
       <Container>
@@ -15,12 +18,16 @@ const Footer = () => {
               Rasakan sensasi membaca seperti bermain sosial media
             </p>
             <div className="w-full max-w-xs">
-              <Button
+              {/* <Button
                 label="Jelajahi lebih lanjut"
-                onClick={() => {}}
+                onClick={() => {
+                  if (session?.user === undefined) {
+                    return loginModal.onOpen();
+                  }
+                }}
                 accent
                 fullRounded
-              />
+              /> */}
             </div>
           </div>
           <h6 className="text-xs text-gray-200">

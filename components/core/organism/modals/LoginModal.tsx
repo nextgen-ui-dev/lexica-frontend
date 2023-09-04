@@ -56,7 +56,7 @@ const LoginModal = () => {
   return (
     <Modal
       isOpen={loginModal.isOpen}
-      title="Masuk menggunakan Google"
+      title="Masuk dengan Google"
       onClose={loginModal.onClose}
       body={body}
     />

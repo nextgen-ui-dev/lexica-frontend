@@ -27,7 +27,7 @@ const ArticlesHero = ({
   recentArticle,
   categories,
   onChangeCategory,
-  onChangeSearchQuery
+  onChangeSearchQuery,
 }: ArticlesHeroProps) => {
   return (
     <div className="w-full">

@@ -8,10 +8,8 @@ import Modal from "./Modal";
 import useCollections from "@/hooks/useCollections";
 import useCollectionsModal from "@/hooks/useCollectionsModal";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { useSession } from "next-auth/react";
 
 const AddCollectionModal = () => {
-  const { data: session, status } = useSession();
   const collectionsState = useCollections((state) => state.collections);
   const collectionsHook = useCollections();
   const collectionsModal = useCollectionsModal();
@@ -25,7 +23,8 @@ const AddCollectionModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     const { name } = data;
-    const creator = status === "authenticated" ? session.user : {};
+    // const creator = session?.user !== undefined ? session.user : {};
+    const creator = undefined;
     const collection = {
       id: `QWERTYID${collectionsState.length + 1}`,
       name,

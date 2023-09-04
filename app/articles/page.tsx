@@ -30,7 +30,10 @@ const ArticlesPage = () => {
     [setSearchQuery],
   );
 
-  const { data, isFetching, refetch } = useArticles(debouceSearchQuery, debouncedCategoryId);
+  const { data, isFetching, refetch } = useArticles(
+    debouceSearchQuery,
+    debouncedCategoryId,
+  );
 
   useEffect(() => {
     refetch();

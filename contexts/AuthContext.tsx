@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import { usePathname } from "next/navigation";
 import useOnboardingModal from "@/hooks/useOnboardingModal";
 import useAxiosAuth from "@/hooks/useAxios";
+import useLoginModal from "@/hooks/useLoginModal";
 
 export interface User {
   id: string;
@@ -49,6 +50,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<Token>({ access: "", refresh: "" });
   const [user, setUser] = useState<User>();
   const onBoaridngModal = useOnboardingModal();
+  const loginModal = useLoginModal();
   const path = usePathname();
   const router = useRouter();
   const axios = useAxiosAuth();
@@ -62,7 +64,10 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     });
     setUser({ ...response.data });
     if (response.data.status === 1) {
+      loginModal.onClose();
       onBoaridngModal.onOpen();
+    } else {
+      loginModal.onClose();
     }
   };
 

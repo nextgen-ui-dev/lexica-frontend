@@ -6,6 +6,7 @@ interface MultipleDropdownSelectProps {
   value?: string;
   options: DropdownSelectData[];
   onChange: (value: DropdownSelectData[]) => void;
+  small?: boolean;
 }
 
 interface DropdownSelectData {
@@ -18,6 +19,7 @@ const MultipleDropdownSelect = ({
   value,
   options,
   onChange,
+  small,
 }: MultipleDropdownSelectProps) => {
   return (
     <Select
@@ -35,7 +37,7 @@ const MultipleDropdownSelect = ({
         </div>
       )}
       classNames={{
-        control: () => "p-3 border-2",
+        control: () => `${small ? "p-1" : "p-3"} border-2`,
         input: () => "text-lg",
         option: () => "text-lg",
       }}

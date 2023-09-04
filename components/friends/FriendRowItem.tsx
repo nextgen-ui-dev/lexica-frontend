@@ -4,7 +4,9 @@ import React from "react";
 
 import Avatar from "../core/molecules/Avatar";
 import { User } from "@/types/session";
-import { FaTrash } from "react-icons/fa";
+import { LuTrash } from "react-icons/lu";
+import { BsChatLeftText } from "react-icons/bs";
+
 import useFriends from "@/hooks/useFriends";
 
 interface FriendRowItemProps {
@@ -16,7 +18,7 @@ const FriendRowItem = ({ friend }: FriendRowItemProps) => {
 
   return (
     <div
-      className={`w-full flex flex-row items-center justify-between py-1 border-b md:py-2 hover:bg-primary-100 transition ease-out duration-200`}
+      className={`w-full flex flex-row items-center justify-between px-1 md:px-2 py-4 border-b md:py-4 hover:bg-primary-100 transition ease-out duration-200`}
     >
       <div className="flex flex-row items-center">
         <div className="relative w-[30px] h-[30px] md:w-[40px] md:h-[40px]">
@@ -35,18 +37,22 @@ const FriendRowItem = ({ friend }: FriendRowItemProps) => {
         </div>
       </div>
 
-      <div
-        className={`flex flex-row items-center mr-2 md:mr-4 
-      text-slate-600 hover:text-red-500 hover:cursor-pointer duration-300`}
-        onClick={() => friends.removeFriends(friend.email!)}
-      >
-        <FaTrash />
-        {window.innerWidth > 768 ? (
-          <>
-            <div className="px-1"></div>
-            Hapus
-          </>
-        ) : null}
+      <div className={`flex flex-row justify-center items-center`}>
+        <div
+          className={`flex flex-row items-center mr-2 md:mr-4 
+        text-slate-600 hover:text-red-500 hover:cursor-pointer duration-300`}
+          onClick={() => friends.removeFriends(friend.email!)}
+        >
+          {/* @Jere TODO add modal confirmation for deleting friends */}
+          <LuTrash />
+          {window.innerWidth > 768 ? (
+            <>
+              <div className="px-1"></div>
+              Hapus
+            </>
+          ) : null}
+        </div>
+        <span className="w-[8px] h-[0px]"></span>
       </div>
     </div>
   );
