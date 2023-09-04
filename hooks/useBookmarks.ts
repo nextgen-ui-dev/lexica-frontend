@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { create } from "zustand";
 import { Article } from "@/types/article";
 import { ArticleDetail } from "@/types/articleDetail";
@@ -8,15 +9,27 @@ interface BookmarkArticlesStore {
   bookmarks: ArticleDetail[];
   bookmarksRegular: Article[];
   addBookmark: (article: ArticleDetail) => void;
+  addBookmarkRegular: (article: Article) => void;
   removeBookmark: (id: string) => void;
+  removeBookmarkRegular: (id: string) => void;
   isBookmarked: (id: string) => boolean;
 }
 
+// @Jere TODO remove the "Regular" category as its not needed
 const useBookmarks = create<BookmarkArticlesStore>((set) => ({
-  bookmarks: [ArticlesDetailDummy[0]],
-  bookmarksRegular: [ArticlesConstant[0]],
+  bookmarks: [],
+  bookmarksRegular: [],
   addBookmark: (article: ArticleDetail) => {
     set((state) => {
+      if (
+        state.bookmarks.length > 0 &&
+        state.bookmarks.filter((art) => art.id === article.id)
+      ) {
+        return {
+          bookmarks: state.bookmarks,
+        };
+      }
+
       const newBookmarks: ArticleDetail[] = [...state.bookmarks, article];
 
       localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
@@ -28,6 +41,12 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
   },
   addBookmarkRegular: (article: Article) => {
     set((state) => {
+      if (state.bookmarksRegular.filter((art) => art.id === article.id)) {
+        return {
+          bookmarksRegular: state.bookmarksRegular,
+        };
+      }
+
       const newBookmarks: Article[] = [...state.bookmarksRegular, article];
 
       localStorage.setItem("lexicaBookmarks", JSON.stringify(newBookmarks));
@@ -39,6 +58,13 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
   },
   removeBookmark: (id: string) => {
     set((state) => {
+      if (state.bookmarks.filter((art) => art.id === id).length === 0) {
+        console.log("masuk sini if");
+        return {
+          bookmarks: state.bookmarks,
+        };
+      }
+
       const newBookmarks: ArticleDetail[] = state.bookmarks.filter(
         (art) => art.id !== id,
       );
@@ -52,6 +78,12 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
   },
   removeBookmarkRegular: (id: string) => {
     set((state) => {
+      if (state.bookmarksRegular.filter((art) => art.id === id).length === 0) {
+        return {
+          bookmarksRegular: state.bookmarksRegular,
+        };
+      }
+
       const newBookmarks: Article[] = state.bookmarksRegular.filter(
         (art) => art.id !== id,
       );
@@ -64,15 +96,22 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
     });
   },
   isBookmarked: (id: string) => {
-    const bookmarks: string[] = JSON.parse(
+    const bookmarks: ArticleDetail[] = JSON.parse(
       localStorage.getItem("lexicaBookmarks") || "[]",
     );
 
-    const bookmarksRegular: string[] = JSON.parse(
+    const bookmarksRegular: Article[] = JSON.parse(
       localStorage.getItem("lexicaBookmarks") || "[]",
     );
 
-    return bookmarks.includes(id) || bookmarksRegular.includes(id);
+    let result = false;
+    if (bookmarks.length > 0) {
+      result =
+        bookmarks.find((art) => art.id === id) !== null ||
+        bookmarksRegular.find((art) => art.id === id) !== null;
+    }
+
+    return result;
   },
 }));
 

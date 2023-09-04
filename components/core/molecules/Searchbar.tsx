@@ -19,8 +19,8 @@ const Searchbar = ({
   return (
     <div className={`relative`}>
       <BsSearch
-        className={`flex items-center absolute left-0 top-[7px] ml-3 pointer-events-none text-gray-500 cursor-pointer ${
-          large ? "text-xl" : "text-md"
+        className={`flex items-center absolute left-0 ml-3 pointer-events-none text-gray-500 cursor-pointer ${
+          large && !mobile ? "text-xl top-[12px]" : "text-md top-[7px]"
         }`}
       />
 
@@ -34,15 +34,15 @@ const Searchbar = ({
         rounded-xl p-3 pl-10
         border border-gray-500
         focus:ring-1 focus:ring-primary-500 focus:border-primary-500
-        focus:outline-none
+        ${large && !mobile ? "placeholder:text-lg" : "placeholder:text-base"}
         ${
-          large && mobile
-            ? "w-[48dvw] h-8"
+          large && mobile // Mobile
+            ? "w-[50dvw] h-8"
             : !large && mobile
             ? "w-[35dvw] h-8"
-            : large && !mobile
-            ? "w-[40dvw] h-10"
-            : "w-[20dvw] h-8" // Regular && not mobile
+            : large && !mobile // Desktop
+            ? "w-[30dvw] h-12 placeholder:text-lg"
+            : "w-[20dvw] h-8 placeholder:text-base"
         }
         `}
       ></input>

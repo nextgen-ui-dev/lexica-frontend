@@ -6,10 +6,12 @@ import Modal from "./Modal";
 import { useCallback, useState } from "react";
 import Button from "../../molecules/Button";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import Input from "../../molecules/Input";
 import DropdownSelect from "../../molecules/DropdownSelect";
 import MultipleDropdownSelect from "../../molecules/MultipleDropdownSelect";
 import { useRouter } from "next/navigation";
+import { useCategories } from "@/hooks/useCategories";
+import { axiosAuth } from "@/libs/axios";
+import Cookies from "js-cookie";
 
 enum STEPS {
   INTRODUCTION = 0,
@@ -19,6 +21,7 @@ enum STEPS {
 const OnboardingModal = () => {
   const [step, setStep] = useState(STEPS.INTRODUCTION);
   const router = useRouter();
+  const { data } = useCategories();
   const onboardingModal = useOnboardingModal();
 
   const roles = [
@@ -34,43 +37,18 @@ const OnboardingModal = () => {
     { value: "lainnya", label: "Lainnya" },
   ];
 
-  const topics = [
-    { value: "umum", label: "🌏 Umum" },
-    { value: "olahraga", label: "🎾 Olahraga" },
-    { value: "senimusik", label: "🎵 Seni & Musik" },
-    { value: "kesehatan", label: "🏥 Kesehatan" },
-    { value: "teknologi", label: "💻 Teknologi" },
-    { value: "keuangan", label: "💹 Keuangan" },
-    { value: "politik", label: "🏛️ Politik" },
-    { value: "lainnya", label: "📰 Lainnya" },
-  ];
-
-  const locations = [
-    { value: "jabodetabek", label: "Jabodetabek" },
-    { value: "jawabarat", label: "Jawa Barat" },
-    { value: "jawatengah", label: "Jawa Tengah" },
-    { value: "jawatimur", label: "Jawa Timur" },
-    { value: "sumatera", label: "Sumatera" },
-    { value: "kalimantan", label: "Kalimantan" },
-    { value: "sulawesi", label: "Sulawesi" },
-    { value: "bali", label: "Bali" },
-    { value: "nusatenggara", label: "Nusa Tenggara Timur / Barat (NTT/B)" },
-    { value: "maluku", label: "Maluku" },
-    { value: "papua", label: "Papua" },
-    { value: "luarnegeri", label: "Luar Negeri" },
-    { value: "lainnya", label: "Lainnya" },
-  ];
+  const topics = data
+    ? data.map((item) => ({
+        value: item.id,
+        label: item.name,
+      }))
+    : [];
 
   const handleNext = useCallback(() => {
     setStep(STEPS.PROFILE);
   }, [setStep]);
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm();
+  const { handleSubmit, setValue } = useForm();
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -80,7 +58,20 @@ const OnboardingModal = () => {
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = () => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    await axiosAuth.put(
+      `/auth/onboarding`,
+      {
+        role: data.role,
+        education_level: data.education,
+        interest_ids: data.topics,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("access_token")}`,
+        },
+      },
+    );
     onboardingModal.onClose();
     router.replace("/");
   };
@@ -91,7 +82,6 @@ const OnboardingModal = () => {
         <h4 className="mb-2 md:mb-3">
           Kami akan membawamu ke petualangan membaca 📖✈️
         </h4>
-
         <p>Manfaat-manfaat ini menunggumu...</p>
         <li className="font-hind font-normal text-sm text-slate-500">
           Cari artikel berkualitas
@@ -135,28 +125,9 @@ const OnboardingModal = () => {
           <MultipleDropdownSelect
             placholder="Silahkan pilih sebanyaknya"
             onChange={(value) => {
-              setCustomValue("topic", value);
+              setCustomValue("topics", value);
             }}
             options={topics}
-          />
-        </div>
-        <div className="space-y-2">
-          <h6>Aku saat ini tinggal di daerah...</h6>
-          <DropdownSelect
-            placholder="Pilih lokasi"
-            onChange={(value) => setCustomValue("location", value)}
-            options={locations}
-            maxHeight={100}
-          />
-        </div>
-        <div className="space-y-2">
-          <h6>Aku tertarik menggunakan Lexica karena...</h6>
-          <Input
-            id="motivation"
-            label="Silahkan cerita sebebasnya 😃"
-            register={register}
-            errors={errors}
-            required
           />
         </div>
       </div>
@@ -166,10 +137,9 @@ const OnboardingModal = () => {
 
   return (
     <Modal
-      isOpen={true}
+      isOpen={onboardingModal.isOpen}
       title="Selamat datang di Lexica!"
       onClose={onboardingModal.onClose}
-      preventClose
       body={body[step]}
     />
   );

@@ -6,14 +6,17 @@ import moment from "moment";
 
 interface ArticleCardProps {
   article: Article;
+  noScale?: boolean;
 }
 
-const ArticleCard = ({ article }: ArticleCardProps) => {
+const ArticleCard = ({ article, noScale }: ArticleCardProps) => {
   const router = useRouter();
   return (
     <div
       onClick={() => router.push(`/articles/${article.id}`)}
-      className="w-full h-full flex flex-row gap-4 p-8 bg-white hover:scale-105 transition duration-200 ease-in-out shadow-sm rounded-xl hover:cursor-pointer hover:border hover:border-primary-500"
+      className={`w-full h-full flex flex-row gap-4 p-8 bg-white ${
+        noScale ? "" : "hover:scale-105"
+      } transition duration-200 ease-in-out shadow-sm rounded-xl hover:cursor-pointer hover:border hover:border-primary-500`}
     >
       <div className="w-full h-full flex flex-col md:flex-row gap-4">
         <div className="w-full h-full flex flex-row justify-center items-center gap-4">
@@ -37,6 +40,9 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
               src="/images/no_image.png"
               alt=""
               fill
+              priority
+              quality={100}
+              sizes="(max-width: 1720px) 100vw, (max-width: 1400pxpx) 50vw, 33vw"
               style={{
                 objectFit: "contain",
                 objectPosition: "center",

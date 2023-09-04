@@ -4,14 +4,14 @@ import React, { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 
 import {
-  BsPeople,
+  BsPeopleFill,
   BsStack,
   BsBarChartFill,
   BsBookmarkFill,
 } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
-import { signOut } from "next-auth/react";
 import { User } from "@/types/session";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface ProfileDropdownProps {
   user?: User;
@@ -20,6 +20,7 @@ interface ProfileDropdownProps {
 
 const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
   const router = useRouter();
+  const { logout } = useAuth();
 
   const handleRoute = (e: MouseEvent<HTMLDivElement>) => {
     const targetPath = e.currentTarget.getAttribute("data-path");
@@ -52,7 +53,8 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             onClick={handleRoute}
             className={`flex flex-row items-center
             px-2 md:px-3 py-[3px] md:py-[4px] 
-            hover:bg-gray-300 
+            hover:bg-primary-400
+            hover:text-white 
             hover:cursor-pointer
             text-slate-700
             `}
@@ -71,7 +73,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             `}
           >
-            <BsPeople className="mr-2" strokeWidth={0.5} />
+            <BsPeopleFill className="mr-2" strokeWidth={0.5} />
             <h5>Teman</h5>
           </div>
           <div
@@ -111,7 +113,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
             text-slate-700
             group
             `}
-          onClick={() => signOut()}
+          onClick={() => logout()}
         >
           <BiLogOut
             className="mr-2 mt-[2px] group-hover:text-red-500 duration-300"
