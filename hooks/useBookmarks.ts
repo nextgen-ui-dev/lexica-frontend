@@ -59,7 +59,6 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
   removeBookmark: (id: string) => {
     set((state) => {
       if (state.bookmarks.filter((art) => art.id === id).length === 0) {
-        console.log("masuk sini if");
         return {
           bookmarks: state.bookmarks,
         };

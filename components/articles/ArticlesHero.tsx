@@ -76,7 +76,9 @@ const ArticlesHero = ({
         <div className="absolute w-full h-[50dvh] md:h-[40dvh] -bottom-[70%] md:-bottom-[55%]">
           <Container>
             {isFetching && <ArticleHeroCardSkeleton />}
-            {recentArticle && <ArticleHeroCard article={recentArticle} />}
+            {!isFetching && recentArticle && (
+              <ArticleHeroCard article={recentArticle} />
+            )}
             {!recentArticle && !isFetching && <ArticleHeroNoData />}
           </Container>
         </div>

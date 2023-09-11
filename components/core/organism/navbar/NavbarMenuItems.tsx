@@ -4,9 +4,10 @@ import { MouseEvent } from "react";
 
 interface NavbarMenuItemsProps {
   isOpen: boolean;
+  handleClose: () => void;
 }
 
-const NavbarMenuItems = ({ isOpen }: NavbarMenuItemsProps) => {
+const NavbarMenuItems = ({ isOpen, handleClose }: NavbarMenuItemsProps) => {
   const router = useRouter();
   const pathName = usePathname();
 
@@ -15,6 +16,7 @@ const NavbarMenuItems = ({ isOpen }: NavbarMenuItemsProps) => {
     if (targetPath) {
       router.push(targetPath);
     }
+    handleClose();
   };
 
   return (

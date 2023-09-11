@@ -25,7 +25,6 @@ const ArticleDetails = () => {
     DIFFICULTY.ADVANCE,
   );
   const assistantModal = useAsisstantModal();
-  console.log("articleDetailData: ", articleData);
 
   return (
     <div className="w-full h-full relative">
