@@ -11,7 +11,9 @@ interface AuthProviderProps {
 const AuthProvider = ({ children }: AuthProviderProps) => {
   return (
     <AuthContextProvider>
-      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}>
+      <GoogleOAuthProvider
+        clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}
+      >
         {children}
       </GoogleOAuthProvider>
     </AuthContextProvider>
