@@ -27,8 +27,8 @@ const HomeLexicaInfo = () => {
               Berdasarkan riset ditemukan bahwa
             </h2>
           </div>
-          <div className="w-full grid grid-cols-4 gap-4 gap-y-8 justify-center items-center">
-            <div className="w-full h-full col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
+          <div className="w-full h-auto grid grid-cols-4 gap-6 gap-y-8 justify-center items-center">
+            <div className="w-full h-auto col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <AiFillTrophy size={28} className="text-white" />
               </div>
@@ -41,7 +41,7 @@ const HomeLexicaInfo = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full h-full col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
+            <div className="w-full h-auto col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <GiClassicalKnowledge size={28} className="text-white" />
               </div>
@@ -54,7 +54,7 @@ const HomeLexicaInfo = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full h-full col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
+            <div className="w-full h-auto col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <HiEmojiSad size={28} className="text-white" />
               </div>
@@ -68,7 +68,7 @@ const HomeLexicaInfo = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full h-full col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
+            <div className="w-full h-auto col-span-2 md:col-span-1 cursor-pointer relative hover:scale-110 transition duration-100 ease-in">
               <div className="absolute left-1/2 -translate-x-1/2 -top-5 rounded-full p-2 bg-primary-300">
                 <ImLibrary size={28} className="text-white" />
               </div>
