@@ -2,12 +2,7 @@
 const nextConfig = {
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        hostname: "https",
-        pathname: "lh3.googleusercontent.com",
-      },
-    ],
+    domains: ["lh3.googleusercontent.com"],
   },
 };
 
