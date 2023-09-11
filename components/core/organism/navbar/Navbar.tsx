@@ -31,6 +31,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   }, [setIsOpen, isOpen]);
 
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen, isOpen]);
+
   return (
     <nav className="md:fixed w-full z-10">
       <HeadRoom>
@@ -42,7 +46,7 @@ const Navbar = () => {
           <Container expanded>
             <div className="flex flex-row justify-between items-center">
               <NavbarLogo />
-              <NavbarMenuItems isOpen={isOpen} />
+              <NavbarMenuItems isOpen={isOpen} handleClose={handleClose} />
               <NavbarUserMenu
                 user={user}
                 isOpen={isOpen}

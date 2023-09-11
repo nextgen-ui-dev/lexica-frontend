@@ -13,7 +13,9 @@ const ArticlesPage = () => {
   const [searchQuery, setSearchQuery] = useState<string>();
   const debouceSearchQuery = useDebounce(searchQuery, 1000);
 
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string>();
+  const [selectedCategoryId, setSelectedCategoryId] = useState<
+    string | undefined
+  >(undefined);
   const debouncedCategoryId = useDebounce(selectedCategoryId, 1000);
 
   const onChangeCategory = useCallback(

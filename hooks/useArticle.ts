@@ -3,7 +3,7 @@ import { ArticleDetail } from "@/types/articleDetail";
 import { useQuery } from "react-query";
 
 export const useArticle = (id: string) => {
-  return useQuery("article-detail", {
+  return useQuery(`article-detail-${id}`, {
     queryFn: async () => {
       const { data } = await axiosAuth.get(`article/${id}`);
       return data as ArticleDetail;
