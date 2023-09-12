@@ -82,7 +82,7 @@ const CollectionsPage = () => {
                 )} */}
               </div>
             </div>
-            {data ? (<CollectionsFeed collections={data} />) : null}
+            {data ? <CollectionsFeed collections={data} /> : null}
           </Container>
         </div>
       </div>

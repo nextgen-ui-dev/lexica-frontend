@@ -39,7 +39,8 @@ const CollectionDetails = () => {
         )}
 
         <div className="flex flex-col md:grid md:grid-cols-3 md:gap-4 px-2 md:px-0">
-          {articles && articles.length > 0 &&
+          {articles &&
+            articles.length > 0 &&
             articles.map((article, id) => {
               return (
                 <div key={id} className={`py-2 md:py-0`}>
