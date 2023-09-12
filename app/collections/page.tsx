@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+
+
 "use client";
 
 import React from "react";
@@ -5,40 +8,26 @@ import Container from "../../components/core/layout/Container";
 import Searchbar from "../../components/core/molecules/Searchbar";
 import CollectionsFeed from "../../components/collections/CollectionsFeed";
 import AddCollectionModal from "@/components/core/organism/modals/AddCollectionsModal";
-import useCollectionsModal from "@/hooks/useCollectionsModal";
+import useCollectionsModal from "@/hooks/OlduseCollectionsModal";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { Collection } from "../../types/collection";
-import useCollections from "@/hooks/useCollections";
+import { Collection } from "@/types/collection";
+import { useGetOwnCollections } from "@/hooks/collections/useGetOwnCollections";
 
 const CollectionsPage = () => {
-  const collectionsState = useCollections((state) => state.collections);
   const collectionsModal = useCollectionsModal();
   const [searchQuery, setSearchQuery] = React.useState<string>("");
-  const [searchResults, setSearchResults] =
-    React.useState<Collection[]>(collectionsState);
 
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
   };
 
-  const handleSearch = React.useCallback(() => {
-    setSearchResults(
-      collectionsState.filter((collection) => {
-        return collection.name
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
-      }),
-    );
-  }, [searchQuery, collectionsState]);
-
-  React.useEffect(() => {
-    handleSearch();
-  }, [searchQuery, collectionsState, handleSearch]);
+  const { data, isFetching, refetch } = useGetOwnCollections();
+  console.log("COLLECTIONS", data);
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
-      <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
+      <div className={`h-[16dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
       <AddCollectionModal />
       <div className="w-full bg-primary-600">
         <div className="w-full bg-backdrop rounded-t-[2dvh] md:rounded-t-[6dvh]">
@@ -72,7 +61,7 @@ const CollectionsPage = () => {
 
                 <div className="px-1 md:px-3"></div>
 
-                {window.innerWidth > 768 ? (
+                {/* {window.innerWidth > 768 ? (
                   <Searchbar
                     large
                     placeholder="Cari nama koleksi"
@@ -91,10 +80,10 @@ const CollectionsPage = () => {
                       handleQuery(e.target.value);
                     }}
                   />
-                )}
+                )} */}
               </div>
             </div>
-            <CollectionsFeed collections={searchResults} />
+            {data && <CollectionsFeed collections={data} />}
           </Container>
         </div>
       </div>

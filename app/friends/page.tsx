@@ -7,7 +7,7 @@ import Container from "../../components/core/layout/Container";
 import FriendsFeedHeader from "../../components/friends/FriendsFeedHeader";
 import FriendRowItem from "../../components/friends/FriendRowItem";
 
-import useFriends from "@/hooks/useFriends";
+import useFriends from "@/hooks/OlduseFriends";
 import { User } from "../../types/session";
 // import { FriendsConstants } from "../../constants/friends.constants";
 

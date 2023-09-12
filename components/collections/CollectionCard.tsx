@@ -29,7 +29,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
         className={`relative w-1/2 md:w-full min-h-full md:min-h-[160px] overflow-hidden group`}
       >
         <Image
-          src={collection.thumbnailUrl}
+          src={`images/no_image.png`}
           alt={collection.name}
           fill
           priority
@@ -51,13 +51,13 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
 
         <div className={`flex flex-row justify-start cursor-default py-1`}>
           <div className="w-[20px] h-[20px]">
-            <Avatar small src={collection.creator!.image} />
+            <Avatar small src={"/images/placeholder.png"} />
           </div>
           <div
             className={`text-sm md:text-md w-full pl-1 md:pl-1.5 text-slate-600 truncate`}
-            title={collection.creator!.name?.toString()}
+            title={collection.creatorName.toString()}
           >
-            {collection.creator!.name}
+            {collection.creatorName}
           </div>
         </div>
 

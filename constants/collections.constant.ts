@@ -1,9 +1,9 @@
-import { Collection } from "../types/collection";
+import { OldCollection } from "../types/collectionOld";
 
 const imageUrl =
   "https://lh3.googleusercontent.com/a/AAcHTtesg_pgXYXWnBBXgkm8yefR9ib8UG8ZTJSrMwzDK4EBfQ=s346-c-no";
 
-export const Collections: Collection[] = [
+export const Collections: OldCollection[] = [
   {
     id: "QWERTYID1",
     name: "Teknologi Terkini",

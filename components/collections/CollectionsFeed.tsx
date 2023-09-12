@@ -1,13 +1,14 @@
+/* eslint-disable prettier/prettier */
+
 "use client";
 
 import React from "react";
 import { useRouter } from "next/navigation";
 import CollectionCard from "./CollectionCard";
 import { Collection } from "@/types/collection";
-// import { Collections as DummyCollections } from "@/constants/collections.constant";
 
 interface CollectionProps {
-  collections: Collection[];
+  collections: Collection[] | undefined;
 }
 
 const CollectionsFeed = ({ collections }: CollectionProps) => {
@@ -19,10 +20,12 @@ const CollectionsFeed = ({ collections }: CollectionProps) => {
           flex flex-col py-[20px] 
           md:grid md:grid-cols-3 md:gap-8 md:py-[32px]`}
     >
-      {collections.length > 0 &&
+      {collections &&
+        collections.length > 0 &&
         collections
           .filter((_, idx) => idx < 100)
           .map((item, id) => {
+            console.log("id:", id);
             return (
               <div key={id} className="pt-[10px] md:pt-[0px]">
                 <CollectionCard

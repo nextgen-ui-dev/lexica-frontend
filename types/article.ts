@@ -20,5 +20,5 @@ export type Article = {
   deleted_at?: Date;
   teaser: string;
   category_name: string;
-  row: number;
+  row?: number;
 };

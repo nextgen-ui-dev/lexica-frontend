@@ -5,8 +5,8 @@ import React from "react";
 import Button from "../../molecules/Button";
 import Input from "../../molecules/Input";
 import Modal from "./Modal";
-import useCollections from "@/hooks/useCollections";
-import useCollectionsModal from "@/hooks/useCollectionsModal";
+import useCollections from "@/hooks/OlduseCollections";
+import useCollectionsModal from "@/hooks/OlduseCollectionsModal";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 const AddCollectionModal = () => {

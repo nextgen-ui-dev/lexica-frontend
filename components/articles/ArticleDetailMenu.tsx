@@ -18,7 +18,7 @@ import useBookmarks from "@/hooks/useBookmarks";
 import { useArticle } from "@/hooks/useArticle";
 
 import MultipleDropdownSelect from "../core/molecules/MultipleDropdownSelect";
-import useCollections from "@/hooks/useCollections";
+import useCollections from "@/hooks/OlduseCollections";
 
 interface ArticleDetailMenuProps {
   id: string;

@@ -1,13 +1,14 @@
+import { Article } from "./article";
+
 export type Collection = {
   id: string;
+  creatorId: string;
   name: string;
-  creator:
-    | {
-        name?: string | null | undefined;
-        email?: string | null | undefined;
-        image?: string | null | undefined;
-      }
-    | undefined;
-  articles: string[];
-  thumbnailUrl: string;
+  visibility: string;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
+  creatorName: string;
+  numberOfArticles: number;
+  articles: Article[];
 };

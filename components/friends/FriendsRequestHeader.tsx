@@ -8,7 +8,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 
 import Searchbar from "../core/molecules/Searchbar";
 
-import useFriends from "@/hooks/useFriends";
+import useFriends from "@/hooks/OlduseFriends";
 
 interface FriendsHeaderProps {
   searchQuery: string;

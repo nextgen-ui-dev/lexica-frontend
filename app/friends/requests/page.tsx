@@ -6,7 +6,7 @@ import Container from "@/components/core/layout/Container";
 import FriendsRequestHeader from "@/components/friends/FriendsRequestHeader";
 import FriendsRequestRowItem from "@/components/friends/FriendsRequestRowItem";
 import { User } from "@/types/session";
-import useFriends from "@/hooks/useFriends";
+import useFriends from "@/hooks/OlduseFriends";
 
 // interface FriendRequestsProps {
 

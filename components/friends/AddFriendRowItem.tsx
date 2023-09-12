@@ -5,7 +5,7 @@ import React from "react";
 import { User } from "@/types/session";
 import Avatar from "../core/molecules/Avatar";
 import { BsPersonPlus, BsPersonDashFill } from "react-icons/bs";
-import useFriends from "@/hooks/useFriends";
+import useFriends from "@/hooks/OlduseFriends";
 
 interface FriendRowItemProps {
   friend: User;
