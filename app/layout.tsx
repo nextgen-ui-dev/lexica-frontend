@@ -8,6 +8,7 @@ import TanstackQueryProvider from "../providers/TanstackQueryProvider";
 import AssistantModal from "@/components/core/organism/modals/AsisstantModal";
 import AuthProvider from "@/providers/AuthProvider";
 import OnboardingModal from "@/components/core/organism/modals/OnboardingModal";
+import { Metadata } from "next";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,9 +22,12 @@ const hind = Hind({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Lexica",
-  description: "",
+  description: "Lexica, you're reading companion",
+  manifest: "/manifest.json",
+  icons: { icon: "/icon.png", apple: "/icon.png" },
+  themeColor: "#fff",
 };
 
 export default async function RootLayout({
