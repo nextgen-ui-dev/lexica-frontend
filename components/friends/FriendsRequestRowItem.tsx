@@ -59,9 +59,7 @@ const FriendsRequestRowItem = ({ friend }: FriendRowItemProps) => {
         <div className="px-1.5"></div>
 
         {window.innerWidth > 768 ? (
-          <div className="w-[50px]">
-            Terima
-          </div>
+          <div className="w-[50px]">Terima</div>
         ) : null}
       </div>
     </div>
