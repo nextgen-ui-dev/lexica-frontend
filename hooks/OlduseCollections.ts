@@ -29,7 +29,10 @@ const useCollections = create<CollectionsStore>((set) => ({
         };
       }
 
-      const newCollections: OldCollection[] = [...state.collections, collection];
+      const newCollections: OldCollection[] = [
+        ...state.collections,
+        collection,
+      ];
       localStorage.setItem("lexicaCollections", JSON.stringify(newCollections));
 
       return {
