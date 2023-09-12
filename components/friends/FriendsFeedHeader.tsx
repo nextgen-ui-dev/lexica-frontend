@@ -4,6 +4,7 @@ import React, { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 
 import { AiOutlinePlus } from "react-icons/ai";
+import { GoMail } from "react-icons/go";
 import { FaUserFriends } from "react-icons/fa";
 
 import Searchbar from "../core/molecules/Searchbar";
@@ -37,7 +38,6 @@ const FriendsFeedHeader = ({
         {/* Add Friend */}
         <div className={`flex flex-row gap-x-4`}>
           <div>
-            {/* @Jere TODO Bikin 2 section: teman saya & add friends */}
             {window.innerWidth > 768 ? (
               <Searchbar
                 large
@@ -73,6 +73,24 @@ const FriendsFeedHeader = ({
                 className={`pl-1 text-base md:text-lg text-primary-500 group-hover:text-white duration-300`}
               >
                 Tambah
+              </div>
+            )}
+          </div>
+
+          <div
+            className={`flex flex-row items-center justify-center px-2 md:px-4 py-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+            data-path={`/friends/requests`}
+            onClick={handleRoute}
+          >
+            <GoMail
+              className={`text-lg md:text-xl text-primary-500 group-hover:text-white duration-300 md:-translate-y-[1px]`}
+            />
+
+            {window.innerWidth > 768 && (
+              <div
+                className={`pl-1 text-base md:text-lg text-primary-500 group-hover:text-white duration-300`}
+              >
+                Request
               </div>
             )}
           </div>

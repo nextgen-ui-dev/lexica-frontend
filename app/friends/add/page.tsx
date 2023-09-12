@@ -63,19 +63,19 @@ const AddFriend = () => {
                 searchQuery={searchQuery}
                 handleQuery={handleQuery}
               />
-              <div className="relative flex flex-col divide-y-2">
+              <div className="relative flex flex-col pt-4 pb-12 divide-y-2">
                 {" "}
                 {/* scrollable feed */}
                 {searchResults.length == 0 && (
                   <div
-                    className={`relative mx-auto w-[200px] h-[200px] md:h-[400px] md:w-[400px]`}
+                    className={`relative mx-auto w-[200px] h-[200px] md:h-[400px] md:w-[500px]`}
                   >
                     <Image
                       src="/images/friends_no_results.svg"
                       alt="Empty"
                       fill
                     />
-                    <div className="w-[300px] md:w-[800px] text-center absolute top-[100%] left-1/2 -translate-y-1/2 -translate-x-1/2 text-slate-600 text-md md:text-lg">
+                    <div className="w-[300px] md:w-[800px] text-center absolute top-[100%] left-1/2 -translate-y-1/2 -translate-x-1/2 text-slate-500 text-lg md:text-xl">
                       Cari temanmu lewat email atau nama mereka!
                     </div>
                   </div>
