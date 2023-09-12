@@ -55,7 +55,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
           </div>
           <div
             className={`text-sm md:text-md w-full pl-1 md:pl-1.5 text-slate-600 truncate`}
-            title={collection.creatorName.toString()}
+            title={collection.creatorName}
           >
             {collection.creatorName}
           </div>
@@ -66,7 +66,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
         >
           <BiBookBookmark className="text-[20px] w-[20px] text-primary-500" />
           <div className="ml-1 md:ml-1.5">
-            {collection.articles.length} artikel
+            {collection.articles ? collection.articles.length : 0} artikel
           </div>
         </div>
       </div>

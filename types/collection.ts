@@ -10,5 +10,5 @@ export type Collection = {
   deletedAt: Date;
   creatorName: string;
   numberOfArticles: number;
-  articles: Article[];
+  articles?: Article[];
 };

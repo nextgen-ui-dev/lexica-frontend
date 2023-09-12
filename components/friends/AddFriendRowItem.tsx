@@ -64,7 +64,7 @@ const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
 
         {window.innerWidth > 768 ? (
           <div className="w-[50px]">
-            {!friends.isFriend(friend.email!) ? <>Tambah</> : <>Hapus</>}
+            {!friends.isFriend(friend.email!) ? <div>Tambah</div> : <div>Hapus</div>}
           </div>
         ) : null}
       </div>

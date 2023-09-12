@@ -57,7 +57,7 @@ const Modal = ({
   }
 
   return (
-    <>
+    <div>
       <div
         id="base-modal"
         onClick={!preventClose ? handleCloseOnOutside : () => {}}
@@ -88,7 +88,7 @@ const Modal = ({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

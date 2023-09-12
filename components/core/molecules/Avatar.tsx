@@ -11,7 +11,7 @@ interface AvatarProps {
 
 const Avatar = ({ src, large, small, profileLogo }: AvatarProps) => {
   return (
-    <>
+    <div>
       <Image
         className="rounded-full"
         height={large ? 40 : !small ? 30 : 20}
@@ -22,7 +22,7 @@ const Avatar = ({ src, large, small, profileLogo }: AvatarProps) => {
       {profileLogo && (
         <FaUserCircle className="absolute -bottom-2 right-0 text-white stroke-primary-500" />
       )}
-    </>
+    </div>
   );
 };
 

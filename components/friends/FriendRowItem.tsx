@@ -45,10 +45,10 @@ const FriendRowItem = ({ friend }: FriendRowItemProps) => {
           {/* @Jere TODO add modal confirmation for deleting friends */}
           <LuTrash />
           {window.innerWidth > 768 ? (
-            <>
+            <div>
               <div className="px-1"></div>
               Hapus
-            </>
+            </div>
           ) : null}
         </div>
         <span className="w-[8px] h-[0px]"></span>

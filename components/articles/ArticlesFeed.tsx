@@ -15,10 +15,10 @@ const ArticlesFeed = ({ isFetching, articles }: ArticlesFeedProps) => {
     <Container expanded>
       <div className="w-full flex flex-col gap-8 mb-12 mt-16 md:mb-8 md:mt-4">
         {isFetching && (
-          <>
+          <div>
             <ArticleCardSkeleton />
             <ArticleCardSkeleton />
-          </>
+          </div>
         )}
         {!isFetching &&
           articles?.length !== 0 &&

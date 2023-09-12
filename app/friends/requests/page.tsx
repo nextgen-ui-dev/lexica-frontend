@@ -37,7 +37,7 @@ const FriendRequests = () => {
   }, [handleSearch, friendsState]);
 
   return (
-    <>
+    <div>
       <div className={`relative w-full min-h-[100dvh] bg-white`}>
         {" "}
         {/* parent */}
@@ -84,7 +84,7 @@ const FriendRequests = () => {
         </div>
         <div className="bg-white pb-[24px] md:pb-[36px]"></div>
       </div>
-    </>
+    </div>
   );
 };
 

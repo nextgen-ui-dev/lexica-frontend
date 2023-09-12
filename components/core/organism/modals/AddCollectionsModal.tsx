@@ -44,7 +44,7 @@ const AddCollectionModal = () => {
   }, [formState, reset, isSubmitSuccessful]);
 
   const body = (
-    <>
+    <div>
       <div className={`py-4`}>
         <Input
           id="name"
@@ -55,7 +55,7 @@ const AddCollectionModal = () => {
         />
       </div>
       <Button label="Simpan" onClick={handleSubmit(onSubmit)} />
-    </>
+    </div>
   );
   return (
     <Modal

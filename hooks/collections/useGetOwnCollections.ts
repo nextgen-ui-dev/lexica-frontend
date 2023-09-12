@@ -8,6 +8,7 @@ export const useGetOwnCollections = () => {
   const axios = useAxiosAuth();
 
   const { data, isFetching, refetch } = useQuery("getOwnCollections", {
+    refetchInterval: 1000,
     queryFn: async () => {
       const url = `/article/collection/own`;
       const { data } = await axios.get(url, {
