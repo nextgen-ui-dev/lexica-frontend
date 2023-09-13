@@ -2,13 +2,13 @@ import { Article } from "./article";
 
 export type Collection = {
   id: string;
-  creatorId: string;
+  creator_id: string;
   name: string;
   visibility: string;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt: Date;
-  creatorName: string;
-  numberOfArticles: number;
+  created_at: Date;
+  updated_at: Date;
+  deleted_at: Date;
+  creator_name: string;
+  number_of_articles: number;
   articles?: Article[];
 };

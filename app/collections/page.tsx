@@ -7,7 +7,7 @@ import Container from "../../components/core/layout/Container";
 import Searchbar from "../../components/core/molecules/Searchbar";
 import CollectionsFeed from "../../components/collections/CollectionsFeed";
 import AddCollectionModal from "@/components/core/organism/modals/AddCollectionsModal";
-import useCollectionsModal from "@/hooks/OlduseCollectionsModal";
+import useCollectionsModal from "@/hooks/useCollectionsModal";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { Collection } from "@/types/collection";
@@ -22,7 +22,6 @@ const CollectionsPage = () => {
   };
 
   const { data, isFetching, refetch } = useGetOwnCollections();
-  console.log("COLLECTIONS", data);
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>

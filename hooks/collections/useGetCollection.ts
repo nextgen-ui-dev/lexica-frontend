@@ -10,7 +10,6 @@ export const useGetCollection = (collectionId: string) => {
   const { data, isFetching, refetch } = useQuery(
     `get-collection-${collectionId}`,
     {
-      refetchInterval: 1000,
       queryFn: async () => {
         const url = `/article/collection/${collectionId}`;
         const { data } = await axios.get(url, {
@@ -21,6 +20,8 @@ export const useGetCollection = (collectionId: string) => {
 
         return data as Collection;
       },
+      refetchInterval: 5000,
+      refetchOnWindowFocus: true,
     },
   );
 

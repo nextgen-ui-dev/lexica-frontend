@@ -41,7 +41,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
       </div>
 
       <div
-        className={`flex flex-col h-full w-full justify-start top-0 px-3 py-4`}
+        className={`flex flex-col h-full w-full justify-start top-0 px-3 pt-2 pb-6`}
       >
         <div
           className={`text-md md:text-lg text-slate-700 font-semibold cursor-default`}
@@ -55,18 +55,18 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
           </div>
           <div
             className={`text-sm md:text-md w-full pl-1 md:pl-1.5 text-slate-600 truncate`}
-            title={collection.creatorName}
+            title={collection.creator_name}
           >
-            {collection.creatorName}
+            {collection.creator_name}
           </div>
         </div>
 
         <div
-          className={`flex flex-row items-center text-sm md:text-md text-slate-600 cursor-default py-1`}
+          className={`flex flex-row items-center text-sm md:text-md text-slate-600 cursor-default py-.5`}
         >
           <BiBookBookmark className="text-[20px] w-[20px] text-primary-500" />
           <div className="ml-1 md:ml-1.5">
-            {collection.articles ? collection.articles.length : 0} artikel
+            {collection.number_of_articles} artikel
           </div>
         </div>
       </div>

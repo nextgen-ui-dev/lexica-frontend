@@ -60,7 +60,6 @@ const CollectionsFeed = ({ collections }: CollectionProps) => {
         collections
           .filter((_, idx) => idx < 100)
           .map((item, id) => {
-            console.log("id:", id);
             return (
               <CollectionCard
                 key={id}

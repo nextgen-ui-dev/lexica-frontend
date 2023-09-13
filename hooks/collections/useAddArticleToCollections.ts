@@ -3,16 +3,20 @@ import useAxiosAuth from "../useAxios";
 import { useAuth } from "@/contexts/AuthContext";
 import { CollectionPayload } from "@/types/collectionPayload";
 
-export const useCreateCollections = () => {
-  const { token } = useAuth();
+interface AddArticleType {
+  articleId: string;
+  ids: string[];
+}
+
+export const useAddArticleToCollections = () => {
+  const { user, token } = useAuth();
   const axios = useAxiosAuth();
-  return useMutation("create-collections", {
-    mutationFn: async (title: string) => {
+  return useMutation("add-to-collection", {
+    mutationFn: async (payload: AddArticleType) => {
       const { data } = await axios.post(
-        `/article/collection/new`,
+        `/article/${payload.articleId}/collection`,
         {
-          name: title,
-          visibility: "private", // by default, a collection is private
+          collection_ids: payload.ids, // TODO
         },
         {
           headers: {

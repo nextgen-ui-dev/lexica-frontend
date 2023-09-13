@@ -15,9 +15,6 @@ const CollectionDetails = () => {
 
   const articles = data?.articles ? data?.articles : null;
 
-  console.log("\n===COLLECTION: ", id);
-  console.log("ARTICLES:", articles);
-
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
       <div className={`h-[14dvh] flex flex-col gap-y-40 bg-primary-600`}></div>
@@ -27,7 +24,7 @@ const CollectionDetails = () => {
           className={`flex flex-col items-center text-slate-800  pt-[36px] md:pt-[48px] pb-[36px] md:pb-[48px] font-normal`}
         >
           <div className="font-semibold text-2xl md:text-3xl">{data?.name}</div>
-          <div className="text-md md:text-xl">{data?.creatorName}</div>
+          <div className="text-md md:text-xl">{data?.creator_name}</div>
         </div>
 
         {articles && articles.length === 0 && (

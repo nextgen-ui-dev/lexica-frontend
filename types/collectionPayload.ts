@@ -1,9 +1,9 @@
 export type CollectionPayload = {
   id: string;
-  creatorId: string;
+  creator_id: string;
   name: string;
   visibility: string;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string;
 };
