@@ -62,7 +62,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
 
   const { setValue, getValues } = useForm();
 
-  const handleBookmark = React.useCallback(() => {
+  const handleBookmark = () => {
     // Guard clause for non-logged in user
     console.log("handleBookmark()");
     if (bookmarks.isBookmarked(id)) {
@@ -72,10 +72,10 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
     } else {
       if (article) {
         bookmarks.addBookmark(article);
-        toast.success("Artikel tersimpan di Bookmark");
+        toast.success("Berhasil menyimpan ke Bookmark");
       }
     }
-  }, [bookmarksState]);
+  };
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -119,7 +119,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
                 mutateAddArtToCollection({
                   articleId: id,
 
-                  // saved id + new col id's
+                  // Saved id + newly added collections' id
                   ids: savedIds
                     ? [...savedIds, ...getValues().collectionIds]
                     : [...getValues().collectionIds],
