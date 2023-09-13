@@ -8,10 +8,22 @@ import Button from "../../molecules/Button";
 import { useAssistantPrompt } from "@/hooks";
 import { Bars } from "react-loader-spinner";
 import { RiCustomerServiceLine } from "react-icons/ri";
+import { useAuth } from "@/contexts/AuthContext";
+import { useCallback } from "react";
+import useLoginModal from "@/hooks/useLoginModal";
+
 const AssistantModal = () => {
   const assistantModal = useAsisstantModal();
-  const { data, mutate: prompt, isLoading } = useAssistantPrompt();
+  const loginModal = useLoginModal();
+  const { user } = useAuth();
   const {
+    data,
+    mutate: prompt,
+    isLoading,
+    reset: resetData,
+  } = useAssistantPrompt();
+  const {
+    reset,
     register,
     handleSubmit,
     formState: { errors },
@@ -21,13 +33,36 @@ const AssistantModal = () => {
     prompt(formData.prompt);
   };
 
+  const handleClose = useCallback(() => {
+    reset();
+    resetData();
+    assistantModal.onClose();
+  }, [reset, assistantModal]);
+
+  const handleUnauthenticated = useCallback(() => {
+    assistantModal.onClose();
+    loginModal.onOpen();
+  }, [assistantModal, loginModal]);
+
   const body = (
     <div className="flex flex-col gap-4">
+      {!user && (
+        <div className="w-full h-auto border rounded-md p-4 flex flex-col gap-2">
+          <h3>Anda belum login!</h3>
+          <p>
+            Fitur AI Asisten ini memerlukan Anda untuk login terlebih dahulu
+            agar dapat menggunakannya dengan lebih baik sesuai dengan persona
+            Anda.
+          </p>
+          <Button label="Login" onClick={handleUnauthenticated} />
+        </div>
+      )}
       <TextArea
         id="prompt"
         label="Ada yang bisa kami bantu?"
         register={register}
         errors={errors}
+        disabled={isLoading || !user}
         required
       />
       {isLoading && (
@@ -56,9 +91,9 @@ const AssistantModal = () => {
         </div>
       )}
       <Button
-        label="Tanyakan pada kami"
+        label="Tanyakan pada asisten"
         onClick={handleSubmit(onSubmit)}
-        disabled={isLoading}
+        disabled={isLoading || !user}
       />
     </div>
   );
@@ -67,7 +102,7 @@ const AssistantModal = () => {
     <Modal
       isOpen={assistantModal.isOpen}
       title="Lexica AI: Asisten Membaca"
-      onClose={assistantModal.onClose}
+      onClose={handleClose}
       body={body}
     />
   );
