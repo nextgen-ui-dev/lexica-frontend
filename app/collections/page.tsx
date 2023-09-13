@@ -7,7 +7,6 @@ import Container from "../../components/core/layout/Container";
 import CollectionsFeed from "../../components/collections/CollectionsFeed";
 import AddCollectionModal from "@/components/core/organism/modals/AddCollectionsModal";
 import useCollectionsModal from "@/hooks/useCollectionsModal";
-
 import { AiOutlinePlus } from "react-icons/ai";
 import { useGetOwnCollections } from "@/hooks/collections/useGetOwnCollections";
 
@@ -30,7 +29,7 @@ const CollectionsPage = () => {
           <Container expanded>
             <div className="flex flex-row justify-between py-[12px] md:py-[24px] h-[10dvh]">
               <div
-                className={`flex flex-row justify-start items-center w-[20dvw]`}
+                className={`flex flex-row justify-start items-center w-[200px]`}
               >
                 <div className="text-xl md:text-3xl text-slate-800 font-semibold mr-3 md:mr-8">
                   Koleksi Saya
@@ -39,7 +38,7 @@ const CollectionsPage = () => {
 
               <div className={`flex flex-row items-center min-h-max`}>
                 <div
-                  className={`h-full flex flex-row items-center md:py-4 px-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
+                  className={`h-[40px] w-[60px] md:w-full flex justify-center flex-row items-center md:py-4 px-1 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
                   onClick={collectionsModal.onOpen}
                 >
                   <AiOutlinePlus
@@ -56,27 +55,6 @@ const CollectionsPage = () => {
                 </div>
 
                 <div className="px-1 md:px-3"></div>
-
-                {/* {window.innerWidth > 768 ? (
-                  <Searchbar
-                    large
-                    placeholder="Cari nama koleksi"
-                    controlValue={searchQuery}
-                    controlCallback={(e) => {
-                      handleQuery(e.target.value);
-                    }}
-                  />
-                ) : (
-                  <Searchbar
-                    mobile
-                    large
-                    placeholder="Cari nama koleksi"
-                    controlValue={searchQuery}
-                    controlCallback={(e) => {
-                      handleQuery(e.target.value);
-                    }}
-                  />
-                )} */}
               </div>
             </div>
             {data ? <CollectionsFeed collections={data} /> : null}

@@ -109,7 +109,7 @@ const ArticleDetails = () => {
                           "text-slate-400"
                         }`}
                       >
-                        Lanjutan
+                        Sulit
                       </h3>
                     </div>
                     <div
@@ -143,7 +143,7 @@ const ArticleDetails = () => {
                           "text-slate-400"
                         }`}
                       >
-                        Pemula
+                        Mudah
                       </h3>
                     </div>
                   </div>

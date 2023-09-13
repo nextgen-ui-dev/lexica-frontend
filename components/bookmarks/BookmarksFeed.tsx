@@ -1,10 +1,9 @@
 import React from "react";
-import ArticleCard from "../articles/ArticleCard";
-import { Article } from "@/types/article";
-// import { Articles } from "@/constants/article.constant";
+import BookmarkCard from "./BookmarkCard";
+import { ArticleDetail } from "@/types/articleDetail";
 
 interface BookmarksFeedProps {
-  bookmarks: Article[];
+  bookmarks: ArticleDetail[];
 }
 
 const BookmarksFeed = ({ bookmarks }: BookmarksFeedProps) => {
@@ -20,7 +19,7 @@ const BookmarksFeed = ({ bookmarks }: BookmarksFeedProps) => {
           .map((article, id) => {
             return (
               <div key={id} className={`py-2 md:py-0`}>
-                <ArticleCard article={article} />
+                <BookmarkCard article={article} />
               </div>
             );
           })}
