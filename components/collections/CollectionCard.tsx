@@ -13,6 +13,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
   return (
     <div
       className={`
+        mb-3
         relative flex flex-row md:flex-col justify-between items-center rounded-lg
         border border-primary-500 drop-shadow-md
         min-w-[160px] md:min-w-[240px] 

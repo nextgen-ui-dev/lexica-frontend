@@ -64,7 +64,13 @@ const BookmarksPage = () => {
                 />
               )}
             </div>
-            <BookmarksFeed bookmarks={searchResults} />
+            {searchResults ? (
+              <BookmarksFeed bookmarks={searchResults} />
+            ) : (
+              <p className="flex flex-row justify-center items-center text-lg md:text-xl">
+                Belum ada bookmark!
+              </p>
+            )}
           </Container>
         </div>
       </div>
