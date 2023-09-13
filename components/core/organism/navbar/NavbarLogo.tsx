@@ -14,6 +14,7 @@ const NavbarLogo = () => {
         src="/images/lexica.svg"
         alt="Lexica"
         fill
+        priority
         style={{
           objectFit: "contain",
         }}

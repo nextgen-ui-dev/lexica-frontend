@@ -8,36 +8,9 @@ import useBookmarks from "@/hooks/useBookmarks";
 import Searchbar from "@/components/core/molecules/Searchbar";
 import BookmarksFeed from "@/components/bookmarks/BookmarksFeed";
 import { ArticleDetail } from "@/types/articleDetail";
-// import { ArticleDetail } from "@/types/articleDetail";
-// import { Articles } from "@/constants/article.constant";
 
 const BookmarksPage = () => {
-  const bookmarksState = useBookmarks(state => state.bookmarks);
-  console.log(bookmarksState);
-  // const [searchQuery, setSearchQuery] = React.useState<string>("");
-  // const [searchResults, setSearchResults] = React.useState<ArticleDetail[]>(
-  //   bookmarksState,
-  // );
-
-  // @NOTE Turned off in the meantime
-  // const handleQuery = (newQuery: string) => {
-  //   setSearchQuery(newQuery);
-  // };
-
-  // const handleSearch = React.useCallback(() => {
-  //   setSearchResults(
-  //     bookmarksState.filter((article) => {
-  //       return (
-  //         article.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //         article.source?.toLowerCase().includes(searchQuery.toLowerCase())
-  //       );
-  //     }),
-  //   );
-  // }, [searchQuery, bookmarksState]);
-
-  // React.useEffect(() => {
-  //   handleSearch();
-  // }, [searchQuery, bookmarksState, handleSearch]);
+  const bookmarksState = useBookmarks((state) => state.bookmarks);
 
   console.log("bmrk", bookmarksState);
   return (
@@ -49,25 +22,6 @@ const BookmarksPage = () => {
             <div className="flex flex-row justify-between items-center py-[24px] md:py-[40px]">
               <h3 className="text-xl md:text-2xl">Bookmark Saya</h3>
               <div className="px-2 md:px-4"></div>
-              {/* {window.innerWidth > 768 ? (
-                <Searchbar
-                  placeholder="Cari judul/sumber"
-                  controlValue={searchQuery}
-                  controlCallback={(e) => {
-                    handleQuery(e.target.value);
-                  }}
-                />
-              ) : (
-                <Searchbar
-                  mobile
-                  large
-                  placeholder="Cari judul/sumber"
-                  controlValue={searchQuery}
-                  controlCallback={(e) => {
-                    handleQuery(e.target.value);
-                  }}
-                />
-              )} */}
             </div>
             {bookmarksState ? (
               <BookmarksFeed bookmarks={bookmarksState} />
