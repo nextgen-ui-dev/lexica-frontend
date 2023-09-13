@@ -32,11 +32,11 @@ interface DropdownSelectData {
   label: string;
 }
 
-
 const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
   const { data: article } = useArticle(id);
-  const [selectedValue, setSelectedValue] = 
-  React.useState<DropdownSelectData[] | undefined>();
+  const [selectedValue, setSelectedValue] = React.useState<
+    DropdownSelectData[] | undefined
+  >();
 
   const bookmarksState = useBookmarks((state) => state.bookmarks);
   const bookmarks = useBookmarks();
@@ -57,8 +57,10 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
     },
   );
 
-  const savedIds: string[] | undefined = linkedCollections?.map((col) => col.id);
-  
+  const savedIds: string[] | undefined = linkedCollections?.map(
+    (col) => col.id,
+  );
+
   const { setValue, getValues } = useForm();
 
   const handleBookmark = React.useCallback(() => {
@@ -120,7 +122,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
                   articleId: id,
 
                   // saved id + new col id's
-                  ids: savedIds 
+                  ids: savedIds
                     ? [...savedIds, ...getValues().collectionIds]
                     : [...getValues().collectionIds],
                 });
