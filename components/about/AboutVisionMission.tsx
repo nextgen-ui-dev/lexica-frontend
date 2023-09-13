@@ -11,9 +11,7 @@ const AboutVisionMission = () => {
                 Visi dan Misi Kami
               </h1>
               <div className="w-full h-auto flex flex-col items-start gap-2">
-                <h2 className="text-primary-300">
-                  Visi
-                </h2>
+                <h2 className="text-primary-300">Visi</h2>
                 <p className="text-slate-200 col-span-6">
                   Meningkatkan minat dan kemampuan literasi pelajar Indonesia
                   dalam rangka membangun landasan dan dorongan belajar yang kuat
@@ -22,20 +20,18 @@ const AboutVisionMission = () => {
               </div>
               <div className="w-full h-[0.5px] bg-slate-300" />
               <div className="w-full h-auto flex flex-col items-start gap-4">
-                <h2 className="text-primary-300">
-                  Misi
-                </h2>
+                <h2 className="text-primary-300">Misi</h2>
                 <p className="text-slate-200 col-span-6">
                   Memungkinkan proses literasi yang progresif dengan
                   mengakomodir kemampuan membaca tiap siswa lewat tingkat
-                  kesulitan bacaan yang beragam, agar pelajar dapat tanpa
-                  rasa takut memilih tingkat bacaan yang sesuai dengan
-                  kemampuannya dan menumbuhkan kecintaan membacas
+                  kesulitan bacaan yang beragam, agar pelajar dapat tanpa rasa
+                  takut memilih tingkat bacaan yang sesuai dengan kemampuannya
+                  dan menumbuhkan kecintaan membacas
                 </p>
                 <div className="w-full h-[0.5px] bg-slate-300" />
                 <p className="text-slate-200">
-                  Menyediakan sumber bacaan yang berkualitas dan variatif
-                  agar pelajar dapat memilih sesuai kebutuhan dan minatnya
+                  Menyediakan sumber bacaan yang berkualitas dan variatif agar
+                  pelajar dapat memilih sesuai kebutuhan dan minatnya
                 </p>
               </div>
             </section>
