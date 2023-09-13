@@ -21,60 +21,49 @@ const AboutFAQ = () => {
               <AccordionItem className="w-full h-full p-4 border border-slate-200 rounded-lg">
                 <AccordionItemHeading>
                   <AccordionItemButton className="font-semibold">
-                    What harsh truths do you prefer to ignore?
+                  Apa itu Lexica?
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel className="border-t border-slate-200 mt-2 pt-2">
                   <p>
-                    Exercitation in fugiat est ut ad ea cupidatat ut in
-                    cupidatat occaecat ut occaecat consequat est minim minim
-                    esse tempor laborum consequat esse adipisicing eu
-                    reprehenderit enim.
+                  Lexica merupakan aplikasi web gratis yang ditujukan kepada para guru, siswa, dan umum untuk meningkatkan kemampuan literasi serta menumbuhkan minat membaca mereka. Kami mencapai tujuan ini dengan tingkat kesulitan artikel yang beragam, asisten membaca berbasis AI, serta memfasilitasi pelaksanaan proses membaca dengan fitur sosial dan fitur classrooms.
                   </p>
                 </AccordionItemPanel>
               </AccordionItem>
               <AccordionItem className="w-full h-full p-4 border border-slate-200 rounded-lg">
                 <AccordionItemHeading>
                   <AccordionItemButton className="font-semibold">
-                    What harsh truths do you prefer to ignore?
+                  Saya adalah seorang murid/umum, bagaimana saya menggunakan Lexica?
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel className="border-t border-slate-200 mt-2 pt-2">
                   <p>
-                    Exercitation in fugiat est ut ad ea cupidatat ut in
-                    cupidatat occaecat ut occaecat consequat est minim minim
-                    esse tempor laborum consequat esse adipisicing eu
-                    reprehenderit enim.
+                  Kamu tinggal ke halaman Artikel dan cari artikel yang menarik. Setelah itu kamu bisa memilih versi artikel dengan tingkat kesulitan tertentu serta menanyakan segala keraguanmu lewat asisten AI!
                   </p>
                 </AccordionItemPanel>
               </AccordionItem>
               <AccordionItem className="w-full h-full p-4 border border-slate-200 rounded-lg">
                 <AccordionItemHeading>
                   <AccordionItemButton className="font-semibold">
-                    What harsh truths do you prefer to ignore?
+                  Saya adalah seorang pengajar, bagaimana saya menggunakan Lexica?
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel className="border-t border-slate-200 mt-2 pt-2">
                   <p>
-                    Exercitation in fugiat est ut ad ea cupidatat ut in
-                    cupidatat occaecat ut occaecat consequat est minim minim
-                    esse tempor laborum consequat esse adipisicing eu
-                    reprehenderit enim.
+                  Anda bisa membuka menggunakan fitur Lexica Classrooms yang akan terus kami kembangkan di masa mendatang!
                   </p>
                 </AccordionItemPanel>
               </AccordionItem>
               <AccordionItem className="w-full h-full p-4 border border-slate-200 rounded-lg">
                 <AccordionItemHeading>
                   <AccordionItemButton className="font-semibold">
-                    What harsh truths do you prefer to ignore?
+                  Saya memiliki pertanyaan lain
+
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel className="border-t border-slate-200 mt-2 pt-2">
                   <p>
-                    Exercitation in fugiat est ut ad ea cupidatat ut in
-                    cupidatat occaecat ut occaecat consequat est minim minim
-                    esse tempor laborum consequat esse adipisicing eu
-                    reprehenderit enim.
+                  Kami sangat menerima pertanyaan/masukan dari anda! Silakan hubungi email berikut untuk memberikan pertanyaan atau masukan anda. 
                   </p>
                 </AccordionItemPanel>
               </AccordionItem>

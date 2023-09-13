@@ -18,17 +18,16 @@ const AboutTeam = () => {
                 <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
                   <div className="relative w-[20dvh] h-[20dvh] rounded-full overflow-hidden">
                     <Image
-                      src="/images/hero.png"
+                      src="/images/jeremy-alva.jpg"
                       alt=""
                       fill
                       priority
                       quality={100}
                       sizes="(max-width: 1720px) 100vw, (max-width: 1400pxpx) 50vw, 33vw"
                       style={{
-                        objectFit: "cover",
-                        objectPosition: "center bottom",
+                        objectFit: "contain",
                       }}
-                      className="group-hover:scale-110 transition bg-primary-300"
+                      className="group-hover:scale-110 transition bg-white cursor-pointer hover:scale-110 duration-150 ease-in-out grayscale"
                     />
                   </div>
                   <div>
@@ -41,17 +40,16 @@ const AboutTeam = () => {
                 <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
                   <div className="relative w-[20dvh] h-[20dvh] rounded-full overflow-hidden">
                     <Image
-                      src="/images/hero.png"
+                      src="/images/angga-putra.png"
                       alt=""
                       fill
                       priority
                       quality={100}
                       sizes="(max-width: 1720px) 100vw, (max-width: 1400pxpx) 50vw, 33vw"
                       style={{
-                        objectFit: "cover",
-                        objectPosition: "center bottom",
+                        objectFit: "contain",
                       }}
-                      className="group-hover:scale-110 transition bg-primary-300"
+                      className="group-hover:scale-110 transition bg-white cursor-pointer hover:scale-110 duration-150 ease-in-out"
                     />
                   </div>
                   <div>
@@ -64,14 +62,13 @@ const AboutTeam = () => {
                 <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
                   <div className="relative w-[20dvh] h-[20dvh] rounded-full overflow-hidden">
                     <Image
-                      src="/images/hero.png"
+                      src="/images/angga-nayara.jpg"
                       alt=""
                       fill
                       style={{
-                        objectFit: "cover",
-                        objectPosition: "center bottom",
+                        objectFit: "contain",
                       }}
-                      className="group-hover:scale-110 transition bg-primary-300"
+                      className="group-hover:scale-110 transition bg-white cursor-pointer hover:scale-110 duration-150 ease-in-out"
                     />
                   </div>
                   <div>
