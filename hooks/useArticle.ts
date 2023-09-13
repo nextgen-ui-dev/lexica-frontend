@@ -6,6 +6,7 @@ export const useArticle = (id: string) => {
   return useQuery(`article-detail-${id}`, {
     queryFn: async () => {
       const { data } = await axiosAuth.get(`article/${id}`);
+      console.log("useArticle()", data);
       return data as ArticleDetail;
     },
     refetchOnWindowFocus: false,

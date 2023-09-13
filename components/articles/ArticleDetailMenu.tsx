@@ -64,7 +64,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
 
   const handleBookmark = React.useCallback(() => {
     // Guard clause for non-logged in user
-
+    console.log("handleBookmark()");
     if (bookmarks.isBookmarked(id)) {
       bookmarks.removeBookmark(id);
       setBookmarked(false);
@@ -72,7 +72,6 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
     } else {
       if (article) {
         bookmarks.addBookmark(article);
-        setBookmarked(true);
         toast.success("Artikel tersimpan di Bookmark");
       }
     }
