@@ -57,24 +57,16 @@ const useBookmarks = create<BookmarkArticlesStore>((set) => ({
     set((state) => {
       if (state.bookmarks.length === 0) {
         res = false;
-
-        return {
-          bookmarks: state.bookmarks,
-        };
       }
 
       // Check if article exists in bookmark
-      if (res == false && state.bookmarks.filter((art) => {
+      state.bookmarks.filter((art) => {
         if (art.id === id) {
           console.log("isFound!");
           res = true;
         }
-      }))
-
-      // if (state.bookmarks.filter((art) => art.id === id).length === 0) {
-      //   res = false;
-      // }
-
+      })
+      
       return {
         bookmarks: state.bookmarks,
       };
