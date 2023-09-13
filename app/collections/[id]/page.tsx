@@ -4,7 +4,6 @@ import React from "react";
 import { useParams } from "next/navigation";
 import ArticleCard from "@/components/articles/ArticleCard";
 import Container from "@/components/core/layout/Container";
-import { Articles } from "@/constants/article.constant";
 import { useGetCollection } from "@/hooks/collections/useGetCollection";
 
 const CollectionDetails = () => {

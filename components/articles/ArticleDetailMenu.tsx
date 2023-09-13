@@ -44,8 +44,7 @@ const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
   const [showDropdown, setShowDropdown] = React.useState(false);
   const { data: allCollections } = useGetOwnCollections();
 
-  const { data: returnAddArtToCol, mutate: mutateAddArtToCollection } =
-    useAddArticleToCollections();
+  const { mutate: mutateAddArtToCollection } = useAddArticleToCollections();
   const { data: linkedCollections } = useGetListOfAddedCollectionsInArticle(id);
 
   const dropdownData: DropdownSelectData[] | undefined = allCollections?.map(

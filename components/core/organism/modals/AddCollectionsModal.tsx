@@ -11,8 +11,8 @@ import { useCreateCollections } from "@/hooks/collections/useCreateCollections";
 import { useAuth } from "@/contexts/AuthContext";
 
 const AddCollectionModal = () => {
-  const { data, mutate, isLoading } = useCreateCollections();
-  const { user, token } = useAuth();
+  const { data, mutate } = useCreateCollections();
+  const { user } = useAuth();
   const collectionsModal = useCollectionsModal();
   const {
     register,

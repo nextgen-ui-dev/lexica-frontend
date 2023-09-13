@@ -4,13 +4,11 @@
 
 import React from "react";
 import Container from "../../components/core/layout/Container";
-import Searchbar from "../../components/core/molecules/Searchbar";
 import CollectionsFeed from "../../components/collections/CollectionsFeed";
 import AddCollectionModal from "@/components/core/organism/modals/AddCollectionsModal";
 import useCollectionsModal from "@/hooks/useCollectionsModal";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { Collection } from "@/types/collection";
 import { useGetOwnCollections } from "@/hooks/collections/useGetOwnCollections";
 
 const CollectionsPage = () => {
@@ -21,7 +19,7 @@ const CollectionsPage = () => {
     setSearchQuery(newQuery);
   };
 
-  const { data, isFetching, refetch } = useGetOwnCollections();
+  const { data } = useGetOwnCollections();
 
   return (
     <div className={`relative w-full min-h-[100dvh] bg-backdrop`}>
