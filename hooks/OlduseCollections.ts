@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
 import { ArticleDetail } from "@/types/articleDetail";
-import { Collection } from "@/types/collection";
+import { OldCollection } from "@/types/collectionOld";
 import { Collections as CollectionConstants } from "@/constants/collections.constant";
 
 interface CollectionsStore {
-  collections: Collection[];
-  addCollection: (collection: Collection) => void;
+  collections: OldCollection[];
+  addCollection: (collection: OldCollection) => void;
   removeCollection: (collectionId: string) => void;
   isCollectionOwner: (collectionId: string, userEmail: string) => boolean;
   addArticleToCollection: (
@@ -21,7 +21,7 @@ interface CollectionsStore {
 
 const useCollections = create<CollectionsStore>((set) => ({
   collections: CollectionConstants,
-  addCollection: (collection: Collection) => {
+  addCollection: (collection: OldCollection) => {
     set((state) => {
       if (state.collections.filter((col) => col.name === collection.name)) {
         return {
@@ -29,7 +29,10 @@ const useCollections = create<CollectionsStore>((set) => ({
         };
       }
 
-      const newCollections: Collection[] = [...state.collections, collection];
+      const newCollections: OldCollection[] = [
+        ...state.collections,
+        collection,
+      ];
       localStorage.setItem("lexicaCollections", JSON.stringify(newCollections));
 
       return {
@@ -47,7 +50,7 @@ const useCollections = create<CollectionsStore>((set) => ({
         };
       }
 
-      const newCollections: Collection[] = state.collections.filter(
+      const newCollections: OldCollection[] = state.collections.filter(
         (collection) => collection.id !== collectionId,
       );
       localStorage.setItem("lexicaCollections", JSON.stringify(newCollections));
@@ -66,7 +69,7 @@ const useCollections = create<CollectionsStore>((set) => ({
   },
   addArticleToCollection: (article: ArticleDetail, collectionName: string) => {
     set((state) => {
-      let collection: Collection | undefined = state.collections.find(
+      let collection: OldCollection | undefined = state.collections.find(
         (col) => col.name === collectionName,
       );
 
@@ -88,7 +91,7 @@ const useCollections = create<CollectionsStore>((set) => ({
   },
   removeArticleFromCollection: (articleId: string, collectionName: string) => {
     set((state) => {
-      let collection: Collection | undefined = state.collections.find(
+      let collection: OldCollection | undefined = state.collections.find(
         (col) => col.name === collectionName,
       );
 

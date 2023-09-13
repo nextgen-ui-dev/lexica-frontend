@@ -29,7 +29,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
         className={`relative w-1/2 md:w-full min-h-full md:min-h-[160px] overflow-hidden group`}
       >
         <Image
-          src={collection.thumbnailUrl}
+          src={`images/no_image.png`}
           alt={collection.name}
           fill
           priority
@@ -41,7 +41,7 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
       </div>
 
       <div
-        className={`flex flex-col h-full w-full justify-start top-0 px-3 py-4`}
+        className={`flex flex-col h-full w-full justify-start top-0 px-3 pt-2 pb-6`}
       >
         <div
           className={`text-md md:text-lg text-slate-700 font-semibold cursor-default`}
@@ -51,22 +51,22 @@ const CollectionCard = ({ collection, onClick }: CollectionCardProps) => {
 
         <div className={`flex flex-row justify-start cursor-default py-1`}>
           <div className="w-[20px] h-[20px]">
-            <Avatar small src={collection.creator!.image} />
+            <Avatar small src={"/images/placeholder.png"} />
           </div>
           <div
             className={`text-sm md:text-md w-full pl-1 md:pl-1.5 text-slate-600 truncate`}
-            title={collection.creator!.name?.toString()}
+            title={collection.creator_name}
           >
-            {collection.creator!.name}
+            {collection.creator_name}
           </div>
         </div>
 
         <div
-          className={`flex flex-row items-center text-sm md:text-md text-slate-600 cursor-default py-1`}
+          className={`flex flex-row items-center text-sm md:text-md text-slate-600 cursor-default py-.5`}
         >
           <BiBookBookmark className="text-[20px] w-[20px] text-primary-500" />
           <div className="ml-1 md:ml-1.5">
-            {collection.articles.length} artikel
+            {collection.number_of_articles} artikel
           </div>
         </div>
       </div>

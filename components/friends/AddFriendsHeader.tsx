@@ -3,7 +3,7 @@
 import React, { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 
-import { FaUserFriends } from "react-icons/fa";
+import { MdArrowBackIosNew } from "react-icons/md";
 import Searchbar from "../core/molecules/Searchbar";
 
 interface FriendsHeaderProps {
@@ -26,22 +26,17 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
       className={`flex flex-row justify-between items-center py-8 px-1.5 md:px-2`}
     >
       <div className="flex flex-row gap-x-4">
-        {window.innerWidth > 768 && (
-          <div className="text-xl md:text-2xl text-slate-800 font-semibold">
-            Hasil Pencarian
-          </div>
-        )}
         <div
           className={`flex flex-row justify-center items-center min-h-[30px] min-w-[40px] px-2 py-0 rounded-xl bg-transparent hover:bg-primary-500 hover:cursor-pointer border border-primary-500 group duration-300`}
           data-path={`/friends`}
           onClick={handleRoute}
         >
-          <FaUserFriends
-            className={`text-lg md:text-2xl text-primary-500 group-hover:text-white duration-300`}
+          <MdArrowBackIosNew
+            className={`text-lg md:text-xl text-primary-500 group-hover:text-white duration-300`}
           />
           {window.innerWidth > 768 && (
             <div
-              className={`pl-1 text-primary-500 group-hover:text-white duration-300`}
+              className={`text-md md:text-lg pl-1 py-2 text-primary-500 group-hover:text-white duration-300 top-[2px] relative`}
             >
               Kembali
             </div>
@@ -57,6 +52,7 @@ const AddFriendsHeader = ({ searchQuery, handleQuery }: FriendsHeaderProps) => {
       >
         {window.innerWidth > 768 ? (
           <Searchbar
+            large
             placeholder="Cari nama/email"
             controlValue={searchQuery}
             controlCallback={(e) => {

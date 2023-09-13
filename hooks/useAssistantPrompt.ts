@@ -1,7 +1,7 @@
 import { ExplanationPayload } from "@/types/explanationPayload";
 import { useMutation } from "react-query";
-import useAxiosAuth from "./useAxios";
 import { useAuth } from "@/contexts/AuthContext";
+import useAxiosAuth from "./useAxios";
 
 export const useAssistantPrompt = () => {
   const { token } = useAuth();

@@ -3,7 +3,7 @@ import Select from "react-select";
 
 interface MultipleDropdownSelectProps {
   placholder: string;
-  value?: string;
+  selected?: DropdownSelectData[];
   options: DropdownSelectData[];
   onChange: (value: DropdownSelectData[]) => void;
   small?: boolean;
@@ -16,7 +16,7 @@ interface DropdownSelectData {
 
 const MultipleDropdownSelect = ({
   placholder,
-  value,
+  selected,
   options,
   onChange,
   small,
@@ -27,7 +27,7 @@ const MultipleDropdownSelect = ({
       placeholder={placholder}
       isClearable
       options={options}
-      value={value}
+      defaultValue={selected}
       onChange={(values) => {
         onChange(values && values.map((v) => v.value));
       }}

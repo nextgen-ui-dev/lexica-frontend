@@ -17,7 +17,7 @@ const HydrationHandler = ({ children }: HydrationHandlerProps) => {
     return null;
   }
 
-  return <>{children}</>;
+  return <div>{children}</div>;
 };
 
 export default HydrationHandler;

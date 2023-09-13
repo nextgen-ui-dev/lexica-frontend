@@ -2,22 +2,24 @@
 
 import React from "react";
 import Image from "next/image";
-import Container from "../../components/core/layout/Container";
-
-import FriendsFeedHeader from "../../components/friends/FriendsFeedHeader";
-import FriendRowItem from "../../components/friends/FriendRowItem";
-
+import Container from "@/components/core/layout/Container";
+import FriendsRequestHeader from "@/components/friends/FriendsRequestHeader";
+import FriendsRequestRowItem from "@/components/friends/FriendsRequestRowItem";
+import { User } from "@/types/session";
 import useFriends from "@/hooks/OlduseFriends";
-import { User } from "../../types/session";
-// import { FriendsConstants } from "../../constants/friends.constants";
 
-const FriendsPage = () => {
+// interface FriendRequestsProps {
+
+// }
+
+const FriendRequests = () => {
   const friends = useFriends();
   const friendsState = useFriends((state) => state.friends);
   const [searchQuery, setSearchQuery] = React.useState<string>("");
   const [searchResults, setSearchResults] = React.useState<User[]>(
     friends.friends,
   );
+
   const handleQuery = (newQuery: string) => {
     setSearchQuery(newQuery);
   };
@@ -45,13 +47,13 @@ const FriendsPage = () => {
           <h1
             className={`absolute text-3xl md:text-6xl top-[60%] md:top-[50%] left-1/2 -translate-x-1/2 text-white`}
           >
-            Daftar Teman
+            Ajakan Berteman
           </h1>
         </div>
         <div className="w-full h-full bg-primary-600">
           <div className="w-full bg-white rounded-t-[2dvh] md:rounded-t-[6dvh]">
             <Container expanded>
-              <FriendsFeedHeader
+              <FriendsRequestHeader
                 searchQuery={searchQuery}
                 handleQuery={handleQuery}
               />
@@ -74,7 +76,7 @@ const FriendsPage = () => {
                 )}
                 {searchResults.length > 0 &&
                   searchResults.map((friend, id) => {
-                    return <FriendRowItem key={id} friend={friend} />;
+                    return <FriendsRequestRowItem key={id} friend={friend} />;
                   })}
               </div>
             </Container>
@@ -86,4 +88,4 @@ const FriendsPage = () => {
   );
 };
 
-export default FriendsPage;
+export default FriendRequests;

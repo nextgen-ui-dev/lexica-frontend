@@ -31,7 +31,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
   };
 
   return (
-    <>
+    <div>
       <div
         className={`
           flex flex-col 
@@ -122,7 +122,7 @@ const ProfileDropdown = ({ user, toggleExpand }: ProfileDropdownProps) => {
           <h5 className="group-hover:text-red-500 duration-300">Keluar</h5>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

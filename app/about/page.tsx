@@ -7,14 +7,14 @@ import AboutFAQ from "../../components/about/AboutFAQ";
 
 const AboutPage = () => {
   return (
-    <>
+    <div>
       <AboutHero />
       <AboutLexica />
       <AboutVisionMission />
       <AboutPurpose />
       <AboutTeam />
       <AboutFAQ />
-    </>
+    </div>
   );
 };
 

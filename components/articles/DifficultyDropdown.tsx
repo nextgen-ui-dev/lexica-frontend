@@ -32,19 +32,19 @@ const DifficultyDropdown = ({
     `}
     >
       {leftAlign ? (
-        <>
+        <div>
           <div className="pr-1">
             <BsChevronExpand />
           </div>
           {selected}
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           {selected}
           <div className="pl-1">
             <BsChevronExpand />
           </div>
-        </>
+        </div>
       )}
       <div
         className={`

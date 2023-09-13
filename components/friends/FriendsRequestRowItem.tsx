@@ -11,7 +11,7 @@ interface FriendRowItemProps {
   friend: User;
 }
 
-const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
+const FriendsRequestRowItem = ({ friend }: FriendRowItemProps) => {
   const friends = useFriends();
   const [isFriend, setIsFriend] = React.useState(false);
 
@@ -52,28 +52,18 @@ const AddFriendRowItem = ({ friend }: FriendRowItemProps) => {
           setIsFriend(!isFriend);
         }}
       >
-        <div className="w-[20px]">
-          {!friends.isFriend(friend.email!) ? (
-            <BsPersonPlus />
-          ) : (
-            <BsPersonDashFill />
-          )}
+        <div className="w-[20px] h-[20px]">
+          <BsPersonPlus className="text-lg md:text-xl" />
         </div>
 
-        <div className="px-1"></div>
+        <div className="px-1.5"></div>
 
         {window.innerWidth > 768 ? (
-          <div className="w-[50px]">
-            {!friends.isFriend(friend.email!) ? (
-              <div>Tambah</div>
-            ) : (
-              <div>Hapus</div>
-            )}
-          </div>
+          <div className="w-[50px]">Terima</div>
         ) : null}
       </div>
     </div>
   );
 };
 
-export default AddFriendRowItem;
+export default FriendsRequestRowItem;

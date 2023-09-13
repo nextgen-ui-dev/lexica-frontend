@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
+
 "use client";
 
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 import {
   BsBookmark,
@@ -9,18 +12,18 @@ import {
   BsCollection,
   BsCollectionFill,
 } from "react-icons/bs";
-
 import { MdContentCopy } from "react-icons/md";
-
-import { toast } from "react-toastify";
 
 import useBookmarks from "@/hooks/useBookmarks";
 import { useArticle } from "@/hooks/useArticle";
 
 import MultipleDropdownSelect from "../core/molecules/MultipleDropdownSelect";
-import useCollections from "@/hooks/useCollections";
 
-interface ArticleDetailMenuProps {
+import { useGetOwnCollections } from "@/hooks/collections/useGetOwnCollections";
+import { useAddArticleToCollections } from "@/hooks/collections/useAddArticleToCollections";
+import { useGetListOfAddedCollectionsInArticle } from "@/hooks/collections/useGetListOfAddedCollectionsInArticle";
+
+interface ArticleDetailProps {
   id: string;
 }
 
@@ -29,22 +32,35 @@ interface DropdownSelectData {
   label: string;
 }
 
-const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
+const ArticleDetailMenu = ({ id }: ArticleDetailProps) => {
   const { data: article } = useArticle(id);
+  const [selectedValue, setSelectedValue] = React.useState<
+    DropdownSelectData[] | undefined
+  >();
+
   const bookmarksState = useBookmarks((state) => state.bookmarks);
   const bookmarks = useBookmarks();
   const [bookmarked, setBookmarked] = React.useState(false);
   const [showDropdown, setShowDropdown] = React.useState(false);
+  const { data: allCollections } = useGetOwnCollections();
 
-  const collectionsState = useCollections((state) => state.collections);
-  const dropdownData: DropdownSelectData[] = collectionsState.map((col) => {
-    return {
-      value: col.id,
-      label: col.name,
-    };
-  });
+  const { mutate: mutateAddArtToCollection } = useAddArticleToCollections();
+  const { data: linkedCollections } = useGetListOfAddedCollectionsInArticle(id);
 
-  const { setValue } = useForm();
+  const dropdownData: DropdownSelectData[] | undefined = allCollections?.map(
+    (col) => {
+      return {
+        value: col.id,
+        label: col.name,
+      };
+    },
+  );
+
+  const savedIds: string[] | undefined = linkedCollections?.map(
+    (col) => col.id,
+  );
+
+  const { setValue, getValues } = useForm();
 
   const handleBookmark = React.useCallback(() => {
     // Guard clause for non-logged in user
@@ -100,9 +116,16 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
           `}
             onClick={() => {
               if (showDropdown) {
+                // When selecting "Finish", add article to every collection
+                mutateAddArtToCollection({
+                  articleId: id,
+
+                  // saved id + new col id's
+                  ids: savedIds
+                    ? [...savedIds, ...getValues().collectionIds]
+                    : [...getValues().collectionIds],
+                });
                 setShowDropdown(false);
-                // @Jere TODO for each selected dropdown, add to collection
-                // collections.addArticleToCollection(id, dropdownData);
               } else {
                 setShowDropdown(true);
               }
@@ -127,16 +150,17 @@ const ArticleDetailMenu = ({ id }: ArticleDetailMenuProps) => {
               {showDropdown ? "Selesai" : "Koleksi"}
             </div>
           </li>
-          {showDropdown && (
+          {dropdownData && showDropdown && (
             <div
               className={`absolute z-10 top-14 md:top-16 left-1/2 -translate-x-1/2 w-[70dvw] md:w-[40dvw]`}
             >
               <MultipleDropdownSelect
                 placholder="Koleksi"
                 onChange={(value) => {
-                  setCustomValue("topic", value);
+                  setCustomValue("collectionIds", value);
                 }}
                 options={dropdownData}
+                selected={selectedValue}
                 small
               />
             </div>
